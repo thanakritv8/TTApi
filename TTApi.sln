@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29025.244
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TTApi", "TTApi\TTApi.csproj", "{D1BD2A23-0E94-4B99-98EF-E9E53FFEACEF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D1BD2A23-0E94-4B99-98EF-E9E53FFEACEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1BD2A23-0E94-4B99-98EF-E9E53FFEACEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1BD2A23-0E94-4B99-98EF-E9E53FFEACEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1BD2A23-0E94-4B99-98EF-E9E53FFEACEF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5728F03B-6868-480A-9396-BD8DD4EB6BAD}
+	EndGlobalSection
+EndGlobal

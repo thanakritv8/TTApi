@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+</head>
+<body>
+    <input id="myFile" type="file" />
+    <input type="submit" id="btn" value="Upload" />  
+</body>
+</html>
+<script>
+    $(function () {
+
+        $("#btn").click(function () {
+            insert_data();
+        });
+        function insert_data()
+        {
+            var model = new FormData();
+            model.append('eq_safety_id', 14);
+            model.append('eq_safety_code', undefined);
+            //model.append('eq_type_id', 2);
+            model.append('Image', $("#myFile")[0].files[0]);
+            
+            console.log(model);
+            $.ajax({
+                url: 'https://localhost:44343/CheckList/Profile/UpdateEquipmentSafety',
+                type: 'POST',
+                dataType: 'json',
+                data: model,
+                processData: false,
+                contentType: false,// not json 
+                complete: function (data) {
+                    var mediaId = $.parseJSON(data.responseText); //?
+                    console.log(mediaId);
+
+                },
+                error: function (response) {
+                    console.log(response.responseText);
+                }
+            });
+        }
+    });
+    
+    
+</script>
