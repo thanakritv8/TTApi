@@ -105,3 +105,5 @@ C:\Users\Developer\source\repos\TTApi\TTApi\bin\Microsoft.ReportViewer.Processin
 C:\Users\Developer\source\repos\TTApi\TTApi\bin\Microsoft.ReportViewer.WebForms.DLL
 C:\Users\Developer\source\repos\TTApi\TTApi\obj\Release\RdlCompile.cache
 C:\Users\Developer\source\repos\TTApi\TTApi\obj\Release\RdlCompile.compiled
+C:\Users\Developer\source\repos\TTApi\TTApi\obj\Release\TTApi.Properties.Resources.resources
+C:\Users\Developer\source\repos\TTApi\TTApi\obj\Release\TTApi.csproj.GenerateResource.cache

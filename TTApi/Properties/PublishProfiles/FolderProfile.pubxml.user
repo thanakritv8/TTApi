@@ -6,14 +6,14 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>bin\Release\Publish</_PublishTargetUrl>
+    <_PublishTargetUrl>C:\Users\Developer\source\repos\TTApi\TTApi\bin\Release\Publish</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="ApplicationInsights.config">
       <publishTime>07/18/2019 19:39:22</publishTime>
     </File>
     <File Include="App_Data/XmlDocument.xml">
-      <publishTime>07/23/2019 21:31:50</publishTime>
+      <publishTime>07/23/2019 23:33:31</publishTime>
     </File>
     <File Include="Areas/HelpPage/HelpPage.css">
       <publishTime>07/18/2019 19:29:27</publishTime>
@@ -112,13 +112,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/24/2018 13:38:22</publishTime>
     </File>
     <File Include="bin/Microsoft.ReportViewer.Common.dll">
-      <publishTime>10/04/2013 17:38:48</publishTime>
+      <publishTime>10/04/2013 16:15:10</publishTime>
     </File>
     <File Include="bin/Microsoft.ReportViewer.ProcessingObjectModel.DLL">
-      <publishTime>10/04/2013 17:38:48</publishTime>
+      <publishTime>10/04/2013 16:15:10</publishTime>
     </File>
     <File Include="bin/Microsoft.ReportViewer.WebForms.DLL">
-      <publishTime>10/04/2013 17:38:48</publishTime>
+      <publishTime>10/04/2013 16:15:10</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
       <publishTime>07/25/2012 11:48:56</publishTime>
@@ -304,10 +304,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/28/2018 13:04:24</publishTime>
     </File>
     <File Include="bin/TTApi.dll">
-      <publishTime>07/23/2019 21:32:56</publishTime>
+      <publishTime>07/23/2019 23:34:18</publishTime>
     </File>
     <File Include="bin/TTApi.pdb">
-      <publishTime>07/23/2019 21:32:56</publishTime>
+      <publishTime>07/23/2019 23:34:18</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>01/23/2014 13:57:34</publishTime>
@@ -421,7 +421,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/18/2019 19:29:18</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>07/23/2019 21:32:57</publishTime>
+      <publishTime>07/23/2019 23:34:18</publishTime>
     </File>
   </ItemGroup>
 </Project>
