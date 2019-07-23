@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TTApi.Models;
 
 namespace TTApi.Controllers
 {
@@ -14,13 +15,26 @@ namespace TTApi.Controllers
         #region ActionExportReport
         public ActionResult ExportWorkSheet(string id, string name_report)
         {
+            string name_dataset = string.Empty;
+            if(name_report == "Report1")
+            {
+                name_dataset = "DataSetGetReport1";
+            }
+            else if (name_report == "Report2")
+            {
+                name_dataset = "DataSetGetReport2";
+            }
+            else if (name_report == "Report3")
+            {
+                name_dataset = "DataSetGetReport3";
+            }
             //link use Home/ExportWorkSheet?id=2
-            ReportDataSource rds = new ReportDataSource("DataSetGetWorkSheet", GetWeekSheetReport(id));
+            //ReportDataSource rds = new ReportDataSource(name_dataset, GetReport(id, name_report));
             LocalReport report = new LocalReport();
-            report.ReportPath = Path.Combine(Server.MapPath("~/Report"), name_report + ".rdlc");
+            report.ReportPath = Path.Combine(Server.MapPath("~/Reports"), name_report + ".rdlc");
             report.DataSources.Clear();
             //report.SetParameters(new ReportParameter[] { parameter });
-            report.DataSources.Add(rds);
+            //report.DataSources.Add(rds);
             report.Refresh();
             PrintPDF(report);
             return View();
@@ -37,7 +51,7 @@ namespace TTApi.Controllers
             Byte[] mybytes = report.Render("PDF", null,
                           out extension, out encoding,
                           out mimeType, out streams, out warnings);
-            using (FileStream fs = new FileStream(Server.MapPath("~/Report/" + FileName), FileMode.Create))
+            using (FileStream fs = new FileStream(Server.MapPath("~/Reports/" + FileName), FileMode.Create))
             {
                 fs.Write(mybytes, 0, mybytes.Length);
             }
@@ -48,21 +62,42 @@ namespace TTApi.Controllers
             Response.Charset = "";
             Response.ContentType = "application/pdf";
             Response.AddHeader("Content-Disposition", "attachment;filename=\"" + FileName + "\"");
-            Response.WriteFile(Server.MapPath("~/Report/" + FileName));
+            Response.WriteFile(Server.MapPath("~/Reports/" + FileName));
 
             Response.Flush();
-            System.IO.File.Delete(Server.MapPath("~/Report/" + FileName));
+            System.IO.File.Delete(Server.MapPath("~/Reports/" + FileName));
             Response.Close();
             Response.End();
         }
 
-        private DataTable GetWeekSheetReport(string id)
+        private DataTable GetReport(string id, string name_report)
         {
-            //Models.Home.DataSetGetWorkSheetTableAdapters.sp_GetWorkSheetReportTableAdapter da = new Models.Home.DataSetGetWorkSheetTableAdapters.sp_GetWorkSheetReportTableAdapter();
-            //DataSetGetWorkSheet.sp_GetWorkSheetReportDataTable dt = new DataSetGetWorkSheet.sp_GetWorkSheetReportDataTable();
-            //da.Fill(dt, id);
-            //return dt;
-            return new DataTable();
+            if (name_report == "Report1")
+            {
+                Models.DataSetGetReport1TableAdapters.sp_GetReport1TableAdapter da = new Models.DataSetGetReport1TableAdapters.sp_GetReport1TableAdapter();
+                DataSetGetReport1.sp_GetReport1DataTable dt = new DataSetGetReport1.sp_GetReport1DataTable();
+                da.Fill(dt, id);
+                return dt;
+            }
+            else if(name_report == "Report2")
+            {
+                Models.DataSetGetReport2TableAdapters.sp_GetReport2TableAdapter da = new Models.DataSetGetReport2TableAdapters.sp_GetReport2TableAdapter();
+                DataSetGetReport2.sp_GetReport2DataTable dt = new DataSetGetReport2.sp_GetReport2DataTable();
+                da.Fill(dt, id);
+                return dt;
+            }
+            else if(name_report == "Report3")
+            {
+                Models.DataSetGetReport3TableAdapters.sp_GetReport3TableAdapter da = new Models.DataSetGetReport3TableAdapters.sp_GetReport3TableAdapter();
+                DataSetGetReport3.sp_GetReport3DataTable dt = new DataSetGetReport3.sp_GetReport3DataTable();
+                da.Fill(dt, id);
+                return dt;
+            }
+            else
+            {
+                return new DataTable();
+            }
+                       
         }
         #endregion
     }

@@ -6,14 +6,14 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>C:\Users\Developer\source\repos\TTApi\TTApi\bin\Release\Publish</_PublishTargetUrl>
+    <_PublishTargetUrl>bin\Release\Publish</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="ApplicationInsights.config">
       <publishTime>07/18/2019 19:39:22</publishTime>
     </File>
     <File Include="App_Data/XmlDocument.xml">
-      <publishTime>07/23/2019 15:47:51</publishTime>
+      <publishTime>07/23/2019 21:31:50</publishTime>
     </File>
     <File Include="Areas/HelpPage/HelpPage.css">
       <publishTime>07/18/2019 19:29:27</publishTime>
@@ -304,10 +304,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/28/2018 13:04:24</publishTime>
     </File>
     <File Include="bin/TTApi.dll">
-      <publishTime>07/23/2019 15:48:01</publishTime>
+      <publishTime>07/23/2019 21:32:56</publishTime>
     </File>
     <File Include="bin/TTApi.pdb">
-      <publishTime>07/23/2019 15:48:01</publishTime>
+      <publishTime>07/23/2019 21:32:56</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>01/23/2014 13:57:34</publishTime>
@@ -360,6 +360,24 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Global.asax">
       <publishTime>07/18/2019 19:29:18</publishTime>
     </File>
+    <File Include="Models/DataSetGetReport1.xsc">
+      <publishTime>07/23/2019 21:04:38</publishTime>
+    </File>
+    <File Include="Models/DataSetGetReport1.xss">
+      <publishTime>07/23/2019 21:04:38</publishTime>
+    </File>
+    <File Include="Models/DataSetGetReport2.xsc">
+      <publishTime>07/23/2019 21:04:36</publishTime>
+    </File>
+    <File Include="Models/DataSetGetReport2.xss">
+      <publishTime>07/23/2019 21:04:36</publishTime>
+    </File>
+    <File Include="Models/DataSetGetReport3.xsc">
+      <publishTime>07/23/2019 21:04:35</publishTime>
+    </File>
+    <File Include="Models/DataSetGetReport3.xss">
+      <publishTime>07/23/2019 21:04:35</publishTime>
+    </File>
     <File Include="Scripts/bootstrap.js">
       <publishTime>07/18/2019 19:29:22</publishTime>
     </File>
@@ -403,7 +421,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/18/2019 19:29:18</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>07/21/2019 13:47:56</publishTime>
+      <publishTime>07/23/2019 21:32:57</publishTime>
     </File>
   </ItemGroup>
 </Project>

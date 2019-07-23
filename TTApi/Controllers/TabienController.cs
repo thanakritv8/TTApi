@@ -235,7 +235,7 @@ namespace TTApi.Controllers
             List<Report2> ul = new List<Report2>();
             using (SqlConnection con = hc.ConnectDatabaseTT1995())
             {
-                string _SQL = "SELECT * from report1";
+                string _SQL = "SELECT * from report2";
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     DataTable _Dt = new DataTable();
