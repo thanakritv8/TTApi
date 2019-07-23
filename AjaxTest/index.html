@@ -20,20 +20,20 @@
         });
         function insert_data()
         {
-            var model = new FormData();
-            model.append('eq_safety_id', 14);
-            model.append('eq_safety_code', undefined);
-            //model.append('eq_type_id', 2);
-            model.append('Image', $("#myFile")[0].files[0]);
+            // var model = new FormData();
+            // model.append('doc_code', '555');
+            // model.append('doc_name', 'rrrrrr');
+            // model.append('doc_type_id', 2);
+            // model.append('Image', $("#myFile")[0].files[0]);
             
-            console.log(model);
+            // console.log(model);
             $.ajax({
-                url: 'https://localhost:44343/CheckList/Profile/UpdateEquipmentSafety',
-                type: 'POST',
+                url: 'http://43.254.133.49:8015/TTApi/CheckList/Profile/GetDocumentAll',
+                type: 'Get',
                 dataType: 'json',
-                data: model,
-                processData: false,
-                contentType: false,// not json 
+                // data: model,
+                // processData: false,
+                // contentType: false,// not json 
                 complete: function (data) {
                     var mediaId = $.parseJSON(data.responseText); //?
                     console.log(mediaId);

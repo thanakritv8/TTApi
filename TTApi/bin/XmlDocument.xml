@@ -545,6 +545,27 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:TTApi.Controllers.ProfileController.InsertDocument">
+            <summary>
+            var model = new FormData();
+            model.append('doc_code', 'รหัสเอกสาร');
+            model.append('doc_name', 'ชื่อเอกสาร');
+            model.append('remark', 'คำอธิบาย');
+            model.append('doc_type_id', 'ประเภทเอกสาร');
+            model.append('Image', $("#myFile")[0].files[0]);
+            ***ajax*** 
+            data: model,
+            processData: false,
+            contentType: false
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TTApi.Controllers.ProfileController.UpdateDocument">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:TTApi.Controllers.TabienController">
             <summary>
             
@@ -571,6 +592,60 @@
             <returns></returns>
         </member>
         <member name="M:TTApi.Controllers.TabienController.DelReport1(TTApi.Models.Report1)">
+            <summary>
+            
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TTApi.Controllers.TabienController.GetReport2All">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TTApi.Controllers.TabienController.InsertReport2(TTApi.Models.Report2)">
+            <summary>
+            
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TTApi.Controllers.TabienController.UpdateReport2(TTApi.Models.Report2)">
+            <summary>
+            
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TTApi.Controllers.TabienController.DelReport2(TTApi.Models.Report1)">
+            <summary>
+            
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TTApi.Controllers.TabienController.GetReport3All">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TTApi.Controllers.TabienController.InsertReport3(TTApi.Models.Report3)">
+            <summary>
+            
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TTApi.Controllers.TabienController.UpdateReport3(TTApi.Models.Report3)">
+            <summary>
+            
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TTApi.Controllers.TabienController.DelReport3(TTApi.Models.Report3)">
             <summary>
             
             </summary>

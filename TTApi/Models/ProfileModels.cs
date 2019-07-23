@@ -58,4 +58,28 @@ namespace TTApi.Models
         public HttpPostedFile Image { get; set; }
     }
     #endregion
+
+    #region Document
+    public class DocumentView
+    {
+        public string doc_id { get; set; }
+        public string doc_code { get; set; }
+        public string doc_name { get; set; }
+        public string doc_path { get; set; }
+        public string remark { get; set; }
+        public string doc_type_id { get; set; }
+        public string doc_type { get; set; }
+    }
+
+    public class Document
+    {
+        public string doc_id { get; set; }
+        public string doc_code { get; set; }
+        public string doc_name { get; set; }
+        public string doc_path { get; set; }
+        public string remark { get; set; }
+        public string doc_type_id { get; set; }
+        public HttpPostedFile Image { get; set; }
+    }
+    #endregion
 }
