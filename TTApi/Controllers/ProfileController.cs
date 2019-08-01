@@ -553,6 +553,41 @@ namespace TTApi.Controllers
         }
         #endregion
 
+        #region EquipmentType
+        /// <summary>
+        /// Get data equipment type
+        /// </summary>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [Route("GetEquipmentType")]
+        public List<EquipmentType> GetEquipmentType()
+        {
+            HomeController hc = new HomeController();
+            List<EquipmentType> ul = new List<EquipmentType>();
+            using (SqlConnection con = hc.ConnectDatabaseTT1995())
+            {
+                string _SQL = "SELECT * FROM [TT1995_CheckList].[dbo].[equipment_type]";
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    DataTable _Dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(_Dt);
+                    da.Dispose();
+                    foreach (DataRow _Item in _Dt.Rows)
+                    {
+                        EquipmentType et = new EquipmentType();
+                        et.eq_type_id = _Item["eq_type_id"].ToString();
+                        et.eq_type = _Item["eq_type"].ToString();
+
+                        ul.Add(et);
+                    }
+                }
+                con.Close();
+            }
+            return ul;
+        }
+        #endregion
+
         #region Document
         // POST CheckList/Profile/GetDocumentAll
         [AllowAnonymous]
@@ -807,6 +842,114 @@ namespace TTApi.Controllers
                 con.Close();
             }
             return ecm;
+        }
+        #endregion
+
+        #region DocumentType
+        /// <summary>
+        /// Get data document type
+        /// </summary>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [Route("GetDocumentType")]
+        public List<DocumentType> GetDocumentType()
+        {
+            HomeController hc = new HomeController();
+            List<DocumentType> ul = new List<DocumentType>();
+            using (SqlConnection con = hc.ConnectDatabaseTT1995())
+            {
+                string _SQL = "SELECT * FROM [TT1995_CheckList].[dbo].[document_type]";
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    DataTable _Dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(_Dt);
+                    da.Dispose();
+                    foreach (DataRow _Item in _Dt.Rows)
+                    {
+                        DocumentType dt = new DocumentType();
+                        dt.doc_type_id = _Item["doc_type_id"].ToString();
+                        dt.doc_type = _Item["doc_type"].ToString();
+
+                        ul.Add(dt);
+                    }
+                }
+                con.Close();
+            }
+            return ul;
+        }
+        #endregion
+
+        #region License
+
+        // POST CheckList/Profile/GetLicenseAll
+        [AllowAnonymous]
+        [Route("GetLicenseAll")]
+        public List<LicenseAllView> GetLicenseAll()
+        {
+            HomeController hc = new HomeController();
+            List<LicenseAllView> ul = new List<LicenseAllView>();
+            using (SqlConnection con = hc.ConnectDatabaseTT1995())
+            {
+                string _SQL = "SELECT license_id, number_car, license_car from license";
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    DataTable _Dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(_Dt);
+                    da.Dispose();
+                    foreach (DataRow _Item in _Dt.Rows)
+                    {
+                        LicenseAllView lav = new LicenseAllView();
+                        lav.license_id = _Item["license_id"].ToString();
+                        lav.number_car = _Item["number_car"].ToString();
+                        lav.license_car = _Item["license_car"].ToString();
+
+                        ul.Add(lav);
+                    }
+                }
+                con.Close();
+            }
+            return ul;
+        }
+
+        // POST CheckList/Profile/GetExpiredById
+        [AllowAnonymous]
+        [Route("GetExpiredById")]
+        public List<ExpiredView> ExpiredById(LicenseModels val)
+        {
+
+            HomeController hc = new HomeController();
+            List<ExpiredView> ul = new List<ExpiredView>();
+            using (SqlConnection con = hc.ConnectDatabaseTT1995())
+            {
+                string _SQL = "SELECT mi.end_date as mi_expired, ai.end_date as ai_expired, ei.end_date as ei_expired, dpi.end_date as dpi_expired " +
+                                 "FROM[TT1995].[dbo].[license] li " +
+                                "full join main_insurance mi on li.license_id = mi.license_id " +
+                                "full join act_insurance ai                      on li.license_id = ai.license_id " +
+                                "full join environment_insurance ei              on li.license_id = ei.license_id " +
+                                "full join domestic_product_insurance dpi            on li.license_id = dpi.license_id " +
+                                "full join tax on li.license_id = tax.license_id " +
+                                "where li.license_id = " + val.license_id;
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    DataTable _Dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(_Dt);
+                    da.Dispose();
+                    foreach (DataRow _Item in _Dt.Rows)
+                    {
+                        ExpiredView ev = new ExpiredView();
+                        ev.mi_expired = _Item["mi_expired"].ToString();
+                        ev.ai_expired = _Item["ai_expired"].ToString();
+                        ev.ei_expired = _Item["ei_expired"].ToString();
+                        ev.dpi_expired = _Item["dpi_expired"].ToString();
+                        ul.Add(ev);
+                    }
+                }
+                con.Close();
+            }
+            return ul;
         }
         #endregion
     }

@@ -545,6 +545,12 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:TTApi.Controllers.ProfileController.GetEquipmentType">
+            <summary>
+            Get data equipment type
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:TTApi.Controllers.ProfileController.InsertDocument">
             <summary>
             var model = new FormData();
@@ -563,6 +569,12 @@
         <member name="M:TTApi.Controllers.ProfileController.UpdateDocument">
             <summary>
             
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TTApi.Controllers.ProfileController.GetDocumentType">
+            <summary>
+            Get data document type
             </summary>
             <returns></returns>
         </member>
@@ -865,6 +877,51 @@
         <member name="P:TTApi.Models.ExecuteModels.id_return">
             <summary>
             id_return : จะมีค่าก็ต่อเมื่อมีการ insert
+            </summary>
+        </member>
+        <member name="P:TTApi.Models.EquipmentType.eq_type_id">
+            <summary>
+            Equipment Type ID
+            </summary>
+        </member>
+        <member name="P:TTApi.Models.EquipmentType.eq_type">
+            <summary>
+            Equipment Type Name
+            </summary>
+        </member>
+        <member name="P:TTApi.Models.DocumentType.doc_type_id">
+            <summary>
+            Document Type Id
+            </summary>
+        </member>
+        <member name="P:TTApi.Models.DocumentType.doc_type">
+            <summary>
+            Document Type Name
+            </summary>
+        </member>
+        <member name="T:TTApi.Models.ExpiredView">
+            <summary>
+            ข้อมูลภาษี/ประกันภัย
+            </summary>
+        </member>
+        <member name="P:TTApi.Models.ExpiredView.mi_expired">
+            <summary>
+            ประกันภัยรถยนต์
+            </summary>
+        </member>
+        <member name="P:TTApi.Models.ExpiredView.ai_expired">
+            <summary>
+            พรบ
+            </summary>
+        </member>
+        <member name="P:TTApi.Models.ExpiredView.ei_expired">
+            <summary>
+            ประกันภัยสิ่งแวดล้อม
+            </summary>
+        </member>
+        <member name="P:TTApi.Models.ExpiredView.dpi_expired">
+            <summary>
+            ประกันภัยภายในประเทศ
             </summary>
         </member>
         <member name="T:TTApi.Properties.Resources">
