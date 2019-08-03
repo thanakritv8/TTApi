@@ -551,7 +551,6 @@ namespace TTApi.Controllers
             }
             return ecm;
         }
-        #endregion
 
         #region EquipmentType
         /// <summary>
@@ -587,7 +586,8 @@ namespace TTApi.Controllers
             return ul;
         }
         #endregion
-
+        #endregion
+               
         #region Document
         // POST CheckList/Profile/GetDocumentAll
         [AllowAnonymous]
@@ -843,7 +843,6 @@ namespace TTApi.Controllers
             }
             return ecm;
         }
-        #endregion
 
         #region DocumentType
         /// <summary>
@@ -879,10 +878,15 @@ namespace TTApi.Controllers
             return ul;
         }
         #endregion
+        #endregion
 
         #region License
 
         // POST CheckList/Profile/GetLicenseAll
+        /// <summary>
+        /// ข้อมูลรถบรรทุก
+        /// </summary>
+        /// <returns></returns>
         [AllowAnonymous]
         [Route("GetLicenseAll")]
         public List<LicenseAllView> GetLicenseAll()
@@ -914,6 +918,11 @@ namespace TTApi.Controllers
         }
 
         // POST CheckList/Profile/GetExpiredById
+        /// <summary>
+        /// ข้อมูลภาษี/ประกันภัย
+        /// </summary>
+        /// <param name="val"></param>
+        /// <returns></returns>
         [AllowAnonymous]
         [Route("GetExpiredById")]
         public List<ExpiredView> ExpiredById(LicenseModels val)
@@ -923,14 +932,16 @@ namespace TTApi.Controllers
             List<ExpiredView> ul = new List<ExpiredView>();
             using (SqlConnection con = hc.ConnectDatabaseTT1995())
             {
-                string _SQL = "SELECT mi.end_date as mi_expired, ai.end_date as ai_expired, ei.end_date as ei_expired, dpi.end_date as dpi_expired " +
-                                 "FROM[TT1995].[dbo].[license] li " +
-                                "full join main_insurance mi on li.license_id = mi.license_id " +
-                                "full join act_insurance ai                      on li.license_id = ai.license_id " +
-                                "full join environment_insurance ei              on li.license_id = ei.license_id " +
-                                "full join domestic_product_insurance dpi            on li.license_id = dpi.license_id " +
-                                "full join tax on li.license_id = tax.license_id " +
-                                "where li.license_id = " + val.license_id;
+                string _SQL = "select _data.license_id,ct.display, _data.expire from " +
+                                "( " +
+                                    "select li.license_id, tax_expire as expire, '3' as table_id from tax inner join license li on tax.license_id = li.license_id " +
+                                    "union " +
+                                    "select li.license_id, dpi.end_date as expire, '16' as table_id from domestic_product_insurance dpi inner join license li on dpi.license_id = li.license_id " +
+                                    "union " +
+                                    "select li.license_id, ai.end_date as expire, '17' as table_id from act_insurance ai inner join license li on ai.license_id = li.license_id " +
+                                    "union " +
+                                    "select li.license_id, ei.end_date as expire, '18' as table_id from environment_insurance ei inner join license li on ei.license_id = li.license_id " +
+                                ") _data inner join config_table ct on ct.table_id = _data.table_id where _data.license_id = '" + val.license_id + "' ";
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     DataTable _Dt = new DataTable();
@@ -940,11 +951,957 @@ namespace TTApi.Controllers
                     foreach (DataRow _Item in _Dt.Rows)
                     {
                         ExpiredView ev = new ExpiredView();
-                        ev.mi_expired = _Item["mi_expired"].ToString();
-                        ev.ai_expired = _Item["ai_expired"].ToString();
-                        ev.ei_expired = _Item["ei_expired"].ToString();
-                        ev.dpi_expired = _Item["dpi_expired"].ToString();
+                        ev.license_id = _Item["license_id"].ToString();
+                        ev.display = _Item["display"].ToString();
+                        ev.expire = _Item["expire"].ToString();
                         ul.Add(ev);
+                    }
+                }
+                con.Close();
+            }
+            return ul;
+        }
+
+        // POST CheckList/Profile/GetExpiredOtherById
+        /// <summary>
+        /// ข้อมูลใบอนุญาต
+        /// </summary>
+        /// <param name="val"></param>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [Route("GetExpiredOtherById")]
+        public List<ExpiredOtherView> ExpiredOtherById(LicenseModels val)
+        {
+
+            HomeController hc = new HomeController();
+            List<ExpiredOtherView> ul = new List<ExpiredOtherView>();
+            using (SqlConnection con = hc.ConnectDatabaseTT1995())
+            {
+                string _SQL = "select _data.license_id,ct.display, _data.expire, _data.detail, _data.detail2 from " +
+                                "( " +
+                                "select lcf.license_id, lcf.expire_date as expire, '36' as table_id, lcf.id_no as detail, lcf.name_factory as detail2 from license_car_factory lcf " +
+                                  "union " +
+                                "select lv8.license_id, lv8.lv8_expire as expire, '28' as table_id, lv8_number as detail, lv8.ownership as detail2 from license_v8 lv8 " +
+                                "union " +
+                                "select lmrp.license_id_head as license_id, lmr.lmr_expire, '23' as table_id, lmr.lmr_number as detail, lmr.country_code as detail2 " +
+                                "from license_mekong_river_permission as lmrp " +
+                                "inner join license_mekong_river as lmr on lmrp.lmr_id = lmr.lmr_id " +
+                                "union " +
+                                "select lcp.license_id_head as license_id, lc.lc_expire, '22' as table_id, lc.lc_number as detail, lc.country_code as detail2 " +
+                                "from license_cambodia as lc " +
+                                "inner join license_cambodia_permission as lcp on lcp.lc_id = lc.lc_id " +
+                                "union " +
+                                "select bip.license_id as license_id, bi.business_expire, '13' as table_id, bi.business_number as detail, bi.business_name as detail2 " +
+                                "from business_in as bi " +
+                                "inner join business_in_permission as bip on bip.business_id = bi.business_id " +
+                                "union " +
+                                "select bop.license_id as license_id, bo.business_expire, '20' as table_id, bo.business_number as detail, bo.business_name as detail2 " +
+                                "from business_out as bo " +
+                                "inner join business_out_permission as bop on bop.business_id = bo.business_id " +
+                                ") _data inner join config_table ct on ct.table_id = _data.table_id where _data.license_id = '" + val.license_id + "' ";
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    DataTable _Dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(_Dt);
+                    da.Dispose();
+                    foreach (DataRow _Item in _Dt.Rows)
+                    {
+                        ExpiredOtherView eov = new ExpiredOtherView();
+                        eov.license_id = _Item["license_id"].ToString();
+                        eov.display = _Item["display"].ToString();
+                        eov.expire = _Item["expire"].ToString();
+                        eov.detail = _Item["detail"].ToString();
+                        eov.detail2 = _Item["detail2"].ToString();
+                        ul.Add(eov);
+                    }
+                }
+                con.Close();
+            }
+            return ul;
+        }
+
+        // POST CheckList/Profile/GetDetailLicense
+        /// <summary>
+        /// ข้อมูลรายละเอียด
+        /// </summary>
+        /// <param name="val"></param>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [Route("GetDetailLicense")]
+        public List<DetailLicense> DetailLicense(LicenseModels val)
+        {
+
+            HomeController hc = new HomeController();
+            List<DetailLicense> ul = new List<DetailLicense>();
+            using (SqlConnection con = hc.ConnectDatabaseTT1995())
+            {
+                string _SQL = "select license_id, style_car, weight_car, brand_engine, model_car from license li where li.license_id = '" + val.license_id + "'";
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    DataTable _Dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(_Dt);
+                    da.Dispose();
+                    foreach (DataRow _Item in _Dt.Rows)
+                    {
+                        DetailLicense DL = new DetailLicense();
+                        DL.license_id = _Item["license_id"].ToString();
+                        DL.style_car = _Item["style_car"].ToString();
+                        DL.weight_car = _Item["weight_car"].ToString();
+                        DL.brand_engine = _Item["brand_engine"].ToString();
+                        DL.model_car = _Item["model_car"].ToString();
+
+                        _SQL = "SELECT " +
+                                  "[file_id], " +
+                                  "[path_file] as path, " +
+                                  "case position " +
+                                  "when 1 then N'ด้านหน้า' " +
+                                  "when 2 then N'ด้านท้าย' " +
+                                  "when 3 then N'ด้านข้างซ้าย' " +
+                                  "when 4 then N'ด้านข้างขวา' " +
+                                  "when 5 then N'มุมด้านหน้าขวา' " +
+                                  "when 6 then N'มุมด้านหน้าซ้าย' " +
+                                  "when 7 then N'มุมด้านท้ายขวา' " +
+                                  "when 8 then N'มุมด้านท้ายซ้าย' " +
+                                  "end as 'position' " +
+                              "FROM[TT1995].[dbo].[files_all] " +
+                                    "where table_id = 1 and fk_id = 16 and position<> '' and position is not null";
+                        using (SqlCommand cmdTemp = new SqlCommand(_SQL, con))
+                        {
+                            DataTable _DtTemp = new DataTable();
+                            SqlDataAdapter daTemp = new SqlDataAdapter(cmdTemp);
+                            daTemp.Fill(_DtTemp);
+                            daTemp.Dispose();
+
+                            ListGallery LG = new ListGallery();
+
+                            DL.gallery = new List<ListGallery>();
+
+                            for (int i = 0; i < _DtTemp.Rows.Count; i++)
+                            {
+                                LG = new ListGallery();
+                                LG.file_id = _DtTemp.Rows[i]["file_id"].ToString();
+                                LG.path = _DtTemp.Rows[i]["path"].ToString();
+                                LG.position = _DtTemp.Rows[i]["position"].ToString();
+                                DL.gallery.Add(LG);
+                            }
+                        }
+                        ul.Add(DL);
+                    }
+                }
+                con.Close();
+            }
+            return ul;
+        }
+        #endregion
+
+        #region Customer
+
+        #region Customer
+        // POST CheckList/Profile/GetCustomerAll
+        /// <summary>
+        /// เรียกดูข้อมูลลูกค้า
+        /// </summary>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [Route("GetCustomerAll")]
+        public List<CustomerAllView> GetCustomerAll()
+        {
+            HomeController hc = new HomeController();
+            List<CustomerAllView> ul = new List<CustomerAllView>();
+            using (SqlConnection con = hc.ConnectDatabase())
+            {
+                string _SQL = "select cus_id, cus_name from customer";
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    DataTable _Dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(_Dt);
+                    da.Dispose();
+                    foreach (DataRow _Item in _Dt.Rows)
+                    {
+                        CustomerAllView cav = new CustomerAllView();
+                        cav.cus_id = _Item["cus_id"].ToString();
+                        cav.cus_name = _Item["cus_name"].ToString();
+
+                        ul.Add(cav);
+                    }
+                }
+                con.Close();
+            }
+            return ul;
+        }
+
+        // POST CheckList/Profile/InsertCustomer   
+        /// <summary>
+        /// เพิ่มลูกค้า
+        /// </summary>
+        /// <param name="val"></param>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [Route("InsertCustomer")]
+        public ExecuteModels InsertCustomer(CustomerModels val)
+        {
+            ExecuteModels ecm = new ExecuteModels();
+            HomeController hc = new HomeController();
+            using (SqlConnection con = hc.ConnectDatabase())
+            {
+                string _SQL = "insert into customer (cus_name, create_by_user_id) output inserted.cus_id values (N'" + val.cus_name + "', 1)";
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    try
+                    {
+                        var id_return = Int32.Parse(cmd.ExecuteScalar().ToString());
+                        if (id_return >= 1)
+                        {
+                            ecm.result = 0;
+                            ecm.code = "OK";
+                            ecm.id_return = id_return.ToString();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        ecm.result = 1;
+                        ecm.code = ex.Message;
+                    }
+                }
+                con.Close();
+            }
+            return ecm;
+        }
+
+        // POST CheckList/Profile/UpdateEquipmentSafety
+        /// <summary>
+        /// อัพเดทลูกค้า
+        /// </summary>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [Route("UpdateCustomer")]
+        public ExecuteModels UpdateCustomer(CustomerModels val)
+        {
+            ExecuteModels ecm = new ExecuteModels();            
+            HomeController hc = new HomeController();
+            using (SqlConnection con = hc.ConnectDatabase())
+            {                
+                string _SQL = "update customer set cus_name = N'" + val.cus_name + "', create_by_user_id = 1 where cus_id = " + val.cus_id;
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    try
+                    {
+                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
+                        {
+                            ecm.result = 0;
+                            ecm.code = "OK";
+                        }
+                        else
+                        {
+                            ecm.result = 1;
+                            ecm.code = _SQL;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        ecm.result = 1;
+                        ecm.code = ex.Message;
+                    }
+                }
+                con.Close();
+            }
+            return ecm;
+        }
+
+        // POST CheckList/Profile/DeleteCustomer
+        /// <summary>
+        /// ลบลูกค้า
+        /// </summary>
+        /// <param name="val"></param>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [Route("DeleteCustomer")]
+        public ExecuteModels DelCustomer(CustomerModels val)
+        {
+            ExecuteModels ecm = new ExecuteModels();
+            HomeController hc = new HomeController();
+            using (SqlConnection con = hc.ConnectDatabase())
+            {
+                string _SQL = "delete from customer where cus_id = " + val.cus_id;
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    try
+                    {
+                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
+                        {
+                            ecm.result = 0;
+                            ecm.code = "OK";
+                        }
+                        else
+                        {
+                            ecm.result = 1;
+                            ecm.code = _SQL;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        ecm.result = 1;
+                        ecm.code = ex.Message;
+                    }
+                }
+                con.Close();
+            }
+            return ecm;
+        }
+        #endregion
+
+        #region Branch
+        // POST CheckList/Profile/GetBranchCustomer
+        /// <summary>
+        /// เรียกดูข้อมูลสาขา
+        /// </summary>
+        /// <param name="val"></param>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [Route("GetBranchCustomerAll")]
+        public List<BranchCustomerAllView> BranchCustomerAll(CustomerIdModels val)
+        {
+            HomeController hc = new HomeController();
+            List<BranchCustomerAllView> ul = new List<BranchCustomerAllView>();
+            using (SqlConnection con = hc.ConnectDatabase())
+            {
+                string _SQL = "select * from branch_customer where cus_id = " + val.cus_id;
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    DataTable _Dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(_Dt);
+                    da.Dispose();
+                    foreach (DataRow _Item in _Dt.Rows)
+                    {
+                        BranchCustomerAllView bcav = new BranchCustomerAllView();
+                        bcav.branch_id = _Item["branch_id"].ToString();
+                        bcav.branch_name = _Item["branch_name"].ToString();
+                        bcav.address = _Item["address"].ToString();
+                        bcav.zip_code = _Item["zip_code"].ToString();
+                        bcav.province = _Item["province_id"].ToString();
+                        bcav.cus_id = _Item["cus_id"].ToString();
+                        ul.Add(bcav);
+                    }
+                }
+                con.Close();
+            }
+            return ul;
+        }
+
+        // POST CheckList/Profile/InsertBranchCustomer   
+        /// <summary>
+        /// เพิ่มสาขา
+        /// </summary>
+        /// <param name="val"></param>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [Route("InsertBranchCustomer")]
+        public ExecuteModels InsertBranchCustomer(BranchCustomerModels val)
+        {
+            ExecuteModels ecm = new ExecuteModels();
+            HomeController hc = new HomeController();
+            using (SqlConnection con = hc.ConnectDatabase())
+            {
+                string _SQL = "insert into branch_customer (address,branch_name,,zip_code,province_id,cus_id,create_by_user_id) output inserted.branch_id " +
+                    "values (N'" + val.address + "', N'" + val.branch_name + "', N'" + val.zip_code + "', N'" + val.province_id + "', " + val.cus_id + ", 1)";
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    try
+                    {
+                        var id_return = Int32.Parse(cmd.ExecuteScalar().ToString());
+                        if (id_return >= 1)
+                        {
+                            ecm.result = 0;
+                            ecm.code = "OK";
+                            ecm.id_return = id_return.ToString();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        ecm.result = 1;
+                        ecm.code = ex.Message;
+                    }
+                }
+                con.Close();
+            }
+            return ecm;
+        }
+
+        // POST CheckList/Profile/UpdateBranchCustomer
+        /// <summary>
+        /// อัพเดทสาขา
+        /// </summary>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [Route("UpdateBranchCustomer")]
+        public ExecuteModels UpdateBranchCustomer(BranchCustomerModels val)
+        {
+            ExecuteModels ecm = new ExecuteModels();
+            string _SQL_Set = string.Empty;
+            string[] Col_Arr = { "address", "zip_code", "province_id", "branch_name" };
+            string[] Val_Arr = { val.address, val.zip_code, val.province_id, val.branch_name };
+            for (int n = 0; n <= Val_Arr.Length - 1; n++)
+            {
+                if (Val_Arr[n] != null)
+                {
+                    _SQL_Set += Col_Arr[n] + " = N'" + Val_Arr[n] + "', ";
+                }
+            }
+            HomeController hc = new HomeController();
+            using (SqlConnection con = hc.ConnectDatabase())
+            {
+                string _SQL = "update branch_customer set " + _SQL_Set + " create_by_user_id = 1 where branch_id = " + val.branch_id;
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    try
+                    {
+                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
+                        {
+                            ecm.result = 0;
+                            ecm.code = "OK";
+                        }
+                        else
+                        {
+                            ecm.result = 1;
+                            ecm.code = _SQL;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        ecm.result = 1;
+                        ecm.code = ex.Message;
+                    }
+                }
+                con.Close();
+            }
+            return ecm;
+        }
+
+        // POST CheckList/Profile/DeleteBranchCustomer
+        /// <summary>
+        /// ลบสาขา
+        /// </summary>
+        /// <param name="val"></param>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [Route("DeleteBranchCustomer")]
+        public ExecuteModels DelBranchCustomer(BranchCustomerIdModels val)
+        {
+            ExecuteModels ecm = new ExecuteModels();
+            HomeController hc = new HomeController();
+            using (SqlConnection con = hc.ConnectDatabase())
+            {
+                string _SQL = "delete from branch_customer where branch_id = " + val.branch_id;
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    try
+                    {
+                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
+                        {
+                            ecm.result = 0;
+                            ecm.code = "OK";
+                        }
+                        else
+                        {
+                            ecm.result = 1;
+                            ecm.code = _SQL;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        ecm.result = 1;
+                        ecm.code = ex.Message;
+                    }
+                }
+                con.Close();
+            }
+            return ecm;
+        }
+
+        #endregion
+
+        #region Truck
+        // POST CheckList/Profile/GetTrunkAll
+        /// <summary>
+        /// เรียกดูข้อมูลเส้นทาง
+        /// </summary>
+        /// <param name="val"></param>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [Route("GetTrunkAll")]
+        public List<TrunkView> TrunkAll(BranchCustomerIdModels val)
+        {
+            HomeController hc = new HomeController();
+            List<TrunkView> ul = new List<TrunkView>();
+            using (SqlConnection con = hc.ConnectDatabase())
+            {
+                string _SQL = "SELECT t.* from relation_trunk_branch as rtb join trunk as t on rtb.trunk_id = t.trunk_id where rtb.branch_id = " + val.branch_id;
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    DataTable _Dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(_Dt);
+                    da.Dispose();
+                    foreach (DataRow _Item in _Dt.Rows)
+                    {
+                        TrunkView tv = new TrunkView();
+                        tv.trunk_id = _Item["trunk_id"].ToString();
+                        tv.source = _Item["source"].ToString();
+                        tv.destination = _Item["destination"].ToString();                        
+                        ul.Add(tv);
+                    }
+                }
+                con.Close();
+            }
+            return ul;
+        }
+
+        // POST CheckList/Profile/InsertTrunk 
+        /// <summary>
+        /// เพิ่มเส้นทาง
+        /// </summary>
+        /// <param name="val"></param>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [Route("InsertTrunk")]
+        public ExecuteModels InsertTrunk(TrunkModels val)
+        {
+            ExecuteModels ecm = new ExecuteModels();
+            HomeController hc = new HomeController();
+            using (SqlConnection con = hc.ConnectDatabase())
+            {
+                string _SQL = "insert into trunk (source,destination,create_by_user_id) output inserted.trunk_id " +
+                    "values (N'" + val.source + "', N'" + val.destination + "', 1)";
+                SqlCommand cmd = new SqlCommand(_SQL, con);                
+                try
+                {
+                    var id_return = Int32.Parse(cmd.ExecuteScalar().ToString());
+                    if (id_return >= 1)
+                    {
+                        _SQL = "insert into relation_trunk_branch (trunk_id, branch_id) values (" + val.trunk_id + ", " + val.branch_id + ")";
+                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
+                        {
+                            ecm.result = 0;
+                            ecm.code = "OK";
+                            ecm.id_return = id_return.ToString();
+                        }
+                        else
+                        {
+                            ecm.result = 1;
+                            ecm.code = _SQL;
+                        }                            
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ecm.result = 1;
+                    ecm.code = ex.Message;
+                }                
+                con.Close();
+            }
+            return ecm;
+        }
+
+        // POST CheckList/Profile/UpdateTrunk
+        /// <summary>
+        /// อัพเดทเส้นทาง
+        /// </summary>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [Route("UpdateTrunk")]
+        public ExecuteModels UpdateTrunk(TrunkModels val)
+        {
+            ExecuteModels ecm = new ExecuteModels();
+            string _SQL_Set = string.Empty;
+            string[] Col_Arr = { "source", "destination" };
+            string[] Val_Arr = { val.source, val.destination };
+            for (int n = 0; n <= Val_Arr.Length - 1; n++)
+            {
+                if (Val_Arr[n] != null)
+                {
+                    _SQL_Set += Col_Arr[n] + " = N'" + Val_Arr[n] + "', ";
+                }
+            }
+            HomeController hc = new HomeController();
+            using (SqlConnection con = hc.ConnectDatabase())
+            {
+                string _SQL = "update trunk set " + _SQL_Set + " create_by_user_id = 1 where trunk_id = " + val.trunk_id;
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    try
+                    {
+                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
+                        {
+                            ecm.result = 0;
+                            ecm.code = "OK";
+                        }
+                        else
+                        {
+                            ecm.result = 1;
+                            ecm.code = _SQL;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        ecm.result = 1;
+                        ecm.code = ex.Message;
+                    }
+                }
+                con.Close();
+            }
+            return ecm;
+        }
+
+        // POST CheckList/Profile/DeleteTrunk
+        /// <summary>
+        /// ลบเส้นทาง
+        /// </summary>
+        /// <param name="val"></param>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [Route("DeleteTrunk")]
+        public ExecuteModels DelTrunk(TrunkIdModels val)
+        {
+            ExecuteModels ecm = new ExecuteModels();
+            HomeController hc = new HomeController();
+            using (SqlConnection con = hc.ConnectDatabase())
+            {
+                string _SQL = "delete from relation_trunk_branch where trunk_id = " + val.trunk_id;
+                SqlCommand cmd = new SqlCommand(_SQL, con);                
+                try
+                {
+                    if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
+                    {
+                        _SQL = "delete from trunk where trunk_id = " + val.trunk_id;
+                        cmd = new SqlCommand(_SQL, con);
+                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
+                        {
+                            ecm.result = 0;
+                            ecm.code = "OK";
+                        }
+                        else
+                        {
+                            ecm.result = 1;
+                            ecm.code = _SQL;
+                        }
+                    }
+                    else
+                    {
+                        ecm.result = 1;
+                        ecm.code = _SQL;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ecm.result = 1;
+                    ecm.code = ex.Message;
+                }                
+                con.Close();
+            }
+            return ecm;
+        }
+
+        #endregion
+
+        #region Contact
+        // POST CheckList/Profile/GetContactAll
+        /// <summary>
+        /// เรียกดูข้อมูลผู้ติดต่อ
+        /// </summary>
+        /// <param name="val"></param>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [Route("GetContactAll")]
+        public List<ContactView> GetContactAll(BranchCustomerIdModels val)
+        {
+            HomeController hc = new HomeController();
+            List<ContactView> ul = new List<ContactView>();
+            using (SqlConnection con = hc.ConnectDatabase())
+            {
+                string _SQL = "SELECT cc.* from relation_contact_branch as rcb join contact_customer as cc on rcb.contact_id = cc.contact_id where rcb.branch_id = " + val.branch_id;
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    DataTable _Dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(_Dt);
+                    da.Dispose();
+                    foreach (DataRow _Item in _Dt.Rows)
+                    {
+                        ContactView cv = new ContactView();
+                        cv.name = _Item["name"].ToString();
+                        cv.position = _Item["position"].ToString();
+                        cv.tel = _Item["tel"].ToString();
+                        cv.line = _Item["line"].ToString();
+                        cv.email = _Item["email"].ToString();
+                        ul.Add(cv);
+                    }
+                }
+                con.Close();
+            }
+            return ul;
+        }
+
+        // POST CheckList/Profile/InsertContact 
+        /// <summary>
+        /// เพิ่มผู้ติดต่อ
+        /// </summary>
+        /// <param name="val"></param>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [Route("InsertContact")]
+        public ExecuteModels InsertContact(ContactModels val)
+        {
+            ExecuteModels ecm = new ExecuteModels();
+            HomeController hc = new HomeController();
+            using (SqlConnection con = hc.ConnectDatabase())
+            {
+                string _SQL = "insert into contact_customer (name,position,tel,line,email,create_by_user_id) output inserted.contact_id " +
+                    "values (N'" + val.name + "', N'" + val.position + "', N'" + val.tel + "', N'" + val.line + "', N'" + val.email + "', 1)";
+                SqlCommand cmd = new SqlCommand(_SQL, con);
+                try
+                {
+                    var id_return = Int32.Parse(cmd.ExecuteScalar().ToString());
+                    if (id_return >= 1)
+                    {
+                        _SQL = "insert into relation_contact_branch (contact_id, branch_id) values (" + val.contact_id + ", " + val.branch_id + ")";
+                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
+                        {
+                            ecm.result = 0;
+                            ecm.code = "OK";
+                            ecm.id_return = id_return.ToString();
+                        }
+                        else
+                        {
+                            ecm.result = 1;
+                            ecm.code = _SQL;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ecm.result = 1;
+                    ecm.code = ex.Message;
+                }
+                con.Close();
+            }
+            return ecm;
+        }
+
+        // POST CheckList/Profile/UpdateContact
+        /// <summary>
+        /// อัพเดทผู้ติดต่อ
+        /// </summary>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [Route("UpdateContact")]
+        public ExecuteModels UpdateContact(ContactModels val)
+        {
+            ExecuteModels ecm = new ExecuteModels();
+            string _SQL_Set = string.Empty;
+            string[] Col_Arr = { "name", "position", "tel", "line", "email" };
+            string[] Val_Arr = { val.name, val.position, val.tel, val.line , val.email };
+            for (int n = 0; n <= Val_Arr.Length - 1; n++)
+            {
+                if (Val_Arr[n] != null)
+                {
+                    _SQL_Set += Col_Arr[n] + " = N'" + Val_Arr[n] + "', ";
+                }
+            }
+            HomeController hc = new HomeController();
+            using (SqlConnection con = hc.ConnectDatabase())
+            {
+                string _SQL = "update contact_customer set " + _SQL_Set + " create_by_user_id = 1 where contact_id = " + val.contact_id;
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    try
+                    {
+                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
+                        {
+                            ecm.result = 0;
+                            ecm.code = "OK";
+                        }
+                        else
+                        {
+                            ecm.result = 1;
+                            ecm.code = _SQL;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        ecm.result = 1;
+                        ecm.code = ex.Message;
+                    }
+                }
+                con.Close();
+            }
+            return ecm;
+        }
+
+        // POST CheckList/Profile/DeleteContact
+        /// <summary>
+        /// ลบผู้ติดต่อ
+        /// </summary>
+        /// <param name="val"></param>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [Route("DeleteContact")]
+        public ExecuteModels DelContact(ContactModels val)
+        {
+            ExecuteModels ecm = new ExecuteModels();
+            HomeController hc = new HomeController();
+            using (SqlConnection con = hc.ConnectDatabase())
+            {
+                string _SQL = "delete from relation_contact_branch where contact_id = " + val.contact_id;
+                SqlCommand cmd = new SqlCommand(_SQL, con);
+                try
+                {
+                    if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
+                    {
+                        _SQL = "delete from contact_customer where contact_id = " + val.contact_id;
+                        cmd = new SqlCommand(_SQL, con);
+                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
+                        {
+                            ecm.result = 0;
+                            ecm.code = "OK";
+                        }
+                        else
+                        {
+                            ecm.result = 1;
+                            ecm.code = _SQL;
+                        }
+                    }
+                    else
+                    {
+                        ecm.result = 1;
+                        ecm.code = _SQL;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ecm.result = 1;
+                    ecm.code = ex.Message;
+                }
+                con.Close();
+            }
+            return ecm;
+        }
+
+        #endregion
+
+        //// POST CheckList/Profile/ProductAll
+        //[AllowAnonymous]
+        //[Route("GetProductAll")]
+        //public List<Product> ProductAll(CustomerIdModels val)
+        //{
+
+        //    HomeController hc = new HomeController();
+        //    List<Product> ul = new List<Product>();
+        //    using (SqlConnection con = hc.ConnectDatabase())
+        //    {
+        //        string _SQL = "select p.product_name, p.fleet, p.style_id from product as p join relation_product_branch as rpb on p.product_id = rpb.product_id" +
+        //            "where rpb.branch_id = 1";
+        //        using (SqlCommand cmd = new SqlCommand(_SQL, con))
+        //        {
+        //            DataTable _Dt = new DataTable();
+        //            SqlDataAdapter da = new SqlDataAdapter(cmd);
+        //            da.Fill(_Dt);
+        //            da.Dispose();
+        //            foreach (DataRow _Item in _Dt.Rows)
+        //            {
+        //                Product product = new Product();
+        //                product.product_id = _Item["product_id"].ToString();
+        //                product.product_name = _Item["product_name"].ToString();
+        //                product.fleet = _Item["fleet"].ToString();
+        //                product.style_name = _Item["style_name"].ToString();
+        //                product.DriverOrTruck = _Item["DriverOrTruck"].ToString();
+        //                product.DocumentOrEquipment = _Item["DocumentOrEquipment"].ToString();
+        //                ul.Add(product);
+        //            }
+        //        }
+        //        con.Close();
+        //    }
+        //    return ul;
+        //}
+        #endregion
+
+        #region Driver
+        // POST CheckList/Profile/GetDriverAll
+        /// <summary>
+        /// ข้อมูลพนักงานขับรถ
+        /// </summary>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [Route("GetDriverAll")]
+        public List<DriverAllView> GetDriverAll()
+        {
+            HomeController hc = new HomeController();
+            List<DriverAllView> ul = new List<DriverAllView>();
+            using (SqlConnection con = hc.ConnectDatabaseTT1995())
+            {
+                string _SQL = "SELECT * from driver_profile";
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    DataTable _Dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(_Dt);
+                    da.Dispose();
+                    foreach (DataRow _Item in _Dt.Rows)
+                    {
+                        DriverAllView dav = new DriverAllView();
+                        dav.driver_id = _Item["driver_id"].ToString();
+                        dav.driver_name = _Item["driver_name"].ToString();  
+                        dav.sex = _Item["sex"].ToString();
+                        dav.age = _Item["age"].ToString();
+                        dav.other = _Item["other"].ToString();
+                        dav.path = _Item["path"].ToString();
+
+                        ul.Add(dav);
+                    }
+                }
+                con.Close();
+            }
+            return ul;
+        }
+
+        // POST CheckList/Profile/GetDriverLicenseById
+        /// <summary>
+        /// ใบอนุญาติวันหมดอายุ
+        /// </summary>
+        /// <param name="val"></param>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [Route("GetDriverLicenseById")]
+        public List<DriverLicenseView> DriverLicenseById(DriverIdModels val)
+        {
+            HomeController hc = new HomeController();
+            List<DriverLicenseView> ul = new List<DriverLicenseView>();
+            using (SqlConnection con = hc.ConnectDatabaseTT1995())
+            {
+                string _SQL = "select dl.expire_date as dl_expire, dldot.expire_date as dldot_expire, dlngt.expire_date as dlngt_expire, dlot.expire_date as dlot_expire " + 
+                            "from driving_license as dl " +
+                            "join driving_license_dangerous_objects_transportation as dldot on dl.driver_id = dldot.driver_id " +
+                            "join driving_license_natural_gas_transportation as dlngt on dl.driver_id = dlngt.driver_id " +
+                            "join driving_license_oil_transportation as dlot on dl.driver_id = dlot.driver_id " +
+                            "where dl.driver_id = 1";
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    DataTable _Dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(_Dt);
+                    da.Dispose();
+                    foreach (DataRow _Item in _Dt.Rows)
+                    {
+                        DriverLicenseView dlv = new DriverLicenseView();
+                        dlv.dl_expire = _Item["dl_expire"].ToString();
+                        dlv.dlot_expire = _Item["dlot_expire"].ToString();
+                        dlv.dlngt_expire = _Item["dlngt_expire"].ToString();
+                        dlv.dldot_expire = _Item["dldot_expire"].ToString();
+
+                        ul.Add(dlv);
                     }
                 }
                 con.Close();

@@ -578,6 +578,153 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:TTApi.Controllers.ProfileController.GetLicenseAll">
+            <summary>
+            ข้อมูลรถบรรทุก
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TTApi.Controllers.ProfileController.ExpiredById(TTApi.Models.LicenseModels)">
+            <summary>
+            ข้อมูลภาษี/ประกันภัย
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TTApi.Controllers.ProfileController.ExpiredOtherById(TTApi.Models.LicenseModels)">
+            <summary>
+            ข้อมูลใบอนุญาต
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TTApi.Controllers.ProfileController.DetailLicense(TTApi.Models.LicenseModels)">
+            <summary>
+            ข้อมูลรายละเอียด
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TTApi.Controllers.ProfileController.GetCustomerAll">
+            <summary>
+            เรียกดูข้อมูลลูกค้า
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TTApi.Controllers.ProfileController.InsertCustomer(TTApi.Models.CustomerModels)">
+            <summary>
+            เพิ่มลูกค้า
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TTApi.Controllers.ProfileController.UpdateCustomer(TTApi.Models.CustomerModels)">
+            <summary>
+            อัพเดทลูกค้า
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TTApi.Controllers.ProfileController.DelCustomer(TTApi.Models.CustomerModels)">
+            <summary>
+            ลบลูกค้า
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TTApi.Controllers.ProfileController.BranchCustomerAll(TTApi.Models.CustomerIdModels)">
+            <summary>
+            เรียกดูข้อมูลสาขา
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TTApi.Controllers.ProfileController.InsertBranchCustomer(TTApi.Models.BranchCustomerModels)">
+            <summary>
+            เพิ่มสาขา
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TTApi.Controllers.ProfileController.UpdateBranchCustomer(TTApi.Models.BranchCustomerModels)">
+            <summary>
+            อัพเดทสาขา
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TTApi.Controllers.ProfileController.DelBranchCustomer(TTApi.Models.BranchCustomerIdModels)">
+            <summary>
+            ลบสาขา
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TTApi.Controllers.ProfileController.TrunkAll(TTApi.Models.BranchCustomerIdModels)">
+            <summary>
+            เรียกดูข้อมูลเส้นทาง
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TTApi.Controllers.ProfileController.InsertTrunk(TTApi.Models.TrunkModels)">
+            <summary>
+            เพิ่มเส้นทาง
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TTApi.Controllers.ProfileController.UpdateTrunk(TTApi.Models.TrunkModels)">
+            <summary>
+            อัพเดทเส้นทาง
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TTApi.Controllers.ProfileController.DelTrunk(TTApi.Models.TrunkIdModels)">
+            <summary>
+            ลบเส้นทาง
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TTApi.Controllers.ProfileController.GetContactAll(TTApi.Models.BranchCustomerIdModels)">
+            <summary>
+            เรียกดูข้อมูลผู้ติดต่อ
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TTApi.Controllers.ProfileController.InsertContact(TTApi.Models.ContactModels)">
+            <summary>
+            เพิ่มผู้ติดต่อ
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TTApi.Controllers.ProfileController.UpdateContact(TTApi.Models.ContactModels)">
+            <summary>
+            อัพเดทผู้ติดต่อ
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TTApi.Controllers.ProfileController.DelContact(TTApi.Models.ContactModels)">
+            <summary>
+            ลบผู้ติดต่อ
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TTApi.Controllers.ProfileController.GetDriverAll">
+            <summary>
+            ข้อมูลพนักงานขับรถ
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TTApi.Controllers.ProfileController.DriverLicenseById(TTApi.Models.DriverIdModels)">
+            <summary>
+            ใบอนุญาติวันหมดอายุ
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
         <member name="T:TTApi.Controllers.TabienController">
             <summary>
             
@@ -904,24 +1051,179 @@
             ข้อมูลภาษี/ประกันภัย
             </summary>
         </member>
-        <member name="P:TTApi.Models.ExpiredView.mi_expired">
+        <member name="P:TTApi.Models.ExpiredView.license_id">
             <summary>
-            ประกันภัยรถยนต์
+            license_id
             </summary>
         </member>
-        <member name="P:TTApi.Models.ExpiredView.ai_expired">
+        <member name="P:TTApi.Models.ExpiredView.display">
             <summary>
-            พรบ
+            display
             </summary>
         </member>
-        <member name="P:TTApi.Models.ExpiredView.ei_expired">
+        <member name="P:TTApi.Models.ExpiredView.expire">
             <summary>
-            ประกันภัยสิ่งแวดล้อม
+            expire
             </summary>
         </member>
-        <member name="P:TTApi.Models.ExpiredView.dpi_expired">
+        <member name="T:TTApi.Models.ExpiredOtherView">
             <summary>
-            ประกันภัยภายในประเทศ
+            ข้อมูลใบอนุญาต
+            </summary>
+        </member>
+        <member name="P:TTApi.Models.ExpiredOtherView.license_id">
+            <summary>
+            license_id
+            </summary>
+        </member>
+        <member name="P:TTApi.Models.ExpiredOtherView.display">
+            <summary>
+            display
+            </summary>
+        </member>
+        <member name="P:TTApi.Models.ExpiredOtherView.expire">
+            <summary>
+            expire
+            </summary>
+        </member>
+        <member name="P:TTApi.Models.ExpiredOtherView.detail">
+            <summary>
+            detail
+            </summary>
+        </member>
+        <member name="P:TTApi.Models.ExpiredOtherView.detail2">
+            <summary>
+            detail2
+            </summary>
+        </member>
+        <member name="T:TTApi.Models.DetailLicense">
+            <summary>
+            รายละเอียด
+            </summary>
+        </member>
+        <member name="P:TTApi.Models.DetailLicense.license_id">
+            <summary>
+            license_id
+            </summary>
+        </member>
+        <member name="P:TTApi.Models.DetailLicense.style_car">
+            <summary>
+            ลักษณะ 
+            </summary>
+        </member>
+        <member name="P:TTApi.Models.DetailLicense.weight_car">
+            <summary>
+            น้ำหนักรถเปล่า
+            </summary>
+        </member>
+        <member name="P:TTApi.Models.DetailLicense.brand_engine">
+            <summary>
+            ยี่ห้อ 
+            </summary>
+        </member>
+        <member name="P:TTApi.Models.DetailLicense.model_car">
+            <summary>
+            รุ่น 
+            </summary>
+        </member>
+        <member name="P:TTApi.Models.DetailLicense.gallery">
+            <summary>
+            รูป
+            </summary>
+        </member>
+        <member name="P:TTApi.Models.ListGallery.file_id">
+            <summary>
+            file id
+            </summary>
+        </member>
+        <member name="P:TTApi.Models.ListGallery.path">
+            <summary>
+            path img
+            </summary>
+        </member>
+        <member name="P:TTApi.Models.ListGallery.position">
+            <summary>
+            position img
+            </summary>
+        </member>
+        <member name="T:TTApi.Models.CustomerAllView">
+            <summary>
+            ลูกค้าทั้งหมด
+            </summary>
+        </member>
+        <member name="P:TTApi.Models.CustomerAllView.cus_id">
+            <summary>
+            Customer id
+            </summary>
+        </member>
+        <member name="P:TTApi.Models.CustomerAllView.cus_name">
+            <summary>
+            Customer name
+            </summary>
+        </member>
+        <member name="T:TTApi.Models.BranchCustomerAllView">
+            <summary>
+            สาขา
+            </summary>
+        </member>
+        <member name="P:TTApi.Models.BranchCustomerAllView.branch_id">
+            <summary>
+            Branch id
+            </summary>
+        </member>
+        <member name="P:TTApi.Models.BranchCustomerAllView.branch_name">
+            <summary>
+            Branch name
+            </summary>
+        </member>
+        <member name="P:TTApi.Models.BranchCustomerAllView.address">
+            <summary>
+            Address
+            </summary>
+        </member>
+        <member name="P:TTApi.Models.BranchCustomerAllView.zip_code">
+            <summary>
+            Zip code
+            </summary>
+        </member>
+        <member name="P:TTApi.Models.BranchCustomerAllView.province">
+            <summary>
+            Province
+            </summary>
+        </member>
+        <member name="P:TTApi.Models.BranchCustomerAllView.cus_id">
+            <summary>
+            Customer id
+            </summary>
+        </member>
+        <member name="P:TTApi.Models.Product.product_id">
+            <summary>
+            Product id
+            </summary>
+        </member>
+        <member name="P:TTApi.Models.Product.product_name">
+            <summary>
+            Product name
+            </summary>
+        </member>
+        <member name="P:TTApi.Models.Product.fleet">
+            <summary>
+            Fleet
+            </summary>
+        </member>
+        <member name="P:TTApi.Models.Product.style_name">
+            <summary>
+            Style
+            </summary>
+        </member>
+        <member name="P:TTApi.Models.Product.DriverOrTruck">
+            <summary>
+            พขร/รถบรรทุก
+            </summary>
+        </member>
+        <member name="P:TTApi.Models.Product.DocumentOrEquipment">
+            <summary>
+            เอกสาร/อุปกรณ์
             </summary>
         </member>
         <member name="T:TTApi.Properties.Resources">
