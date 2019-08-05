@@ -275,9 +275,9 @@ namespace TTApi.Models
         /// </summary>
         public string zip_code { get; set; }
         /// <summary>
-        /// Province
+        /// Province id
         /// </summary>
-        public string province { get; set; }
+        public string province_id { get; set; }
         /// <summary>
         /// Customer id
         /// </summary>
@@ -394,10 +394,9 @@ namespace TTApi.Models
 
     public class DriverLicenseView
     {
-        public string dl_expire { get; set; }
-        public string dldot_expire { get; set; }
-        public string dlngt_expire { get; set; }
-        public string dlot_expire { get; set; }
+        public string driver_id { get; set; }
+        public string display { get; set; }
+        public string expire { get; set; }
     }
     #endregion
 }

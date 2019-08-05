@@ -1282,7 +1282,7 @@ namespace TTApi.Controllers
                         bcav.branch_name = _Item["branch_name"].ToString();
                         bcav.address = _Item["address"].ToString();
                         bcav.zip_code = _Item["zip_code"].ToString();
-                        bcav.province = _Item["province_id"].ToString();
+                        bcav.province_id = _Item["province_id"].ToString();
                         bcav.cus_id = _Item["cus_id"].ToString();
                         ul.Add(bcav);
                     }
@@ -1881,12 +1881,12 @@ namespace TTApi.Controllers
             List<DriverLicenseView> ul = new List<DriverLicenseView>();
             using (SqlConnection con = hc.ConnectDatabaseTT1995())
             {
-                string _SQL = "select dl.expire_date as dl_expire, dldot.expire_date as dldot_expire, dlngt.expire_date as dlngt_expire, dlot.expire_date as dlot_expire " + 
-                            "from driving_license as dl " +
-                            "join driving_license_dangerous_objects_transportation as dldot on dl.driver_id = dldot.driver_id " +
-                            "join driving_license_natural_gas_transportation as dlngt on dl.driver_id = dlngt.driver_id " +
-                            "join driving_license_oil_transportation as dlot on dl.driver_id = dlot.driver_id " +
-                            "where dl.driver_id = 1";
+                string _SQL = "select _data.driver_id,ct.display, _data.expire from " +
+                    "(select driver_id, expire_date as expire, '31' as table_id from driving_license union " +
+                    "select driver_id, expire_date as expire, '33' as table_id from driving_license_oil_transportation union " +
+                    "select driver_id, expire_date as expire, '34' as table_id from driving_license_natural_gas_transportation union " +
+                    "select driver_id, expire_date as expire, '35' as table_id from driving_license_dangerous_objects_transportation) " +
+                    "_data inner join config_table ct on ct.table_id = _data.table_id where _data.driver_id = " + val.driver_id;
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     DataTable _Dt = new DataTable();
@@ -1896,10 +1896,9 @@ namespace TTApi.Controllers
                     foreach (DataRow _Item in _Dt.Rows)
                     {
                         DriverLicenseView dlv = new DriverLicenseView();
-                        dlv.dl_expire = _Item["dl_expire"].ToString();
-                        dlv.dlot_expire = _Item["dlot_expire"].ToString();
-                        dlv.dlngt_expire = _Item["dlngt_expire"].ToString();
-                        dlv.dldot_expire = _Item["dldot_expire"].ToString();
+                        dlv.driver_id = _Item["driver_id"].ToString();
+                        dlv.display = _Item["display"].ToString();
+                        dlv.expire = _Item["expire"].ToString();
 
                         ul.Add(dlv);
                     }

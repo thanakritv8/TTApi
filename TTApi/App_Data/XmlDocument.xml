@@ -1186,9 +1186,9 @@
             Zip code
             </summary>
         </member>
-        <member name="P:TTApi.Models.BranchCustomerAllView.province">
+        <member name="P:TTApi.Models.BranchCustomerAllView.province_id">
             <summary>
-            Province
+            Province id
             </summary>
         </member>
         <member name="P:TTApi.Models.BranchCustomerAllView.cus_id">
