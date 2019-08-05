@@ -117,6 +117,10 @@ namespace TTApi.Models
         public string license_id { get; set; }
         public string number_car { get; set; }
         public string license_car { get; set; }
+        public string col1 = "VIEW";
+        public string col2 = "VIEW";
+        public string col3 = "VIEW";
+        public string col4 = "แก้ไข";
 
     }
 
@@ -398,5 +402,78 @@ namespace TTApi.Models
         public string display { get; set; }
         public string expire { get; set; }
     }
+    #endregion
+
+    #region Product
+    public class ProductAllView
+    {
+        public string product_id { get; set; }
+        public string product_name { get; set; }
+        public string fleet { get; set; }
+        public string method_style { get; set; }
+        public string method_normal { get; set; }
+        public string method_contain { get; set; }
+        public string method_special { get; set; }
+        //public List<RelDocProductModels> rel_doc { get; set;}
+        //public List<DocumentView> rel_doc { get; set; }
+    }
+
+    public class ProductIdModels
+    {
+        public string product_id { get; set; }
+        
+    }
+
+    public class ProductModels
+    {
+        public string product_id { get; set; }
+        public string product_name { get; set; }
+        public string fleet { get; set; }
+        public string method_style { get; set; }
+        public string method_normal { get; set; }
+        public string method_contain { get; set; }
+        public string method_special { get; set; }
+        public string branch_id { get; set; }
+    }
+
+    public class RelDriverProductModels
+    {
+        public string driver_id { get; set; }
+        public string product_id { get; set; }
+        public string score { get; set; }
+    }
+
+    public class RelDocProductModels
+    {
+        public string doc_id { get; set; }
+        public string product_id { get; set; }
+    }
+
+    public class RelSafetyProductModels
+    {
+        public string eq_safety_id { get; set; }
+        public string product_id { get; set; }
+        public string amount { get; set; }
+    }
+
+    public class RelTranProductModels
+    {
+        public string eq_tran_id { get; set; }
+        public string product_id { get; set; }
+        public string amount { get; set; }
+    }
+
+    public class RelLicenseProductModels
+    {
+        public string license_id { get; set; }
+        public string product_id { get; set; }
+    }
+
+    public class RelBranchProductModels
+    {
+        public string branch_id { get; set; }
+        public string product_id { get; set; }
+    }
+
     #endregion
 }

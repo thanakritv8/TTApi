@@ -882,20 +882,55 @@ namespace TTApi.Controllers
 
         #region License
 
-        // POST CheckList/Profile/GetLicenseAll
+        // POST CheckList/Profile/GetLicenseAllHead
         /// <summary>
-        /// ข้อมูลรถบรรทุก
+        /// ข้อมูลหัวรถบรรทุก
         /// </summary>
         /// <returns></returns>
         [AllowAnonymous]
-        [Route("GetLicenseAll")]
-        public List<LicenseAllView> GetLicenseAll()
+        [Route("GetLicenseAllHead")]
+        public List<LicenseAllView> GetLicenseAllHead()
         {
             HomeController hc = new HomeController();
             List<LicenseAllView> ul = new List<LicenseAllView>();
             using (SqlConnection con = hc.ConnectDatabaseTT1995())
             {
-                string _SQL = "SELECT license_id, number_car, license_car from license";
+                string _SQL = "SELECT license_id, number_car, license_car from license WHERE number_car NOT LIKE 'T%'";
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    DataTable _Dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(_Dt);
+                    da.Dispose();
+                    foreach (DataRow _Item in _Dt.Rows)
+                    {
+                        LicenseAllView lav = new LicenseAllView();
+                        lav.license_id = _Item["license_id"].ToString();
+                        lav.number_car = _Item["number_car"].ToString();
+                        lav.license_car = _Item["license_car"].ToString();
+
+                        ul.Add(lav);
+                    }
+                }
+                con.Close();
+            }
+            return ul;
+        }
+
+        // POST CheckList/Profile/GetLicenseAllTail
+        /// <summary>
+        /// ข้อมูลหางรถบรรทุก
+        /// </summary>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [Route("GetLicenseAllTail")]
+        public List<LicenseAllView> GetLicenseAllTail()
+        {
+            HomeController hc = new HomeController();
+            List<LicenseAllView> ul = new List<LicenseAllView>();
+            using (SqlConnection con = hc.ConnectDatabaseTT1995())
+            {
+                string _SQL = "SELECT license_id, number_car, license_car from license WHERE number_car LIKE 'T%'";
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     DataTable _Dt = new DataTable();
@@ -1906,6 +1941,162 @@ namespace TTApi.Controllers
                 con.Close();
             }
             return ul;
+        }
+        #endregion
+
+        #region Product
+        // POST CheckList/Profile/InsertProduct 
+        /// <summary>
+        /// เพิ่มสินค้า
+        /// </summary>
+        /// <param name="val"></param>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [Route("InsertProduct")]
+        public ExecuteModels InsertProduct(ProductModels val)
+        {
+            ExecuteModels ecm = new ExecuteModels();
+            HomeController hc = new HomeController();
+            using (SqlConnection con = hc.ConnectDatabase())
+            {
+                string _SQL = "insert into product (product_name,fleet,method_style,method_normal,method_contain,method_special,create_by_user_id) output inserted.product_id " +
+                    "values (N'" + val.product_name + "', N'" + val.fleet + "', N'" + val.method_style + "', N'" + val.method_normal + "', N'" + val.method_contain + "', N'" + val.method_special + "', 1)";
+                SqlCommand cmd = new SqlCommand(_SQL, con);
+                try
+                {
+                    var id_return = Int32.Parse(cmd.ExecuteScalar().ToString());
+                    if (id_return >= 1)
+                    {
+                        _SQL = "insert into relation_product_branch (product_id, branch_id) values (" + val.product_id + ", " + val.branch_id + ")";
+                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
+                        {
+                            ecm.result = 0;
+                            ecm.code = "OK";
+                            ecm.id_return = id_return.ToString();
+                        }
+                        else
+                        {
+                            ecm.result = 1;
+                            ecm.code = _SQL;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ecm.result = 1;
+                    ecm.code = ex.Message;
+                }
+                con.Close();
+            }
+            return ecm;
+        }
+
+        // POST CheckList/Profile/UpdateProduct
+        /// <summary>
+        /// อัพเดทสินค้า
+        /// </summary>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [Route("UpdateProduct")]
+        public ExecuteModels UpdateProduct(ProductModels val)
+        {
+            ExecuteModels ecm = new ExecuteModels();
+            string _SQL_Set = string.Empty;
+            string[] Col_Arr = { "product_name", "fleet", "method_style", "method_normal", "method_contain", "method_special" };
+            string[] Val_Arr = { val.product_name, val.fleet, val.method_style, val.method_normal, val.method_contain, val.method_special };
+            for (int n = 0; n <= Val_Arr.Length - 1; n++)
+            {
+                if (Val_Arr[n] != null)
+                {
+                    _SQL_Set += Col_Arr[n] + " = N'" + Val_Arr[n] + "', ";
+                }
+            }
+            HomeController hc = new HomeController();
+            using (SqlConnection con = hc.ConnectDatabase())
+            {
+                string _SQL = "update product set " + _SQL_Set + " create_by_user_id = 1 where product_id = " + val.product_id;
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    try
+                    {
+                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
+                        {
+                            ecm.result = 0;
+                            ecm.code = "OK";
+                        }
+                        else
+                        {
+                            ecm.result = 1;
+                            ecm.code = _SQL;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        ecm.result = 1;
+                        ecm.code = ex.Message;
+                    }
+                }
+                con.Close();
+            }
+            return ecm;
+        }
+
+        // POST CheckList/Profile/DeleteProduct
+        /// <summary>
+        /// ลบสินค้า
+        /// </summary>
+        /// <param name="val"></param>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [Route("DeleteProduct")]
+        public ExecuteModels DelProduct(ProductIdModels val)
+        {
+            ExecuteModels ecm = new ExecuteModels();
+            HomeController hc = new HomeController();
+            using (SqlConnection con = hc.ConnectDatabase())
+            {
+                string _SQL = string.Empty;
+                try
+                {
+                    _SQL = "delete from relation_document_product where product_id = " + val.product_id;
+                    SqlCommand cmd = new SqlCommand(_SQL, con);
+                    cmd.ExecuteNonQuery();
+                    _SQL = "delete from relation_driver_product where product_id = " + val.product_id;
+                    cmd = new SqlCommand(_SQL, con);
+                    cmd.ExecuteNonQuery();
+                    _SQL = "delete from relation_equipment_safety_product where product_id = " + val.product_id;
+                    cmd = new SqlCommand(_SQL, con);
+                    cmd.ExecuteNonQuery();
+                    _SQL = "delete from relation_equipment_transport_product where product_id = " + val.product_id;
+                    cmd = new SqlCommand(_SQL, con);
+                    cmd.ExecuteNonQuery();
+                    _SQL = "delete from relation_license_product where product_id = " + val.product_id;
+                    cmd = new SqlCommand(_SQL, con);
+                    cmd.ExecuteNonQuery();
+                    _SQL = "delete from relation_product_branch where product_id = " + val.product_id;
+                    cmd = new SqlCommand(_SQL, con);
+                    cmd.ExecuteNonQuery();
+                    _SQL = "delete from product where product_id = " + val.product_id;
+                    cmd = new SqlCommand(_SQL, con);
+                    if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
+                    {
+                        ecm.result = 0;
+                        ecm.code = "OK";
+                    }
+                    else
+                    {
+                        ecm.result = 1;
+                        ecm.code = _SQL;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ecm.result = 1;
+                    ecm.code = ex.Message + " => " + _SQL;
+                }
+                con.Close();
+            }
+            return ecm;
         }
         #endregion
     }

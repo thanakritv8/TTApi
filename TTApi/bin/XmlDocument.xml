@@ -578,9 +578,15 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:TTApi.Controllers.ProfileController.GetLicenseAll">
+        <member name="M:TTApi.Controllers.ProfileController.GetLicenseAllHead">
             <summary>
-            ข้อมูลรถบรรทุก
+            ข้อมูลหัวรถบรรทุก
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TTApi.Controllers.ProfileController.GetLicenseAllTail">
+            <summary>
+            ข้อมูลหางรถบรรทุก
             </summary>
             <returns></returns>
         </member>
@@ -721,6 +727,26 @@
         <member name="M:TTApi.Controllers.ProfileController.DriverLicenseById(TTApi.Models.DriverIdModels)">
             <summary>
             ใบอนุญาติวันหมดอายุ
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TTApi.Controllers.ProfileController.InsertProduct(TTApi.Models.ProductModels)">
+            <summary>
+            เพิ่มสินค้า
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TTApi.Controllers.ProfileController.UpdateProduct(TTApi.Models.ProductModels)">
+            <summary>
+            อัพเดทสินค้า
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TTApi.Controllers.ProfileController.DelProduct(TTApi.Models.ProductIdModels)">
+            <summary>
+            ลบสินค้า
             </summary>
             <param name="val"></param>
             <returns></returns>
