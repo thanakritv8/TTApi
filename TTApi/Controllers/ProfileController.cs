@@ -1101,7 +1101,7 @@ namespace TTApi.Controllers
                                   "when 8 then N'มุมด้านท้ายซ้าย' " +
                                   "end as 'position' " +
                               "FROM[TT1995].[dbo].[files_all] " +
-                                    "where table_id = 1 and fk_id = 16 and position<> '' and position is not null";
+                                    "where table_id = 1 and fk_id = " + val.license_id + " and position<> '' and position is not null";
                         using (SqlCommand cmdTemp = new SqlCommand(_SQL, con))
                         {
                             DataTable _DtTemp = new DataTable();
