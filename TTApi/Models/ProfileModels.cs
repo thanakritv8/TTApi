@@ -350,34 +350,34 @@ namespace TTApi.Models
         public string branch_id { get; set; }
     }
 
-    public class Product
-    {
-        /// <summary>
-        /// Product id
-        /// </summary>
-        public string product_id { get; set; }
-        /// <summary>
-        /// Product name
-        /// </summary>
-        public string product_name { get; set; }
-        /// <summary>
-        /// Fleet
-        /// </summary>
-        public string fleet { get; set; }
-        /// <summary>
-        /// Style
-        /// </summary>
-        public string style_name { get; set; }
-        /// <summary>
-        /// พขร/รถบรรทุก
-        /// </summary>
-        public string DriverOrTruck { get; set; }
-        /// <summary>
-        /// เอกสาร/อุปกรณ์
-        /// </summary>
-        public string DocumentOrEquipment { get; set; }
+    //public class Product
+    //{
+    //    /// <summary>
+    //    /// Product id
+    //    /// </summary>
+    //    public string product_id { get; set; }
+    //    /// <summary>
+    //    /// Product name
+    //    /// </summary>
+    //    public string product_name { get; set; }
+    //    /// <summary>
+    //    /// Fleet
+    //    /// </summary>
+    //    public string fleet { get; set; }
+    //    /// <summary>
+    //    /// Style
+    //    /// </summary>
+    //    public string style_name { get; set; }
+    //    /// <summary>
+    //    /// พขร/รถบรรทุก
+    //    /// </summary>
+    //    public string DriverOrTruck { get; set; }
+    //    /// <summary>
+    //    /// เอกสาร/อุปกรณ์
+    //    /// </summary>
+    //    public string DocumentOrEquipment { get; set; }
 
-    }
+    //}
     #endregion
 
     #region Driver
@@ -414,6 +414,9 @@ namespace TTApi.Models
         public string method_normal { get; set; }
         public string method_contain { get; set; }
         public string method_special { get; set; }
+        public string col1 = "VIEW";
+        public string col2 = "VIEW";
+        public string col3 = "แก้ไข";
         //public List<RelDocProductModels> rel_doc { get; set;}
         //public List<DocumentView> rel_doc { get; set; }
     }
@@ -447,6 +450,7 @@ namespace TTApi.Models
     {
         public string doc_id { get; set; }
         public string product_id { get; set; }
+        public string doc_type_id { get; set; }
     }
 
     public class RelSafetyProductModels
@@ -473,6 +477,63 @@ namespace TTApi.Models
     {
         public string branch_id { get; set; }
         public string product_id { get; set; }
+    }
+
+    public class RelDriverProductView
+    {
+        public string id { get; set; }
+        public string driver_id { get; set; }
+        public string product_id { get; set; }
+        public string score { get; set; }
+    }
+
+    public class RelDocProductView
+    {
+        public string id { get; set; }
+        public string doc_id { get; set; }
+        public string product_id { get; set; }
+        public string doc_type_id { get; set; }
+    }
+
+    public class RelSafetyProductView
+    {
+        public string id { get; set; }
+        public string eq_safety_id { get; set; }
+        public string product_id { get; set; }
+        public string amount { get; set; }
+    }
+
+    public class RelTranProductView
+    {
+        public string id { get; set; }
+        public string eq_tran_id { get; set; }
+        public string product_id { get; set; }
+        public string amount { get; set; }
+    }
+
+    public class RelLicenseProductView
+    {
+        public string id { get; set; }
+        public string license_id { get; set; }
+        public string product_id { get; set; }
+    }
+
+    public class RelBranchProductView
+    {
+        public string id { get; set; }
+        public string branch_id { get; set; }
+        public string product_id { get; set; }
+    }
+
+    public class IdModels
+    {
+        public string id { get; set; }
+    }
+
+    public class RelIdModels
+    {
+        public string pk_id { get; set; }
+        public string fk_id { get; set; }
     }
 
     #endregion

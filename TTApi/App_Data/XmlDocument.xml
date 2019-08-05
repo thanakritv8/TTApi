@@ -751,6 +751,76 @@
             <param name="val"></param>
             <returns></returns>
         </member>
+        <member name="M:TTApi.Controllers.ProfileController.InsertRelDriverProduct(TTApi.Models.RelDriverProductModels)">
+            <summary>
+            เพิ่มความสัมพันธ์พนักงานขับรถและสินค้า
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TTApi.Controllers.ProfileController.InsertRelDocProduct(TTApi.Models.RelDocProductModels)">
+            <summary>
+            เพิ่มความสัมพันธ์เอกสารและสินค้า
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TTApi.Controllers.ProfileController.InsertRelSafetyProduct(TTApi.Models.RelSafetyProductModels)">
+            <summary>
+            เพิ่มความสัมพันธ์อุปกรณ์ Safety และสินค้า
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TTApi.Controllers.ProfileController.InsertRelTranProduct(TTApi.Models.RelTranProductModels)">
+            <summary>
+            เพิ่มความสัมพันธ์อุปกรณ์ Tran และสินค้า
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TTApi.Controllers.ProfileController.InsertRelLicenseProduct(TTApi.Models.RelLicenseProductModels)">
+            <summary>
+            เพิ่มความสัมพันธ์รถบรรทุกและสินค้า
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TTApi.Controllers.ProfileController.DelRelDriverProduct(TTApi.Models.IdModels)">
+            <summary>
+            ลบความสัมพันธ์พนักงานขับรถและสินค้า
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TTApi.Controllers.ProfileController.DelRelDocProduct(TTApi.Models.IdModels)">
+            <summary>
+            ลบความสัมพันธ์เอกสารและสินค้า
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TTApi.Controllers.ProfileController.DelRelSafetyProduct(TTApi.Models.IdModels)">
+            <summary>
+            ลบความสัมพันธ์อุปกรณ์ Safety และสินค้า
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TTApi.Controllers.ProfileController.DelRelTranProduct(TTApi.Models.IdModels)">
+            <summary>
+            ลบความสัมพันธ์อุปกรณ์ Tran และสินค้า
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TTApi.Controllers.ProfileController.DelRelLicenseProduct(TTApi.Models.IdModels)">
+            <summary>
+            ลบความสัมพันธ์รถบรรทุกและสินค้า
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
         <member name="T:TTApi.Controllers.TabienController">
             <summary>
             
@@ -1220,36 +1290,6 @@
         <member name="P:TTApi.Models.BranchCustomerAllView.cus_id">
             <summary>
             Customer id
-            </summary>
-        </member>
-        <member name="P:TTApi.Models.Product.product_id">
-            <summary>
-            Product id
-            </summary>
-        </member>
-        <member name="P:TTApi.Models.Product.product_name">
-            <summary>
-            Product name
-            </summary>
-        </member>
-        <member name="P:TTApi.Models.Product.fleet">
-            <summary>
-            Fleet
-            </summary>
-        </member>
-        <member name="P:TTApi.Models.Product.style_name">
-            <summary>
-            Style
-            </summary>
-        </member>
-        <member name="P:TTApi.Models.Product.DriverOrTruck">
-            <summary>
-            พขร/รถบรรทุก
-            </summary>
-        </member>
-        <member name="P:TTApi.Models.Product.DocumentOrEquipment">
-            <summary>
-            เอกสาร/อุปกรณ์
             </summary>
         </member>
         <member name="T:TTApi.Properties.Resources">

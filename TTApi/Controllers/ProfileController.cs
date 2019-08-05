@@ -1945,6 +1945,41 @@ namespace TTApi.Controllers
         #endregion
 
         #region Product
+
+        // POST CheckList/Profile/GetProductAll
+        [AllowAnonymous]
+        [Route("GetProductAll")]
+        public List<ProductAllView> GetProductAll(BranchCustomerIdModels val)
+        {
+            HomeController hc = new HomeController();
+            List<ProductAllView> ul = new List<ProductAllView>();
+            using (SqlConnection con = hc.ConnectDatabase())
+            {
+                string _SQL = "SELECT * FROM product as p join relation_product_branch as rpb on p.product_id = rpb.product_id where rpb.branch_id = " + val.branch_id;
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    DataTable _Dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(_Dt);
+                    da.Dispose();
+                    foreach (DataRow _Item in _Dt.Rows)
+                    {
+                        ProductAllView pav = new ProductAllView();
+                        pav.product_id = _Item["product_id"].ToString();
+                        pav.product_name = _Item["product_name"].ToString();
+                        pav.method_style = _Item["method_style"].ToString();
+                        pav.method_special = _Item["method_special"].ToString();
+                        pav.method_normal = _Item["method_normal"].ToString();
+                        pav.method_contain = _Item["method_contain"].ToString();
+                        pav.fleet = _Item["fleet"].ToString();
+                        ul.Add(pav);
+                    }
+                }
+                con.Close();
+            }
+            return ul;
+        }
+
         // POST CheckList/Profile/InsertProduct 
         /// <summary>
         /// เพิ่มสินค้า
@@ -2098,6 +2133,429 @@ namespace TTApi.Controllers
             }
             return ecm;
         }
+        #endregion
+
+        #region Relation Product
+
+        // POST CheckList/Profile/InsertRelDriverProduct 
+        /// <summary>
+        /// เพิ่มความสัมพันธ์พนักงานขับรถและสินค้า
+        /// </summary>
+        /// <param name="val"></param>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [Route("InsertRelDriverProduct")]
+        public ExecuteModels InsertRelDriverProduct(RelDriverProductModels val)
+        {
+            ExecuteModels ecm = new ExecuteModels();
+            HomeController hc = new HomeController();
+            using (SqlConnection con = hc.ConnectDatabase())
+            {
+                string _SQL = "insert into relation_driver_product (driver_id,product_id,score,create_by_user_id) output inserted.rel_d_p_id " +
+                    "values ('" + val.driver_id + "', '" + val.product_id + "', '" + val.score + "', 1)";
+                SqlCommand cmd = new SqlCommand(_SQL, con);
+                try
+                {
+                    var id_return = Int32.Parse(cmd.ExecuteScalar().ToString());
+                    if (id_return >= 1)
+                    {
+                        ecm.result = 0;
+                        ecm.code = "OK";
+                        ecm.id_return = id_return.ToString();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ecm.result = 1;
+                    ecm.code = ex.Message;
+                }
+                con.Close();
+            }
+            return ecm;
+        }
+
+        // POST CheckList/Profile/InsertRelDocProduct 
+        /// <summary>
+        /// เพิ่มความสัมพันธ์เอกสารและสินค้า
+        /// </summary>
+        /// <param name="val"></param>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [Route("InsertRelDocProduct")]
+        public ExecuteModels InsertRelDocProduct(RelDocProductModels val)
+        {
+            ExecuteModels ecm = new ExecuteModels();
+            HomeController hc = new HomeController();
+            using (SqlConnection con = hc.ConnectDatabase())
+            {
+                string _SQL = "insert into relation_document_product (doc_id,product_id,doc_type_id,create_by_user_id) output inserted.rel_d_p_id " +
+                    "values ('" + val.doc_id + "', '" + val.product_id + "', '" + val.doc_type_id + "', 1)";
+                SqlCommand cmd = new SqlCommand(_SQL, con);
+                try
+                {
+                    var id_return = Int32.Parse(cmd.ExecuteScalar().ToString());
+                    if (id_return >= 1)
+                    {
+                        ecm.result = 0;
+                        ecm.code = "OK";
+                        ecm.id_return = id_return.ToString();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ecm.result = 1;
+                    ecm.code = ex.Message;
+                }
+                con.Close();
+            }
+            return ecm;
+        }
+
+        // POST CheckList/Profile/InsertRelSafetyProduct 
+        /// <summary>
+        /// เพิ่มความสัมพันธ์อุปกรณ์ Safety และสินค้า
+        /// </summary>
+        /// <param name="val"></param>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [Route("InsertRelSafetyProduct")]
+        public ExecuteModels InsertRelSafetyProduct(RelSafetyProductModels val)
+        {
+            ExecuteModels ecm = new ExecuteModels();
+            HomeController hc = new HomeController();
+            using (SqlConnection con = hc.ConnectDatabase())
+            {
+                string _SQL = "insert into relation_equipment_safety_product (eq_safety_id,product_id,amount,create_by_user_id) output inserted.rel_e_s_p_id " +
+                    "values ('" + val.eq_safety_id + "', '" + val.product_id + "', '" + val.amount + "', 1)";
+                SqlCommand cmd = new SqlCommand(_SQL, con);
+                try
+                {
+                    var id_return = Int32.Parse(cmd.ExecuteScalar().ToString());
+                    if (id_return >= 1)
+                    {
+                        ecm.result = 0;
+                        ecm.code = "OK";
+                        ecm.id_return = id_return.ToString();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ecm.result = 1;
+                    ecm.code = ex.Message;
+                }
+                con.Close();
+            }
+            return ecm;
+        }
+
+        // POST CheckList/Profile/InsertRelTranProduct 
+        /// <summary>
+        /// เพิ่มความสัมพันธ์อุปกรณ์ Tran และสินค้า
+        /// </summary>
+        /// <param name="val"></param>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [Route("InsertRelTranProduct")]
+        public ExecuteModels InsertRelTranProduct(RelTranProductModels val)
+        {
+            ExecuteModels ecm = new ExecuteModels();
+            HomeController hc = new HomeController();
+            using (SqlConnection con = hc.ConnectDatabase())
+            {
+                string _SQL = "insert into relation_equipment_transport_product (eq_tran_id,product_id,amount,create_by_user_id) output inserted.rel_e_t_p_id " +
+                    "values ('" + val.eq_tran_id + "', '" + val.product_id + "', '" + val.amount + "', 1)";
+                SqlCommand cmd = new SqlCommand(_SQL, con);
+                try
+                {
+                    var id_return = Int32.Parse(cmd.ExecuteScalar().ToString());
+                    if (id_return >= 1)
+                    {
+                        ecm.result = 0;
+                        ecm.code = "OK";
+                        ecm.id_return = id_return.ToString();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ecm.result = 1;
+                    ecm.code = ex.Message;
+                }
+                con.Close();
+            }
+            return ecm;
+        }
+
+        // POST CheckList/Profile/InsertRelLicenseProduct 
+        /// <summary>
+        /// เพิ่มความสัมพันธ์รถบรรทุกและสินค้า
+        /// </summary>
+        /// <param name="val"></param>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [Route("InsertRelLicenseProduct")]
+        public ExecuteModels InsertRelLicenseProduct(RelLicenseProductModels val)
+        {
+            ExecuteModels ecm = new ExecuteModels();
+            HomeController hc = new HomeController();
+            using (SqlConnection con = hc.ConnectDatabase())
+            {
+                string _SQL = "insert into relation_license_product (license_id,product_id,create_by_user_id) output inserted.rel_l_p_id " +
+                    "values ('" + val.license_id + "', '" + val.product_id + "', 1)";
+                SqlCommand cmd = new SqlCommand(_SQL, con);
+                try
+                {
+                    var id_return = Int32.Parse(cmd.ExecuteScalar().ToString());
+                    if (id_return >= 1)
+                    {
+                        ecm.result = 0;
+                        ecm.code = "OK";
+                        ecm.id_return = id_return.ToString();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ecm.result = 1;
+                    ecm.code = ex.Message;
+                }
+                con.Close();
+            }
+            return ecm;
+        }
+
+        // POST CheckList/Profile/DeleteRelDriverProduct
+        /// <summary>
+        /// ลบความสัมพันธ์พนักงานขับรถและสินค้า
+        /// </summary>
+        /// <param name="val"></param>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [Route("DeleteRelDriverProduct")]
+        public ExecuteModels DelRelDriverProduct(IdModels val)
+        {
+            ExecuteModels ecm = new ExecuteModels();
+            HomeController hc = new HomeController();
+            using (SqlConnection con = hc.ConnectDatabase())
+            {
+                string _SQL = string.Empty;
+                try
+                {                   
+                    _SQL = "delete from relation_driver_product where product_id = " + val.id;
+                    SqlCommand cmd = new SqlCommand(_SQL, con);
+                    if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
+                    {
+                        ecm.result = 0;
+                        ecm.code = "OK";
+                    }
+                    else
+                    {
+                        ecm.result = 1;
+                        ecm.code = _SQL;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ecm.result = 1;
+                    ecm.code = ex.Message + " => " + _SQL;
+                }
+                con.Close();
+            }
+            return ecm;
+        }
+
+        // POST CheckList/Profile/DelRelDocProduct
+        /// <summary>
+        /// ลบความสัมพันธ์เอกสารและสินค้า
+        /// </summary>
+        /// <param name="val"></param>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [Route("DeleteRelDocProduct")]
+        public ExecuteModels DelRelDocProduct(IdModels val)
+        {
+            ExecuteModels ecm = new ExecuteModels();
+            HomeController hc = new HomeController();
+            using (SqlConnection con = hc.ConnectDatabase())
+            {
+                string _SQL = string.Empty;
+                try
+                {
+                    _SQL = "delete from relation_document_product where product_id = " + val.id;
+                    SqlCommand cmd = new SqlCommand(_SQL, con);
+                    if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
+                    {
+                        ecm.result = 0;
+                        ecm.code = "OK";
+                    }
+                    else
+                    {
+                        ecm.result = 1;
+                        ecm.code = _SQL;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ecm.result = 1;
+                    ecm.code = ex.Message + " => " + _SQL;
+                }
+                con.Close();
+            }
+            return ecm;
+        }
+
+        // POST CheckList/Profile/DeleteRelSafetyProduct
+        /// <summary>
+        /// ลบความสัมพันธ์อุปกรณ์ Safety และสินค้า
+        /// </summary>
+        /// <param name="val"></param>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [Route("DeleteRelSafetyProduct")]
+        public ExecuteModels DelRelSafetyProduct(IdModels val)
+        {
+            ExecuteModels ecm = new ExecuteModels();
+            HomeController hc = new HomeController();
+            using (SqlConnection con = hc.ConnectDatabase())
+            {
+                string _SQL = string.Empty;
+                try
+                {
+                    _SQL = "delete from relation_equipment_safety_product where product_id = " + val.id;
+                    SqlCommand cmd = new SqlCommand(_SQL, con);
+                    if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
+                    {
+                        ecm.result = 0;
+                        ecm.code = "OK";
+                    }
+                    else
+                    {
+                        ecm.result = 1;
+                        ecm.code = _SQL;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ecm.result = 1;
+                    ecm.code = ex.Message + " => " + _SQL;
+                }
+                con.Close();
+            }
+            return ecm;
+        }
+
+        // POST CheckList/Profile/DeleteRelTranProduct
+        /// <summary>
+        /// ลบความสัมพันธ์อุปกรณ์ Tran และสินค้า
+        /// </summary>
+        /// <param name="val"></param>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [Route("DeleteRelTranProduct")]
+        public ExecuteModels DelRelTranProduct(IdModels val)
+        {
+            ExecuteModels ecm = new ExecuteModels();
+            HomeController hc = new HomeController();
+            using (SqlConnection con = hc.ConnectDatabase())
+            {
+                string _SQL = string.Empty;
+                try
+                {
+                    _SQL = "delete from relation_equipment_transport_product where product_id = " + val.id;
+                    SqlCommand cmd = new SqlCommand(_SQL, con);
+                    if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
+                    {
+                        ecm.result = 0;
+                        ecm.code = "OK";
+                    }
+                    else
+                    {
+                        ecm.result = 1;
+                        ecm.code = _SQL;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ecm.result = 1;
+                    ecm.code = ex.Message + " => " + _SQL;
+                }
+                con.Close();
+            }
+            return ecm;
+        }
+
+        // POST CheckList/Profile/DeleteRelLicenseProduct
+        /// <summary>
+        /// ลบความสัมพันธ์รถบรรทุกและสินค้า
+        /// </summary>
+        /// <param name="val"></param>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [Route("DeleteRelLicenseProduct")]
+        public ExecuteModels DelRelLicenseProduct(IdModels val)
+        {
+            ExecuteModels ecm = new ExecuteModels();
+            HomeController hc = new HomeController();
+            using (SqlConnection con = hc.ConnectDatabase())
+            {
+                string _SQL = string.Empty;
+                try
+                {
+                    _SQL = "delete from relation_license_product where product_id = " + val.id;
+                    SqlCommand cmd = new SqlCommand(_SQL, con);
+                    if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
+                    {
+                        ecm.result = 0;
+                        ecm.code = "OK";
+                    }
+                    else
+                    {
+                        ecm.result = 1;
+                        ecm.code = _SQL;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ecm.result = 1;
+                    ecm.code = ex.Message + " => " + _SQL;
+                }
+                con.Close();
+            }
+            return ecm;
+        }
+
+        //// POST CheckList/Profile/GetRelDriverProduct
+        //[AllowAnonymous]
+        //[Route("GetRelDriverProduct")]
+        //public List<ProductAllView> GetRelDriverProduct(RelIdModels val)
+        //{
+        //    HomeController hc = new HomeController();
+        //    List<ProductAllView> ul = new List<ProductAllView>();
+        //    using (SqlConnection con = hc.ConnectDatabase())
+        //    {
+        //        string _SQL = "SELECT * FROM product as p join relation_product_branch as rpb on p.product_id = rpb.product_id where rpb.branch_id = " + val.branch_id;
+        //        using (SqlCommand cmd = new SqlCommand(_SQL, con))
+        //        {
+        //            DataTable _Dt = new DataTable();
+        //            SqlDataAdapter da = new SqlDataAdapter(cmd);
+        //            da.Fill(_Dt);
+        //            da.Dispose();
+        //            foreach (DataRow _Item in _Dt.Rows)
+        //            {
+        //                ProductAllView pav = new ProductAllView();
+        //                pav.product_id = _Item["product_id"].ToString();
+        //                pav.product_name = _Item["product_name"].ToString();
+        //                pav.method_style = _Item["method_style"].ToString();
+        //                pav.method_special = _Item["method_special"].ToString();
+        //                pav.method_normal = _Item["method_normal"].ToString();
+        //                pav.method_contain = _Item["method_contain"].ToString();
+        //                pav.fleet = _Item["fleet"].ToString();
+        //                ul.Add(pav);
+        //            }
+        //        }
+        //        con.Close();
+        //    }
+        //    return ul;
+        //}
+
         #endregion
     }
 }
