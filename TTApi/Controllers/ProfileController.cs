@@ -1341,7 +1341,7 @@ namespace TTApi.Controllers
             HomeController hc = new HomeController();
             using (SqlConnection con = hc.ConnectDatabase())
             {
-                string _SQL = "insert into branch_customer (address,branch_name,,zip_code,province_id,cus_id,create_by_user_id) output inserted.branch_id " +
+                string _SQL = "insert into branch_customer (address,branch_name,zip_code,province_id,cus_id,create_by_user_id) output inserted.branch_id " +
                     "values (N'" + val.address + "', N'" + val.branch_name + "', N'" + val.zip_code + "', N'" + val.province_id + "', " + val.cus_id + ", 1)";
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
