@@ -664,7 +664,7 @@
             <param name="val"></param>
             <returns></returns>
         </member>
-        <member name="M:TTApi.Controllers.ProfileController.TrunkAll(TTApi.Models.BranchCustomerIdModels)">
+        <member name="M:TTApi.Controllers.ProfileController.TrunkAll(TTApi.Models.CustomerIdModels)">
             <summary>
             เรียกดูข้อมูลเส้นทาง
             </summary>
@@ -691,7 +691,7 @@
             <param name="val"></param>
             <returns></returns>
         </member>
-        <member name="M:TTApi.Controllers.ProfileController.GetContactAll(TTApi.Models.BranchCustomerIdModels)">
+        <member name="M:TTApi.Controllers.ProfileController.ContactAll(TTApi.Models.BranchCustomerIdModels)">
             <summary>
             เรียกดูข้อมูลผู้ติดต่อ
             </summary>

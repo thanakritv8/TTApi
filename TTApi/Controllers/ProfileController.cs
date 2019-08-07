@@ -144,6 +144,12 @@ namespace TTApi.Controllers
                                     return ecm;
                                 }
                             }
+                            else
+                            {
+                                ecm.result = 0;
+                                ecm.code = "OK";
+                                ecm.id_return = id_return.ToString();
+                            }
                             // End Upload file
                         }
                     }
@@ -408,6 +414,12 @@ namespace TTApi.Controllers
                                     ecm.result = 1;
                                     ecm.code = ex.Message;
                                 }
+                            }
+                            else
+                            {
+                                ecm.result = 0;
+                                ecm.code = "OK";
+                                ecm.id_return = id_return.ToString();
                             }
                             // End Upload file
                         }
@@ -699,6 +711,12 @@ namespace TTApi.Controllers
                                     ecm.result = 1;
                                     ecm.code = ex.Message;
                                 }
+                            }
+                            else
+                            {
+                                ecm.result = 0;
+                                ecm.code = "OK";
+                                ecm.id_return = id_return.ToString();
                             }
                             // End Upload file
                         }
@@ -1341,8 +1359,8 @@ namespace TTApi.Controllers
             HomeController hc = new HomeController();
             using (SqlConnection con = hc.ConnectDatabase())
             {
-                string _SQL = "insert into branch_customer (address,branch_name,zip_code,province_id,cus_id,create_by_user_id) output inserted.branch_id " +
-                    "values (N'" + val.address + "', N'" + val.branch_name + "', N'" + val.zip_code + "', N'" + val.province_id + "', " + val.cus_id + ", 1)";
+                string _SQL = "insert into branch_customer (address,branch_name,zip_code,cus_id,create_by_user_id) output inserted.branch_id " +
+                    "values (N'" + val.address + "', N'" + val.branch_name + "', N'" + val.zip_code + "', " + val.cus_id + ", 1)";
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     try
@@ -1468,13 +1486,13 @@ namespace TTApi.Controllers
         /// <returns></returns>
         [AllowAnonymous]
         [Route("GetTrunkAll")]
-        public List<TrunkView> TrunkAll(BranchCustomerIdModels val)
+        public List<TrunkView> TrunkAll(CustomerIdModels val)
         {
             HomeController hc = new HomeController();
             List<TrunkView> ul = new List<TrunkView>();
             using (SqlConnection con = hc.ConnectDatabase())
             {
-                string _SQL = "SELECT t.* from relation_trunk_branch as rtb join trunk as t on rtb.trunk_id = t.trunk_id where rtb.branch_id = " + val.branch_id;
+                string _SQL = "SELECT t.* from relation_trunk_branch as rtb join trunk as t on rtb.trunk_id = t.trunk_id join branch_customer as bc on rtb.branch_id = bc.branch_id where bc.cus_id = " + val.cus_id;
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     DataTable _Dt = new DataTable();
@@ -1651,7 +1669,7 @@ namespace TTApi.Controllers
         /// <returns></returns>
         [AllowAnonymous]
         [Route("GetContactAll")]
-        public List<ContactView> GetContactAll(BranchCustomerIdModels val)
+        public List<ContactView> ContactAll(BranchCustomerIdModels val)
         {
             HomeController hc = new HomeController();
             List<ContactView> ul = new List<ContactView>();
@@ -1949,7 +1967,7 @@ namespace TTApi.Controllers
         // POST CheckList/Profile/GetProductAll
         [AllowAnonymous]
         [Route("GetProductAll")]
-        public List<ProductAllView> GetProductAll(BranchCustomerIdModels val)
+        public List<ProductAllView> ProductAll(BranchCustomerIdModels val)
         {
             HomeController hc = new HomeController();
             List<ProductAllView> ul = new List<ProductAllView>();
