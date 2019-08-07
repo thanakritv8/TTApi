@@ -1720,7 +1720,7 @@ namespace TTApi.Controllers
                     var id_return = Int32.Parse(cmd.ExecuteScalar().ToString());
                     if (id_return >= 1)
                     {
-                        _SQL = "insert into relation_contact_branch (contact_id, branch_id) values (" + val.contact_id + ", " + val.branch_id + ")";
+                        _SQL = "insert into relation_contact_branch (contact_id, branch_id) values (" + id_return + ", " + val.branch_id + ")";
                         if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
                         {
                             ecm.result = 0;
@@ -2020,7 +2020,7 @@ namespace TTApi.Controllers
                     var id_return = Int32.Parse(cmd.ExecuteScalar().ToString());
                     if (id_return >= 1)
                     {
-                        _SQL = "insert into relation_product_branch (product_id, branch_id) values (" + val.product_id + ", " + val.branch_id + ")";
+                        _SQL = "insert into relation_product_branch (product_id, branch_id) values (" + id_return + ", " + val.branch_id + ")";
                         if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
                         {
                             ecm.result = 0;
