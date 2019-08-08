@@ -321,7 +321,7 @@ namespace TTApi.Models
         public string trunk_id { get; set; }
         public string source { get; set; }
         public string destination { get; set; }
-        public string branch_id { get; set; }
+        public string cus_id { get; set; }
     }
 
     public class ContactView
@@ -436,7 +436,7 @@ namespace TTApi.Models
         public string method_normal { get; set; }
         public string method_contain { get; set; }
         public string method_special { get; set; }
-        public string branch_id { get; set; }
+        public string cus_id { get; set; }
     }
 
     public class RelDriverProductModels
@@ -473,9 +473,9 @@ namespace TTApi.Models
         public string product_id { get; set; }
     }
 
-    public class RelBranchProductModels
+    public class RelCustomerProductModels
     {
-        public string branch_id { get; set; }
+        public string cus_id { get; set; }
         public string product_id { get; set; }
     }
 
@@ -521,7 +521,7 @@ namespace TTApi.Models
     public class RelBranchProductView
     {
         public string id { get; set; }
-        public string branch_id { get; set; }
+        public string cus_id { get; set; }
         public string product_id { get; set; }
     }
 

@@ -1492,7 +1492,7 @@ namespace TTApi.Controllers
             List<TrunkView> ul = new List<TrunkView>();
             using (SqlConnection con = hc.ConnectDatabase())
             {
-                string _SQL = "SELECT t.* from relation_trunk_branch as rtb join trunk as t on rtb.trunk_id = t.trunk_id join branch_customer as bc on rtb.branch_id = bc.branch_id where bc.cus_id = " + val.cus_id;
+                string _SQL = "SELECT t.* from relation_trunk_customer as rtb join trunk as t on rtb.trunk_id = t.trunk_id where rtb.cus_id = " + val.cus_id;
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     DataTable _Dt = new DataTable();
@@ -1535,7 +1535,7 @@ namespace TTApi.Controllers
                     var id_return = Int32.Parse(cmd.ExecuteScalar().ToString());
                     if (id_return >= 1)
                     {
-                        _SQL = "insert into relation_trunk_branch (trunk_id, branch_id) values (" + val.trunk_id + ", " + val.branch_id + ")";
+                        _SQL = "insert into relation_trunk_customer (trunk_id, cus_id) values (" + val.trunk_id + ", " + val.cus_id + ")";
                         if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
                         {
                             ecm.result = 0;
@@ -1685,6 +1685,7 @@ namespace TTApi.Controllers
                     foreach (DataRow _Item in _Dt.Rows)
                     {
                         ContactView cv = new ContactView();
+                        cv.contact_id = _Item["contact_id"].ToString();
                         cv.name = _Item["name"].ToString();
                         cv.position = _Item["position"].ToString();
                         cv.tel = _Item["tel"].ToString();
@@ -1967,13 +1968,13 @@ namespace TTApi.Controllers
         // POST CheckList/Profile/GetProductAll
         [AllowAnonymous]
         [Route("GetProductAll")]
-        public List<ProductAllView> ProductAll(BranchCustomerIdModels val)
+        public List<ProductAllView> ProductAll(CustomerIdModels val)
         {
             HomeController hc = new HomeController();
             List<ProductAllView> ul = new List<ProductAllView>();
             using (SqlConnection con = hc.ConnectDatabase())
             {
-                string _SQL = "SELECT * FROM product as p join relation_product_branch as rpb on p.product_id = rpb.product_id where rpb.branch_id = " + val.branch_id;
+                string _SQL = "SELECT * FROM product as p join relation_product_customer as rpb on p.product_id = rpb.product_id where rpb.cus_id = " + val.cus_id;
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     DataTable _Dt = new DataTable();
@@ -2020,7 +2021,7 @@ namespace TTApi.Controllers
                     var id_return = Int32.Parse(cmd.ExecuteScalar().ToString());
                     if (id_return >= 1)
                     {
-                        _SQL = "insert into relation_product_branch (product_id, branch_id) values (" + id_return + ", " + val.branch_id + ")";
+                        _SQL = "insert into relation_product_customer (product_id, cus_id) values (" + id_return + ", " + val.cus_id + ")";
                         if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
                         {
                             ecm.result = 0;
