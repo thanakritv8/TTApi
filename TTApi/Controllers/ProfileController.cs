@@ -1722,6 +1722,7 @@ namespace TTApi.Controllers
                     if (id_return >= 1)
                     {
                         _SQL = "insert into relation_contact_branch (contact_id, branch_id) values (" + id_return + ", " + val.branch_id + ")";
+                        cmd = new SqlCommand(_SQL, con);
                         if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
                         {
                             ecm.result = 0;
@@ -2022,6 +2023,7 @@ namespace TTApi.Controllers
                     if (id_return >= 1)
                     {
                         _SQL = "insert into relation_product_customer (product_id, cus_id) values (" + id_return + ", " + val.cus_id + ")";
+                        cmd = new SqlCommand(_SQL, con);
                         if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
                         {
                             ecm.result = 0;
@@ -2127,7 +2129,7 @@ namespace TTApi.Controllers
                     _SQL = "delete from relation_license_product where product_id = " + val.product_id;
                     cmd = new SqlCommand(_SQL, con);
                     cmd.ExecuteNonQuery();
-                    _SQL = "delete from relation_product_branch where product_id = " + val.product_id;
+                    _SQL = "delete from relation_product_customer where product_id = " + val.product_id;
                     cmd = new SqlCommand(_SQL, con);
                     cmd.ExecuteNonQuery();
                     _SQL = "delete from product where product_id = " + val.product_id;
