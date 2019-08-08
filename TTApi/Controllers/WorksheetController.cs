@@ -21,7 +21,7 @@ namespace TTApi.Controllers
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class WorksheetController : ApiController
     {
-        #region EquipmentSafety
+        #region CreateWorksheet
 
         // POST CheckList/Profile/CreateWorksheet
         /// <summary>
