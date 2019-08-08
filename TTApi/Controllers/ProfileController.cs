@@ -1504,7 +1504,8 @@ namespace TTApi.Controllers
                         TrunkView tv = new TrunkView();
                         tv.trunk_id = _Item["trunk_id"].ToString();
                         tv.source = _Item["source"].ToString();
-                        tv.destination = _Item["destination"].ToString();                        
+                        tv.destination = _Item["destination"].ToString();
+                        tv.station = _Item["station"].ToString();
                         ul.Add(tv);
                     }
                 }
@@ -1527,8 +1528,8 @@ namespace TTApi.Controllers
             HomeController hc = new HomeController();
             using (SqlConnection con = hc.ConnectDatabase())
             {
-                string _SQL = "insert into trunk (source,destination,create_by_user_id) output inserted.trunk_id " +
-                    "values (N'" + val.source + "', N'" + val.destination + "', 1)";
+                string _SQL = "insert into trunk (source,destination,station,create_by_user_id) output inserted.trunk_id " +
+                    "values (N'" + val.source + "', N'" + val.destination + "',N'" + val.station + "', 1)";
                 SqlCommand cmd = new SqlCommand(_SQL, con);                
                 try
                 {
@@ -1570,8 +1571,8 @@ namespace TTApi.Controllers
         {
             ExecuteModels ecm = new ExecuteModels();
             string _SQL_Set = string.Empty;
-            string[] Col_Arr = { "source", "destination" };
-            string[] Val_Arr = { val.source, val.destination };
+            string[] Col_Arr = { "source", "destination", "station" };
+            string[] Val_Arr = { val.source, val.destination, val.station };
             for (int n = 0; n <= Val_Arr.Length - 1; n++)
             {
                 if (Val_Arr[n] != null)
@@ -1623,7 +1624,7 @@ namespace TTApi.Controllers
             HomeController hc = new HomeController();
             using (SqlConnection con = hc.ConnectDatabase())
             {
-                string _SQL = "delete from relation_trunk_branch where trunk_id = " + val.trunk_id;
+                string _SQL = "delete from relation_trunk_customer where trunk_id = " + val.trunk_id;
                 SqlCommand cmd = new SqlCommand(_SQL, con);                
                 try
                 {
@@ -1810,7 +1811,7 @@ namespace TTApi.Controllers
             HomeController hc = new HomeController();
             using (SqlConnection con = hc.ConnectDatabase())
             {
-                string _SQL = "delete from relation_contact_branch where contact_id = " + val.contact_id;
+                string _SQL = "delete from relation_contact_customer where contact_id = " + val.contact_id;
                 SqlCommand cmd = new SqlCommand(_SQL, con);
                 try
                 {
