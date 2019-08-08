@@ -297,6 +297,7 @@ namespace TTApi.Controllers
         // POST CheckList/Profile/GetEquipmentTransportAll
         [AllowAnonymous]
         [Route("GetEquipmentTransportAll")]
+        
         public List<EquipmentTransportView> GetEquipmentTransportAll()
         {
             HomeController hc = new HomeController();
@@ -1341,7 +1342,7 @@ namespace TTApi.Controllers
             HomeController hc = new HomeController();
             using (SqlConnection con = hc.ConnectDatabase())
             {
-                string _SQL = "insert into branch_customer (address,branch_name,,zip_code,province_id,cus_id,create_by_user_id) output inserted.branch_id " +
+                string _SQL = "insert into branch_customer (address,branch_name,zip_code,province_id,cus_id,create_by_user_id) output inserted.branch_id " +
                     "values (N'" + val.address + "', N'" + val.branch_name + "', N'" + val.zip_code + "', N'" + val.province_id + "', " + val.cus_id + ", 1)";
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
@@ -1651,6 +1652,7 @@ namespace TTApi.Controllers
         /// <returns></returns>
         [AllowAnonymous]
         [Route("GetContactAll")]
+        [HttpPost]
         public List<ContactView> GetContactAll(BranchCustomerIdModels val)
         {
             HomeController hc = new HomeController();
@@ -1667,6 +1669,7 @@ namespace TTApi.Controllers
                     foreach (DataRow _Item in _Dt.Rows)
                     {
                         ContactView cv = new ContactView();
+                        cv.contact_id = _Item["contact_id"].ToString();
                         cv.name = _Item["name"].ToString();
                         cv.position = _Item["position"].ToString();
                         cv.tel = _Item["tel"].ToString();
@@ -1702,8 +1705,9 @@ namespace TTApi.Controllers
                     var id_return = Int32.Parse(cmd.ExecuteScalar().ToString());
                     if (id_return >= 1)
                     {
-                        _SQL = "insert into relation_contact_branch (contact_id, branch_id) values (" + val.contact_id + ", " + val.branch_id + ")";
-                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
+                        _SQL = "insert into relation_contact_branch (contact_id, branch_id) values (" + id_return + ", " + val.branch_id + ")";
+                        SqlCommand cmdRela = new SqlCommand(_SQL, con);
+                        if (Int32.Parse(cmdRela.ExecuteNonQuery().ToString()) == 1)
                         {
                             ecm.result = 0;
                             ecm.code = "OK";
