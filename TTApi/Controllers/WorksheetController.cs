@@ -60,7 +60,7 @@ namespace TTApi.Controllers
                     ",driver_id_1  ,driver_id_2 ,driver_id_3  ,license_id_head  ,license_id_tail ,remark ,tran_status_id ,create_by_user_id ,sheet_name ,cont1,cont2   ) " +
      " output inserted.tran_id VALUES (N'" + val.tran_code + "', N'" + val.number_po + "', '" + val.cus_id + "', '" + val.branch_id + "', '" + val.contact_id + "', '" + val.product_id + "'" +
            ", '" + val.trunk_id + "' ,'" + val.driver_id_1 + "' , '" + val.driver_id_2 + "', '" + val.driver_id_3 + "', '" + val.license_id_head + "' , '" + val.license_id_tail + "'" +
-           ", N'" + val.remark + "'  , '" + val.tran_status_id + "'  , 1  , '" + val.sheet_name + "' , '" + val.cont1 + "', '" + val.cont2 + "')";
+           ", N'" + val.remark + "'  , 1  , 1  , '" + val.sheet_name + "' , '" + val.cont1 + "', '" + val.cont2 + "')";
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     try
