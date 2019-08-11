@@ -426,5 +426,52 @@ namespace TTApi.Controllers
         }
 
         #endregion
+
+
+        #region UpdateStatusWorksheet
+
+        // POST CheckList/Profile/UpdateStatusWorksheet
+        /// <summary>
+        /// UpdateStatusWorksheet
+        /// </summary>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [Route("UpdateStatusWorksheet")]
+        public ExecuteModels UpdateStatusWorksheet(StatusWorksheetModels val)
+        {
+            ExecuteModels ecm = new ExecuteModels();
+            HomeController hc = new HomeController();
+            using (SqlConnection con = hc.ConnectDatabase())
+            {
+                string _SQL = "UPDATE  transport SET  tran_status_id = " + val.tran_status_id + ", update_by_user_id = 1  where tran_id = " + val.tran_id;
+
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    try
+                    {
+                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
+                        {
+                            ecm.result = 0;
+                            ecm.code = "OK";
+                        }
+                        else
+                        {
+                            ecm.result = 1;
+                            ecm.code = _SQL;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        ecm.result = 1;
+                        ecm.code = ex.Message;
+                    }
+                }
+                con.Close();
+            }
+            return ecm;
+        }
+ 
+
+        #endregion
     }
 }
