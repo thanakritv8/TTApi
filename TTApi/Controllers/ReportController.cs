@@ -100,5 +100,43 @@ namespace TTApi.Controllers
                        
         }
         #endregion
+
+        #region CheckList
+        public ActionResult CheckListWorkSheet(string id, string name_report)
+        {
+            string name_dataset = string.Empty;
+            if (name_report == "Report4")
+            {
+                name_dataset = "DataSetWorkSheet";
+            }
+            
+            //link use Home/ExportWorkSheet?id=2
+            ReportDataSource rds = new ReportDataSource(name_dataset, GetReportWorkSheet(id, name_report));
+            LocalReport report = new LocalReport();
+            report.ReportPath = Path.Combine(Server.MapPath("~/Reports"), name_report + ".rdlc");
+            report.DataSources.Clear();
+            //report.SetParameters(new ReportParameter[] { parameter });
+            report.DataSources.Add(rds);
+            report.Refresh();
+            PrintPDF(report);
+            return View();
+        }
+
+        private DataTable GetReportWorkSheet(string id, string name_report)
+        {
+            if (name_report == "Report4")
+            {
+                Models.DataSetWorkSheetTableAdapters.sp_WorkSheetTableAdapter da = new Models.DataSetWorkSheetTableAdapters.sp_WorkSheetTableAdapter();
+                DataSetWorkSheet.sp_WorkSheetDataTable dt = new DataSetWorkSheet.sp_WorkSheetDataTable();
+                da.Fill(dt, id);
+                return dt;
+            }            
+            else
+            {
+                return new DataTable();
+            }
+
+        }
+        #endregion
     }
 }

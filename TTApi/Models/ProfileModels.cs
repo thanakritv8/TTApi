@@ -233,6 +233,11 @@ namespace TTApi.Models
     public class CustomerIdModels
     {
         public string cus_id { get; set; }
+        /// <summary>
+        /// 0 = Normal
+        /// 1 = Approve
+        /// </summary>
+        public int typeGet { get; set; }
     }
 
     public class CustomerModels
@@ -352,34 +357,6 @@ namespace TTApi.Models
         public string branch_id { get; set; }
     }
 
-    //public class Product
-    //{
-    //    /// <summary>
-    //    /// Product id
-    //    /// </summary>
-    //    public string product_id { get; set; }
-    //    /// <summary>
-    //    /// Product name
-    //    /// </summary>
-    //    public string product_name { get; set; }
-    //    /// <summary>
-    //    /// Fleet
-    //    /// </summary>
-    //    public string fleet { get; set; }
-    //    /// <summary>
-    //    /// Style
-    //    /// </summary>
-    //    public string style_name { get; set; }
-    //    /// <summary>
-    //    /// พขร/รถบรรทุก
-    //    /// </summary>
-    //    public string DriverOrTruck { get; set; }
-    //    /// <summary>
-    //    /// เอกสาร/อุปกรณ์
-    //    /// </summary>
-    //    public string DocumentOrEquipment { get; set; }
-
-    //}
     #endregion
 
     #region Driver

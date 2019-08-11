@@ -15,7 +15,7 @@ using TTApi.Models;
 namespace TTApi.Controllers
 {
     /// <summary>
-    /// Link http://43.254.133.49:8015/TTApi/CheckList/Profile
+    /// Link http://http://tabien.threetrans.com/TTApi/CheckList/Profile
     /// </summary>
     [Authorize]
     [RoutePrefix("CheckList/Profile")]
@@ -1322,6 +1322,12 @@ namespace TTApi.Controllers
             using (SqlConnection con = hc.ConnectDatabase())
             {
                 string _SQL = "select * from branch_customer where cus_id = " + val.cus_id;
+
+                if(val.typeGet == 1)
+                {
+                    _SQL += " and status_approve = 1";
+                }
+
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     DataTable _Dt = new DataTable();
@@ -1848,40 +1854,6 @@ namespace TTApi.Controllers
 
         #endregion
 
-        //// POST CheckList/Profile/ProductAll
-        //[AllowAnonymous]
-        //[Route("GetProductAll")]
-        //public List<Product> ProductAll(CustomerIdModels val)
-        //{
-
-        //    HomeController hc = new HomeController();
-        //    List<Product> ul = new List<Product>();
-        //    using (SqlConnection con = hc.ConnectDatabase())
-        //    {
-        //        string _SQL = "select p.product_name, p.fleet, p.style_id from product as p join relation_product_branch as rpb on p.product_id = rpb.product_id" +
-        //            "where rpb.branch_id = 1";
-        //        using (SqlCommand cmd = new SqlCommand(_SQL, con))
-        //        {
-        //            DataTable _Dt = new DataTable();
-        //            SqlDataAdapter da = new SqlDataAdapter(cmd);
-        //            da.Fill(_Dt);
-        //            da.Dispose();
-        //            foreach (DataRow _Item in _Dt.Rows)
-        //            {
-        //                Product product = new Product();
-        //                product.product_id = _Item["product_id"].ToString();
-        //                product.product_name = _Item["product_name"].ToString();
-        //                product.fleet = _Item["fleet"].ToString();
-        //                product.style_name = _Item["style_name"].ToString();
-        //                product.DriverOrTruck = _Item["DriverOrTruck"].ToString();
-        //                product.DocumentOrEquipment = _Item["DocumentOrEquipment"].ToString();
-        //                ul.Add(product);
-        //            }
-        //        }
-        //        con.Close();
-        //    }
-        //    return ul;
-        //}
         #endregion
 
         #region Driver
