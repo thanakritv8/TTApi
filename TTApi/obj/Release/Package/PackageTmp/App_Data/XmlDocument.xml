@@ -483,7 +483,7 @@
         </member>
         <member name="T:TTApi.Controllers.ProfileController">
             <summary>
-            Link http://43.254.133.49:8015/TTApi/CheckList/Profile
+            Link http://http://tabien.threetrans.com/TTApi/CheckList/Profile
             </summary>
         </member>
         <member name="M:TTApi.Controllers.ProfileController.GetEquipmentSafetyAll">
@@ -907,6 +907,56 @@
             <param name="val"></param>
             <returns></returns>
         </member>
+        <member name="M:TTApi.Controllers.WorksheetController.InsertWorksheet(TTApi.Models.WorksheetModels)">
+            <summary>
+            สร้างใบงาน
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TTApi.Controllers.WorksheetController.UpdateWorksheet(TTApi.Models.WorksheetModels)">
+            <summary>
+            อัพเดทใบงาน
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TTApi.Controllers.WorksheetController.DelWorksheet(TTApi.Models.WorksheetModels)">
+            <summary>
+            ลบWorksheet
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TTApi.Controllers.WorksheetController.GetWorksheetAll">
+            <summary>
+            เรียกดูข้อมูลWorksheet
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TTApi.Controllers.WorksheetController.InsertTempWorksheet(TTApi.Models.TempWorksheetModels)">
+            <summary>
+            เพิ่ม temp worksheet
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TTApi.Controllers.WorksheetController.UpdateTempWorksheet(TTApi.Models.TempWorksheetModels)">
+            <summary>
+            อัพเดทTempWorksheet
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TTApi.Controllers.WorksheetController.DelTempWorksheet(TTApi.Models.TempWorksheetModels)">
+            <summary>
+            ลบTempWorksheet
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TTApi.Controllers.WorksheetController.GetTempWorksheetAll">
+            <summary>
+            เรียกดูข้อมูลTempWorksheet
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:TTApi.Models.DataSetGetReport1">
              <summary>
             Represents a strongly typed in-memory cache of data.
@@ -1102,6 +1152,71 @@
             Used to sort self-referenced table's rows
             </summary>
         </member>
+        <member name="T:TTApi.Models.DataSetWorkSheet">
+             <summary>
+            Represents a strongly typed in-memory cache of data.
+            </summary>
+        </member>
+        <member name="T:TTApi.Models.DataSetWorkSheet.sp_WorkSheetDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:TTApi.Models.DataSetWorkSheet.sp_WorkSheetRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:TTApi.Models.DataSetWorkSheet.sp_WorkSheetRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:TTApi.Models.DataSetWorkSheetTableAdapters.sp_WorkSheetTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:TTApi.Models.DataSetWorkSheetTableAdapters.TableAdapterManager">
+             <summary>
+            TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+            </summary>
+        </member>
+        <member name="M:TTApi.Models.DataSetWorkSheetTableAdapters.TableAdapterManager.UpdateUpdatedRows(TTApi.Models.DataSetWorkSheet,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+             <summary>
+            Update rows in top-down order.
+            </summary>
+        </member>
+        <member name="M:TTApi.Models.DataSetWorkSheetTableAdapters.TableAdapterManager.UpdateInsertedRows(TTApi.Models.DataSetWorkSheet,System.Collections.Generic.List{System.Data.DataRow})">
+             <summary>
+            Insert rows in top-down order.
+            </summary>
+        </member>
+        <member name="M:TTApi.Models.DataSetWorkSheetTableAdapters.TableAdapterManager.UpdateDeletedRows(TTApi.Models.DataSetWorkSheet,System.Collections.Generic.List{System.Data.DataRow})">
+             <summary>
+            Delete rows in bottom-up order.
+            </summary>
+        </member>
+        <member name="M:TTApi.Models.DataSetWorkSheetTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+             <summary>
+            Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+            </summary>
+        </member>
+        <member name="M:TTApi.Models.DataSetWorkSheetTableAdapters.TableAdapterManager.UpdateAll(TTApi.Models.DataSetWorkSheet)">
+             <summary>
+            Update all changes to the dataset.
+            </summary>
+        </member>
+        <member name="T:TTApi.Models.DataSetWorkSheetTableAdapters.TableAdapterManager.UpdateOrderOption">
+             <summary>
+            Update Order Option
+            </summary>
+        </member>
+        <member name="T:TTApi.Models.DataSetWorkSheetTableAdapters.TableAdapterManager.SelfReferenceComparer">
+             <summary>
+            Used to sort self-referenced table's rows
+            </summary>
+        </member>
         <member name="T:TTApi.Models.ExecuteModels">
             <summary>
             ผลการ Execute ใช้ใน insert, update, delete
@@ -1240,6 +1355,12 @@
         <member name="P:TTApi.Models.ListGallery.position">
             <summary>
             position img
+            </summary>
+        </member>
+        <member name="P:TTApi.Models.CustomerIdModels.typeGet">
+            <summary>
+            0 = Normal
+            1 = Approve
             </summary>
         </member>
         <member name="T:TTApi.Models.CustomerAllView">

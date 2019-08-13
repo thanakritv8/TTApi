@@ -1498,7 +1498,7 @@ namespace TTApi.Controllers
             List<TrunkView> ul = new List<TrunkView>();
             using (SqlConnection con = hc.ConnectDatabase())
             {
-                string _SQL = "SELECT t.* from relation_trunk_customer as rtb join trunk as t on rtb.trunk_id = t.trunk_id where rtb.cus_id = " + val.cus_id;
+                string _SQL = "SELECT * from trunk where cus_id = " + val.cus_id;
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     DataTable _Dt = new DataTable();
@@ -1512,6 +1512,7 @@ namespace TTApi.Controllers
                         tv.source = _Item["source"].ToString();
                         tv.destination = _Item["destination"].ToString();
                         tv.station = _Item["station"].ToString();
+                        tv.cus_id = _Item["cus_id"].ToString();
                         ul.Add(tv);
                     }
                 }
@@ -1534,26 +1535,35 @@ namespace TTApi.Controllers
             HomeController hc = new HomeController();
             using (SqlConnection con = hc.ConnectDatabase())
             {
-                string _SQL = "insert into trunk (source,destination,station,create_by_user_id) output inserted.trunk_id " +
-                    "values (N'" + val.source + "', N'" + val.destination + "',N'" + val.station + "', 1)";
+                string _SQL = "insert into trunk (source,destination,station,cus_id,create_by_user_id) output inserted.trunk_id " +
+                    "values (N'" + val.source + "', N'" + val.destination + "',N'" + val.station + "', " + val.cus_id + ", 1)";
                 SqlCommand cmd = new SqlCommand(_SQL, con);                
                 try
                 {
                     var id_return = Int32.Parse(cmd.ExecuteScalar().ToString());
                     if (id_return >= 1)
                     {
-                        _SQL = "insert into relation_trunk_customer (trunk_id, cus_id) values (" + val.trunk_id + ", " + val.cus_id + ")";
-                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
-                        {
-                            ecm.result = 0;
-                            ecm.code = "OK";
-                            ecm.id_return = id_return.ToString();
-                        }
-                        else
-                        {
-                            ecm.result = 1;
-                            ecm.code = _SQL;
-                        }                            
+
+                        ecm.result = 0;
+                        ecm.code = "OK";
+                        ecm.id_return = id_return.ToString();
+                        //_SQL = "insert into relation_trunk_customer (trunk_id, cus_id) values (" + val.trunk_id + ", " + val.cus_id + ")";
+                        //if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
+                        //{
+                        //    ecm.result = 0;
+                        //    ecm.code = "OK";
+                        //    ecm.id_return = id_return.ToString();
+                        //}
+                        //else
+                        //{
+                        //    ecm.result = 1;
+                        //    ecm.code = _SQL;
+                        //}                            
+                    }
+                    else
+                    {
+                        ecm.result = 1;
+                        ecm.code = _SQL;
                     }
                 }
                 catch (Exception ex)
@@ -1577,8 +1587,8 @@ namespace TTApi.Controllers
         {
             ExecuteModels ecm = new ExecuteModels();
             string _SQL_Set = string.Empty;
-            string[] Col_Arr = { "source", "destination", "station" };
-            string[] Val_Arr = { val.source, val.destination, val.station };
+            string[] Col_Arr = { "source", "destination", "station", "cus_id" };
+            string[] Val_Arr = { val.source, val.destination, val.station, val.cus_id };
             for (int n = 0; n <= Val_Arr.Length - 1; n++)
             {
                 if (Val_Arr[n] != null)
@@ -1630,24 +1640,14 @@ namespace TTApi.Controllers
             HomeController hc = new HomeController();
             using (SqlConnection con = hc.ConnectDatabase())
             {
-                string _SQL = "delete from relation_trunk_customer where trunk_id = " + val.trunk_id;
+                string _SQL = "delete from trunk where trunk_id = " + val.trunk_id;
                 SqlCommand cmd = new SqlCommand(_SQL, con);                
                 try
                 {
                     if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
                     {
-                        _SQL = "delete from trunk where trunk_id = " + val.trunk_id;
-                        cmd = new SqlCommand(_SQL, con);
-                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
-                        {
-                            ecm.result = 0;
-                            ecm.code = "OK";
-                        }
-                        else
-                        {
-                            ecm.result = 1;
-                            ecm.code = _SQL;
-                        }
+                        ecm.result = 0;
+                        ecm.code = "OK";
                     }
                     else
                     {

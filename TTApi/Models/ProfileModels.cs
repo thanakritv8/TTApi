@@ -315,6 +315,7 @@ namespace TTApi.Models
         public string source { get; set; }
         public string destination { get; set; }
         public string station { get; set; }
+        public string cus_id { get; set; }
     }
 
     public class TrunkIdModels
