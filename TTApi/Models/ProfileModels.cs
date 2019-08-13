@@ -517,4 +517,15 @@ namespace TTApi.Models
     }
 
     #endregion
+
+    #region Approve
+    public class ApproveModels
+    {
+        public string id { get; set; }
+        public string nametable { get; set; }
+        public string nameid { get; set; }
+    }
+        
+
+    #endregion
 }

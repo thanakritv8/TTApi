@@ -821,6 +821,13 @@
             <param name="val"></param>
             <returns></returns>
         </member>
+        <member name="M:TTApi.Controllers.ProfileController.UpdateApprove(TTApi.Models.ApproveModels)">
+            <summary>
+            Update Approve
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
         <member name="T:TTApi.Controllers.TabienController">
             <summary>
             

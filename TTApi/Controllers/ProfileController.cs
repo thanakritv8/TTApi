@@ -1454,11 +1454,14 @@ namespace TTApi.Controllers
             HomeController hc = new HomeController();
             using (SqlConnection con = hc.ConnectDatabase())
             {
-                string _SQL = "delete from branch_customer where branch_id = " + val.branch_id;
-                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                string _SQL = "delete from relation_contact_branch where branch_id = " + val.branch_id;
+                SqlCommand cmd = new SqlCommand(_SQL, con);
+                try
                 {
-                    try
+                    if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
                     {
+                        _SQL = "delete from branch_customer where branch_id = " + val.branch_id;
+                        cmd = new SqlCommand(_SQL, con);
                         if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
                         {
                             ecm.result = 0;
@@ -1470,14 +1473,19 @@ namespace TTApi.Controllers
                             ecm.code = _SQL;
                         }
                     }
-                    catch (Exception ex)
+                    else
                     {
                         ecm.result = 1;
-                        ecm.code = ex.Message;
+                        ecm.code = _SQL;
                     }
                 }
+                catch (Exception ex)
+                {
+                    ecm.result = 1;
+                    ecm.code = ex.Message;
+                }
                 con.Close();
-            }
+            }            
             return ecm;
         }
 
@@ -1640,14 +1648,24 @@ namespace TTApi.Controllers
             HomeController hc = new HomeController();
             using (SqlConnection con = hc.ConnectDatabase())
             {
-                string _SQL = "delete from trunk where trunk_id = " + val.trunk_id;
-                SqlCommand cmd = new SqlCommand(_SQL, con);                
+                string _SQL = "delete from relation_trunk_customer where trunk_id = " + val.trunk_id;
+                SqlCommand cmd = new SqlCommand(_SQL, con);
                 try
                 {
                     if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
                     {
-                        ecm.result = 0;
-                        ecm.code = "OK";
+                        _SQL = "delete from trunk where trunk_id = " + val.trunk_id;
+                        cmd = new SqlCommand(_SQL, con);
+                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
+                        {
+                            ecm.result = 0;
+                            ecm.code = "OK";
+                        }
+                        else
+                        {
+                            ecm.result = 1;
+                            ecm.code = _SQL;
+                        }
                     }
                     else
                     {
@@ -1817,7 +1835,7 @@ namespace TTApi.Controllers
             HomeController hc = new HomeController();
             using (SqlConnection con = hc.ConnectDatabase())
             {
-                string _SQL = "delete from relation_contact_customer where contact_id = " + val.contact_id;
+                string _SQL = "delete from relation_contact_branch where contact_id = " + val.contact_id;
                 SqlCommand cmd = new SqlCommand(_SQL, con);
                 try
                 {
@@ -2550,6 +2568,50 @@ namespace TTApi.Controllers
         //    return ul;
         //}
 
+        #endregion
+
+        #region Approve
+        // POST CheckList/Profile/UpdateApprove
+        /// <summary>
+        /// Update Approve
+        /// </summary>
+        /// <param name="val"></param>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [Route("UpdateApprove")]
+        public ExecuteModels UpdateApprove(ApproveModels val)
+        {
+            ExecuteModels ecm = new ExecuteModels();
+            try
+            {
+                HomeController hc = new HomeController();
+                using (SqlConnection con = hc.ConnectDatabase())
+                {
+
+                    string _SQL = "update " + val.nametable + " set station_approve = 1 where " + val.nameid + " = " + val.id;
+                    using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                    {
+                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
+                        {
+                            ecm.result = 0;
+                            ecm.code = "OK";
+                        }
+                        else
+                        {
+                            ecm.result = 1;
+                            ecm.code = _SQL;
+                        }
+                    }
+                    con.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                ecm.result = 1;
+                ecm.code = ex.Message;
+            }
+            return ecm;                              
+        }
         #endregion
     }
 }
