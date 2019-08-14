@@ -465,6 +465,7 @@ namespace TTApi.Models
         public string driver_id { get; set; }
         public string product_id { get; set; }
         public string score { get; set; }
+        public string status_approve { get; set; }
     }
 
     public class RelDocProductView
@@ -473,6 +474,7 @@ namespace TTApi.Models
         public string doc_id { get; set; }
         public string product_id { get; set; }
         public string doc_type_id { get; set; }
+        public string status_approve { get; set; }
     }
 
     public class RelSafetyProductView
@@ -481,6 +483,7 @@ namespace TTApi.Models
         public string eq_safety_id { get; set; }
         public string product_id { get; set; }
         public string amount { get; set; }
+        public string status_approve { get; set; }
     }
 
     public class RelTranProductView
@@ -489,6 +492,7 @@ namespace TTApi.Models
         public string eq_tran_id { get; set; }
         public string product_id { get; set; }
         public string amount { get; set; }
+        public string status_approve { get; set; }
     }
 
     public class RelLicenseProductView
@@ -496,13 +500,15 @@ namespace TTApi.Models
         public string id { get; set; }
         public string license_id { get; set; }
         public string product_id { get; set; }
+        public string status_approve { get; set; }
     }
 
-    public class RelBranchProductView
+    public class RelCusProductView
     {
         public string id { get; set; }
         public string cus_id { get; set; }
         public string product_id { get; set; }
+        public string status_approve { get; set; }
     }
 
     public class IdModels
@@ -515,6 +521,8 @@ namespace TTApi.Models
         public string pk_id { get; set; }
         public string fk_id { get; set; }
     }
+
+
 
     #endregion
 

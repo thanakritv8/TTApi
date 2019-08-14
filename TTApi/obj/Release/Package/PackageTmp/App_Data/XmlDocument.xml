@@ -821,6 +821,41 @@
             <param name="val"></param>
             <returns></returns>
         </member>
+        <member name="M:TTApi.Controllers.ProfileController.RelDriverProduct(TTApi.Models.IdModels)">
+            <summary>
+            product_id
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TTApi.Controllers.ProfileController.RelDocProduct(TTApi.Models.IdModels)">
+            <summary>
+            product_id
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TTApi.Controllers.ProfileController.RelSafetyProduct(TTApi.Models.IdModels)">
+            <summary>
+            product_id
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TTApi.Controllers.ProfileController.RelTranProduct(TTApi.Models.IdModels)">
+            <summary>
+            product_id
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TTApi.Controllers.ProfileController.RelLicenseProduct(TTApi.Models.IdModels)">
+            <summary>
+            product_id
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
         <member name="M:TTApi.Controllers.ProfileController.UpdateApprove(TTApi.Models.ApproveModels)">
             <summary>
             Update Approve

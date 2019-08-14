@@ -2534,39 +2534,189 @@ namespace TTApi.Controllers
             return ecm;
         }
 
-        //// POST CheckList/Profile/GetRelDriverProduct
-        //[AllowAnonymous]
-        //[Route("GetRelDriverProduct")]
-        //public List<ProductAllView> GetRelDriverProduct(RelIdModels val)
-        //{
-        //    HomeController hc = new HomeController();
-        //    List<ProductAllView> ul = new List<ProductAllView>();
-        //    using (SqlConnection con = hc.ConnectDatabase())
-        //    {
-        //        string _SQL = "SELECT * FROM product as p join relation_product_branch as rpb on p.product_id = rpb.product_id where rpb.branch_id = " + val.branch_id;
-        //        using (SqlCommand cmd = new SqlCommand(_SQL, con))
-        //        {
-        //            DataTable _Dt = new DataTable();
-        //            SqlDataAdapter da = new SqlDataAdapter(cmd);
-        //            da.Fill(_Dt);
-        //            da.Dispose();
-        //            foreach (DataRow _Item in _Dt.Rows)
-        //            {
-        //                ProductAllView pav = new ProductAllView();
-        //                pav.product_id = _Item["product_id"].ToString();
-        //                pav.product_name = _Item["product_name"].ToString();
-        //                pav.method_style = _Item["method_style"].ToString();
-        //                pav.method_special = _Item["method_special"].ToString();
-        //                pav.method_normal = _Item["method_normal"].ToString();
-        //                pav.method_contain = _Item["method_contain"].ToString();
-        //                pav.fleet = _Item["fleet"].ToString();
-        //                ul.Add(pav);
-        //            }
-        //        }
-        //        con.Close();
-        //    }
-        //    return ul;
-        //}
+        // POST CheckList/Profile/GetRelDriverProduct
+        /// <summary>
+        /// product_id
+        /// </summary>
+        /// <param name="val"></param>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [Route("GetRelDriverProduct")]
+        public List<RelDriverProductView> RelDriverProduct(IdModels val)
+        {
+            HomeController hc = new HomeController();
+            List<RelDriverProductView> ul = new List<RelDriverProductView>();
+            using (SqlConnection con = hc.ConnectDatabase())
+            {
+                string _SQL = "SELECT * FROM relation_driver_product where product_id = " + val.id;
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    DataTable _Dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(_Dt);
+                    da.Dispose();
+                    foreach (DataRow _Item in _Dt.Rows)
+                    {
+                        RelDriverProductView rel = new RelDriverProductView();
+                        rel.id = _Item["rel_d_p_id"].ToString();
+                        rel.driver_id = _Item["driver_id"].ToString();
+                        rel.product_id = _Item["product_id"].ToString();
+                        rel.status_approve = _Item["status_approve"].ToString();
+                        rel.score = _Item["score"].ToString();
+                        ul.Add(rel);
+                    }
+                }
+                con.Close();
+            }
+            return ul;
+        }
+
+        // POST CheckList/Profile/GetRelDocProduct
+        /// <summary>
+        /// product_id
+        /// </summary>
+        /// <param name="val"></param>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [Route("GetRelDocProduct")]
+        public List<RelDocProductView> RelDocProduct(IdModels val)
+        {
+            HomeController hc = new HomeController();
+            List<RelDocProductView> ul = new List<RelDocProductView>();
+            using (SqlConnection con = hc.ConnectDatabase())
+            {
+                string _SQL = "SELECT * FROM relation_document_product where product_id = " + val.id;
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    DataTable _Dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(_Dt);
+                    da.Dispose();
+                    foreach (DataRow _Item in _Dt.Rows)
+                    {
+                        RelDocProductView rel = new RelDocProductView();
+                        rel.id = _Item["rel_d_p_id"].ToString();
+                        rel.doc_id = _Item["doc_id"].ToString();
+                        rel.product_id = _Item["product_id"].ToString();
+                        rel.status_approve = _Item["status_approve"].ToString();
+                        rel.doc_type_id = _Item["doc_type_id"].ToString();
+                        ul.Add(rel);
+                    }
+                }
+                con.Close();
+            }
+            return ul;
+        }
+
+        // POST CheckList/Profile/GetRelSafetyProduct
+        /// <summary>
+        /// product_id
+        /// </summary>
+        /// <param name="val"></param>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [Route("GetRelSafetyProduct")]
+        public List<RelSafetyProductView> RelSafetyProduct(IdModels val)
+        {
+            HomeController hc = new HomeController();
+            List<RelSafetyProductView> ul = new List<RelSafetyProductView>();
+            using (SqlConnection con = hc.ConnectDatabase())
+            {
+                string _SQL = "SELECT * FROM relation_equipment_safety_product where product_id = " + val.id;
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    DataTable _Dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(_Dt);
+                    da.Dispose();
+                    foreach (DataRow _Item in _Dt.Rows)
+                    {
+                        RelSafetyProductView rel = new RelSafetyProductView();
+                        rel.id = _Item["rel_e_s_p_id"].ToString();
+                        rel.eq_safety_id = _Item["eq_safety_id"].ToString();
+                        rel.product_id = _Item["product_id"].ToString();
+                        rel.status_approve = _Item["status_approve"].ToString();
+                        rel.amount = _Item["amount"].ToString();
+                        ul.Add(rel);
+                    }
+                }
+                con.Close();
+            }
+            return ul;
+        }
+
+        // POST CheckList/Profile/GetRelTranProduct
+        /// <summary>
+        /// product_id
+        /// </summary>
+        /// <param name="val"></param>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [Route("GetRelTranProduct")]
+        public List<RelTranProductView> RelTranProduct(IdModels val)
+        {
+            HomeController hc = new HomeController();
+            List<RelTranProductView> ul = new List<RelTranProductView>();
+            using (SqlConnection con = hc.ConnectDatabase())
+            {
+                string _SQL = "SELECT * FROM relation_equipment_transport_product where product_id = " + val.id;
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    DataTable _Dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(_Dt);
+                    da.Dispose();
+                    foreach (DataRow _Item in _Dt.Rows)
+                    {
+                        RelTranProductView rel = new RelTranProductView();
+                        rel.id = _Item["rel_e_t_p_id"].ToString();
+                        rel.eq_tran_id = _Item["eq_tran_id"].ToString();
+                        rel.product_id = _Item["product_id"].ToString();
+                        rel.status_approve = _Item["status_approve"].ToString();
+                        rel.amount = _Item["amount"].ToString();
+                        ul.Add(rel);
+                    }
+                }
+                con.Close();
+            }
+            return ul;
+        }
+
+        // POST CheckList/Profile/GetRelTranProduct
+        /// <summary>
+        /// product_id
+        /// </summary>
+        /// <param name="val"></param>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [Route("GetRelLicenseProduct")]
+        public List<RelLicenseProductView> RelLicenseProduct(IdModels val)
+        {
+            HomeController hc = new HomeController();
+            List<RelLicenseProductView> ul = new List<RelLicenseProductView>();
+            using (SqlConnection con = hc.ConnectDatabase())
+            {
+                string _SQL = "SELECT * FROM relation_license_product where product_id = " + val.id;
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    DataTable _Dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(_Dt);
+                    da.Dispose();
+                    foreach (DataRow _Item in _Dt.Rows)
+                    {
+                        RelLicenseProductView rel = new RelLicenseProductView();
+                        rel.id = _Item["rel_l_p_id"].ToString();
+                        rel.license_id = _Item["license_id"].ToString();
+                        rel.product_id = _Item["product_id"].ToString();
+                        rel.status_approve = _Item["status_approve"].ToString();
+                        ul.Add(rel);
+                    }
+                }
+                con.Close();
+            }
+            return ul;
+        }
 
         #endregion
 
