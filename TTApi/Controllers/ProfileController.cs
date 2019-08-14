@@ -2585,7 +2585,7 @@ namespace TTApi.Controllers
             List<RelDocProductView> ul = new List<RelDocProductView>();
             using (SqlConnection con = hc.ConnectDatabase())
             {
-                string _SQL = "SELECT * FROM relation_document_product where product_id = " + val.id;
+                string _SQL = "select d.status_approve, d.doc_id, d.doc_code, d.doc_name, d.remark, d.doc_type_id as type_default, rel.doc_type_id as type_rel, CASE WHEN d.doc_id = rel.doc_id THEN rel.rel_d_p_id ELSE 0 END as rel_id from document as d, relation_document_product as rel where rel.product_id = " + val.id;
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     DataTable _Dt = new DataTable();
@@ -2595,11 +2595,14 @@ namespace TTApi.Controllers
                     foreach (DataRow _Item in _Dt.Rows)
                     {
                         RelDocProductView rel = new RelDocProductView();
-                        rel.id = _Item["rel_d_p_id"].ToString();
+                        rel.id = _Item["rel_id"].ToString();
                         rel.doc_id = _Item["doc_id"].ToString();
-                        rel.product_id = _Item["product_id"].ToString();
+                        rel.doc_code = _Item["doc_code"].ToString();
+                        rel.doc_name = _Item["doc_name"].ToString();
+                        rel.remark = _Item["remark"].ToString();
+                        rel.type_default = _Item["type_default"].ToString();
                         rel.status_approve = _Item["status_approve"].ToString();
-                        rel.doc_type_id = _Item["doc_type_id"].ToString();
+                        rel.type_rel = _Item["type_rel"].ToString();
                         ul.Add(rel);
                     }
                 }

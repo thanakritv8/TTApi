@@ -472,9 +472,12 @@ namespace TTApi.Models
     {
         public string id { get; set; }
         public string doc_id { get; set; }
-        public string product_id { get; set; }
-        public string doc_type_id { get; set; }
+        public string doc_code { get; set; }
+        public string type_rel { get; set; }
         public string status_approve { get; set; }
+        public string doc_name { get; set; }
+        public string remark { get; set; }
+        public string type_default { get; set; }
     }
 
     public class RelSafetyProductView
