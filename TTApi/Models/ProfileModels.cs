@@ -512,6 +512,11 @@ namespace TTApi.Models
         /// เหมือน column type_rel ต่างกันตรงที่ column นี้ใช้ตอน create เพื่อใช้เป็น default
         /// </summary>
         public string type_default { get; set; }
+
+        /// <summary>
+        /// ผ่านการโปรเซสมาแล้ว
+        /// </summary>
+        public string type_show { get; set; }
     }
 
     public class RelSafetyProductView

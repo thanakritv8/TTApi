@@ -2609,6 +2609,14 @@ namespace TTApi.Controllers
                         rel.type_default = _Item["type_default"].ToString();
                         rel.status_approve = _Item["status_approve"].ToString();
                         rel.type_rel = _Item["type_rel"].ToString();
+                        if(_Item["rel_status"].ToString() == "1")
+                        {
+                            rel.type_show = _Item["type_rel"].ToString();
+                        }
+                        else
+                        {
+                            rel.type_show = _Item["type_default"].ToString();
+                        }
                         ul.Add(rel);
                     }
                 }

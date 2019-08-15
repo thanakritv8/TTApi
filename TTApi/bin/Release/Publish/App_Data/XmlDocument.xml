@@ -1507,6 +1507,11 @@
             เหมือน column type_rel ต่างกันตรงที่ column นี้ใช้ตอน create เพื่อใช้เป็น default
             </summary>
         </member>
+        <member name="P:TTApi.Models.RelDocProductView.type_show">
+            <summary>
+            ผ่านการโปรเซสมาแล้ว
+            </summary>
+        </member>
         <member name="T:TTApi.Properties.Resources">
             <summary>
               A strongly-typed resource class, for looking up localized strings, etc.
