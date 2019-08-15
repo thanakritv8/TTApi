@@ -236,6 +236,7 @@ namespace TTApi.Models
         /// <summary>
         /// 0 = Normal
         /// 1 = Approve
+        /// หรือถ้าไม่ใส่จะดึงค้าทั้งหมด
         /// </summary>
         public int typeGet { get; set; }
     }
@@ -461,48 +462,95 @@ namespace TTApi.Models
 
     public class RelDriverProductView
     {
-        public string id { get; set; }
+        public string rel_id { get; set; }
         public string driver_id { get; set; }
-        public string product_id { get; set; }
+        public string driver_name { get; set; }
+        public string rel_status { get; set; }
         public string score { get; set; }
         public string status_approve { get; set; }
     }
 
+    /// <summary>
+    /// แสดงความสัมพันธ์ของเอกสารและสินค้า
+    /// </summary>
     public class RelDocProductView
     {
-        public string id { get; set; }
+        /// <summary>
+        /// เท่ากับ 0 แสดงว่าไม่มีข้อมูลใน table relation
+        /// ถ้ามีค่ามากกว่า 1 แสดงว่ามีข้อมูลใน table relation สามารถใส่ checked ได้
+        /// </summary>
+        public string rel_status { get; set; }
+        /// <summary>
+        /// PK relation
+        /// </summary>
+        public string rel_id { get; set; }
+        /// <summary>
+        /// PK เอกสาร
+        /// </summary>
         public string doc_id { get; set; }
+        /// <summary>
+        /// รหัสเอกสาร
+        /// </summary>
         public string doc_code { get; set; }
+        /// <summary>
+        /// ชนิดเอกสาร นำไป = 1, นำกลับ = 2, ทั้งไปทั้งกลับ = 3 ที่อยู่ใน table relation ใช้ในกรณีอัพเดทหรือแสดงให้ใช้ column นี้
+        /// </summary>
         public string type_rel { get; set; }
+        /// <summary>
+        /// สถานะการ approve ของ relation document กับ product
+        /// </summary>
         public string status_approve { get; set; }
+        /// <summary>
+        /// ชื่อเอกสาร
+        /// </summary>
         public string doc_name { get; set; }
+        /// <summary>
+        /// อื่นๆ
+        /// </summary>
         public string remark { get; set; }
+        /// <summary>
+        /// เหมือน column type_rel ต่างกันตรงที่ column นี้ใช้ตอน create เพื่อใช้เป็น default
+        /// </summary>
         public string type_default { get; set; }
     }
 
     public class RelSafetyProductView
     {
-        public string id { get; set; }
+        public string rel_id { get; set; }
         public string eq_safety_id { get; set; }
-        public string product_id { get; set; }
+        public string eq_safety_code { get; set; }
         public string amount { get; set; }
         public string status_approve { get; set; }
+        public string eq_name { get; set; }
+        public string eq_path { get; set; }
+        public string eq_type_id { get; set; }
+        public string property { get; set; }
+        public string suggestion { get; set; }
+        public string style { get; set; }
     }
 
     public class RelTranProductView
     {
-        public string id { get; set; }
+        public string rel_id { get; set; }
         public string eq_tran_id { get; set; }
-        public string product_id { get; set; }
+        public string eq_tran_code { get; set; }
         public string amount { get; set; }
         public string status_approve { get; set; }
+        public string eq_name { get; set; }
+        public string eq_path { get; set; }
+        public string eq_type_id { get; set; }
+        public string property { get; set; }
+        public string suggestion { get; set; }
+        public string style { get; set; }
     }
 
     public class RelLicenseProductView
     {
-        public string id { get; set; }
+        public string rel_id { get; set; }
         public string license_id { get; set; }
-        public string product_id { get; set; }
+        public string license_car { get; set; }
+        public string number_car { get; set; }
+        public string rel_status { get; set; }
         public string status_approve { get; set; }
     }
 

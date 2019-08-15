@@ -2548,7 +2548,9 @@ namespace TTApi.Controllers
             List<RelDriverProductView> ul = new List<RelDriverProductView>();
             using (SqlConnection con = hc.ConnectDatabase())
             {
-                string _SQL = "SELECT * FROM relation_driver_product where product_id = " + val.id;
+                string _SQL = "select rel.status_approve, d.driver_id, d.driver_name, rel.score, rel.rel_d_p_id as rel_id," +
+                    "case when rel.product_id = " + val.id + " then 1 else 0 end as rel_status " +
+                    "from [TT1995].[dbo].[driver_profile] as d left join relation_driver_product as rel on d.driver_id = rel.driver_id";
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     DataTable _Dt = new DataTable();
@@ -2558,11 +2560,12 @@ namespace TTApi.Controllers
                     foreach (DataRow _Item in _Dt.Rows)
                     {
                         RelDriverProductView rel = new RelDriverProductView();
-                        rel.id = _Item["rel_d_p_id"].ToString();
+                        rel.rel_id = _Item["rel_id"].ToString();
                         rel.driver_id = _Item["driver_id"].ToString();
-                        rel.product_id = _Item["product_id"].ToString();
+                        rel.driver_name = _Item["driver_name"].ToString();
                         rel.status_approve = _Item["status_approve"].ToString();
                         rel.score = _Item["score"].ToString();
+                        rel.rel_status = _Item["rel_status"].ToString();
                         ul.Add(rel);
                     }
                 }
@@ -2585,7 +2588,9 @@ namespace TTApi.Controllers
             List<RelDocProductView> ul = new List<RelDocProductView>();
             using (SqlConnection con = hc.ConnectDatabase())
             {
-                string _SQL = "select d.status_approve, d.doc_id, d.doc_code, d.doc_name, d.remark, d.doc_type_id as type_default, rel.doc_type_id as type_rel, CASE WHEN d.doc_id = rel.doc_id THEN rel.rel_d_p_id ELSE 0 END as rel_id from document as d, relation_document_product as rel where rel.product_id = " + val.id;
+                string _SQL = "select d.status_approve, d.doc_id, d.doc_code, d.doc_name, d.remark, d.doc_type_id as type_default, rel.doc_type_id as type_rel, rel.rel_d_p_id as rel_id," +
+                    "case when rel.product_id = " + val.id + " then 1 else 0 end as rel_status " +
+                    "from document as d left join relation_document_product as rel on d.doc_id = rel.doc_id";
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     DataTable _Dt = new DataTable();
@@ -2595,7 +2600,8 @@ namespace TTApi.Controllers
                     foreach (DataRow _Item in _Dt.Rows)
                     {
                         RelDocProductView rel = new RelDocProductView();
-                        rel.id = _Item["rel_id"].ToString();
+                        rel.rel_id = _Item["rel_id"].ToString();
+                        rel.rel_status = _Item["rel_status"].ToString();
                         rel.doc_id = _Item["doc_id"].ToString();
                         rel.doc_code = _Item["doc_code"].ToString();
                         rel.doc_name = _Item["doc_name"].ToString();
@@ -2625,7 +2631,9 @@ namespace TTApi.Controllers
             List<RelSafetyProductView> ul = new List<RelSafetyProductView>();
             using (SqlConnection con = hc.ConnectDatabase())
             {
-                string _SQL = "SELECT * FROM relation_equipment_safety_product where product_id = " + val.id;
+                string _SQL = "select rel.status_approve, es.eq_safety_id, es.eq_safety_code, es.eq_name, es.eq_path, es.eq_type_id, es.property, es.suggestion, es.style, rel.amount, rel.rel_e_s_p_id as rel_id," +
+                    "case when rel.product_id = " + val.id + " then 1 else 0 end as rel_status " +
+                    "from equipment_safety as es left join relation_equipment_safety_product as rel on es.eq_safety_id = rel.eq_safety_id";
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     DataTable _Dt = new DataTable();
@@ -2635,9 +2643,15 @@ namespace TTApi.Controllers
                     foreach (DataRow _Item in _Dt.Rows)
                     {
                         RelSafetyProductView rel = new RelSafetyProductView();
-                        rel.id = _Item["rel_e_s_p_id"].ToString();
+                        rel.rel_id = _Item["rel_id"].ToString();
                         rel.eq_safety_id = _Item["eq_safety_id"].ToString();
-                        rel.product_id = _Item["product_id"].ToString();
+                        rel.eq_safety_code = _Item["eq_safety_code"].ToString();
+                        rel.eq_name = _Item["eq_name"].ToString();
+                        rel.eq_path = _Item["eq_path"].ToString();
+                        rel.eq_type_id = _Item["eq_type_id"].ToString();
+                        rel.property = _Item["property"].ToString();
+                        rel.suggestion = _Item["suggestion"].ToString();
+                        rel.style = _Item["style"].ToString();
                         rel.status_approve = _Item["status_approve"].ToString();
                         rel.amount = _Item["amount"].ToString();
                         ul.Add(rel);
@@ -2662,7 +2676,9 @@ namespace TTApi.Controllers
             List<RelTranProductView> ul = new List<RelTranProductView>();
             using (SqlConnection con = hc.ConnectDatabase())
             {
-                string _SQL = "SELECT * FROM relation_equipment_transport_product where product_id = " + val.id;
+                string _SQL = "select rel.status_approve, es.eq_tran_id, es.eq_tran_code, es.eq_name, es.eq_path, es.eq_type_id, es.property, es.suggestion, es.style, rel.amount, rel.rel_e_t_p_id as rel_id," +
+                    "case when rel.product_id = " + val.id + " then 1 else 0 end as rel_status " +
+                    "from equipment_transport as es left join relation_equipment_transport_product as rel on es.eq_tran_id = rel.eq_tran_id";
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     DataTable _Dt = new DataTable();
@@ -2672,9 +2688,15 @@ namespace TTApi.Controllers
                     foreach (DataRow _Item in _Dt.Rows)
                     {
                         RelTranProductView rel = new RelTranProductView();
-                        rel.id = _Item["rel_e_t_p_id"].ToString();
-                        rel.eq_tran_id = _Item["eq_tran_id"].ToString();
-                        rel.product_id = _Item["product_id"].ToString();
+                        rel.rel_id = _Item["rel_id"].ToString();
+                        rel.eq_tran_id = _Item["eq_stran_id"].ToString();
+                        rel.eq_tran_code = _Item["eq_tran_code"].ToString();
+                        rel.eq_name = _Item["eq_name"].ToString();
+                        rel.eq_path = _Item["eq_path"].ToString();
+                        rel.eq_type_id = _Item["eq_type_id"].ToString();
+                        rel.property = _Item["property"].ToString();
+                        rel.suggestion = _Item["suggestion"].ToString();
+                        rel.style = _Item["style"].ToString();
                         rel.status_approve = _Item["status_approve"].ToString();
                         rel.amount = _Item["amount"].ToString();
                         ul.Add(rel);
@@ -2699,7 +2721,9 @@ namespace TTApi.Controllers
             List<RelLicenseProductView> ul = new List<RelLicenseProductView>();
             using (SqlConnection con = hc.ConnectDatabase())
             {
-                string _SQL = "SELECT * FROM relation_license_product where product_id = " + val.id;
+                string _SQL = "select rel.status_approve, l.license_id, l.license_car, l.number_car, rel.rel_l_p_id as rel_id," +
+                    "case when rel.product_id = " + val.id + " then 1 else 0 end as rel_status " +
+                    "from [TT1995].[dbo].[license] as l left join relation_license_product as rel on l.license_id = rel.license_id";
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     DataTable _Dt = new DataTable();
@@ -2709,9 +2733,11 @@ namespace TTApi.Controllers
                     foreach (DataRow _Item in _Dt.Rows)
                     {
                         RelLicenseProductView rel = new RelLicenseProductView();
-                        rel.id = _Item["rel_l_p_id"].ToString();
+                        rel.rel_id = _Item["rel_id"].ToString();
                         rel.license_id = _Item["license_id"].ToString();
-                        rel.product_id = _Item["product_id"].ToString();
+                        rel.license_car = _Item["license_car"].ToString();
+                        rel.number_car = _Item["number_car"].ToString();
+                        rel.rel_status = _Item["rel_status"].ToString();
                         rel.status_approve = _Item["status_approve"].ToString();
                         ul.Add(rel);
                     }

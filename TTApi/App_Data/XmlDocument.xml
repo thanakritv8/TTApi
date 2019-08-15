@@ -1403,6 +1403,7 @@
             <summary>
             0 = Normal
             1 = Approve
+            หรือถ้าไม่ใส่จะดึงค้าทั้งหมด
             </summary>
         </member>
         <member name="T:TTApi.Models.CustomerAllView">
@@ -1453,6 +1454,57 @@
         <member name="P:TTApi.Models.BranchCustomerAllView.cus_id">
             <summary>
             Customer id
+            </summary>
+        </member>
+        <member name="T:TTApi.Models.RelDocProductView">
+            <summary>
+            แสดงความสัมพันธ์ของเอกสารและสินค้า
+            </summary>
+        </member>
+        <member name="P:TTApi.Models.RelDocProductView.rel_status">
+            <summary>
+            เท่ากับ 0 แสดงว่าไม่มีข้อมูลใน table relation
+            ถ้ามีค่ามากกว่า 1 แสดงว่ามีข้อมูลใน table relation สามารถใส่ checked ได้
+            </summary>
+        </member>
+        <member name="P:TTApi.Models.RelDocProductView.rel_id">
+            <summary>
+            PK relation
+            </summary>
+        </member>
+        <member name="P:TTApi.Models.RelDocProductView.doc_id">
+            <summary>
+            PK เอกสาร
+            </summary>
+        </member>
+        <member name="P:TTApi.Models.RelDocProductView.doc_code">
+            <summary>
+            รหัสเอกสาร
+            </summary>
+        </member>
+        <member name="P:TTApi.Models.RelDocProductView.type_rel">
+            <summary>
+            ชนิดเอกสาร นำไป = 1, นำกลับ = 2, ทั้งไปทั้งกลับ = 3 ที่อยู่ใน table relation ใช้ในกรณีอัพเดทหรือแสดงให้ใช้ column นี้
+            </summary>
+        </member>
+        <member name="P:TTApi.Models.RelDocProductView.status_approve">
+            <summary>
+            สถานะการ approve ของ relation document กับ product
+            </summary>
+        </member>
+        <member name="P:TTApi.Models.RelDocProductView.doc_name">
+            <summary>
+            ชื่อเอกสาร
+            </summary>
+        </member>
+        <member name="P:TTApi.Models.RelDocProductView.remark">
+            <summary>
+            อื่นๆ
+            </summary>
+        </member>
+        <member name="P:TTApi.Models.RelDocProductView.type_default">
+            <summary>
+            เหมือน column type_rel ต่างกันตรงที่ column นี้ใช้ตอน create เพื่อใช้เป็น default
             </summary>
         </member>
         <member name="T:TTApi.Properties.Resources">
