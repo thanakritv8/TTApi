@@ -532,6 +532,7 @@ namespace TTApi.Models
         public string property { get; set; }
         public string suggestion { get; set; }
         public string style { get; set; }
+        public string rel_status { get; set; }
     }
 
     public class RelTranProductView
@@ -547,6 +548,7 @@ namespace TTApi.Models
         public string property { get; set; }
         public string suggestion { get; set; }
         public string style { get; set; }
+        public string rel_status { get; set; }
     }
 
     public class RelLicenseProductView
