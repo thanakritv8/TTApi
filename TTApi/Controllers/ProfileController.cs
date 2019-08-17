@@ -804,7 +804,7 @@ namespace TTApi.Controllers
                 {
                     try
                     {
-                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
+                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) >= 1)
                         {
                             ecm.result = 0;
                             ecm.code = "OK";
@@ -840,7 +840,7 @@ namespace TTApi.Controllers
                 {
                     try
                     {
-                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
+                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) >= 1)
                         {
                             ecm.result = 0;
                             ecm.code = "OK";
@@ -1242,7 +1242,7 @@ namespace TTApi.Controllers
                 {
                     try
                     {
-                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
+                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) >= 1)
                         {
                             ecm.result = 0;
                             ecm.code = "OK";
@@ -1283,7 +1283,7 @@ namespace TTApi.Controllers
                 {
                     try
                     {
-                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
+                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) >= 1)
                         {
                             ecm.result = 0;
                             ecm.code = "OK";
@@ -1418,7 +1418,7 @@ namespace TTApi.Controllers
                 {
                     try
                     {
-                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
+                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) >= 1)
                         {
                             ecm.result = 0;
                             ecm.code = "OK";
@@ -1456,22 +1456,15 @@ namespace TTApi.Controllers
             {
                 string _SQL = "delete from relation_contact_branch where branch_id = " + val.branch_id;
                 SqlCommand cmd = new SqlCommand(_SQL, con);
+                cmd.ExecuteNonQuery().ToString();
                 try
                 {
-                    if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
+                    _SQL = "delete from branch_customer where branch_id = " + val.branch_id;
+                    cmd = new SqlCommand(_SQL, con);
+                    if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) >= 1)
                     {
-                        _SQL = "delete from branch_customer where branch_id = " + val.branch_id;
-                        cmd = new SqlCommand(_SQL, con);
-                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
-                        {
-                            ecm.result = 0;
-                            ecm.code = "OK";
-                        }
-                        else
-                        {
-                            ecm.result = 1;
-                            ecm.code = _SQL;
-                        }
+                        ecm.result = 0;
+                        ecm.code = "OK";
                     }
                     else
                     {
@@ -1612,7 +1605,7 @@ namespace TTApi.Controllers
                 {
                     try
                     {
-                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
+                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) >= 1)
                         {
                             ecm.result = 0;
                             ecm.code = "OK";
@@ -1648,24 +1641,14 @@ namespace TTApi.Controllers
             HomeController hc = new HomeController();
             using (SqlConnection con = hc.ConnectDatabase())
             {
-                string _SQL = "delete from relation_trunk_customer where trunk_id = " + val.trunk_id;
+                string _SQL = "delete from trunk where trunk_id = " + val.trunk_id;
                 SqlCommand cmd = new SqlCommand(_SQL, con);
                 try
                 {
-                    if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
+                    if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) >= 1)
                     {
-                        _SQL = "delete from trunk where trunk_id = " + val.trunk_id;
-                        cmd = new SqlCommand(_SQL, con);
-                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
-                        {
-                            ecm.result = 0;
-                            ecm.code = "OK";
-                        }
-                        else
-                        {
-                            ecm.result = 1;
-                            ecm.code = _SQL;
-                        }
+                        ecm.result = 0;
+                        ecm.code = "OK";
                     }
                     else
                     {
@@ -1799,7 +1782,7 @@ namespace TTApi.Controllers
                 {
                     try
                     {
-                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
+                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) >= 1)
                         {
                             ecm.result = 0;
                             ecm.code = "OK";
@@ -1843,7 +1826,7 @@ namespace TTApi.Controllers
                     {
                         _SQL = "delete from contact_customer where contact_id = " + val.contact_id;
                         cmd = new SqlCommand(_SQL, con);
-                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
+                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) >= 1)
                         {
                             ecm.result = 0;
                             ecm.code = "OK";
@@ -2066,7 +2049,7 @@ namespace TTApi.Controllers
                 {
                     try
                     {
-                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
+                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) >= 1)
                         {
                             ecm.result = 0;
                             ecm.code = "OK";
@@ -2125,7 +2108,7 @@ namespace TTApi.Controllers
                     cmd.ExecuteNonQuery();
                     _SQL = "delete from product where product_id = " + val.product_id;
                     cmd = new SqlCommand(_SQL, con);
-                    if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
+                    if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) >= 1)
                     {
                         ecm.result = 0;
                         ecm.code = "OK";
@@ -2550,8 +2533,7 @@ namespace TTApi.Controllers
             {
                 string _SQL = "select rel.status_approve, d.driver_id, d.driver_name, rel.score, rel.rel_d_p_id as rel_id," +
                     "case when rel.product_id = " + val.id + " then 1 else 0 end as rel_status " +
-                    "from [TT1995].[dbo].[driver_profile] as d left join relation_driver_product as rel on d.driver_id = rel.driver_id " +
-                    "where rel.product_id = val.id or rel.product_id is null";
+                    "from [TT1995].[dbo].[driver_profile] as d left join (select * from relation_driver_product where product_id = " + val.id + ") as rel on d.driver_id = rel.driver_id";
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     DataTable _Dt = new DataTable();
@@ -2591,8 +2573,7 @@ namespace TTApi.Controllers
             {
                 string _SQL = "select d.status_approve, d.doc_id, d.doc_code, d.doc_name, d.remark, d.doc_type_id as type_default, rel.doc_type_id as type_rel, rel.rel_d_p_id as rel_id," +
                     "case when rel.product_id = " + val.id + " then 1 else 0 end as rel_status " +
-                    "from document as d left join relation_document_product as rel on d.doc_id = rel.doc_id " +
-                    "where rel.product_id = val.id or rel.product_id is null";
+                    "from document as d left join (select * from relation_document_product where product_id = " + val.id + ") as rel on d.doc_id = rel.doc_id";
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     DataTable _Dt = new DataTable();
@@ -2643,8 +2624,7 @@ namespace TTApi.Controllers
             {
                 string _SQL = "select rel.status_approve, es.eq_safety_id, es.eq_safety_code, es.eq_name, es.eq_path, es.eq_type_id, es.property, es.suggestion, es.style, rel.amount, rel.rel_e_s_p_id as rel_id," +
                     "case when rel.product_id = " + val.id + " then 1 else 0 end as rel_status " +
-                    "from equipment_safety as es left join relation_equipment_safety_product as rel on es.eq_safety_id = rel.eq_safety_id " +
-                    "where rel.product_id = val.id or rel.product_id is null";
+                    "from equipment_safety as es left join (select * from relation_equipment_safety_product where product_id = " + val.id + ") as rel on es.eq_safety_id = rel.eq_safety_id";
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     DataTable _Dt = new DataTable();
@@ -2690,8 +2670,7 @@ namespace TTApi.Controllers
             {
                 string _SQL = "select rel.status_approve, es.eq_tran_id, es.eq_tran_code, es.eq_name, es.eq_path, es.eq_type_id, es.property, es.suggestion, es.style, rel.amount, rel.rel_e_t_p_id as rel_id," +
                     "case when rel.product_id = " + val.id + " then 1 else 0 end as rel_status " +
-                    "from equipment_transport as es left join relation_equipment_transport_product as rel on es.eq_tran_id = rel.eq_tran_id " +
-                    "where rel.product_id = val.id or rel.product_id is null";
+                    "from equipment_transport as es left join (select * from relation_equipment_transport_product where product_id = " + val.id + ") as rel on es.eq_tran_id = rel.eq_tran_id";
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     DataTable _Dt = new DataTable();
@@ -2737,8 +2716,7 @@ namespace TTApi.Controllers
             {
                 string _SQL = "select rel.status_approve, l.license_id, l.license_car, l.number_car, rel.rel_l_p_id as rel_id," +
                     "case when rel.product_id = " + val.id + " then 1 else 0 end as rel_status " +
-                    "from [TT1995].[dbo].[license] as l left join relation_license_product as rel on l.license_id = rel.license_id " +
-                    "where rel.product_id = val.id or rel.product_id is null";
+                    "from [TT1995].[dbo].[license] as l left join (select * from relation_license_product where product_id = " + val.id + ") as rel on l.license_id = rel.license_id";
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     DataTable _Dt = new DataTable();
