@@ -117,6 +117,7 @@ namespace TTApi.Models
         public string license_id { get; set; }
         public string number_car { get; set; }
         public string license_car { get; set; }
+        public string fleet { get; set; }
         public string col1 = "VIEW";
         public string col2 = "VIEW";
         public string col3 = "VIEW";
@@ -559,6 +560,7 @@ namespace TTApi.Models
         public string number_car { get; set; }
         public string rel_status { get; set; }
         public string status_approve { get; set; }
+        public string fleet { get; set; }
     }
 
     public class RelCusProductView

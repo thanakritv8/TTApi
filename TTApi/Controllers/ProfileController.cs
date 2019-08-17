@@ -948,7 +948,7 @@ namespace TTApi.Controllers
             List<LicenseAllView> ul = new List<LicenseAllView>();
             using (SqlConnection con = hc.ConnectDatabaseTT1995())
             {
-                string _SQL = "SELECT license_id, number_car, license_car from license WHERE number_car LIKE 'T%'";
+                string _SQL = "SELECT license_id, number_car, license_car, fleet from license WHERE number_car LIKE 'T%'";
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     DataTable _Dt = new DataTable();
@@ -961,6 +961,7 @@ namespace TTApi.Controllers
                         lav.license_id = _Item["license_id"].ToString();
                         lav.number_car = _Item["number_car"].ToString();
                         lav.license_car = _Item["license_car"].ToString();
+                        lav.fleet = _Item["fleet"].ToString();
 
                         ul.Add(lav);
                     }
@@ -2714,7 +2715,7 @@ namespace TTApi.Controllers
             List<RelLicenseProductView> ul = new List<RelLicenseProductView>();
             using (SqlConnection con = hc.ConnectDatabase())
             {
-                string _SQL = "select rel.status_approve, l.license_id, l.license_car, l.number_car, rel.rel_l_p_id as rel_id," +
+                string _SQL = "select rel.status_approve, l.fleet, l.license_id, l.license_car, l.number_car, rel.rel_l_p_id as rel_id," +
                     "case when rel.product_id = " + val.id + " then 1 else 0 end as rel_status " +
                     "from [TT1995].[dbo].[license] as l left join (select * from relation_license_product where product_id = " + val.id + ") as rel on l.license_id = rel.license_id";
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
@@ -2731,6 +2732,7 @@ namespace TTApi.Controllers
                         rel.license_car = _Item["license_car"].ToString();
                         rel.number_car = _Item["number_car"].ToString();
                         rel.rel_status = _Item["rel_status"].ToString();
+                        rel.fleet = _Item["fleet"].ToString();
                         rel.status_approve = _Item["status_approve"].ToString();
                         ul.Add(rel);
                     }
