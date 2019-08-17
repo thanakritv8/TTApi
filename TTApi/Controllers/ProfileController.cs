@@ -913,7 +913,7 @@ namespace TTApi.Controllers
             List<LicenseAllView> ul = new List<LicenseAllView>();
             using (SqlConnection con = hc.ConnectDatabaseTT1995())
             {
-                string _SQL = "SELECT license_id, number_car, license_car from license WHERE number_car NOT LIKE 'T%'";
+                string _SQL = "SELECT license_id, number_car, license_car, fleet from license WHERE number_car NOT LIKE 'T%'";
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     DataTable _Dt = new DataTable();
@@ -926,6 +926,7 @@ namespace TTApi.Controllers
                         lav.license_id = _Item["license_id"].ToString();
                         lav.number_car = _Item["number_car"].ToString();
                         lav.license_car = _Item["license_car"].ToString();
+                        lav.fleet = _Item["fleet"].ToString();
 
                         ul.Add(lav);
                     }
