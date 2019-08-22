@@ -173,7 +173,7 @@ namespace TTApi.Controllers
 
         [AllowAnonymous]
         [Route("GetUsersAll")]
-        public List<UserModels> UsersAll()
+        public List<UserModels> GetUsersAll()
         {
             HomeController hc = new HomeController();
             List<UserModels> ul = new List<UserModels>();
@@ -196,6 +196,7 @@ namespace TTApi.Controllers
                         m.tel = _Item["tel"].ToString();
                         m.email = _Item["email"].ToString();
                         m.address = _Item["address"].ToString();
+                        m.group_id = _Item["group_id"].ToString();
                         ul.Add(m);
                     }
                 }
@@ -209,13 +210,13 @@ namespace TTApi.Controllers
         #region Groups
         [AllowAnonymous]
         [Route("GetGroupAll")]
-        public List<GroupsModels> GroupAll()
+        public List<GroupsModels> GetGroupAll()
         {
             HomeController hc = new HomeController();
             List<GroupsModels> ul = new List<GroupsModels>();
             using (SqlConnection con = hc.ConnectDatabaseAuth())
             {
-                string _SQL = "select * from group";
+                string _SQL = "select * from [group]";
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     DataTable _Dt = new DataTable();
@@ -240,7 +241,7 @@ namespace TTApi.Controllers
 
         [AllowAnonymous]
         [Route("GetPermissionAll")]
-        public List<PermissionModels> PermissionAll()
+        public List<PermissionModels> GetPermissionAll()
         {
             HomeController hc = new HomeController();
             List<PermissionModels> ul = new List<PermissionModels>();
@@ -273,7 +274,7 @@ namespace TTApi.Controllers
 
         [AllowAnonymous]
         [Route("GetApplicationAll")]
-        public List<AppsModels> ApplicationAll()
+        public List<AppsModels> GetApplicationAll()
         {
             HomeController hc = new HomeController();
             List<AppsModels> ul = new List<AppsModels>();

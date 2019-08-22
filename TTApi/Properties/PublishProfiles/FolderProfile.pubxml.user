@@ -13,7 +13,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/18/2019 19:39:22</publishTime>
     </File>
     <File Include="App_Data/XmlDocument.xml">
-      <publishTime>08/17/2019 15:27:54</publishTime>
+      <publishTime>08/22/2019 15:41:29</publishTime>
     </File>
     <File Include="Areas/HelpPage/HelpPage.css">
       <publishTime>07/18/2019 19:29:27</publishTime>
@@ -304,10 +304,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/28/2018 13:04:24</publishTime>
     </File>
     <File Include="bin/TTApi.dll">
-      <publishTime>08/17/2019 15:28:14</publishTime>
+      <publishTime>08/22/2019 15:45:47</publishTime>
     </File>
     <File Include="bin/TTApi.pdb">
-      <publishTime>08/17/2019 15:28:14</publishTime>
+      <publishTime>08/22/2019 15:45:47</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>01/23/2014 13:57:34</publishTime>
@@ -427,7 +427,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/18/2019 19:29:18</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>08/15/2019 16:53:46</publishTime>
+      <publishTime>08/19/2019 15:59:16</publishTime>
     </File>
   </ItemGroup>
 </Project>

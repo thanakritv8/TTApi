@@ -594,6 +594,123 @@ namespace TTApi.Models
         public string nameid { get; set; }
     }
         
+    public class RelContactBranch
+    {
+        public string rel_id { get; set; }
+        public string contact_name { get; set; }
+        public string branch_name { get; set; }
+        public string address { get; set; }
+        public string email { get; set; }
+        public string tel { get; set; }
+        public string line { get; set; }
+        public string status_approve = "รออนุมัติ";
+    }
+
+    public class RelDocumentProduct
+    {
+        public string rel_id { get; set; }
+        public string doc_type { get; set; }
+        public string doc_code { get; set; }
+        public string doc_name { get; set; }
+        public string doc_path { get; set; }
+        public string remark { get; set; }
+        public string product_name { get; set; }
+        public string fleet { get; set; }
+        public string method_style { get; set; }
+        public string method_normal { get; set; }
+        public string method_contain { get; set; }
+        public string method_special { get; set; }
+        public string product_path { get; set; }
+        public string status_approve = "รออนุมัติ";
+    }
+
+    public class RelDriverProduct
+    {
+        public string rel_id { get; set; }
+        public string driver_name { get; set; }
+        public string product_name { get; set; }
+        public string fleet { get; set; }
+        public string method_style { get; set; }
+        public string method_normal { get; set; }
+        public string method_contain { get; set; }
+        public string method_special { get; set; }
+        public string product_path { get; set; }
+        public string score { get; set; }        
+        public string status_approve = "รออนุมัติ";
+    }
+
+    public class RelSafetyProduct
+    {
+        public string rel_id { get; set; }
+        public string eq_safety_code { get; set; }
+        public string eq_name { get; set; }
+        public string style { get; set; }
+        public string property { get; set; }
+        public string suggestion { get; set; }
+        public string eq_type { get; set; }
+        public string eq_path { get; set; }
+        public string product_name { get; set; }
+        public string fleet { get; set; }
+        public string method_style { get; set; }
+        public string method_normal { get; set; }
+        public string method_contain { get; set; }
+        public string method_special { get; set; }
+        public string product_path { get; set; }
+        public string amount { get; set; }
+        public string status_approve = "รออนุมัติ";
+    }
+
+    public class RelTranProduct
+    {
+        public string rel_id { get; set; }
+        public string eq_tran_code { get; set; }
+        public string eq_name { get; set; }
+        public string style { get; set; }
+        public string property { get; set; }
+        public string suggestion { get; set; }
+        public string eq_type { get; set; }
+        public string eq_path { get; set; }
+        public string product_name { get; set; }
+        public string fleet { get; set; }
+        public string method_style { get; set; }
+        public string method_normal { get; set; }
+        public string method_contain { get; set; }
+        public string method_special { get; set; }
+        public string product_path { get; set; }
+        public string amount { get; set; }
+        public string status_approve = "รออนุมัติ";
+    }
+
+    public class RelLicenseProduct
+    {
+        public string rel_id { get; set; }
+        public string number_car { get; set; }
+        public string license_car { get; set; }       
+        public string product_name { get; set; }
+        public string fleet { get; set; }
+        public string method_style { get; set; }
+        public string method_normal { get; set; }
+        public string method_contain { get; set; }
+        public string method_special { get; set; }
+        public string product_path { get; set; }
+        public string amount { get; set; }
+        public string status_approve = "รออนุมัติ";
+    }
+
+    public class RelCustomerProduct
+    {
+        public string rel_id { get; set; }
+        public string cus_name { get; set; }        
+        public string product_name { get; set; }
+        public string fleet { get; set; }
+        public string method_style { get; set; }
+        public string method_normal { get; set; }
+        public string method_contain { get; set; }
+        public string method_special { get; set; }
+        public string product_path { get; set; }
+        public string amount { get; set; }
+        public string status_approve = "รออนุมัติ";
+    }
 
     #endregion
 }

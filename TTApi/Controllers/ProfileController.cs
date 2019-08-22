@@ -2787,6 +2787,282 @@ namespace TTApi.Controllers
             }
             return ecm;                              
         }
+
+        [AllowAnonymous]
+        [Route("GetApproveRelContactBranch")]
+        public List<RelContactBranch> GetApproveRelContactBranch()
+        {
+            HomeController hc = new HomeController();
+            List<RelContactBranch> ul = new List<RelContactBranch>();
+            using (SqlConnection con = hc.ConnectDatabase())
+            {
+                string _SQL = "SELECT rel.rel_c_b_id, a.name, a.email, a.line, a.position, a.tel, b.[address], b.branch_name " +
+                    "FROM relation_contact_branch as rel join contact_customer as a on rel.contact_id = a.contact_id " +
+                    "join branch_customer as b on rel.branch_id = b.branch_id where rel.status_approve is null";
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    DataTable _Dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(_Dt);
+                    da.Dispose();
+                    foreach (DataRow _Item in _Dt.Rows)
+                    {
+                        RelContactBranch rel = new RelContactBranch();
+                        rel.rel_id = _Item["rel_c_b_id"].ToString();
+                        rel.contact_name = _Item["name"].ToString();
+                        rel.branch_name = _Item["branch_name"].ToString();
+                        rel.address = _Item["address"].ToString();
+                        rel.email = _Item["email"].ToString();
+                        rel.line = _Item["line"].ToString();
+                        rel.tel = _Item["tel"].ToString();
+                        ul.Add(rel);
+                    }
+                }
+                con.Close();
+            }
+            return ul;
+        }
+
+        [AllowAnonymous]
+        [Route("GetApproveRelDocumentProduct")]
+        public List<RelDocumentProduct> GetApproveRelDocumentProduct()
+        {
+            HomeController hc = new HomeController();
+            List<RelDocumentProduct> ul = new List<RelDocumentProduct>();
+            using (SqlConnection con = hc.ConnectDatabase())
+            {
+                string _SQL = "SELECT rel.rel_d_p_id, d.doc_code,d.doc_name,d.doc_path,d.remark,p.product_name,p.fleet,p.method_style,p.method_normal,p.method_contain,p.method_special,p.product_path,dt.doc_type " +
+                    "FROM relation_document_product as rel join document_type as dt on rel.doc_type_id = dt.doc_type_id " +
+                    "join document as d on rel.doc_id = d.doc_id join product as p on rel.product_id = p.product_id where rel.status_approve is null";
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    DataTable _Dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(_Dt);
+                    da.Dispose();
+                    foreach (DataRow _Item in _Dt.Rows)
+                    {
+                        RelDocumentProduct rel = new RelDocumentProduct();
+                        rel.rel_id = _Item["rel_d_p_id"].ToString();
+                        rel.doc_type = _Item["doc_type"].ToString();
+                        rel.doc_code = _Item["doc_code"].ToString();
+                        rel.doc_name = _Item["doc_name"].ToString();
+                        rel.doc_path = _Item["doc_path"].ToString();
+                        rel.remark = _Item["remark"].ToString();
+                        rel.product_name = _Item["product_name"].ToString();
+                        rel.fleet = _Item["fleet"].ToString();
+                        rel.method_style = _Item["method_style"].ToString();
+                        rel.method_normal = _Item["method_normal"].ToString();
+                        rel.method_contain= _Item["method_contain"].ToString();
+                        rel.method_special= _Item["method_special"].ToString();
+                        rel.product_path = _Item["product_path"].ToString();
+                        ul.Add(rel);
+                    }
+                }
+                con.Close();
+            }
+            return ul;
+        }
+
+        [AllowAnonymous]
+        [Route("GetApproveRelDriverProduct")]
+        public List<RelDriverProduct> GetApproveRelDriverProduct()
+        {
+            HomeController hc = new HomeController();
+            List<RelDriverProduct> ul = new List<RelDriverProduct>();
+            using (SqlConnection con = hc.ConnectDatabase())
+            {
+                string _SQL = "SELECT rel.rel_d_p_id, d.driver_name,p.product_name,p.fleet,p.method_style,p.method_normal,p.method_contain,p.method_special,p.product_path,rel.score " +
+                    "FROM relation_driver_product as rel join [TT1995].[dbo].[driver_profile] as d on rel.driver_id = d.driver_id join product as p on rel.product_id = p.product_id " +
+                    "where rel.status_approve is null";
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    DataTable _Dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(_Dt);
+                    da.Dispose();
+                    foreach (DataRow _Item in _Dt.Rows)
+                    {
+                        RelDriverProduct rel = new RelDriverProduct();
+                        rel.rel_id = _Item["rel_d_p_id"].ToString();
+                        rel.score = _Item["score"].ToString();
+                        rel.driver_name = _Item["driver_name"].ToString();
+                        rel.product_name = _Item["product_name"].ToString();
+                        rel.fleet = _Item["fleet"].ToString();
+                        rel.method_style = _Item["method_style"].ToString();
+                        rel.method_normal = _Item["method_normal"].ToString();
+                        rel.method_contain = _Item["method_contain"].ToString();
+                        rel.method_special = _Item["method_special"].ToString();
+                        rel.product_path = _Item["product_path"].ToString();
+                        ul.Add(rel);
+                    }
+                }
+                con.Close();
+            }
+            return ul;
+        }
+
+        [AllowAnonymous]
+        [Route("GetApproveRelSafetyProduct")]
+        public List<RelSafetyProduct> GetApproveRelSafetyProduct()
+        {
+            HomeController hc = new HomeController();
+            List<RelSafetyProduct> ul = new List<RelSafetyProduct>();
+            using (SqlConnection con = hc.ConnectDatabase())
+            {
+                string _SQL = "SELECT rel.rel_e_s_p_id, d.eq_safety_code,d.eq_name,d.style,d.property,d.suggestion,et.eq_type,d.eq_path,p.product_name,p.fleet,p.method_style,p.method_normal,p.method_contain,p.method_special,p.product_path,rel.amount " +
+                    "FROM relation_equipment_safety_product as rel join equipment_safety as d on rel.eq_safety_id = d.eq_safety_id join product as p on rel.product_id = p.product_id " +
+                    "join equipment_type as et on d.eq_type_id = et.eq_type_id where rel.status_approve is null";
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    DataTable _Dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(_Dt);
+                    da.Dispose();
+                    foreach (DataRow _Item in _Dt.Rows)
+                    {
+                        RelSafetyProduct rel = new RelSafetyProduct();
+                        rel.rel_id = _Item["rel_e_s_p_id"].ToString();
+                        rel.eq_safety_code = _Item["eq_safety_code"].ToString();
+                        rel.eq_name = _Item["eq_name"].ToString();
+                        rel.style = _Item["style"].ToString();
+                        rel.property = _Item["property"].ToString();
+                        rel.suggestion = _Item["suggestion"].ToString();
+                        rel.eq_type = _Item["eq_type"].ToString();
+                        rel.eq_path = _Item["eq_path"].ToString();
+                        rel.product_name = _Item["product_name"].ToString();
+                        rel.fleet = _Item["fleet"].ToString();
+                        rel.method_style = _Item["method_style"].ToString();
+                        rel.method_normal = _Item["method_normal"].ToString();
+                        rel.method_contain = _Item["method_contain"].ToString();
+                        rel.method_special = _Item["method_special"].ToString();
+                        rel.product_path = _Item["product_path"].ToString();
+                        ul.Add(rel);
+                    }
+                }
+                con.Close();
+            }
+            return ul;
+        }
+
+        [AllowAnonymous]
+        [Route("GetApproveRelTranProduct")]
+        public List<RelTranProduct> GetApproveRelTranProduct()
+        {
+            HomeController hc = new HomeController();
+            List<RelTranProduct> ul = new List<RelTranProduct>();
+            using (SqlConnection con = hc.ConnectDatabase())
+            {
+                string _SQL = "SELECT rel.rel_e_t_p_id, d.eq_tran_code,d.eq_name,d.style,d.property,d.suggestion,et.eq_type,d.eq_path,p.product_name,p.fleet,p.method_style,p.method_normal,p.method_contain,p.method_special,p.product_path,rel.amount " +
+                    "FROM relation_equipment_safety_product as rel join equipment_safety as d on rel.eq_safety_id = d.eq_safety_id join product as p on rel.product_id = p.product_id " +
+                    "join equipment_type as et on d.eq_type_id = et.eq_type_id where rel.status_approve is null";
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    DataTable _Dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(_Dt);
+                    da.Dispose();
+                    foreach (DataRow _Item in _Dt.Rows)
+                    {
+                        RelTranProduct rel = new RelTranProduct();
+                        rel.rel_id = _Item["rel_e_t_p_id"].ToString();
+                        rel.eq_tran_code = _Item["eq_tran_code"].ToString();
+                        rel.eq_name = _Item["eq_name"].ToString();
+                        rel.style = _Item["style"].ToString();
+                        rel.property = _Item["property"].ToString();
+                        rel.suggestion = _Item["suggestion"].ToString();
+                        rel.eq_type = _Item["eq_type"].ToString();
+                        rel.eq_path = _Item["eq_path"].ToString();
+                        rel.product_name = _Item["product_name"].ToString();
+                        rel.fleet = _Item["fleet"].ToString();
+                        rel.method_style = _Item["method_style"].ToString();
+                        rel.method_normal = _Item["method_normal"].ToString();
+                        rel.method_contain = _Item["method_contain"].ToString();
+                        rel.method_special = _Item["method_special"].ToString();
+                        rel.product_path = _Item["product_path"].ToString();
+                        ul.Add(rel);
+                    }
+                }
+                con.Close();
+            }
+            return ul;
+        }
+
+        [AllowAnonymous]
+        [Route("GetApproveRelLicenseProduct")]
+        public List<RelLicenseProduct> GetApproveRelLicenseProduct()
+        {
+            HomeController hc = new HomeController();
+            List<RelLicenseProduct> ul = new List<RelLicenseProduct>();
+            using (SqlConnection con = hc.ConnectDatabase())
+            {
+                string _SQL = "SELECT rel.rel_l_p_id, d.license_car,d.number_car,p.product_name,p.fleet,p.method_style,p.method_normal,p.method_contain,p.method_special,p.product_path " +
+                    "FROM relation_license_product as rel join [TT1995].[dbo].license as d on rel.license_id = d.license_id join product as p on rel.product_id = p.product_id " +
+                    "where rel.status_approve is null order by d.number_car asc";
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    DataTable _Dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(_Dt);
+                    da.Dispose();
+                    foreach (DataRow _Item in _Dt.Rows)
+                    {
+                        RelLicenseProduct rel = new RelLicenseProduct();
+                        rel.rel_id = _Item["rel_l_p_id"].ToString();
+                        rel.number_car = _Item["number_car"].ToString();
+                        rel.license_car = _Item["license_car"].ToString();
+                        rel.product_name = _Item["product_name"].ToString();
+                        rel.fleet = _Item["fleet"].ToString();
+                        rel.method_style = _Item["method_style"].ToString();
+                        rel.method_normal = _Item["method_normal"].ToString();
+                        rel.method_contain = _Item["method_contain"].ToString();
+                        rel.method_special = _Item["method_special"].ToString();
+                        rel.product_path = _Item["product_path"].ToString();
+                        ul.Add(rel);
+                    }
+                }
+                con.Close();
+            }
+            return ul;
+        }
+
+        [AllowAnonymous]
+        [Route("GetApproveRelCustomerProduct")]
+        public List<RelCustomerProduct> GetApproveRelCustomerProduct()
+        {
+            HomeController hc = new HomeController();
+            List<RelCustomerProduct> ul = new List<RelCustomerProduct>();
+            using (SqlConnection con = hc.ConnectDatabase())
+            {
+                string _SQL = "SELECT rel.rel_p_c_id, d.cus_name,p.product_name,p.fleet,p.method_style,p.method_normal,p.method_contain,p.method_special,p.product_path " +
+                    "FROM relation_product_customer as rel join customer as d on rel.cus_id = d.cus_id join product as p on rel.product_id = p.product_id " +
+                    "where rel.status_approve is null order by d.cus_name asc";
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    DataTable _Dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(_Dt);
+                    da.Dispose();
+                    foreach (DataRow _Item in _Dt.Rows)
+                    {
+                        RelCustomerProduct rel = new RelCustomerProduct();
+                        rel.rel_id = _Item["rel_p_c_id"].ToString();
+                        rel.cus_name = _Item["cus_name"].ToString();
+                        rel.product_name = _Item["product_name"].ToString();
+                        rel.fleet = _Item["fleet"].ToString();
+                        rel.method_style = _Item["method_style"].ToString();
+                        rel.method_normal = _Item["method_normal"].ToString();
+                        rel.method_contain = _Item["method_contain"].ToString();
+                        rel.method_special = _Item["method_special"].ToString();
+                        rel.product_path = _Item["product_path"].ToString();
+                        ul.Add(rel);
+                    }
+                }
+                con.Close();
+            }
+            return ul;
+        }
+
         #endregion
     }
 }
