@@ -2954,7 +2954,7 @@ namespace TTApi.Controllers
             using (SqlConnection con = hc.ConnectDatabase())
             {
                 string _SQL = "SELECT rel.rel_e_t_p_id, d.eq_tran_code,d.eq_name,d.style,d.property,d.suggestion,et.eq_type,d.eq_path,p.product_name,p.fleet,p.method_style,p.method_normal,p.method_contain,p.method_special,p.product_path,rel.amount " +
-                    "FROM relation_equipment_safety_product as rel join equipment_safety as d on rel.eq_safety_id = d.eq_safety_id join product as p on rel.product_id = p.product_id " +
+                    "FROM relation_equipment_transport_product as rel join equipment_transport as d on rel.eq_tran_id = d.eq_tran_id join product as p on rel.product_id = p.product_id " +
                     "join equipment_type as et on d.eq_type_id = et.eq_type_id where rel.status_approve is null";
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
