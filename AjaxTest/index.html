@@ -20,27 +20,26 @@
         });
         function insert_data()
         {
-            // var model = new FormData();
-            // model.append('doc_code', '555');
-            // model.append('doc_name', 'rrrrrr');
-            // model.append('doc_type_id', 2);
-            // model.append('Image', $("#myFile")[0].files[0]);
-            
-            // console.log(model);
+            var model = new FormData();
+            //model.append('doc_code', '555');
+            model.append('license_id', "1");
+            model.append('loc_img', "2");
+            model.append('path_img', $("#myFile")[0].files[0]);
+            console.log($("#myFile")[0].files[0]);
+            console.log(model);
             $.ajax({
-                url: 'http://43.254.133.49:8015/TTApi/CheckList/Profile/GetDocumentAll',
-                type: 'Get',
-                dataType: 'json',
-                // data: model,
-                // processData: false,
-                // contentType: false,// not json 
-                complete: function (data) {
-                    var mediaId = $.parseJSON(data.responseText); //?
-                    console.log(mediaId);
-
+                type: 'POST',
+                url: 'http://tabien.threetrans.com/TTApi/Tabien/Report/UploadPicLicense',                
+                data: model,
+                dataType: "json",
+                processData: false,
+                contentType: false, // not json 
+                async: false,
+                success: function (res) {
+                    console.log(res);
                 },
-                error: function (response) {
-                    console.log(response.responseText);
+                error: function (response, jqXHR) {
+                    console.log(jqXHR);
                 }
             });
         }

@@ -109,13 +109,12 @@ namespace TTApi.Controllers
             {
                 name_dataset = "DataSetWorkSheet";
             }
-            
-            //link use Home/ExportWorkSheet?id=2
+
+            //link use Report/ExportWorkSheet?id=2
             ReportDataSource rds = new ReportDataSource(name_dataset, GetReportWorkSheet(id, name_report));
             LocalReport report = new LocalReport();
             report.ReportPath = Path.Combine(Server.MapPath("~/Reports"), name_report + ".rdlc");
             report.DataSources.Clear();
-            //report.SetParameters(new ReportParameter[] { parameter });
             report.DataSources.Add(rds);
             report.Refresh();
             PrintPDF(report);
@@ -137,6 +136,7 @@ namespace TTApi.Controllers
             }
 
         }
+        
         #endregion
     }
 }

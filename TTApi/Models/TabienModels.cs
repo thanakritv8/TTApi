@@ -122,4 +122,11 @@ namespace TTApi.Models
         public string txt23 { get; set; }
         public string txt24 { get; set; }
     }
+
+    public class LocationModels
+    {
+        public string license_id { get; set; }
+        public string loc_img { get; set; }
+        public HttpPostedFile path_img { get; set; }
+    }
 }
