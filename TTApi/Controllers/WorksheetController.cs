@@ -37,10 +37,10 @@ namespace TTApi.Controllers
             using (SqlConnection con = hc.ConnectDatabase())
             {
                 string _SQL = "INSERT INTO [dbo].[transport] (tran_code,number_po  ,cus_id  ,branch_id  ,contact_id ,product_id  ,trunk_id " +
-                    ",driver_id_1  ,driver_id_2 ,driver_id_3  ,license_id_head  ,license_id_tail ,remark ,tran_status_id ,create_by_user_id ,sheet_name ,cont1,cont2   ) " +
+                    ",driver_id_1  ,driver_id_2 ,driver_id_3  ,license_id_head  ,license_id_tail ,remark ,tran_status_id ,create_by_user_id ,sheet_name ,cont1,cont2 ,driver_id_4  ) " +
      " output inserted.tran_id VALUES (N'" + val.tran_code + "', N'" + val.number_po + "', '" + val.cus_id + "', '" + val.branch_id + "', '" + val.contact_id + "', '" + val.product_id + "'" +
            ", '" + val.trunk_id + "' ,'" + val.driver_id_1 + "' , '" + val.driver_id_2 + "', '" + val.driver_id_3 + "', '" + val.license_id_head + "' , '" + val.license_id_tail + "'" +
-           ", N'" + val.remark + "'  , 1  , 1  , '" + val.sheet_name + "' , '" + val.cont1 + "', '" + val.cont2 + "')";
+           ", N'" + val.remark + "'  , 1  , 1  , '" + val.sheet_name + "' , '" + val.cont1 + "', '" + val.cont2 + "', '" + val.driver_id_4 + "')";
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     try
@@ -75,8 +75,8 @@ namespace TTApi.Controllers
         {
             ExecuteModels ecm = new ExecuteModels();
             string _SQL_Set = string.Empty;
-            string[] Col_Arr = { "tran_code", "number_po", "cus_id", "branch_id", "contact_id", "product_id", "trunk_id", "driver_id_1", "driver_id_2", "driver_id_3", "license_id_head", "license_id_tail", "remark", "tran_status_id", "sheet_name", "cont1", "cont2" };
-            string[] Val_Arr = { val.tran_code, val.number_po, val.cus_id, val.branch_id, val.contact_id, val.product_id, val.trunk_id, val.driver_id_1, val.driver_id_2, val.driver_id_3, val.license_id_head, val.license_id_tail, val.remark, val.tran_status_id, val.sheet_name, val.cont1, val.cont2 };
+            string[] Col_Arr = { "tran_code", "number_po", "cus_id", "branch_id", "contact_id", "product_id", "trunk_id", "driver_id_1", "driver_id_2", "driver_id_3", "license_id_head", "license_id_tail", "remark", "tran_status_id", "sheet_name", "cont1", "cont2", "driver_id_4" };
+            string[] Val_Arr = { val.tran_code, val.number_po, val.cus_id, val.branch_id, val.contact_id, val.product_id, val.trunk_id, val.driver_id_1, val.driver_id_2, val.driver_id_3, val.license_id_head, val.license_id_tail, val.remark, val.tran_status_id, val.sheet_name, val.cont1, val.cont2, val.driver_id_4 };
             for (int n = 0; n <= Val_Arr.Length - 1; n++)
             {
                 if (Val_Arr[n] != null)

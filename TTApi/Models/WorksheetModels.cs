@@ -25,6 +25,7 @@ namespace TTApi.Models
         public string driver_id_1 { get; set; }
         public string driver_id_2 { get; set; }
         public string driver_id_3 { get; set; }
+        public string driver_id_4 { get; set; }
         public string license_id_head { get; set; }
         public string license_id_tail { get; set; }
         public string remark { get; set; }
@@ -47,6 +48,7 @@ namespace TTApi.Models
         public string driver_id_1 { get; set; }
         public string driver_id_2 { get; set; }
         public string driver_id_3 { get; set; }
+        public string driver_id_4 { get; set; }
         public string license_id_head { get; set; }
         public string license_id_tail { get; set; }
         public string remark { get; set; }
@@ -84,6 +86,7 @@ namespace TTApi.Models
         public string driver_id_1 { get; set; }
         public string driver_id_2 { get; set; }
         public string driver_id_3 { get; set; }
+        public string driver_id_4 { get; set; }
         public string license_id_head { get; set; }
         public string license_id_tail { get; set; }
         public string remark { get; set; }
@@ -106,6 +109,7 @@ namespace TTApi.Models
         public string driver_id_1 { get; set; }
         public string driver_id_2 { get; set; }
         public string driver_id_3 { get; set; }
+        public string driver_id_4 { get; set; }
         public string license_id_head { get; set; }
         public string license_id_tail { get; set; }
         public string remark { get; set; }
