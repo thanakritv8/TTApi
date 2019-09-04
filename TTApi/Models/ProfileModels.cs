@@ -117,6 +117,7 @@ namespace TTApi.Models
         public string license_id { get; set; }
         public string number_car { get; set; }
         public string license_car { get; set; }
+        public string fleet { get; set; }
         public string col1 = "VIEW";
         public string col2 = "VIEW";
         public string col3 = "VIEW";
@@ -233,6 +234,12 @@ namespace TTApi.Models
     public class CustomerIdModels
     {
         public string cus_id { get; set; }
+        /// <summary>
+        /// 0 = Normal
+        /// 1 = Approve
+        /// หรือถ้าไม่ใส่จะดึงค้าทั้งหมด
+        /// </summary>
+        public int typeGet { get; set; }
     }
 
     public class CustomerModels
@@ -309,6 +316,8 @@ namespace TTApi.Models
         public string trunk_id { get; set; }
         public string source { get; set; }
         public string destination { get; set; }
+        public string station { get; set; }
+        public string cus_id { get; set; }
     }
 
     public class TrunkIdModels
@@ -321,7 +330,8 @@ namespace TTApi.Models
         public string trunk_id { get; set; }
         public string source { get; set; }
         public string destination { get; set; }
-        public string branch_id { get; set; }
+        public string station { get; set; }
+        public string cus_id { get; set; }
     }
 
     public class ContactView
@@ -350,34 +360,6 @@ namespace TTApi.Models
         public string branch_id { get; set; }
     }
 
-    //public class Product
-    //{
-    //    /// <summary>
-    //    /// Product id
-    //    /// </summary>
-    //    public string product_id { get; set; }
-    //    /// <summary>
-    //    /// Product name
-    //    /// </summary>
-    //    public string product_name { get; set; }
-    //    /// <summary>
-    //    /// Fleet
-    //    /// </summary>
-    //    public string fleet { get; set; }
-    //    /// <summary>
-    //    /// Style
-    //    /// </summary>
-    //    public string style_name { get; set; }
-    //    /// <summary>
-    //    /// พขร/รถบรรทุก
-    //    /// </summary>
-    //    public string DriverOrTruck { get; set; }
-    //    /// <summary>
-    //    /// เอกสาร/อุปกรณ์
-    //    /// </summary>
-    //    public string DocumentOrEquipment { get; set; }
-
-    //}
     #endregion
 
     #region Driver
@@ -436,7 +418,7 @@ namespace TTApi.Models
         public string method_normal { get; set; }
         public string method_contain { get; set; }
         public string method_special { get; set; }
-        public string branch_id { get; set; }
+        public string cus_id { get; set; }
     }
 
     public class RelDriverProductModels
@@ -473,56 +455,120 @@ namespace TTApi.Models
         public string product_id { get; set; }
     }
 
-    public class RelBranchProductModels
+    public class RelCustomerProductModels
     {
-        public string branch_id { get; set; }
+        public string cus_id { get; set; }
         public string product_id { get; set; }
     }
 
     public class RelDriverProductView
     {
-        public string id { get; set; }
+        public string rel_id { get; set; }
         public string driver_id { get; set; }
-        public string product_id { get; set; }
+        public string driver_name { get; set; }
+        public string rel_status { get; set; }
         public string score { get; set; }
+        public string status_approve { get; set; }
     }
 
+    /// <summary>
+    /// แสดงความสัมพันธ์ของเอกสารและสินค้า
+    /// </summary>
     public class RelDocProductView
     {
-        public string id { get; set; }
+        /// <summary>
+        /// เท่ากับ 0 แสดงว่าไม่มีข้อมูลใน table relation
+        /// ถ้ามีค่ามากกว่า 1 แสดงว่ามีข้อมูลใน table relation สามารถใส่ checked ได้
+        /// </summary>
+        public string rel_status { get; set; }
+        /// <summary>
+        /// PK relation
+        /// </summary>
+        public string rel_id { get; set; }
+        /// <summary>
+        /// PK เอกสาร
+        /// </summary>
         public string doc_id { get; set; }
-        public string product_id { get; set; }
-        public string doc_type_id { get; set; }
+        /// <summary>
+        /// รหัสเอกสาร
+        /// </summary>
+        public string doc_code { get; set; }
+        /// <summary>
+        /// ชนิดเอกสาร นำไป = 1, นำกลับ = 2, ทั้งไปทั้งกลับ = 3 ที่อยู่ใน table relation ใช้ในกรณีอัพเดทหรือแสดงให้ใช้ column นี้
+        /// </summary>
+        public string type_rel { get; set; }
+        /// <summary>
+        /// สถานะการ approve ของ relation document กับ product
+        /// </summary>
+        public string status_approve { get; set; }
+        /// <summary>
+        /// ชื่อเอกสาร
+        /// </summary>
+        public string doc_name { get; set; }
+        /// <summary>
+        /// อื่นๆ
+        /// </summary>
+        public string remark { get; set; }
+        /// <summary>
+        /// เหมือน column type_rel ต่างกันตรงที่ column นี้ใช้ตอน create เพื่อใช้เป็น default
+        /// </summary>
+        public string type_default { get; set; }
+
+        /// <summary>
+        /// ผ่านการโปรเซสมาแล้ว
+        /// </summary>
+        public string type_show { get; set; }
     }
 
     public class RelSafetyProductView
     {
-        public string id { get; set; }
+        public string rel_id { get; set; }
         public string eq_safety_id { get; set; }
-        public string product_id { get; set; }
+        public string eq_safety_code { get; set; }
         public string amount { get; set; }
+        public string status_approve { get; set; }
+        public string eq_name { get; set; }
+        public string eq_path { get; set; }
+        public string eq_type_id { get; set; }
+        public string property { get; set; }
+        public string suggestion { get; set; }
+        public string style { get; set; }
+        public string rel_status { get; set; }
     }
 
     public class RelTranProductView
     {
-        public string id { get; set; }
+        public string rel_id { get; set; }
         public string eq_tran_id { get; set; }
-        public string product_id { get; set; }
+        public string eq_tran_code { get; set; }
         public string amount { get; set; }
+        public string status_approve { get; set; }
+        public string eq_name { get; set; }
+        public string eq_path { get; set; }
+        public string eq_type_id { get; set; }
+        public string property { get; set; }
+        public string suggestion { get; set; }
+        public string style { get; set; }
+        public string rel_status { get; set; }
     }
 
     public class RelLicenseProductView
     {
-        public string id { get; set; }
+        public string rel_id { get; set; }
         public string license_id { get; set; }
-        public string product_id { get; set; }
+        public string license_car { get; set; }
+        public string number_car { get; set; }
+        public string rel_status { get; set; }
+        public string status_approve { get; set; }
+        public string fleet { get; set; }
     }
 
-    public class RelBranchProductView
+    public class RelCusProductView
     {
         public string id { get; set; }
-        public string branch_id { get; set; }
+        public string cus_id { get; set; }
         public string product_id { get; set; }
+        public string status_approve { get; set; }
     }
 
     public class IdModels
@@ -534,6 +580,136 @@ namespace TTApi.Models
     {
         public string pk_id { get; set; }
         public string fk_id { get; set; }
+    }
+
+
+
+    #endregion
+
+    #region Approve
+    public class ApproveModels
+    {
+        public string id { get; set; }
+        public string nametable { get; set; }
+        public string nameid { get; set; }
+    }
+        
+    public class RelContactBranch
+    {
+        public string rel_id { get; set; }
+        public string contact_name { get; set; }
+        public string branch_name { get; set; }
+        public string address { get; set; }
+        public string email { get; set; }
+        public string tel { get; set; }
+        public string line { get; set; }
+        public string status_approve = "รออนุมัติ";
+    }
+
+    public class RelDocumentProduct
+    {
+        public string rel_id { get; set; }
+        public string doc_type { get; set; }
+        public string doc_code { get; set; }
+        public string doc_name { get; set; }
+        public string doc_path { get; set; }
+        public string remark { get; set; }
+        public string product_name { get; set; }
+        public string fleet { get; set; }
+        public string method_style { get; set; }
+        public string method_normal { get; set; }
+        public string method_contain { get; set; }
+        public string method_special { get; set; }
+        public string product_path { get; set; }
+        public string status_approve = "รออนุมัติ";
+    }
+
+    public class RelDriverProduct
+    {
+        public string rel_id { get; set; }
+        public string driver_name { get; set; }
+        public string product_name { get; set; }
+        public string fleet { get; set; }
+        public string method_style { get; set; }
+        public string method_normal { get; set; }
+        public string method_contain { get; set; }
+        public string method_special { get; set; }
+        public string product_path { get; set; }
+        public string score { get; set; }        
+        public string status_approve = "รออนุมัติ";
+    }
+
+    public class RelSafetyProduct
+    {
+        public string rel_id { get; set; }
+        public string eq_safety_code { get; set; }
+        public string eq_name { get; set; }
+        public string style { get; set; }
+        public string property { get; set; }
+        public string suggestion { get; set; }
+        public string eq_type { get; set; }
+        public string eq_path { get; set; }
+        public string product_name { get; set; }
+        public string fleet { get; set; }
+        public string method_style { get; set; }
+        public string method_normal { get; set; }
+        public string method_contain { get; set; }
+        public string method_special { get; set; }
+        public string product_path { get; set; }
+        public string amount { get; set; }
+        public string status_approve = "รออนุมัติ";
+    }
+
+    public class RelTranProduct
+    {
+        public string rel_id { get; set; }
+        public string eq_tran_code { get; set; }
+        public string eq_name { get; set; }
+        public string style { get; set; }
+        public string property { get; set; }
+        public string suggestion { get; set; }
+        public string eq_type { get; set; }
+        public string eq_path { get; set; }
+        public string product_name { get; set; }
+        public string fleet { get; set; }
+        public string method_style { get; set; }
+        public string method_normal { get; set; }
+        public string method_contain { get; set; }
+        public string method_special { get; set; }
+        public string product_path { get; set; }
+        public string amount { get; set; }
+        public string status_approve = "รออนุมัติ";
+    }
+
+    public class RelLicenseProduct
+    {
+        public string rel_id { get; set; }
+        public string number_car { get; set; }
+        public string license_car { get; set; }       
+        public string product_name { get; set; }
+        public string fleet { get; set; }
+        public string method_style { get; set; }
+        public string method_normal { get; set; }
+        public string method_contain { get; set; }
+        public string method_special { get; set; }
+        public string product_path { get; set; }
+        public string amount { get; set; }
+        public string status_approve = "รออนุมัติ";
+    }
+
+    public class RelCustomerProduct
+    {
+        public string rel_id { get; set; }
+        public string cus_name { get; set; }        
+        public string product_name { get; set; }
+        public string fleet { get; set; }
+        public string method_style { get; set; }
+        public string method_normal { get; set; }
+        public string method_contain { get; set; }
+        public string method_special { get; set; }
+        public string product_path { get; set; }
+        public string amount { get; set; }
+        public string status_approve = "รออนุมัติ";
     }
 
     #endregion

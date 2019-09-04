@@ -15,7 +15,7 @@ using TTApi.Models;
 namespace TTApi.Controllers
 {
     /// <summary>
-    /// Link http://43.254.133.49:8015/TTApi/CheckList/Profile
+    /// Link http://http://tabien.threetrans.com/TTApi/CheckList/Profile
     /// </summary>
     [Authorize]
     [RoutePrefix("CheckList/Profile")]
@@ -143,6 +143,12 @@ namespace TTApi.Controllers
                                     ecm.code = ex.Message;
                                     return ecm;
                                 }
+                            }
+                            else
+                            {
+                                ecm.result = 0;
+                                ecm.code = "OK";
+                                ecm.id_return = id_return.ToString();
                             }
                             // End Upload file
                         }
@@ -408,6 +414,12 @@ namespace TTApi.Controllers
                                     ecm.result = 1;
                                     ecm.code = ex.Message;
                                 }
+                            }
+                            else
+                            {
+                                ecm.result = 0;
+                                ecm.code = "OK";
+                                ecm.id_return = id_return.ToString();
                             }
                             // End Upload file
                         }
@@ -700,6 +712,12 @@ namespace TTApi.Controllers
                                     ecm.code = ex.Message;
                                 }
                             }
+                            else
+                            {
+                                ecm.result = 0;
+                                ecm.code = "OK";
+                                ecm.id_return = id_return.ToString();
+                            }
                             // End Upload file
                         }
                     }
@@ -786,7 +804,7 @@ namespace TTApi.Controllers
                 {
                     try
                     {
-                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
+                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) >= 1)
                         {
                             ecm.result = 0;
                             ecm.code = "OK";
@@ -822,7 +840,7 @@ namespace TTApi.Controllers
                 {
                     try
                     {
-                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
+                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) >= 1)
                         {
                             ecm.result = 0;
                             ecm.code = "OK";
@@ -895,7 +913,7 @@ namespace TTApi.Controllers
             List<LicenseAllView> ul = new List<LicenseAllView>();
             using (SqlConnection con = hc.ConnectDatabaseTT1995())
             {
-                string _SQL = "SELECT license_id, number_car, license_car from license WHERE number_car NOT LIKE 'T%'";
+                string _SQL = "SELECT license_id, number_car, license_car, fleet from license WHERE number_car NOT LIKE 'T%'";
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     DataTable _Dt = new DataTable();
@@ -908,6 +926,7 @@ namespace TTApi.Controllers
                         lav.license_id = _Item["license_id"].ToString();
                         lav.number_car = _Item["number_car"].ToString();
                         lav.license_car = _Item["license_car"].ToString();
+                        lav.fleet = _Item["fleet"].ToString();
 
                         ul.Add(lav);
                     }
@@ -930,7 +949,7 @@ namespace TTApi.Controllers
             List<LicenseAllView> ul = new List<LicenseAllView>();
             using (SqlConnection con = hc.ConnectDatabaseTT1995())
             {
-                string _SQL = "SELECT license_id, number_car, license_car from license WHERE number_car LIKE 'T%'";
+                string _SQL = "SELECT license_id, number_car, license_car, fleet from license WHERE number_car LIKE 'T%'";
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     DataTable _Dt = new DataTable();
@@ -943,6 +962,7 @@ namespace TTApi.Controllers
                         lav.license_id = _Item["license_id"].ToString();
                         lav.number_car = _Item["number_car"].ToString();
                         lav.license_car = _Item["license_car"].ToString();
+                        lav.fleet = _Item["fleet"].ToString();
 
                         ul.Add(lav);
                     }
@@ -1224,7 +1244,7 @@ namespace TTApi.Controllers
                 {
                     try
                     {
-                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
+                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) >= 1)
                         {
                             ecm.result = 0;
                             ecm.code = "OK";
@@ -1265,7 +1285,7 @@ namespace TTApi.Controllers
                 {
                     try
                     {
-                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
+                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) >= 1)
                         {
                             ecm.result = 0;
                             ecm.code = "OK";
@@ -1304,6 +1324,12 @@ namespace TTApi.Controllers
             using (SqlConnection con = hc.ConnectDatabase())
             {
                 string _SQL = "select * from branch_customer where cus_id = " + val.cus_id;
+
+                if(val.typeGet == 1)
+                {
+                    _SQL += " and status_approve = 1";
+                }
+
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     DataTable _Dt = new DataTable();
@@ -1341,8 +1367,8 @@ namespace TTApi.Controllers
             HomeController hc = new HomeController();
             using (SqlConnection con = hc.ConnectDatabase())
             {
-                string _SQL = "insert into branch_customer (address,branch_name,,zip_code,province_id,cus_id,create_by_user_id) output inserted.branch_id " +
-                    "values (N'" + val.address + "', N'" + val.branch_name + "', N'" + val.zip_code + "', N'" + val.province_id + "', " + val.cus_id + ", 1)";
+                string _SQL = "insert into branch_customer (address,branch_name,zip_code,cus_id,create_by_user_id) output inserted.branch_id " +
+                    "values (N'" + val.address + "', N'" + val.branch_name + "', N'" + val.zip_code + "', " + val.cus_id + ", 1)";
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     try
@@ -1394,7 +1420,7 @@ namespace TTApi.Controllers
                 {
                     try
                     {
-                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
+                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) >= 1)
                         {
                             ecm.result = 0;
                             ecm.code = "OK";
@@ -1430,30 +1456,31 @@ namespace TTApi.Controllers
             HomeController hc = new HomeController();
             using (SqlConnection con = hc.ConnectDatabase())
             {
-                string _SQL = "delete from branch_customer where branch_id = " + val.branch_id;
-                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                string _SQL = "delete from relation_contact_branch where branch_id = " + val.branch_id;
+                SqlCommand cmd = new SqlCommand(_SQL, con);
+                cmd.ExecuteNonQuery().ToString();
+                try
                 {
-                    try
+                    _SQL = "delete from branch_customer where branch_id = " + val.branch_id;
+                    cmd = new SqlCommand(_SQL, con);
+                    if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) >= 1)
                     {
-                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
-                        {
-                            ecm.result = 0;
-                            ecm.code = "OK";
-                        }
-                        else
-                        {
-                            ecm.result = 1;
-                            ecm.code = _SQL;
-                        }
+                        ecm.result = 0;
+                        ecm.code = "OK";
                     }
-                    catch (Exception ex)
+                    else
                     {
                         ecm.result = 1;
-                        ecm.code = ex.Message;
+                        ecm.code = _SQL;
                     }
                 }
+                catch (Exception ex)
+                {
+                    ecm.result = 1;
+                    ecm.code = ex.Message;
+                }
                 con.Close();
-            }
+            }            
             return ecm;
         }
 
@@ -1468,13 +1495,13 @@ namespace TTApi.Controllers
         /// <returns></returns>
         [AllowAnonymous]
         [Route("GetTrunkAll")]
-        public List<TrunkView> TrunkAll(BranchCustomerIdModels val)
+        public List<TrunkView> TrunkAll(CustomerIdModels val)
         {
             HomeController hc = new HomeController();
             List<TrunkView> ul = new List<TrunkView>();
             using (SqlConnection con = hc.ConnectDatabase())
             {
-                string _SQL = "SELECT t.* from relation_trunk_branch as rtb join trunk as t on rtb.trunk_id = t.trunk_id where rtb.branch_id = " + val.branch_id;
+                string _SQL = "SELECT * from trunk where cus_id = " + val.cus_id;
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     DataTable _Dt = new DataTable();
@@ -1486,7 +1513,9 @@ namespace TTApi.Controllers
                         TrunkView tv = new TrunkView();
                         tv.trunk_id = _Item["trunk_id"].ToString();
                         tv.source = _Item["source"].ToString();
-                        tv.destination = _Item["destination"].ToString();                        
+                        tv.destination = _Item["destination"].ToString();
+                        tv.station = _Item["station"].ToString();
+                        tv.cus_id = _Item["cus_id"].ToString();
                         ul.Add(tv);
                     }
                 }
@@ -1509,26 +1538,35 @@ namespace TTApi.Controllers
             HomeController hc = new HomeController();
             using (SqlConnection con = hc.ConnectDatabase())
             {
-                string _SQL = "insert into trunk (source,destination,create_by_user_id) output inserted.trunk_id " +
-                    "values (N'" + val.source + "', N'" + val.destination + "', 1)";
+                string _SQL = "insert into trunk (source,destination,station,cus_id,create_by_user_id) output inserted.trunk_id " +
+                    "values (N'" + val.source + "', N'" + val.destination + "',N'" + val.station + "', " + val.cus_id + ", 1)";
                 SqlCommand cmd = new SqlCommand(_SQL, con);                
                 try
                 {
                     var id_return = Int32.Parse(cmd.ExecuteScalar().ToString());
                     if (id_return >= 1)
                     {
-                        _SQL = "insert into relation_trunk_branch (trunk_id, branch_id) values (" + val.trunk_id + ", " + val.branch_id + ")";
-                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
-                        {
-                            ecm.result = 0;
-                            ecm.code = "OK";
-                            ecm.id_return = id_return.ToString();
-                        }
-                        else
-                        {
-                            ecm.result = 1;
-                            ecm.code = _SQL;
-                        }                            
+
+                        ecm.result = 0;
+                        ecm.code = "OK";
+                        ecm.id_return = id_return.ToString();
+                        //_SQL = "insert into relation_trunk_customer (trunk_id, cus_id) values (" + val.trunk_id + ", " + val.cus_id + ")";
+                        //if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
+                        //{
+                        //    ecm.result = 0;
+                        //    ecm.code = "OK";
+                        //    ecm.id_return = id_return.ToString();
+                        //}
+                        //else
+                        //{
+                        //    ecm.result = 1;
+                        //    ecm.code = _SQL;
+                        //}                            
+                    }
+                    else
+                    {
+                        ecm.result = 1;
+                        ecm.code = _SQL;
                     }
                 }
                 catch (Exception ex)
@@ -1552,8 +1590,8 @@ namespace TTApi.Controllers
         {
             ExecuteModels ecm = new ExecuteModels();
             string _SQL_Set = string.Empty;
-            string[] Col_Arr = { "source", "destination" };
-            string[] Val_Arr = { val.source, val.destination };
+            string[] Col_Arr = { "source", "destination", "station", "cus_id" };
+            string[] Val_Arr = { val.source, val.destination, val.station, val.cus_id };
             for (int n = 0; n <= Val_Arr.Length - 1; n++)
             {
                 if (Val_Arr[n] != null)
@@ -1569,7 +1607,7 @@ namespace TTApi.Controllers
                 {
                     try
                     {
-                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
+                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) >= 1)
                         {
                             ecm.result = 0;
                             ecm.code = "OK";
@@ -1605,24 +1643,14 @@ namespace TTApi.Controllers
             HomeController hc = new HomeController();
             using (SqlConnection con = hc.ConnectDatabase())
             {
-                string _SQL = "delete from relation_trunk_branch where trunk_id = " + val.trunk_id;
-                SqlCommand cmd = new SqlCommand(_SQL, con);                
+                string _SQL = "delete from trunk where trunk_id = " + val.trunk_id;
+                SqlCommand cmd = new SqlCommand(_SQL, con);
                 try
                 {
-                    if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
+                    if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) >= 1)
                     {
-                        _SQL = "delete from trunk where trunk_id = " + val.trunk_id;
-                        cmd = new SqlCommand(_SQL, con);
-                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
-                        {
-                            ecm.result = 0;
-                            ecm.code = "OK";
-                        }
-                        else
-                        {
-                            ecm.result = 1;
-                            ecm.code = _SQL;
-                        }
+                        ecm.result = 0;
+                        ecm.code = "OK";
                     }
                     else
                     {
@@ -1651,7 +1679,7 @@ namespace TTApi.Controllers
         /// <returns></returns>
         [AllowAnonymous]
         [Route("GetContactAll")]
-        public List<ContactView> GetContactAll(BranchCustomerIdModels val)
+        public List<ContactView> ContactAll(BranchCustomerIdModels val)
         {
             HomeController hc = new HomeController();
             List<ContactView> ul = new List<ContactView>();
@@ -1667,6 +1695,7 @@ namespace TTApi.Controllers
                     foreach (DataRow _Item in _Dt.Rows)
                     {
                         ContactView cv = new ContactView();
+                        cv.contact_id = _Item["contact_id"].ToString();
                         cv.name = _Item["name"].ToString();
                         cv.position = _Item["position"].ToString();
                         cv.tel = _Item["tel"].ToString();
@@ -1702,7 +1731,8 @@ namespace TTApi.Controllers
                     var id_return = Int32.Parse(cmd.ExecuteScalar().ToString());
                     if (id_return >= 1)
                     {
-                        _SQL = "insert into relation_contact_branch (contact_id, branch_id) values (" + val.contact_id + ", " + val.branch_id + ")";
+                        _SQL = "insert into relation_contact_branch (contact_id, branch_id) values (" + id_return + ", " + val.branch_id + ")";
+                        cmd = new SqlCommand(_SQL, con);
                         if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
                         {
                             ecm.result = 0;
@@ -1754,7 +1784,7 @@ namespace TTApi.Controllers
                 {
                     try
                     {
-                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
+                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) >= 1)
                         {
                             ecm.result = 0;
                             ecm.code = "OK";
@@ -1798,7 +1828,7 @@ namespace TTApi.Controllers
                     {
                         _SQL = "delete from contact_customer where contact_id = " + val.contact_id;
                         cmd = new SqlCommand(_SQL, con);
-                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
+                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) >= 1)
                         {
                             ecm.result = 0;
                             ecm.code = "OK";
@@ -1827,40 +1857,6 @@ namespace TTApi.Controllers
 
         #endregion
 
-        //// POST CheckList/Profile/ProductAll
-        //[AllowAnonymous]
-        //[Route("GetProductAll")]
-        //public List<Product> ProductAll(CustomerIdModels val)
-        //{
-
-        //    HomeController hc = new HomeController();
-        //    List<Product> ul = new List<Product>();
-        //    using (SqlConnection con = hc.ConnectDatabase())
-        //    {
-        //        string _SQL = "select p.product_name, p.fleet, p.style_id from product as p join relation_product_branch as rpb on p.product_id = rpb.product_id" +
-        //            "where rpb.branch_id = 1";
-        //        using (SqlCommand cmd = new SqlCommand(_SQL, con))
-        //        {
-        //            DataTable _Dt = new DataTable();
-        //            SqlDataAdapter da = new SqlDataAdapter(cmd);
-        //            da.Fill(_Dt);
-        //            da.Dispose();
-        //            foreach (DataRow _Item in _Dt.Rows)
-        //            {
-        //                Product product = new Product();
-        //                product.product_id = _Item["product_id"].ToString();
-        //                product.product_name = _Item["product_name"].ToString();
-        //                product.fleet = _Item["fleet"].ToString();
-        //                product.style_name = _Item["style_name"].ToString();
-        //                product.DriverOrTruck = _Item["DriverOrTruck"].ToString();
-        //                product.DocumentOrEquipment = _Item["DocumentOrEquipment"].ToString();
-        //                ul.Add(product);
-        //            }
-        //        }
-        //        con.Close();
-        //    }
-        //    return ul;
-        //}
         #endregion
 
         #region Driver
@@ -1949,13 +1945,13 @@ namespace TTApi.Controllers
         // POST CheckList/Profile/GetProductAll
         [AllowAnonymous]
         [Route("GetProductAll")]
-        public List<ProductAllView> GetProductAll(BranchCustomerIdModels val)
+        public List<ProductAllView> ProductAll(CustomerIdModels val)
         {
             HomeController hc = new HomeController();
             List<ProductAllView> ul = new List<ProductAllView>();
             using (SqlConnection con = hc.ConnectDatabase())
             {
-                string _SQL = "SELECT * FROM product as p join relation_product_branch as rpb on p.product_id = rpb.product_id where rpb.branch_id = " + val.branch_id;
+                string _SQL = "SELECT * FROM product as p join relation_product_customer as rpb on p.product_id = rpb.product_id where rpb.cus_id = " + val.cus_id;
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     DataTable _Dt = new DataTable();
@@ -2002,7 +1998,8 @@ namespace TTApi.Controllers
                     var id_return = Int32.Parse(cmd.ExecuteScalar().ToString());
                     if (id_return >= 1)
                     {
-                        _SQL = "insert into relation_product_branch (product_id, branch_id) values (" + val.product_id + ", " + val.branch_id + ")";
+                        _SQL = "insert into relation_product_customer (product_id, cus_id) values (" + id_return + ", " + val.cus_id + ")";
+                        cmd = new SqlCommand(_SQL, con);
                         if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
                         {
                             ecm.result = 0;
@@ -2054,7 +2051,7 @@ namespace TTApi.Controllers
                 {
                     try
                     {
-                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
+                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) >= 1)
                         {
                             ecm.result = 0;
                             ecm.code = "OK";
@@ -2108,12 +2105,12 @@ namespace TTApi.Controllers
                     _SQL = "delete from relation_license_product where product_id = " + val.product_id;
                     cmd = new SqlCommand(_SQL, con);
                     cmd.ExecuteNonQuery();
-                    _SQL = "delete from relation_product_branch where product_id = " + val.product_id;
+                    _SQL = "delete from relation_product_customer where product_id = " + val.product_id;
                     cmd = new SqlCommand(_SQL, con);
                     cmd.ExecuteNonQuery();
                     _SQL = "delete from product where product_id = " + val.product_id;
                     cmd = new SqlCommand(_SQL, con);
-                    if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
+                    if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) >= 1)
                     {
                         ecm.result = 0;
                         ecm.code = "OK";
@@ -2341,7 +2338,7 @@ namespace TTApi.Controllers
                 {                   
                     _SQL = "delete from relation_driver_product where product_id = " + val.id;
                     SqlCommand cmd = new SqlCommand(_SQL, con);
-                    if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
+                    if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) >= 1)
                     {
                         ecm.result = 0;
                         ecm.code = "OK";
@@ -2381,7 +2378,7 @@ namespace TTApi.Controllers
                 {
                     _SQL = "delete from relation_document_product where product_id = " + val.id;
                     SqlCommand cmd = new SqlCommand(_SQL, con);
-                    if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
+                    if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) >= 1)
                     {
                         ecm.result = 0;
                         ecm.code = "OK";
@@ -2421,7 +2418,7 @@ namespace TTApi.Controllers
                 {
                     _SQL = "delete from relation_equipment_safety_product where product_id = " + val.id;
                     SqlCommand cmd = new SqlCommand(_SQL, con);
-                    if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
+                    if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) >= 1)
                     {
                         ecm.result = 0;
                         ecm.code = "OK";
@@ -2461,7 +2458,7 @@ namespace TTApi.Controllers
                 {
                     _SQL = "delete from relation_equipment_transport_product where product_id = " + val.id;
                     SqlCommand cmd = new SqlCommand(_SQL, con);
-                    if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
+                    if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) >= 1)
                     {
                         ecm.result = 0;
                         ecm.code = "OK";
@@ -2501,7 +2498,7 @@ namespace TTApi.Controllers
                 {
                     _SQL = "delete from relation_license_product where product_id = " + val.id;
                     SqlCommand cmd = new SqlCommand(_SQL, con);
-                    if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
+                    if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) >= 1)
                     {
                         ecm.result = 0;
                         ecm.code = "OK";
@@ -2522,39 +2519,549 @@ namespace TTApi.Controllers
             return ecm;
         }
 
-        //// POST CheckList/Profile/GetRelDriverProduct
-        //[AllowAnonymous]
-        //[Route("GetRelDriverProduct")]
-        //public List<ProductAllView> GetRelDriverProduct(RelIdModels val)
-        //{
-        //    HomeController hc = new HomeController();
-        //    List<ProductAllView> ul = new List<ProductAllView>();
-        //    using (SqlConnection con = hc.ConnectDatabase())
-        //    {
-        //        string _SQL = "SELECT * FROM product as p join relation_product_branch as rpb on p.product_id = rpb.product_id where rpb.branch_id = " + val.branch_id;
-        //        using (SqlCommand cmd = new SqlCommand(_SQL, con))
-        //        {
-        //            DataTable _Dt = new DataTable();
-        //            SqlDataAdapter da = new SqlDataAdapter(cmd);
-        //            da.Fill(_Dt);
-        //            da.Dispose();
-        //            foreach (DataRow _Item in _Dt.Rows)
-        //            {
-        //                ProductAllView pav = new ProductAllView();
-        //                pav.product_id = _Item["product_id"].ToString();
-        //                pav.product_name = _Item["product_name"].ToString();
-        //                pav.method_style = _Item["method_style"].ToString();
-        //                pav.method_special = _Item["method_special"].ToString();
-        //                pav.method_normal = _Item["method_normal"].ToString();
-        //                pav.method_contain = _Item["method_contain"].ToString();
-        //                pav.fleet = _Item["fleet"].ToString();
-        //                ul.Add(pav);
-        //            }
-        //        }
-        //        con.Close();
-        //    }
-        //    return ul;
-        //}
+        // POST CheckList/Profile/GetRelDriverProduct
+        /// <summary>
+        /// product_id
+        /// </summary>
+        /// <param name="val"></param>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [Route("GetRelDriverProduct")]
+        public List<RelDriverProductView> RelDriverProduct(IdModels val)
+        {
+            HomeController hc = new HomeController();
+            List<RelDriverProductView> ul = new List<RelDriverProductView>();
+            using (SqlConnection con = hc.ConnectDatabase())
+            {
+                string _SQL = "select rel.status_approve, d.driver_id, d.driver_name, rel.score, rel.rel_d_p_id as rel_id," +
+                    "case when rel.product_id = " + val.id + " then 1 else 0 end as rel_status " +
+                    "from [TT1995].[dbo].[driver_profile] as d left join (select * from relation_driver_product where product_id = " + val.id + ") as rel on d.driver_id = rel.driver_id";
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    DataTable _Dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(_Dt);
+                    da.Dispose();
+                    foreach (DataRow _Item in _Dt.Rows)
+                    {
+                        RelDriverProductView rel = new RelDriverProductView();
+                        rel.rel_id = _Item["rel_id"].ToString();
+                        rel.driver_id = _Item["driver_id"].ToString();
+                        rel.driver_name = _Item["driver_name"].ToString();
+                        rel.status_approve = _Item["status_approve"].ToString();
+                        rel.score = _Item["score"].ToString();
+                        rel.rel_status = _Item["rel_status"].ToString();
+                        ul.Add(rel);
+                    }
+                }
+                con.Close();
+            }
+            return ul;
+        }
+
+        // POST CheckList/Profile/GetRelDocProduct
+        /// <summary>
+        /// product_id
+        /// </summary>
+        /// <param name="val"></param>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [Route("GetRelDocProduct")]
+        public List<RelDocProductView> RelDocProduct(IdModels val)
+        {
+            HomeController hc = new HomeController();
+            List<RelDocProductView> ul = new List<RelDocProductView>();
+            using (SqlConnection con = hc.ConnectDatabase())
+            {
+                string _SQL = "select d.status_approve, d.doc_id, d.doc_code, d.doc_name, d.remark, d.doc_type_id as type_default, rel.doc_type_id as type_rel, rel.rel_d_p_id as rel_id," +
+                    "case when rel.product_id = " + val.id + " then 1 else 0 end as rel_status " +
+                    "from document as d left join (select * from relation_document_product where product_id = " + val.id + ") as rel on d.doc_id = rel.doc_id";
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    DataTable _Dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(_Dt);
+                    da.Dispose();
+                    foreach (DataRow _Item in _Dt.Rows)
+                    {
+                        RelDocProductView rel = new RelDocProductView();
+                        rel.rel_id = _Item["rel_id"].ToString();
+                        rel.rel_status = _Item["rel_status"].ToString();
+                        rel.doc_id = _Item["doc_id"].ToString();
+                        rel.doc_code = _Item["doc_code"].ToString();
+                        rel.doc_name = _Item["doc_name"].ToString();
+                        rel.remark = _Item["remark"].ToString();
+                        rel.type_default = _Item["type_default"].ToString();
+                        rel.status_approve = _Item["status_approve"].ToString();
+                        rel.type_rel = _Item["type_rel"].ToString();
+                        if(_Item["rel_status"].ToString() == "1")
+                        {
+                            rel.type_show = _Item["type_rel"].ToString();
+                        }
+                        else
+                        {
+                            rel.type_show = _Item["type_default"].ToString();
+                        }
+                        ul.Add(rel);
+                    }
+                }
+                con.Close();
+            }
+            return ul;
+        }
+
+        // POST CheckList/Profile/GetRelSafetyProduct
+        /// <summary>
+        /// product_id
+        /// </summary>
+        /// <param name="val"></param>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [Route("GetRelSafetyProduct")]
+        public List<RelSafetyProductView> RelSafetyProduct(IdModels val)
+        {
+            HomeController hc = new HomeController();
+            List<RelSafetyProductView> ul = new List<RelSafetyProductView>();
+            using (SqlConnection con = hc.ConnectDatabase())
+            {
+                string _SQL = "select rel.status_approve, es.eq_safety_id, es.eq_safety_code, es.eq_name, es.eq_path, es.eq_type_id, es.property, es.suggestion, es.style, rel.amount, rel.rel_e_s_p_id as rel_id," +
+                    "case when rel.product_id = " + val.id + " then 1 else 0 end as rel_status " +
+                    "from equipment_safety as es left join (select * from relation_equipment_safety_product where product_id = " + val.id + ") as rel on es.eq_safety_id = rel.eq_safety_id";
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    DataTable _Dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(_Dt);
+                    da.Dispose();
+                    foreach (DataRow _Item in _Dt.Rows)
+                    {
+                        RelSafetyProductView rel = new RelSafetyProductView();
+                        rel.rel_id = _Item["rel_id"].ToString();
+                        rel.eq_safety_id = _Item["eq_safety_id"].ToString();
+                        rel.eq_safety_code = _Item["eq_safety_code"].ToString();
+                        rel.eq_name = _Item["eq_name"].ToString();
+                        rel.eq_path = _Item["eq_path"].ToString();
+                        rel.eq_type_id = _Item["eq_type_id"].ToString();
+                        rel.property = _Item["property"].ToString();
+                        rel.suggestion = _Item["suggestion"].ToString();
+                        rel.style = _Item["style"].ToString();
+                        rel.status_approve = _Item["status_approve"].ToString();
+                        rel.amount = _Item["amount"].ToString();
+                        rel.rel_status = _Item["rel_status"].ToString();
+                        ul.Add(rel);
+                    }
+                }
+                con.Close();
+            }
+            return ul;
+        }
+
+        // POST CheckList/Profile/GetRelTranProduct
+        /// <summary>
+        /// product_id
+        /// </summary>
+        /// <param name="val"></param>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [Route("GetRelTranProduct")]
+        public List<RelTranProductView> RelTranProduct(IdModels val)
+        {
+            HomeController hc = new HomeController();
+            List<RelTranProductView> ul = new List<RelTranProductView>();
+            using (SqlConnection con = hc.ConnectDatabase())
+            {
+                string _SQL = "select rel.status_approve, es.eq_tran_id, es.eq_tran_code, es.eq_name, es.eq_path, es.eq_type_id, es.property, es.suggestion, es.style, rel.amount, rel.rel_e_t_p_id as rel_id," +
+                    "case when rel.product_id = " + val.id + " then 1 else 0 end as rel_status " +
+                    "from equipment_transport as es left join (select * from relation_equipment_transport_product where product_id = " + val.id + ") as rel on es.eq_tran_id = rel.eq_tran_id";
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    DataTable _Dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(_Dt);
+                    da.Dispose();
+                    foreach (DataRow _Item in _Dt.Rows)
+                    {
+                        RelTranProductView rel = new RelTranProductView();
+                        rel.rel_id = _Item["rel_id"].ToString();
+                        rel.eq_tran_id = _Item["eq_tran_id"].ToString();
+                        rel.eq_tran_code = _Item["eq_tran_code"].ToString();
+                        rel.eq_name = _Item["eq_name"].ToString();
+                        rel.eq_path = _Item["eq_path"].ToString();
+                        rel.eq_type_id = _Item["eq_type_id"].ToString();
+                        rel.property = _Item["property"].ToString();
+                        rel.suggestion = _Item["suggestion"].ToString();
+                        rel.style = _Item["style"].ToString();
+                        rel.status_approve = _Item["status_approve"].ToString();
+                        rel.amount = _Item["amount"].ToString();
+                        rel.rel_status = _Item["rel_status"].ToString();
+                        ul.Add(rel);
+                    }
+                }
+                con.Close();
+            }
+            return ul;
+        }
+
+        // POST CheckList/Profile/GetRelTranProduct
+        /// <summary>
+        /// product_id
+        /// </summary>
+        /// <param name="val"></param>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [Route("GetRelLicenseProduct")]
+        public List<RelLicenseProductView> RelLicenseProduct(IdModels val)
+        {
+            HomeController hc = new HomeController();
+            List<RelLicenseProductView> ul = new List<RelLicenseProductView>();
+            using (SqlConnection con = hc.ConnectDatabase())
+            {
+                string _SQL = "select rel.status_approve, l.fleet, l.license_id, l.license_car, l.number_car, rel.rel_l_p_id as rel_id," +
+                    "case when rel.product_id = " + val.id + " then 1 else 0 end as rel_status " +
+                    "from [TT1995].[dbo].[license] as l left join (select * from relation_license_product where product_id = " + val.id + ") as rel on l.license_id = rel.license_id";
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    DataTable _Dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(_Dt);
+                    da.Dispose();
+                    foreach (DataRow _Item in _Dt.Rows)
+                    {
+                        RelLicenseProductView rel = new RelLicenseProductView();
+                        rel.rel_id = _Item["rel_id"].ToString();
+                        rel.license_id = _Item["license_id"].ToString();
+                        rel.license_car = _Item["license_car"].ToString();
+                        rel.number_car = _Item["number_car"].ToString();
+                        rel.rel_status = _Item["rel_status"].ToString();
+                        rel.fleet = _Item["fleet"].ToString();
+                        rel.status_approve = _Item["status_approve"].ToString();
+                        ul.Add(rel);
+                    }
+                }
+                con.Close();
+            }
+            return ul;
+        }
+
+        #endregion
+
+        #region Approve
+        // POST CheckList/Profile/UpdateApprove
+        /// <summary>
+        /// Update Approve
+        /// </summary>
+        /// <param name="val"></param>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [Route("UpdateApprove")]
+        public ExecuteModels UpdateApprove(ApproveModels val)
+        {
+            ExecuteModels ecm = new ExecuteModels();
+            try
+            {
+                HomeController hc = new HomeController();
+                using (SqlConnection con = hc.ConnectDatabase())
+                {
+
+                    string _SQL = "update " + val.nametable + " set station_approve = 1 where " + val.nameid + " = " + val.id;
+                    using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                    {
+                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
+                        {
+                            ecm.result = 0;
+                            ecm.code = "OK";
+                        }
+                        else
+                        {
+                            ecm.result = 1;
+                            ecm.code = _SQL;
+                        }
+                    }
+                    con.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                ecm.result = 1;
+                ecm.code = ex.Message;
+            }
+            return ecm;                              
+        }
+
+        [AllowAnonymous]
+        [Route("GetApproveRelContactBranch")]
+        public List<RelContactBranch> GetApproveRelContactBranch()
+        {
+            HomeController hc = new HomeController();
+            List<RelContactBranch> ul = new List<RelContactBranch>();
+            using (SqlConnection con = hc.ConnectDatabase())
+            {
+                string _SQL = "SELECT rel.rel_c_b_id, a.name, a.email, a.line, a.position, a.tel, b.[address], b.branch_name " +
+                    "FROM relation_contact_branch as rel join contact_customer as a on rel.contact_id = a.contact_id " +
+                    "join branch_customer as b on rel.branch_id = b.branch_id where rel.status_approve is null";
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    DataTable _Dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(_Dt);
+                    da.Dispose();
+                    foreach (DataRow _Item in _Dt.Rows)
+                    {
+                        RelContactBranch rel = new RelContactBranch();
+                        rel.rel_id = _Item["rel_c_b_id"].ToString();
+                        rel.contact_name = _Item["name"].ToString();
+                        rel.branch_name = _Item["branch_name"].ToString();
+                        rel.address = _Item["address"].ToString();
+                        rel.email = _Item["email"].ToString();
+                        rel.line = _Item["line"].ToString();
+                        rel.tel = _Item["tel"].ToString();
+                        ul.Add(rel);
+                    }
+                }
+                con.Close();
+            }
+            return ul;
+        }
+
+        [AllowAnonymous]
+        [Route("GetApproveRelDocumentProduct")]
+        public List<RelDocumentProduct> GetApproveRelDocumentProduct()
+        {
+            HomeController hc = new HomeController();
+            List<RelDocumentProduct> ul = new List<RelDocumentProduct>();
+            using (SqlConnection con = hc.ConnectDatabase())
+            {
+                string _SQL = "SELECT rel.rel_d_p_id, d.doc_code,d.doc_name,d.doc_path,d.remark,p.product_name,p.fleet,p.method_style,p.method_normal,p.method_contain,p.method_special,p.product_path,dt.doc_type " +
+                    "FROM relation_document_product as rel join document_type as dt on rel.doc_type_id = dt.doc_type_id " +
+                    "join document as d on rel.doc_id = d.doc_id join product as p on rel.product_id = p.product_id where rel.status_approve is null";
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    DataTable _Dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(_Dt);
+                    da.Dispose();
+                    foreach (DataRow _Item in _Dt.Rows)
+                    {
+                        RelDocumentProduct rel = new RelDocumentProduct();
+                        rel.rel_id = _Item["rel_d_p_id"].ToString();
+                        rel.doc_type = _Item["doc_type"].ToString();
+                        rel.doc_code = _Item["doc_code"].ToString();
+                        rel.doc_name = _Item["doc_name"].ToString();
+                        rel.doc_path = _Item["doc_path"].ToString();
+                        rel.remark = _Item["remark"].ToString();
+                        rel.product_name = _Item["product_name"].ToString();
+                        rel.fleet = _Item["fleet"].ToString();
+                        rel.method_style = _Item["method_style"].ToString();
+                        rel.method_normal = _Item["method_normal"].ToString();
+                        rel.method_contain= _Item["method_contain"].ToString();
+                        rel.method_special= _Item["method_special"].ToString();
+                        rel.product_path = _Item["product_path"].ToString();
+                        ul.Add(rel);
+                    }
+                }
+                con.Close();
+            }
+            return ul;
+        }
+
+        [AllowAnonymous]
+        [Route("GetApproveRelDriverProduct")]
+        public List<RelDriverProduct> GetApproveRelDriverProduct()
+        {
+            HomeController hc = new HomeController();
+            List<RelDriverProduct> ul = new List<RelDriverProduct>();
+            using (SqlConnection con = hc.ConnectDatabase())
+            {
+                string _SQL = "SELECT rel.rel_d_p_id, d.driver_name,p.product_name,p.fleet,p.method_style,p.method_normal,p.method_contain,p.method_special,p.product_path,rel.score " +
+                    "FROM relation_driver_product as rel join [TT1995].[dbo].[driver_profile] as d on rel.driver_id = d.driver_id join product as p on rel.product_id = p.product_id " +
+                    "where rel.status_approve is null";
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    DataTable _Dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(_Dt);
+                    da.Dispose();
+                    foreach (DataRow _Item in _Dt.Rows)
+                    {
+                        RelDriverProduct rel = new RelDriverProduct();
+                        rel.rel_id = _Item["rel_d_p_id"].ToString();
+                        rel.score = _Item["score"].ToString();
+                        rel.driver_name = _Item["driver_name"].ToString();
+                        rel.product_name = _Item["product_name"].ToString();
+                        rel.fleet = _Item["fleet"].ToString();
+                        rel.method_style = _Item["method_style"].ToString();
+                        rel.method_normal = _Item["method_normal"].ToString();
+                        rel.method_contain = _Item["method_contain"].ToString();
+                        rel.method_special = _Item["method_special"].ToString();
+                        rel.product_path = _Item["product_path"].ToString();
+                        ul.Add(rel);
+                    }
+                }
+                con.Close();
+            }
+            return ul;
+        }
+
+        [AllowAnonymous]
+        [Route("GetApproveRelSafetyProduct")]
+        public List<RelSafetyProduct> GetApproveRelSafetyProduct()
+        {
+            HomeController hc = new HomeController();
+            List<RelSafetyProduct> ul = new List<RelSafetyProduct>();
+            using (SqlConnection con = hc.ConnectDatabase())
+            {
+                string _SQL = "SELECT rel.rel_e_s_p_id, d.eq_safety_code,d.eq_name,d.style,d.property,d.suggestion,et.eq_type,d.eq_path,p.product_name,p.fleet,p.method_style,p.method_normal,p.method_contain,p.method_special,p.product_path,rel.amount " +
+                    "FROM relation_equipment_safety_product as rel join equipment_safety as d on rel.eq_safety_id = d.eq_safety_id join product as p on rel.product_id = p.product_id " +
+                    "join equipment_type as et on d.eq_type_id = et.eq_type_id where rel.status_approve is null";
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    DataTable _Dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(_Dt);
+                    da.Dispose();
+                    foreach (DataRow _Item in _Dt.Rows)
+                    {
+                        RelSafetyProduct rel = new RelSafetyProduct();
+                        rel.rel_id = _Item["rel_e_s_p_id"].ToString();
+                        rel.eq_safety_code = _Item["eq_safety_code"].ToString();
+                        rel.eq_name = _Item["eq_name"].ToString();
+                        rel.style = _Item["style"].ToString();
+                        rel.property = _Item["property"].ToString();
+                        rel.suggestion = _Item["suggestion"].ToString();
+                        rel.eq_type = _Item["eq_type"].ToString();
+                        rel.eq_path = _Item["eq_path"].ToString();
+                        rel.product_name = _Item["product_name"].ToString();
+                        rel.fleet = _Item["fleet"].ToString();
+                        rel.method_style = _Item["method_style"].ToString();
+                        rel.method_normal = _Item["method_normal"].ToString();
+                        rel.method_contain = _Item["method_contain"].ToString();
+                        rel.method_special = _Item["method_special"].ToString();
+                        rel.product_path = _Item["product_path"].ToString();
+                        ul.Add(rel);
+                    }
+                }
+                con.Close();
+            }
+            return ul;
+        }
+
+        [AllowAnonymous]
+        [Route("GetApproveRelTranProduct")]
+        public List<RelTranProduct> GetApproveRelTranProduct()
+        {
+            HomeController hc = new HomeController();
+            List<RelTranProduct> ul = new List<RelTranProduct>();
+            using (SqlConnection con = hc.ConnectDatabase())
+            {
+                string _SQL = "SELECT rel.rel_e_t_p_id, d.eq_tran_code,d.eq_name,d.style,d.property,d.suggestion,et.eq_type,d.eq_path,p.product_name,p.fleet,p.method_style,p.method_normal,p.method_contain,p.method_special,p.product_path,rel.amount " +
+                    "FROM relation_equipment_transport_product as rel join equipment_transport as d on rel.eq_tran_id = d.eq_tran_id join product as p on rel.product_id = p.product_id " +
+                    "join equipment_type as et on d.eq_type_id = et.eq_type_id where rel.status_approve is null";
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    DataTable _Dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(_Dt);
+                    da.Dispose();
+                    foreach (DataRow _Item in _Dt.Rows)
+                    {
+                        RelTranProduct rel = new RelTranProduct();
+                        rel.rel_id = _Item["rel_e_t_p_id"].ToString();
+                        rel.eq_tran_code = _Item["eq_tran_code"].ToString();
+                        rel.eq_name = _Item["eq_name"].ToString();
+                        rel.style = _Item["style"].ToString();
+                        rel.property = _Item["property"].ToString();
+                        rel.suggestion = _Item["suggestion"].ToString();
+                        rel.eq_type = _Item["eq_type"].ToString();
+                        rel.eq_path = _Item["eq_path"].ToString();
+                        rel.product_name = _Item["product_name"].ToString();
+                        rel.fleet = _Item["fleet"].ToString();
+                        rel.method_style = _Item["method_style"].ToString();
+                        rel.method_normal = _Item["method_normal"].ToString();
+                        rel.method_contain = _Item["method_contain"].ToString();
+                        rel.method_special = _Item["method_special"].ToString();
+                        rel.product_path = _Item["product_path"].ToString();
+                        ul.Add(rel);
+                    }
+                }
+                con.Close();
+            }
+            return ul;
+        }
+
+        [AllowAnonymous]
+        [Route("GetApproveRelLicenseProduct")]
+        public List<RelLicenseProduct> GetApproveRelLicenseProduct()
+        {
+            HomeController hc = new HomeController();
+            List<RelLicenseProduct> ul = new List<RelLicenseProduct>();
+            using (SqlConnection con = hc.ConnectDatabase())
+            {
+                string _SQL = "SELECT rel.rel_l_p_id, d.license_car,d.number_car,p.product_name,p.fleet,p.method_style,p.method_normal,p.method_contain,p.method_special,p.product_path " +
+                    "FROM relation_license_product as rel join [TT1995].[dbo].license as d on rel.license_id = d.license_id join product as p on rel.product_id = p.product_id " +
+                    "where rel.status_approve is null order by d.number_car asc";
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    DataTable _Dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(_Dt);
+                    da.Dispose();
+                    foreach (DataRow _Item in _Dt.Rows)
+                    {
+                        RelLicenseProduct rel = new RelLicenseProduct();
+                        rel.rel_id = _Item["rel_l_p_id"].ToString();
+                        rel.number_car = _Item["number_car"].ToString();
+                        rel.license_car = _Item["license_car"].ToString();
+                        rel.product_name = _Item["product_name"].ToString();
+                        rel.fleet = _Item["fleet"].ToString();
+                        rel.method_style = _Item["method_style"].ToString();
+                        rel.method_normal = _Item["method_normal"].ToString();
+                        rel.method_contain = _Item["method_contain"].ToString();
+                        rel.method_special = _Item["method_special"].ToString();
+                        rel.product_path = _Item["product_path"].ToString();
+                        ul.Add(rel);
+                    }
+                }
+                con.Close();
+            }
+            return ul;
+        }
+
+        [AllowAnonymous]
+        [Route("GetApproveRelCustomerProduct")]
+        public List<RelCustomerProduct> GetApproveRelCustomerProduct()
+        {
+            HomeController hc = new HomeController();
+            List<RelCustomerProduct> ul = new List<RelCustomerProduct>();
+            using (SqlConnection con = hc.ConnectDatabase())
+            {
+                string _SQL = "SELECT rel.rel_p_c_id, d.cus_name,p.product_name,p.fleet,p.method_style,p.method_normal,p.method_contain,p.method_special,p.product_path " +
+                    "FROM relation_product_customer as rel join customer as d on rel.cus_id = d.cus_id join product as p on rel.product_id = p.product_id " +
+                    "where rel.status_approve is null order by d.cus_name asc";
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    DataTable _Dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(_Dt);
+                    da.Dispose();
+                    foreach (DataRow _Item in _Dt.Rows)
+                    {
+                        RelCustomerProduct rel = new RelCustomerProduct();
+                        rel.rel_id = _Item["rel_p_c_id"].ToString();
+                        rel.cus_name = _Item["cus_name"].ToString();
+                        rel.product_name = _Item["product_name"].ToString();
+                        rel.fleet = _Item["fleet"].ToString();
+                        rel.method_style = _Item["method_style"].ToString();
+                        rel.method_normal = _Item["method_normal"].ToString();
+                        rel.method_contain = _Item["method_contain"].ToString();
+                        rel.method_special = _Item["method_special"].ToString();
+                        rel.product_path = _Item["product_path"].ToString();
+                        ul.Add(rel);
+                    }
+                }
+                con.Close();
+            }
+            return ul;
+        }
 
         #endregion
     }

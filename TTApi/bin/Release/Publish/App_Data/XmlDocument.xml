@@ -483,7 +483,7 @@
         </member>
         <member name="T:TTApi.Controllers.ProfileController">
             <summary>
-            Link http://43.254.133.49:8015/TTApi/CheckList/Profile
+            Link http://http://tabien.threetrans.com/TTApi/CheckList/Profile
             </summary>
         </member>
         <member name="M:TTApi.Controllers.ProfileController.GetEquipmentSafetyAll">
@@ -664,7 +664,7 @@
             <param name="val"></param>
             <returns></returns>
         </member>
-        <member name="M:TTApi.Controllers.ProfileController.TrunkAll(TTApi.Models.BranchCustomerIdModels)">
+        <member name="M:TTApi.Controllers.ProfileController.TrunkAll(TTApi.Models.CustomerIdModels)">
             <summary>
             เรียกดูข้อมูลเส้นทาง
             </summary>
@@ -691,7 +691,7 @@
             <param name="val"></param>
             <returns></returns>
         </member>
-        <member name="M:TTApi.Controllers.ProfileController.GetContactAll(TTApi.Models.BranchCustomerIdModels)">
+        <member name="M:TTApi.Controllers.ProfileController.ContactAll(TTApi.Models.BranchCustomerIdModels)">
             <summary>
             เรียกดูข้อมูลผู้ติดต่อ
             </summary>
@@ -821,6 +821,48 @@
             <param name="val"></param>
             <returns></returns>
         </member>
+        <member name="M:TTApi.Controllers.ProfileController.RelDriverProduct(TTApi.Models.IdModels)">
+            <summary>
+            product_id
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TTApi.Controllers.ProfileController.RelDocProduct(TTApi.Models.IdModels)">
+            <summary>
+            product_id
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TTApi.Controllers.ProfileController.RelSafetyProduct(TTApi.Models.IdModels)">
+            <summary>
+            product_id
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TTApi.Controllers.ProfileController.RelTranProduct(TTApi.Models.IdModels)">
+            <summary>
+            product_id
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TTApi.Controllers.ProfileController.RelLicenseProduct(TTApi.Models.IdModels)">
+            <summary>
+            product_id
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TTApi.Controllers.ProfileController.UpdateApprove(TTApi.Models.ApproveModels)">
+            <summary>
+            Update Approve
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
         <member name="T:TTApi.Controllers.TabienController">
             <summary>
             
@@ -905,6 +947,56 @@
             
             </summary>
             <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TTApi.Controllers.WorksheetController.InsertWorksheet(TTApi.Models.WorksheetModels)">
+            <summary>
+            สร้างใบงาน
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TTApi.Controllers.WorksheetController.UpdateWorksheet(TTApi.Models.WorksheetModels)">
+            <summary>
+            อัพเดทใบงาน
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TTApi.Controllers.WorksheetController.DelWorksheet(TTApi.Models.WorksheetModels)">
+            <summary>
+            ลบWorksheet
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TTApi.Controllers.WorksheetController.GetWorksheetAll">
+            <summary>
+            เรียกดูข้อมูลWorksheet
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TTApi.Controllers.WorksheetController.InsertTempWorksheet(TTApi.Models.TempWorksheetModels)">
+            <summary>
+            เพิ่ม temp worksheet
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TTApi.Controllers.WorksheetController.UpdateTempWorksheet(TTApi.Models.TempWorksheetModels)">
+            <summary>
+            อัพเดทTempWorksheet
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TTApi.Controllers.WorksheetController.DelTempWorksheet(TTApi.Models.TempWorksheetModels)">
+            <summary>
+            ลบTempWorksheet
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TTApi.Controllers.WorksheetController.GetTempWorksheetAll">
+            <summary>
+            เรียกดูข้อมูลTempWorksheet
+            </summary>
             <returns></returns>
         </member>
         <member name="T:TTApi.Models.DataSetGetReport1">
@@ -1102,6 +1194,71 @@
             Used to sort self-referenced table's rows
             </summary>
         </member>
+        <member name="T:TTApi.Models.DataSetWorkSheet">
+             <summary>
+            Represents a strongly typed in-memory cache of data.
+            </summary>
+        </member>
+        <member name="T:TTApi.Models.DataSetWorkSheet.sp_WorkSheetDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:TTApi.Models.DataSetWorkSheet.sp_WorkSheetRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:TTApi.Models.DataSetWorkSheet.sp_WorkSheetRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:TTApi.Models.DataSetWorkSheetTableAdapters.sp_WorkSheetTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:TTApi.Models.DataSetWorkSheetTableAdapters.TableAdapterManager">
+             <summary>
+            TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+            </summary>
+        </member>
+        <member name="M:TTApi.Models.DataSetWorkSheetTableAdapters.TableAdapterManager.UpdateUpdatedRows(TTApi.Models.DataSetWorkSheet,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+             <summary>
+            Update rows in top-down order.
+            </summary>
+        </member>
+        <member name="M:TTApi.Models.DataSetWorkSheetTableAdapters.TableAdapterManager.UpdateInsertedRows(TTApi.Models.DataSetWorkSheet,System.Collections.Generic.List{System.Data.DataRow})">
+             <summary>
+            Insert rows in top-down order.
+            </summary>
+        </member>
+        <member name="M:TTApi.Models.DataSetWorkSheetTableAdapters.TableAdapterManager.UpdateDeletedRows(TTApi.Models.DataSetWorkSheet,System.Collections.Generic.List{System.Data.DataRow})">
+             <summary>
+            Delete rows in bottom-up order.
+            </summary>
+        </member>
+        <member name="M:TTApi.Models.DataSetWorkSheetTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+             <summary>
+            Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+            </summary>
+        </member>
+        <member name="M:TTApi.Models.DataSetWorkSheetTableAdapters.TableAdapterManager.UpdateAll(TTApi.Models.DataSetWorkSheet)">
+             <summary>
+            Update all changes to the dataset.
+            </summary>
+        </member>
+        <member name="T:TTApi.Models.DataSetWorkSheetTableAdapters.TableAdapterManager.UpdateOrderOption">
+             <summary>
+            Update Order Option
+            </summary>
+        </member>
+        <member name="T:TTApi.Models.DataSetWorkSheetTableAdapters.TableAdapterManager.SelfReferenceComparer">
+             <summary>
+            Used to sort self-referenced table's rows
+            </summary>
+        </member>
         <member name="T:TTApi.Models.ExecuteModels">
             <summary>
             ผลการ Execute ใช้ใน insert, update, delete
@@ -1242,6 +1399,13 @@
             position img
             </summary>
         </member>
+        <member name="P:TTApi.Models.CustomerIdModels.typeGet">
+            <summary>
+            0 = Normal
+            1 = Approve
+            หรือถ้าไม่ใส่จะดึงค้าทั้งหมด
+            </summary>
+        </member>
         <member name="T:TTApi.Models.CustomerAllView">
             <summary>
             ลูกค้าทั้งหมด
@@ -1290,6 +1454,62 @@
         <member name="P:TTApi.Models.BranchCustomerAllView.cus_id">
             <summary>
             Customer id
+            </summary>
+        </member>
+        <member name="T:TTApi.Models.RelDocProductView">
+            <summary>
+            แสดงความสัมพันธ์ของเอกสารและสินค้า
+            </summary>
+        </member>
+        <member name="P:TTApi.Models.RelDocProductView.rel_status">
+            <summary>
+            เท่ากับ 0 แสดงว่าไม่มีข้อมูลใน table relation
+            ถ้ามีค่ามากกว่า 1 แสดงว่ามีข้อมูลใน table relation สามารถใส่ checked ได้
+            </summary>
+        </member>
+        <member name="P:TTApi.Models.RelDocProductView.rel_id">
+            <summary>
+            PK relation
+            </summary>
+        </member>
+        <member name="P:TTApi.Models.RelDocProductView.doc_id">
+            <summary>
+            PK เอกสาร
+            </summary>
+        </member>
+        <member name="P:TTApi.Models.RelDocProductView.doc_code">
+            <summary>
+            รหัสเอกสาร
+            </summary>
+        </member>
+        <member name="P:TTApi.Models.RelDocProductView.type_rel">
+            <summary>
+            ชนิดเอกสาร นำไป = 1, นำกลับ = 2, ทั้งไปทั้งกลับ = 3 ที่อยู่ใน table relation ใช้ในกรณีอัพเดทหรือแสดงให้ใช้ column นี้
+            </summary>
+        </member>
+        <member name="P:TTApi.Models.RelDocProductView.status_approve">
+            <summary>
+            สถานะการ approve ของ relation document กับ product
+            </summary>
+        </member>
+        <member name="P:TTApi.Models.RelDocProductView.doc_name">
+            <summary>
+            ชื่อเอกสาร
+            </summary>
+        </member>
+        <member name="P:TTApi.Models.RelDocProductView.remark">
+            <summary>
+            อื่นๆ
+            </summary>
+        </member>
+        <member name="P:TTApi.Models.RelDocProductView.type_default">
+            <summary>
+            เหมือน column type_rel ต่างกันตรงที่ column นี้ใช้ตอน create เพื่อใช้เป็น default
+            </summary>
+        </member>
+        <member name="P:TTApi.Models.RelDocProductView.type_show">
+            <summary>
+            ผ่านการโปรเซสมาแล้ว
             </summary>
         </member>
         <member name="T:TTApi.Properties.Resources">

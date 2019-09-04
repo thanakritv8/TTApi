@@ -21,31 +21,9 @@ namespace TTApi.Controllers
     {
         #region CreateWorksheet
 
-        // POST CheckList/Profile/CreateWorksheet
         // POST CheckList/Profile/InsertWorksheet
         /// <summary>
-        /// var model = new FormData(); 
-        /// model.append('tran_code', 'เลขที่ใบงาน');
-        /// model.append('number_po', 'เลขที่ออเดอร์');
-        /// model.append('cus_id', 'PKลูกค้า');
-        /// model.append('branch_id', 'PKสาขา');
-        /// model.append('contact_id', 'PKผู้ติดต่อ');
-        /// model.append('product_id', 'PKสินค้า');
-        /// model.append('trunk_id', 'PK เส้นทาง');
-        /// model.append('driver_id_1', 'PK พขร 1');
-        /// model.append('driver_id_2', 'PK พขร 2');
-        /// model.append('driver_id_3', 'PK พขร ฝึกหัด');
-        /// model.append('license_id_head', 'PK รถหัวลาก');
-        /// model.append('license_id_tail', 'PK หางกึ่งพ่วง'); 
-        /// model.append('sheet_name', 'ชื่อใบงาน');
-        /// model.append('cont1', 'เลขที่ตู้1');
-        /// model.append('cont2', 'เลขที่ตู้2');
-        /// model.append('remark', 'หมายเหตุ');  
-        /// ***ajax*** 
-        /// 
-        /// data: model,
-        /// processData: false,
-        /// contentType: false,
+        /// สร้างใบงาน
         /// </summary>
         /// <returns></returns>
         [AllowAnonymous]
@@ -54,6 +32,8 @@ namespace TTApi.Controllers
         {
             ExecuteModels ecm = new ExecuteModels();
             HomeController hc = new HomeController();
+
+          
             using (SqlConnection con = hc.ConnectDatabase())
             {
                 string _SQL = "INSERT INTO [dbo].[transport] (tran_code,number_po  ,cus_id  ,branch_id  ,contact_id ,product_id  ,trunk_id " +
@@ -86,7 +66,7 @@ namespace TTApi.Controllers
 
         // POST CheckList/Profile/UpdateWorksheet
         /// <summary>
-        /// อัพเดทWorksheet
+        /// อัพเดทใบงาน
         /// </summary>
         /// <returns></returns>
         [AllowAnonymous]
@@ -94,12 +74,20 @@ namespace TTApi.Controllers
         public ExecuteModels UpdateWorksheet(WorksheetModels val)
         {
             ExecuteModels ecm = new ExecuteModels();
+            string _SQL_Set = string.Empty;
+            string[] Col_Arr = { "tran_code", "number_po", "cus_id", "branch_id", "contact_id", "product_id", "trunk_id", "driver_id_1", "driver_id_2", "driver_id_3", "license_id_head", "license_id_tail", "remark", "tran_status_id", "sheet_name", "cont1", "cont2" };
+            string[] Val_Arr = { val.tran_code, val.number_po, val.cus_id, val.branch_id, val.contact_id, val.product_id, val.trunk_id, val.driver_id_1, val.driver_id_2, val.driver_id_3, val.license_id_head, val.license_id_tail, val.remark, val.tran_status_id, val.sheet_name, val.cont1, val.cont2 };
+            for (int n = 0; n <= Val_Arr.Length - 1; n++)
+            {
+                if (Val_Arr[n] != null)
+                {
+                    _SQL_Set += Col_Arr[n] + " = N'" + Val_Arr[n] + "', ";
+                }
+            }
             HomeController hc = new HomeController();
             using (SqlConnection con = hc.ConnectDatabase())
             { 
-                string _SQL = "UPDATE  transport SET tran_code = N'" + val.tran_code + "'  , number_po = N'" + val.number_po + "' , cus_id = " + val.cus_id + " , branch_id = " + val.branch_id + " , contact_id = " + val.contact_id +
-     " , product_id = " + val.product_id + " , trunk_id = " + val.trunk_id + ", driver_id_1 = " + val.driver_id_1 + ", driver_id_2 = " + val.driver_id_2 + ", driver_id_3 = " + val.driver_id_3 + ", license_id_head = " + val.license_id_head + 
-     " , license_id_tail = " + val.license_id_tail + ", remark = " + val.remark + " , tran_status_id = " + val.tran_status_id +  ", update_by_user_id = 1 , sheet_name = N'" + val.sheet_name + "' , cont1 = N'" + val.cont1 + "', cont2 = N'" + val.cont2 + "' where tran_id = " + val.tran_id;
+                string _SQL = "UPDATE  transport set " + _SQL_Set + " update_by_user_id = 1  where tran_id = " + val.tran_id;
  
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
@@ -225,31 +213,9 @@ namespace TTApi.Controllers
 
         #region TempWorksheet
 
-        // POST CheckList/Profile/TempWorksheet
         // POST CheckList/Profile/InsertTempWorksheet
         /// <summary>
-        /// var model = new FormData(); 
-        /// model.append('tran_code', 'เลขที่ใบงาน');
-        /// model.append('number_po', 'เลขที่ออเดอร์');
-        /// model.append('cus_id', 'PKลูกค้า');
-        /// model.append('branch_id', 'PKสาขา');
-        /// model.append('contact_id', 'PKผู้ติดต่อ');
-        /// model.append('product_id', 'PKสินค้า');
-        /// model.append('trunk_id', 'PK เส้นทาง');
-        /// model.append('driver_id_1', 'PK พขร 1');
-        /// model.append('driver_id_2', 'PK พขร 2');
-        /// model.append('driver_id_3', 'PK พขร ฝึกหัด');
-        /// model.append('license_id_head', 'PK รถหัวลาก');
-        /// model.append('license_id_tail', 'PK หางกึ่งพ่วง'); 
-        /// model.append('sheet_name', 'ชื่อใบงาน');
-        /// model.append('cont1', 'เลขที่ตู้1');
-        /// model.append('cont2', 'เลขที่ตู้2');
-        /// model.append('remark', 'หมายเหตุ');  
-        /// ***ajax*** 
-        /// 
-        /// data: model,
-        /// processData: false,
-        /// contentType: false,
+        /// เพิ่ม temp worksheet
         /// </summary>
         /// <returns></returns>
         [AllowAnonymous]
@@ -298,12 +264,20 @@ namespace TTApi.Controllers
         public ExecuteModels UpdateTempWorksheet(TempWorksheetModels val)
         {
             ExecuteModels ecm = new ExecuteModels();
+            string _SQL_Set = string.Empty;
+            string[] Col_Arr = { "tran_code", "number_po", "cus_id", "branch_id", "contact_id", "product_id", "trunk_id", "driver_id_1", "driver_id_2", "driver_id_3", "license_id_head", "license_id_tail", "remark", "tran_status_id", "sheet_name", "cont1", "cont2" };
+            string[] Val_Arr = { val.tran_code, val.number_po, val.cus_id, val.branch_id, val.contact_id, val.product_id, val.trunk_id, val.driver_id_1, val.driver_id_2, val.driver_id_3, val.license_id_head, val.license_id_tail, val.remark, val.tran_status_id, val.sheet_name, val.cont1, val.cont2 };
+            for (int n = 0; n <= Val_Arr.Length - 1; n++)
+            {
+                if (Val_Arr[n] != null)
+                {
+                    _SQL_Set += Col_Arr[n] + " = N'" + Val_Arr[n] + "', ";
+                }
+            }
             HomeController hc = new HomeController();
             using (SqlConnection con = hc.ConnectDatabase())
             {
-                string _SQL = "UPDATE  transport_temp SET tran_code = N'" + val.tran_code + "'  , number_po = N'" + val.number_po + "' , cus_id = " + val.cus_id + " , branch_id = " + val.branch_id + " , contact_id = " + val.contact_id +
-     " , product_id = " + val.product_id + " , trunk_id = " + val.trunk_id + ", driver_id_1 = " + val.driver_id_1 + ", driver_id_2 = " + val.driver_id_2 + ", driver_id_3 = " + val.driver_id_3 + ", license_id_head = " + val.license_id_head +
-     " , license_id_tail = " + val.license_id_tail + ", remark = " + val.remark + " , tran_status_id = " + val.tran_status_id + ", update_by_user_id = 1 , sheet_name = N'" + val.sheet_name + "' , cont1 = N'" + val.cont1 + "', cont2 = N'" + val.cont2 + "' where tran_id = " + val.tran_id;
+                string _SQL = "UPDATE  transport_temp set " + _SQL_Set + " update_by_user_id = 1 where tran_id = " + val.tran_id;
 
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
@@ -427,51 +401,50 @@ namespace TTApi.Controllers
 
         #endregion
 
+        //#region UpdateStatusWorksheet
 
-        #region UpdateStatusWorksheet
+        //// POST CheckList/Profile/UpdateStatusWorksheet
+        ///// <summary>
+        ///// UpdateStatusWorksheet
+        ///// </summary>
+        ///// <returns></returns>
+        //[AllowAnonymous]
+        //[Route("UpdateStatusWorksheet")]
+        //public ExecuteModels UpdateStatusWorksheet(StatusWorksheetModels val)
+        //{
+        //    ExecuteModels ecm = new ExecuteModels();
+        //    HomeController hc = new HomeController();
+        //    using (SqlConnection con = hc.ConnectDatabase())
+        //    {
+        //        string _SQL = "UPDATE  transport SET  tran_status_id = " + val.tran_status_id + ", update_by_user_id = 1  where tran_id = " + val.tran_id;
 
-        // POST CheckList/Profile/UpdateStatusWorksheet
-        /// <summary>
-        /// UpdateStatusWorksheet
-        /// </summary>
-        /// <returns></returns>
-        [AllowAnonymous]
-        [Route("UpdateStatusWorksheet")]
-        public ExecuteModels UpdateStatusWorksheet(StatusWorksheetModels val)
-        {
-            ExecuteModels ecm = new ExecuteModels();
-            HomeController hc = new HomeController();
-            using (SqlConnection con = hc.ConnectDatabase())
-            {
-                string _SQL = "UPDATE  transport SET  tran_status_id = " + val.tran_status_id + ", update_by_user_id = 1  where tran_id = " + val.tran_id;
-
-                using (SqlCommand cmd = new SqlCommand(_SQL, con))
-                {
-                    try
-                    {
-                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
-                        {
-                            ecm.result = 0;
-                            ecm.code = "OK";
-                        }
-                        else
-                        {
-                            ecm.result = 1;
-                            ecm.code = _SQL;
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        ecm.result = 1;
-                        ecm.code = ex.Message;
-                    }
-                }
-                con.Close();
-            }
-            return ecm;
-        }
+        //        using (SqlCommand cmd = new SqlCommand(_SQL, con))
+        //        {
+        //            try
+        //            {
+        //                if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
+        //                {
+        //                    ecm.result = 0;
+        //                    ecm.code = "OK";
+        //                }
+        //                else
+        //                {
+        //                    ecm.result = 1;
+        //                    ecm.code = _SQL;
+        //                }
+        //            }
+        //            catch (Exception ex)
+        //            {
+        //                ecm.result = 1;
+        //                ecm.code = ex.Message;
+        //            }
+        //        }
+        //        con.Close();
+        //    }
+        //    return ecm;
+        //}
  
 
-        #endregion
+        //#endregion
     }
 }
