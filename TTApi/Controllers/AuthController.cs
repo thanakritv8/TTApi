@@ -317,7 +317,7 @@ namespace TTApi.Controllers
 
         [AllowAnonymous]
         [Route("DeleteGroup")]
-        public ExecuteModels DeleteGroup(GroupsModels val)
+        public ExecuteModels DelGroup(GroupsModels val)
         {
             ExecuteModels ecm = new ExecuteModels();
             HomeController hc = new HomeController();
@@ -327,7 +327,7 @@ namespace TTApi.Controllers
                 SqlCommand cmd = new SqlCommand(_SQL, con);
                 try
                 {
-                    if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
+                    if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) >= 1)
                     {
                         ecm.result = 0;
                         ecm.code = "OK";
