@@ -708,6 +708,38 @@ namespace TTApi.Controllers
             return ecm;
         }
         #endregion
+
+        [AllowAnonymous]
+        [Route("GetLicenseNotComplete")]
+        public List<LicenseNotComplete> GetLicenseNotComplete()
+        {
+            HomeController hc = new HomeController();
+            List<LicenseNotComplete> ul = new List<LicenseNotComplete>();
+            using (SqlConnection con = hc.ConnectDatabaseTT1995())
+            {
+                string _SQL = "sp_GetLicenseNotComplete";
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    DataTable _Dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(_Dt);
+                    da.Dispose();
+                    foreach (DataRow _Item in _Dt.Rows)
+                    {
+                        LicenseNotComplete rv = new LicenseNotComplete();
+                        rv.license_id = _Item["license_id"].ToString();
+                        rv.number_car = _Item["number_car"].ToString();
+                        rv.license_car = _Item["license_car"].ToString();
+                        rv.notcomplete = _Item["NotComplete"].ToString();
+                        rv.show_pic = _Item["show_pic"].ToString();
+                        rv.upload = _Item["upload"].ToString();                        
+                        ul.Add(rv);
+                    }
+                }
+                con.Close();
+            }
+            return ul;
+        }
     }
 
 }

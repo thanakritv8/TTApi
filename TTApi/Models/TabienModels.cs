@@ -129,4 +129,14 @@ namespace TTApi.Models
         public string loc_img { get; set; }
         public HttpPostedFile path_img { get; set; }
     }
+
+    public class LicenseNotComplete
+    {
+        public string license_id { get; set; }
+        public string number_car { get; set; }
+        public string license_car { get; set; }
+        public string notcomplete { get; set; }
+        public string show_pic { get; set; }
+        public string upload { get; set; }
+    }
 }
