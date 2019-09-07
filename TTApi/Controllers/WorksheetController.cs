@@ -13,7 +13,7 @@ using System.Web.Http.Cors;
 using TTApi.Models;
 namespace TTApi.Controllers
 {
-  
+
     [Authorize]
     [RoutePrefix("CheckList/Worksheet")]
     [EnableCors(origins: "*", headers: "*", methods: "*")]
@@ -33,7 +33,7 @@ namespace TTApi.Controllers
             ExecuteModels ecm = new ExecuteModels();
             HomeController hc = new HomeController();
 
-          
+
             using (SqlConnection con = hc.ConnectDatabase())
             {
                 string _SQL = "INSERT INTO [dbo].[transport] (tran_code,number_po  ,cus_id  ,branch_id  ,contact_id ,product_id  ,trunk_id " +
@@ -86,9 +86,9 @@ namespace TTApi.Controllers
             }
             HomeController hc = new HomeController();
             using (SqlConnection con = hc.ConnectDatabase())
-            { 
+            {
                 string _SQL = "UPDATE  transport set " + _SQL_Set + " update_by_user_id = 1  where tran_id = " + val.tran_id;
- 
+
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     try
@@ -178,7 +178,7 @@ namespace TTApi.Controllers
                     da.Dispose();
                     foreach (DataRow _Item in _Dt.Rows)
                     {
-                        WorksheetAllView wsa = new WorksheetAllView(); 
+                        WorksheetAllView wsa = new WorksheetAllView();
                         wsa.tran_id = _Item["tran_id"].ToString();
                         wsa.tran_code = _Item["tran_code"].ToString();
                         wsa.number_po = _Item["number_po"].ToString();
@@ -443,7 +443,7 @@ namespace TTApi.Controllers
         //    }
         //    return ecm;
         //}
- 
+
 
         //#endregion
     }

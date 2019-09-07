@@ -27,6 +27,8 @@ namespace TTApi.Models
     {
         public string group_id { get; set; }
         public string group_name { get; set; }
+        public string remark { get; set; }
+        public string create_date { get; set; }
     }
 
     public class AppsModels

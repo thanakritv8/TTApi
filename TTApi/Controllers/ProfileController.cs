@@ -1107,21 +1107,37 @@ namespace TTApi.Controllers
                         DL.brand_engine = _Item["brand_engine"].ToString();
                         DL.model_car = _Item["model_car"].ToString();
 
+                        //_SQL = "SELECT " +
+                        //          "[file_id], " +
+                        //          "[path_file] as path, " +
+                        //          "case position " +
+                        //          "when 1 then N'ด้านหน้า' " +
+                        //          "when 2 then N'ด้านท้าย' " +
+                        //          "when 3 then N'ด้านข้างซ้าย' " +
+                        //          "when 4 then N'ด้านข้างขวา' " +
+                        //          "when 5 then N'มุมด้านหน้าขวา' " +
+                        //          "when 6 then N'มุมด้านหน้าซ้าย' " +
+                        //          "when 7 then N'มุมด้านท้ายขวา' " +
+                        //          "when 8 then N'มุมด้านท้ายซ้าย' " +
+                        //          "end as 'position' " +
+                        //      "FROM[TT1995].[dbo].[files_all] " +
+                        //            "where table_id = 1 and fk_id = " + val.license_id + " and position<> '' and position is not null";
+                        string[] position_pic = { "ด้านหน้า", "ด้านท้าย", "ด้านข้างซ้าย", "ด้านข้างขวา", "มุมด้านหน้าขวา", "มุมด้านหน้าซ้าย", "มุมด้านท้ายขวา", "มุมด้านท้ายซ้าย" };
                         _SQL = "SELECT " +
-                                  "[file_id], " +
-                                  "[path_file] as path, " +
-                                  "case position " +
-                                  "when 1 then N'ด้านหน้า' " +
-                                  "when 2 then N'ด้านท้าย' " +
-                                  "when 3 then N'ด้านข้างซ้าย' " +
-                                  "when 4 then N'ด้านข้างขวา' " +
-                                  "when 5 then N'มุมด้านหน้าขวา' " +
-                                  "when 6 then N'มุมด้านหน้าซ้าย' " +
-                                  "when 7 then N'มุมด้านท้ายขวา' " +
-                                  "when 8 then N'มุมด้านท้ายซ้าย' " +
-                                  "end as 'position' " +
-                              "FROM[TT1995].[dbo].[files_all] " +
-                                    "where table_id = 1 and fk_id = " + val.license_id + " and position<> '' and position is not null";
+                            "[p1] as path, " +
+                            "N'ด้านหน้า' as position " +
+                            "from [TT1995].[dbo].[license] " +
+                            "where [p1] is not null and license_id = " + val.license_id;
+                        for (int c = 2; c <= 8; c++)
+                        {
+                            _SQL += " union all SELECT " +
+                            "[p" + c + "] as path, " +
+                            "N'" + position_pic[c - 1] + "' as position " +
+                            "from [TT1995].[dbo].[license] " +
+                            "where  [p" + c + "] is not null and license_id = " + val.license_id;
+                        }
+                        
+
                         using (SqlCommand cmdTemp = new SqlCommand(_SQL, con))
                         {
                             DataTable _DtTemp = new DataTable();
@@ -1136,7 +1152,7 @@ namespace TTApi.Controllers
                             for (int i = 0; i < _DtTemp.Rows.Count; i++)
                             {
                                 LG = new ListGallery();
-                                LG.file_id = _DtTemp.Rows[i]["file_id"].ToString();
+                                //LG.file_id = _DtTemp.Rows[i]["file_id"].ToString();
                                 LG.path = _DtTemp.Rows[i]["path"].ToString();
                                 LG.position = _DtTemp.Rows[i]["position"].ToString();
                                 DL.gallery.Add(LG);
@@ -2763,7 +2779,7 @@ namespace TTApi.Controllers
                 using (SqlConnection con = hc.ConnectDatabase())
                 {
 
-                    string _SQL = "update " + val.nametable + " set station_approve = 1 where " + val.nameid + " = " + val.id;
+                    string _SQL = "update " + val.nametable + " set status_approve = 1 where " + val.nameid + " = " + val.id;
                     using (SqlCommand cmd = new SqlCommand(_SQL, con))
                     {
                         if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)

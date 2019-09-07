@@ -227,13 +227,125 @@ namespace TTApi.Controllers
                     {
                         GroupsModels m = new GroupsModels();
                         m.group_id = _Item["group_id"].ToString();
-                        m.group_name = _Item["group_name"].ToString();                        
+                        m.group_name = _Item["group_name"].ToString();
+                        m.remark = _Item["remark"].ToString();
+                        m.create_date = _Item["create_Date"].ToString();
                         ul.Add(m);
                     }
                 }
                 con.Close();
             }
             return ul;
+        }
+
+        [AllowAnonymous]
+        [Route("InsertGroup")]
+        public ExecuteModels InsertGroup(GroupsModels val)
+        {
+            ExecuteModels ecm = new ExecuteModels();
+            HomeController hc = new HomeController();
+            using (SqlConnection con = hc.ConnectDatabaseAuth())
+            {
+                string _SQL = "insert into [group] (group_name, remark, project_id, create_by_user_id) output inserted.group_id " +
+                    "values (N'" + val.group_name + "', N'" + val.remark + "', 2, 1)";
+                SqlCommand cmd = new SqlCommand(_SQL, con);
+                try
+                {
+                    var id_return = Int32.Parse(cmd.ExecuteScalar().ToString());
+                    if (id_return >= 1)
+                    {
+                        ecm.result = 0;
+                        ecm.code = "OK";
+                        ecm.id_return = id_return.ToString();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ecm.result = 1;
+                    ecm.code = ex.Message;
+                }
+                con.Close();
+            }
+            return ecm;
+        }
+
+        [AllowAnonymous]
+        [Route("UpdateGroup")]
+        public ExecuteModels UpdateGroup(GroupsModels val)
+        {
+            HomeController hc = new HomeController();
+            ExecuteModels ecm = new ExecuteModels();
+            string _SQL_Set = string.Empty;
+            string[] Col_Arr = { "group_name", "remark" };
+            string[] Val_Arr = { val.group_name, val.remark };
+            for (int n = 0; n <= Val_Arr.Length - 1; n++)
+            {
+                if (Val_Arr[n] != null)
+                {
+                    _SQL_Set += Col_Arr[n] + " = N'" + Val_Arr[n] + "', ";
+                }
+            }
+
+            using (SqlConnection con = hc.ConnectDatabaseAuth())
+            {
+                string _SQL = "update [group] set " + _SQL_Set + " create_by_user_id = 1 where group_id = " + val.group_id;
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    try
+                    {
+                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
+                        {
+                            ecm.result = 0;
+                            ecm.code = "OK";
+                        }
+                        else
+                        {
+                            ecm.result = 1;
+                            ecm.code = _SQL;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        ecm.result = 1;
+                        ecm.code = ex.Message;
+                    }
+                }
+                con.Close();
+            }
+            return ecm;
+        }
+
+        [AllowAnonymous]
+        [Route("DeleteGroup")]
+        public ExecuteModels DelGroup(GroupsModels val)
+        {
+            ExecuteModels ecm = new ExecuteModels();
+            HomeController hc = new HomeController();
+            using (SqlConnection con = hc.ConnectDatabaseAuth())
+            {
+                string _SQL = "delete from [group] where group_id = " + val.group_id;
+                SqlCommand cmd = new SqlCommand(_SQL, con);
+                try
+                {
+                    if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) >= 1)
+                    {
+                        ecm.result = 0;
+                        ecm.code = "OK";
+                    }
+                    else
+                    {
+                        ecm.result = 1;
+                        ecm.code = _SQL;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ecm.result = 1;
+                    ecm.code = ex.Message;
+                }
+                con.Close();
+            }
+            return ecm;
         }
         #endregion
 

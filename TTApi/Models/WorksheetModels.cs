@@ -128,13 +128,13 @@ namespace TTApi.Models
 
 
     #region StatusWorksheet
-     
+
     public class StatusWorksheetModels
     {
-        public string tran_id { get; set; } 
-        public string tran_status_id { get; set; } 
+        public string tran_id { get; set; }
+        public string tran_status_id { get; set; }
     }
- 
+
 
     #endregion
 }

@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Reflection;
+using System.Web;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using TTApi.Models;
@@ -19,6 +22,7 @@ namespace TTApi.Controllers
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class TabienController : ApiController
     {
+        #region Report
         #region report1
         /// <summary>
         /// 
@@ -625,5 +629,117 @@ namespace TTApi.Controllers
             return ecm;
         }
         #endregion
+        #endregion
+
+        #region Upload Pic License
+        [AllowAnonymous]
+        [Route("UploadPicLicense")]
+        public ExecuteModels UploadPicLicense()
+        {
+            ExecuteModels ecm = new ExecuteModels();
+            NameValueCollection nvc = HttpContext.Current.Request.Form;
+            var val = new LocationModels();
+            foreach (string kvp in nvc.AllKeys)
+            {
+                if (kvp != "Image")
+                {
+                    PropertyInfo pi = val.GetType().GetProperty(kvp, BindingFlags.Public | BindingFlags.Instance);
+                    if (pi != null)
+                    {
+                        if (nvc[kvp] != "undefined")
+                        {
+                            pi.SetValue(val, nvc[kvp], null);
+                        }
+                    }
+                }
+            }
+            HomeController hc = new HomeController();
+            using (SqlConnection con = hc.ConnectDatabaseTT1995())
+            {
+                string _SQL_Set = string.Empty;
+                
+                // Upload file
+                string path = string.Empty;
+                if (HttpContext.Current.Request.Files.Count > 0)
+                {
+                    if (HttpContext.Current.Request.Files.Count > 0)
+                    {
+                        try
+                        {
+                            val.path_img = HttpContext.Current.Request.Files[0];
+                            path = HttpContext.Current.Request.MapPath(@"~/Files/lp/" + val.license_id + "_" + val.loc_img + ".png");
+                            val.path_img.SaveAs(path);
+                        }
+                        catch (Exception ex)
+                        {
+                            ecm.result = 1;
+                            ecm.code = ex.Message;
+                            return ecm;
+                        }
+                    }
+                }                
+                // End Upload file
+
+
+                string _SQL = "update license set p" + val.loc_img + " = '" + path + "' where license_id = " + val.license_id;
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    try
+                    {
+                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) >= 1)
+                        {
+                            ecm.result = 0;
+                            ecm.code = "OK";
+                        }
+                        else
+                        {
+                            ecm.result = 1;
+                            ecm.code = _SQL;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        ecm.result = 1;
+                        ecm.code = ex.Message;
+                    }
+                }
+                con.Close();
+            }
+            return ecm;
+        }
+        #endregion
+
+        [AllowAnonymous]
+        [Route("GetLicenseNotComplete")]
+        public List<LicenseNotComplete> GetLicenseNotComplete()
+        {
+            HomeController hc = new HomeController();
+            List<LicenseNotComplete> ul = new List<LicenseNotComplete>();
+            using (SqlConnection con = hc.ConnectDatabaseTT1995())
+            {
+                string _SQL = "sp_GetLicenseNotComplete";
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    DataTable _Dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(_Dt);
+                    da.Dispose();
+                    foreach (DataRow _Item in _Dt.Rows)
+                    {
+                        LicenseNotComplete rv = new LicenseNotComplete();
+                        rv.license_id = _Item["license_id"].ToString();
+                        rv.number_car = _Item["number_car"].ToString();
+                        rv.license_car = _Item["license_car"].ToString();
+                        rv.notcomplete = _Item["NotComplete"].ToString();
+                        rv.show_pic = _Item["show_pic"].ToString();
+                        rv.upload = _Item["upload"].ToString();                        
+                        ul.Add(rv);
+                    }
+                }
+                con.Close();
+            }
+            return ul;
+        }
     }
+
 }
