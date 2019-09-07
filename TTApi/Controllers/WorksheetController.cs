@@ -158,7 +158,7 @@ namespace TTApi.Controllers
 
         // POST CheckList/Profile/GetWorksheetAll
         /// <summary>
-        /// เรียกดูข้อมูลWorksheet
+        /// เรียกดูข้อมูลWorksheetAll
         /// </summary>
         /// <returns></returns>
         [AllowAnonymous]
@@ -190,6 +190,7 @@ namespace TTApi.Controllers
                         wsa.driver_id_1 = _Item["driver_id_1"].ToString();
                         wsa.driver_id_2 = _Item["driver_id_2"].ToString();
                         wsa.driver_id_3 = _Item["driver_id_3"].ToString();
+                        wsa.driver_id_4 = _Item["driver_id_4"].ToString();
                         wsa.license_id_head = _Item["license_id_head"].ToString();
                         wsa.license_id_tail = _Item["license_id_tail"].ToString();
                         wsa.remark = _Item["remark"].ToString();
@@ -202,6 +203,85 @@ namespace TTApi.Controllers
                         wsa.update_date = _Item["update_date"].ToString();
                         wsa.update_by_user_id = _Item["update_by_user_id"].ToString();
                         ul.Add(wsa);
+                    }
+                }
+                con.Close();
+            }
+            return ul;
+        }
+
+        // POST CheckList/Profile/GetWorksheet
+        /// <summary>
+        /// เรียกดูข้อมูลWorksheet
+        /// </summary>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [Route("GetWorksheet")]
+        public List<WorksheetView> GetWorksheet(WorksheetIdModels val)
+        {
+            HomeController hc = new HomeController();
+            List<WorksheetView> ul = new List<WorksheetView>();
+            using (SqlConnection con = hc.ConnectDatabase())
+            {
+                string _SQL = " EXEC [sp_WorkSheet] '"+ val.tran_id  + "' ";
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    DataTable _Dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(_Dt);
+                    da.Dispose();
+                    foreach (DataRow _Item in _Dt.Rows)
+                    {
+                        WorksheetView ws = new WorksheetView();
+                        ws.kind = _Item["kind"].ToString();
+                        ws.tran_code = _Item["tran_code"].ToString();
+                        ws.number_po = _Item["number_po"].ToString();
+                        ws.cus_name = _Item["cus_name"].ToString();
+                        ws.branch_name = _Item["branch_name"].ToString();
+                        ws.address = _Item["address"].ToString();
+                        ws.contact_name = _Item["contact_name"].ToString();
+                        ws.position = _Item["position"].ToString();
+                        ws.tel = _Item["tel"].ToString();
+                        ws.source = _Item["source"].ToString();
+                        ws.destination = _Item["destination"].ToString();
+                        ws.station = _Item["station"].ToString();
+                        ws.driver1 = _Item["driver1"].ToString();
+                        ws.driver1_license_start = _Item["driver1_license_start"].ToString();
+                        ws.driver1_license_expire = _Item["driver1_license_expire"].ToString();
+                        ws.driver2 = _Item["driver2"].ToString();
+                        ws.driver2_license_start = _Item["driver2_license_start"].ToString();
+                        ws.driver2_license_expire = _Item["driver2_license_expire"].ToString();
+                        ws.driver3 = _Item["driver3"].ToString();
+                        ws.driver3_license_start = _Item["driver3_license_start"].ToString();
+                        ws.driver3_license_expire = _Item["driver3_license_expire"].ToString();
+                        ws.driver4 = _Item["driver4"].ToString();
+                        ws.driver4_license_start = _Item["driver4_license_start"].ToString();
+                        ws.driver4_license_expire = _Item["driver4_license_expire"].ToString();
+                        ws.license_head = _Item["license_head"].ToString();
+                        ws.style_car_head = _Item["style_car_head"].ToString();
+                        ws.license_tail = _Item["license_tail"].ToString();
+                        ws.style_car_tail = _Item["style_car_tail"].ToString();
+                        ws.doc_code = _Item["doc_code"].ToString();
+                        ws.doc_name = _Item["doc_name"].ToString();
+                        ws.doc_type_id = _Item["doc_type_id"].ToString();
+                        ws.eq_code = _Item["eq_code"].ToString();
+                        ws.eq_name = _Item["eq_name"].ToString();
+                        ws.eq_amount = _Item["eq_amount"].ToString();
+                        ws.product_name = _Item["product_name"].ToString();
+                        ws.fleet = _Item["fleet"].ToString();
+                        ws.method_contain = _Item["method_contain"].ToString();
+                        ws.method_normal = _Item["method_normal"].ToString();
+                        ws.method_special = _Item["method_special"].ToString();
+                        ws.method_style = _Item["method_style"].ToString();
+                        ws.cont1 = _Item["cont1"].ToString();
+                        ws.cont2 = _Item["cont2"].ToString();
+                        ws.remark = _Item["remark"].ToString();
+                        ws.update_by_user_id = _Item["update_by_user_id"].ToString();
+                        ws.update_date = _Item["update_date"].ToString();
+                        ws.Approve_By = _Item["Approve_By"].ToString();
+
+
+                        ul.Add(ws);
                     }
                 }
                 con.Close();
