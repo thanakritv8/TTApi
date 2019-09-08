@@ -156,7 +156,7 @@ namespace TTApi.Controllers
             return ecm;
         }
 
-        // POST CheckList/Profile/GetWorksheetAll
+        // GET CheckList/Profile/GetWorksheetAll
         /// <summary>
         /// เรียกดูข้อมูลWorksheetAll
         /// </summary>
@@ -210,14 +210,14 @@ namespace TTApi.Controllers
             return ul;
         }
 
-        // POST CheckList/Profile/GetWorksheet
+        // POST CheckList/Profile/Worksheet
         /// <summary>
         /// เรียกดูข้อมูลWorksheet
         /// </summary>
         /// <returns></returns>
         [AllowAnonymous]
-        [Route("GetWorksheet")]
-        public List<WorksheetView> GetWorksheet(WorksheetIdModels val)
+        [Route("Worksheet")]
+        public List<WorksheetView> Worksheet(WorksheetIdModels val)
         {
             HomeController hc = new HomeController();
             List<WorksheetView> ul = new List<WorksheetView>();
