@@ -2,12 +2,78 @@
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <Body>
     <ReportItems>
-      <Rectangle Name="Rectangle1">
+      <Rectangle Name="Rectangle2">
+        <ReportItems>
+          <Textbox Name="lb54">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>บัตรประตัวมอบอำนาจ</Value>
+                    <Style>
+                      <FontFamily>th Sarabun New</FontFamily>
+                      <FontSize>16pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <Top>0.10583cm</Top>
+            <Left>0.20169cm</Left>
+            <Height>0.76025cm</Height>
+            <Width>4.19189cm</Width>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="txt42">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!txt42.Value, "DataSetGetReport2")</Value>
+                    <Style>
+                      <FontFamily>th Sarabun New</FontFamily>
+                      <FontSize>16pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <Top>0.72161cm</Top>
+            <Left>1.13452cm</Left>
+            <Height>0.7667cm</Height>
+            <Width>4.05066cm</Width>
+            <ZIndex>1</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+        </ReportItems>
         <KeepTogether>true</KeepTogether>
-        <Top>0.67263cm</Top>
-        <Left>17.98814cm</Left>
-        <Height>2.88102cm</Height>
-        <Width>1.95925cm</Width>
+        <Top>23.28887cm</Top>
+        <Left>1.49578cm</Left>
+        <Height>3.22279cm</Height>
+        <Width>5.62895cm</Width>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -34,111 +100,1261 @@
           </RightBorder>
         </Style>
       </Rectangle>
-      <Rectangle Name="Rectangle2">
-        <ReportItems>
-          <Textbox Name="txt44">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=First(Fields!txt44.Value, "DataSetGetReport2")</Value>
-                    <Style>
-                      <FontFamily>th Sarabun New</FontFamily>
-                      <FontSize>16pt</FontSize>
-                      <FontWeight>Normal</FontWeight>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <Top>2.49339cm</Top>
-            <Left>2.37446cm</Left>
-            <Height>0.94426cm</Height>
-            <Width>3.02646cm</Width>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="lb57">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>วันหมดอายุ</Value>
-                    <Style>
-                      <FontFamily>th Sarabun New</FontFamily>
-                      <FontSize>16pt</FontSize>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <Top>2.49339cm</Top>
-            <Left>0.20169cm</Left>
-            <Height>0.94426cm</Height>
-            <Width>2.03166cm</Width>
-            <ZIndex>1</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="lb54">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>บัตรประตัวมอบอำนาจ</Value>
-                    <Style>
-                      <FontFamily>th Sarabun New</FontFamily>
-                      <FontSize>16pt</FontSize>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <Top>0.16016cm</Top>
-            <Left>0.20169cm</Left>
-            <Height>0.94719cm</Height>
-            <Width>4.19189cm</Width>
-            <ZIndex>2</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-        </ReportItems>
+      <Textbox Name="lb45">
+        <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
-        <Top>22.54485cm</Top>
-        <Left>1.49578cm</Left>
-        <Height>3.57876cm</Height>
-        <Width>5.62895cm</Width>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>(ลงชื่อ).....................................................</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>19.68174cm</Top>
+        <Left>9.84431cm</Left>
+        <Height>0.84667cm</Height>
+        <Width>6.11365cm</Width>
         <ZIndex>1</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="lb46">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>(ลงชื่อ).....................................................</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>20.98701cm</Top>
+        <Left>9.84431cm</Left>
+        <Height>0.7961cm</Height>
+        <Width>6.11365cm</Width>
+        <ZIndex>2</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="lb47">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>(ลงชื่อ).....................................................</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>23.25359cm</Top>
+        <Left>9.82729cm</Left>
+        <Height>0.84667cm</Height>
+        <Width>6.11365cm</Width>
+        <ZIndex>3</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="lb48">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>(ลงชื่อ).....................................................</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>24.6594cm</Top>
+        <Left>9.84431cm</Left>
+        <Height>0.84667cm</Height>
+        <Width>6.11365cm</Width>
+        <ZIndex>4</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="lb55">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>เลขที่...........................................</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>24.08103cm</Top>
+        <Left>1.69747cm</Left>
+        <Height>0.69615cm</Height>
+        <Width>5.18185cm</Width>
+        <ZIndex>5</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="lb56">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>วันออกบัตร.................................</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>24.7419cm</Top>
+        <Left>1.69747cm</Left>
+        <Height>0.75495cm</Height>
+        <Width>5.18185cm</Width>
+        <ZIndex>6</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="lb17">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>ซอย................................</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>11.90282cm</Top>
+        <Left>14.96826cm</Left>
+        <Height>0.84667cm</Height>
+        <Width>3.71933cm</Width>
+        <ZIndex>7</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="lb18">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>หมู่ที่ ..................</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>11.90282cm</Top>
+        <Left>11.86994cm</Left>
+        <Height>0.89489cm</Height>
+        <Width>2.92193cm</Width>
+        <ZIndex>8</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="lb19">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>อายุ..............</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>11.06321cm</Top>
+        <Left>12.62568cm</Left>
+        <Height>1.02306cm</Height>
+        <Width>2.27682cm</Width>
+        <ZIndex>9</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="lb21">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>เชื้อชาติ....................</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>11.06321cm</Top>
+        <Left>15.38108cm</Left>
+        <Height>0.8255cm</Height>
+        <Width>3.17715cm</Width>
+        <ZIndex>10</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="lb22">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>สัญชาติ...................................</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>11.90282cm</Top>
+        <Left>1.51738cm</Left>
+        <Height>0.89489cm</Height>
+        <Width>4.47781cm</Width>
+        <ZIndex>11</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="lb23">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>อยู่บ้านเลขที่........................................</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>11.90282cm</Top>
+        <Left>5.99519cm</Left>
+        <Height>0.89489cm</Height>
+        <Width>5.80419cm</Width>
+        <ZIndex>12</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="lb25">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>ถนน.................................................</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>12.70569cm</Top>
+        <Left>1.51738cm</Left>
+        <Height>0.84667cm</Height>
+        <Width>5.37932cm</Width>
+        <ZIndex>13</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="lb27">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>ตำบล/แขวง...................................................</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>12.70569cm</Top>
+        <Left>7.00253cm</Left>
+        <Height>0.84667cm</Height>
+        <Width>6.56801cm</Width>
+        <ZIndex>14</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="lb28">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>อำเภอ/เขต...................................</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>12.70569cm</Top>
+        <Left>13.60582cm</Left>
+        <Height>0.8255cm</Height>
+        <Width>5.08177cm</Width>
+        <ZIndex>15</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="lb34">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>จังหวัด...............................................</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>13.49825cm</Top>
+        <Left>1.47117cm</Left>
+        <Height>0.96426cm</Height>
+        <Width>5.66432cm</Width>
+        <ZIndex>16</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="lb40">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>1. .......................................................................................................................................................................</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>15.19246cm</Top>
+        <Left>2.69552cm</Left>
+        <Height>0.84667cm</Height>
+        <Width>15.86271cm</Width>
+        <ZIndex>17</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="lb41">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>2. .......................................................................................................................................................................</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>16.10969cm</Top>
+        <Left>2.69552cm</Left>
+        <Height>0.84667cm</Height>
+        <Width>15.86271cm</Width>
+        <ZIndex>18</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="lb42">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>3. .......................................................................................................................................................................</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>16.99164cm</Top>
+        <Left>2.69676cm</Left>
+        <Height>0.96426cm</Height>
+        <Width>15.86147cm</Width>
+        <ZIndex>19</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="lb43">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>4. .......................................................................................................................................................................</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>18.00962cm</Top>
+        <Left>2.69676cm</Left>
+        <Height>0.81139cm</Height>
+        <Width>15.86147cm</Width>
+        <ZIndex>20</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="lb59">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>ขอมอบอำนาจให้............................................................................</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>11.06321cm</Top>
+        <Left>2.95702cm</Left>
+        <Height>0.75848cm</Height>
+        <Width>9.63338cm</Width>
+        <ZIndex>21</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="lb16">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>ซอย...........................</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>6.51532cm</Top>
+        <Left>15.26323cm</Left>
+        <Height>0.84667cm</Height>
+        <Width>3.41416cm</Width>
+        <ZIndex>22</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="lb12">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>เชื้อชาติ ..................</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>6.51532cm</Top>
+        <Left>1.45661cm</Left>
+        <Height>0.84667cm</Height>
+        <Width>3.23558cm</Width>
+        <ZIndex>23</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="lb13">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>สัญชาติ .................</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>6.51532cm</Top>
+        <Left>4.69219cm</Left>
+        <Height>0.84667cm</Height>
+        <Width>3.15908cm</Width>
+        <ZIndex>24</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="lb14">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>อยู่บ้านเลขที่ ........................</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>6.51532cm</Top>
+        <Left>7.92183cm</Left>
+        <Height>0.84667cm</Height>
+        <Width>4.63911cm</Width>
+        <ZIndex>25</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="lb15">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>หมู่ที่.................</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>6.51532cm</Top>
+        <Left>12.56094cm</Left>
+        <Height>0.84667cm</Height>
+        <Width>2.70229cm</Width>
+        <ZIndex>26</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="lb24">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>ถนน................................................</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>7.44666cm</Top>
+        <Left>1.47117cm</Left>
+        <Height>0.84667cm</Height>
+        <Width>5.42553cm</Width>
+        <ZIndex>27</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="lb26">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>ตำบล/แขวง ................................................</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>7.44666cm</Top>
+        <Left>6.85736cm</Left>
+        <Height>0.84667cm</Height>
+        <Width>6.55011cm</Width>
+        <ZIndex>28</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="lb29">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>อำเภอ/เขต ..................................</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>7.42549cm</Top>
+        <Left>13.44275cm</Left>
+        <Height>0.84667cm</Height>
+        <Width>5.19935cm</Width>
+        <ZIndex>29</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="lb30">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>อำเภอ/เขต..........................................</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>10.24006cm</Top>
+        <Left>1.46862cm</Left>
+        <Height>0.78787cm</Height>
+        <Width>5.70215cm</Width>
+        <ZIndex>30</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="lb31">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>ถนน.......................................................</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>9.31051cm</Top>
+        <Left>6.94988cm</Left>
+        <Height>0.89428cm</Height>
+        <Width>5.90076cm</Width>
+        <ZIndex>31</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="lb32">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>ตำบล/แขวง........................................</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>9.31051cm</Top>
+        <Left>12.88592cm</Left>
+        <Height>0.89428cm</Height>
+        <Width>5.74163cm</Width>
+        <ZIndex>32</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="lb33">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>จังหวัด.......................................................</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>10.24006cm</Top>
+        <Left>7.20605cm</Left>
+        <Height>0.78787cm</Height>
+        <Width>6.22338cm</Width>
+        <ZIndex>33</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="lb35">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>จังหวัด..............................................</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>8.36388cm</Top>
+        <Left>1.43588cm</Left>
+        <Height>0.87607cm</Height>
+        <Width>5.49203cm</Width>
+        <ZIndex>34</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="lb36">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>ซึ่งเป็นผู้มีอำนาจลงนามผูกพัน............................................................................</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>8.36388cm</Top>
+        <Left>7.03374cm</Left>
+        <Height>0.87607cm</Height>
+        <Width>11.59381cm</Width>
+        <ZIndex>35</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="lb37">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>สำนักงานตั้งอยู่ที่.............................</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>9.31051cm</Top>
+        <Left>1.47117cm</Left>
+        <Height>0.89428cm</Height>
+        <Width>5.49203cm</Width>
+        <ZIndex>36</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="lb38">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>โทรศัพท์........................................</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>10.24006cm</Top>
+        <Left>13.4402cm</Left>
+        <Height>0.78787cm</Height>
+        <Width>5.24739cm</Width>
+        <ZIndex>37</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="lb10">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>โดยหนังสือฉบับนี้ ข้าพเจ้า ..............................................................................................</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>5.59809cm</Top>
+        <Left>2.6303cm</Left>
+        <Height>0.84667cm</Height>
+        <Width>12.9626cm</Width>
+        <ZIndex>38</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="lb6">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>เขียนที่ .................................</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>3.74572cm</Top>
+        <Left>13.99165cm</Left>
+        <Height>0.74084cm</Height>
+        <Width>4.61393cm</Width>
+        <ZIndex>39</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Rectangle Name="Rectangle1">
+        <KeepTogether>true</KeepTogether>
+        <Top>0.67263cm</Top>
+        <Left>17.03564cm</Left>
+        <Height>2.88102cm</Height>
+        <Width>1.95925cm</Width>
+        <ZIndex>40</ZIndex>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -186,7 +1402,7 @@
         <Left>8.85821cm</Left>
         <Height>1.1307cm</Height>
         <Width>4.02771cm</Width>
-        <ZIndex>2</ZIndex>
+        <ZIndex>41</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -204,7 +1420,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>วันที่</Value>
+                <Value>วันที่ ..............</Value>
                 <Style>
                   <FontFamily>th Sarabun New</FontFamily>
                   <FontSize>16pt</FontSize>
@@ -217,8 +1433,8 @@
         <Top>4.55712cm</Top>
         <Left>6.70951cm</Left>
         <Height>0.84667cm</Height>
-        <Width>1.03717cm</Width>
-        <ZIndex>3</ZIndex>
+        <Width>2.57149cm</Width>
+        <ZIndex>42</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -247,11 +1463,11 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>3.67517cm</Top>
-        <Left>15.7466cm</Left>
-        <Height>0.74084cm</Height>
-        <Width>4.20079cm</Width>
-        <ZIndex>4</ZIndex>
+        <Top>3.65948cm</Top>
+        <Left>15.72463cm</Left>
+        <Height>0.82708cm</Height>
+        <Width>2.91747cm</Width>
+        <ZIndex>43</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -280,11 +1496,11 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>4.57829cm</Top>
+        <Top>4.45129cm</Top>
         <Left>7.74668cm</Left>
-        <Height>0.8255cm</Height>
+        <Height>0.9525cm</Height>
         <Width>1.41111cm</Width>
-        <ZIndex>5</ZIndex>
+        <ZIndex>44</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -313,11 +1529,11 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>4.55712cm</Top>
+        <Top>4.45129cm</Top>
         <Left>10.49436cm</Left>
-        <Height>0.84667cm</Height>
+        <Height>0.9525cm</Height>
         <Width>4.15532cm</Width>
-        <ZIndex>6</ZIndex>
+        <ZIndex>45</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -346,11 +1562,11 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>4.55712cm</Top>
+        <Top>4.45129cm</Top>
         <Left>15.57021cm</Left>
-        <Height>0.84667cm</Height>
-        <Width>4.37718cm</Width>
-        <ZIndex>7</ZIndex>
+        <Height>0.9525cm</Height>
+        <Width>3.09386cm</Width>
+        <ZIndex>46</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -379,11 +1595,11 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>5.59809cm</Top>
-        <Left>7.45734cm</Left>
-        <Height>0.84667cm</Height>
-        <Width>9.33501cm</Width>
-        <ZIndex>8</ZIndex>
+        <Top>5.50962cm</Top>
+        <Left>6.85736cm</Left>
+        <Height>0.93514cm</Height>
+        <Width>8.54798cm</Width>
+        <ZIndex>47</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -412,11 +1628,11 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>5.59809cm</Top>
-        <Left>18.31125cm</Left>
-        <Height>0.84667cm</Height>
-        <Width>1.07207cm</Width>
-        <ZIndex>9</ZIndex>
+        <Top>5.50962cm</Top>
+        <Left>16.66276cm</Left>
+        <Height>0.93514cm</Height>
+        <Width>1.45056cm</Width>
+        <ZIndex>48</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -445,11 +1661,11 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>6.5506cm</Top>
-        <Left>3.15694cm</Left>
-        <Height>0.81139cm</Height>
-        <Width>1.35887cm</Width>
-        <ZIndex>10</ZIndex>
+        <Top>6.44476cm</Top>
+        <Left>2.85525cm</Left>
+        <Height>0.91723cm</Height>
+        <Width>1.66056cm</Width>
+        <ZIndex>49</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -478,11 +1694,11 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>6.62115cm</Top>
-        <Left>6.28035cm</Left>
-        <Height>0.74084cm</Height>
-        <Width>1.46509cm</Width>
-        <ZIndex>11</ZIndex>
+        <Top>6.44476cm</Top>
+        <Left>6.11205cm</Left>
+        <Height>0.91723cm</Height>
+        <Width>1.63339cm</Width>
+        <ZIndex>50</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -511,11 +1727,11 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>6.51532cm</Top>
-        <Left>10.31733cm</Left>
-        <Height>0.84667cm</Height>
-        <Width>2.23952cm</Width>
-        <ZIndex>12</ZIndex>
+        <Top>6.44476cm</Top>
+        <Left>10.13327cm</Left>
+        <Height>0.91723cm</Height>
+        <Width>2.42358cm</Width>
+        <ZIndex>51</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -544,11 +1760,11 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>6.51532cm</Top>
-        <Left>13.76176cm</Left>
-        <Height>0.84667cm</Height>
-        <Width>1.39564cm</Width>
-        <ZIndex>13</ZIndex>
+        <Top>6.44476cm</Top>
+        <Left>13.53527cm</Left>
+        <Height>0.91723cm</Height>
+        <Width>1.62213cm</Width>
+        <ZIndex>52</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -577,11 +1793,11 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>6.51532cm</Top>
+        <Top>6.44476cm</Top>
         <Left>16.44883cm</Left>
-        <Height>0.8255cm</Height>
-        <Width>3.49731cm</Width>
-        <ZIndex>14</ZIndex>
+        <Height>0.89606cm</Height>
+        <Width>2.21399cm</Width>
+        <ZIndex>53</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -610,11 +1826,11 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>7.44666cm</Top>
-        <Left>2.79395cm</Left>
-        <Height>0.8255cm</Height>
-        <Width>3.99286cm</Width>
-        <ZIndex>15</ZIndex>
+        <Top>7.36199cm</Top>
+        <Left>2.6303cm</Left>
+        <Height>0.91017cm</Height>
+        <Width>4.15651cm</Width>
+        <ZIndex>54</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -643,11 +1859,11 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>7.46783cm</Top>
-        <Left>9.20639cm</Left>
-        <Height>0.8255cm</Height>
-        <Width>4.13053cm</Width>
-        <ZIndex>16</ZIndex>
+        <Top>7.36199cm</Top>
+        <Left>8.90426cm</Left>
+        <Height>0.93134cm</Height>
+        <Width>4.43266cm</Width>
+        <ZIndex>55</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -676,11 +1892,11 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>7.46783cm</Top>
-        <Left>15.58353cm</Left>
-        <Height>0.8255cm</Height>
-        <Width>4.37718cm</Width>
-        <ZIndex>17</ZIndex>
+        <Top>7.36199cm</Top>
+        <Left>15.38108cm</Left>
+        <Height>0.93134cm</Height>
+        <Width>3.29631cm</Width>
+        <ZIndex>56</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -709,11 +1925,11 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>8.36388cm</Top>
+        <Top>8.27216cm</Top>
         <Left>2.78063cm</Left>
-        <Height>0.87607cm</Height>
+        <Height>0.96779cm</Height>
         <Width>3.90033cm</Width>
-        <ZIndex>18</ZIndex>
+        <ZIndex>57</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -742,11 +1958,11 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>8.36388cm</Top>
-        <Left>12.32149cm</Left>
-        <Height>0.87607cm</Height>
-        <Width>7.60393cm</Width>
-        <ZIndex>19</ZIndex>
+        <Top>8.27216cm</Top>
+        <Left>11.49291cm</Left>
+        <Height>0.96779cm</Height>
+        <Width>7.14919cm</Width>
+        <ZIndex>58</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -775,11 +1991,11 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>9.31051cm</Top>
+        <Top>9.23995cm</Top>
         <Left>4.55232cm</Left>
-        <Height>0.89428cm</Height>
+        <Height>0.96484cm</Height>
         <Width>2.327cm</Width>
-        <ZIndex>20</ZIndex>
+        <ZIndex>59</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -808,11 +2024,11 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>9.31051cm</Top>
+        <Top>9.23995cm</Top>
         <Left>8.2046cm</Left>
-        <Height>0.89428cm</Height>
+        <Height>0.96484cm</Height>
         <Width>4.68132cm</Width>
-        <ZIndex>21</ZIndex>
+        <ZIndex>60</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -841,11 +2057,11 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>9.31051cm</Top>
-        <Left>15.22919cm</Left>
-        <Height>0.8255cm</Height>
-        <Width>4.71819cm</Width>
-        <ZIndex>22</ZIndex>
+        <Top>9.23995cm</Top>
+        <Left>14.97306cm</Left>
+        <Height>0.89606cm</Height>
+        <Width>3.691cm</Width>
+        <ZIndex>61</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -874,11 +2090,11 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>10.24006cm</Top>
-        <Left>3.63141cm</Left>
-        <Height>0.78787cm</Height>
-        <Width>3.50408cm</Width>
-        <ZIndex>23</ZIndex>
+        <Top>10.16951cm</Top>
+        <Left>3.28827cm</Left>
+        <Height>0.82314cm</Height>
+        <Width>3.84722cm</Width>
+        <ZIndex>62</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -907,11 +2123,11 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>10.24006cm</Top>
-        <Left>8.90426cm</Left>
-        <Height>0.78787cm</Height>
-        <Width>4.29605cm</Width>
-        <ZIndex>24</ZIndex>
+        <Top>10.16951cm</Top>
+        <Left>8.48168cm</Left>
+        <Height>0.85842cm</Height>
+        <Width>4.71863cm</Width>
+        <ZIndex>63</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -940,11 +2156,11 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>10.24006cm</Top>
-        <Left>15.31052cm</Left>
-        <Height>0.78787cm</Height>
-        <Width>4.64764cm</Width>
-        <ZIndex>25</ZIndex>
+        <Top>10.16951cm</Top>
+        <Left>14.97306cm</Left>
+        <Height>0.85842cm</Height>
+        <Width>3.70178cm</Width>
+        <ZIndex>64</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -973,11 +2189,11 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>11.06321cm</Top>
-        <Left>6.11205cm</Left>
-        <Height>0.75848cm</Height>
-        <Width>6.37253cm</Width>
-        <ZIndex>26</ZIndex>
+        <Top>10.97502cm</Top>
+        <Left>5.7286cm</Left>
+        <Height>0.78669cm</Height>
+        <Width>6.75598cm</Width>
+        <ZIndex>65</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1006,11 +2222,11 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>11.06321cm</Top>
-        <Left>13.53527cm</Left>
-        <Height>0.8255cm</Height>
-        <Width>1.2566cm</Width>
-        <ZIndex>27</ZIndex>
+        <Top>10.97502cm</Top>
+        <Left>13.46471cm</Left>
+        <Height>0.84667cm</Height>
+        <Width>1.32716cm</Width>
+        <ZIndex>66</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1039,11 +2255,11 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>11.06321cm</Top>
-        <Left>16.96874cm</Left>
-        <Height>0.8255cm</Height>
-        <Width>3.15504cm</Width>
-        <ZIndex>28</ZIndex>
+        <Top>10.97502cm</Top>
+        <Left>16.66276cm</Left>
+        <Height>0.91369cm</Height>
+        <Width>2.02483cm</Width>
+        <ZIndex>67</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1072,11 +2288,11 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>11.90282cm</Top>
-        <Left>3.28827cm</Left>
-        <Height>0.89489cm</Height>
-        <Width>2.60109cm</Width>
-        <ZIndex>29</ZIndex>
+        <Top>11.79699cm</Top>
+        <Left>2.89053cm</Left>
+        <Height>1.00072cm</Height>
+        <Width>2.99883cm</Width>
+        <ZIndex>68</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1105,11 +2321,11 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>11.90282cm</Top>
+        <Top>11.79699cm</Top>
         <Left>8.48168cm</Left>
-        <Height>0.89489cm</Height>
+        <Height>1.00072cm</Height>
         <Width>3.3177cm</Width>
-        <ZIndex>30</ZIndex>
+        <ZIndex>69</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1138,11 +2354,11 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>11.92399cm</Top>
-        <Left>13.13675cm</Left>
-        <Height>0.8255cm</Height>
-        <Width>2.26859cm</Width>
-        <ZIndex>31</ZIndex>
+        <Top>11.79699cm</Top>
+        <Left>12.88592cm</Left>
+        <Height>0.9525cm</Height>
+        <Width>1.94123cm</Width>
+        <ZIndex>70</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1171,11 +2387,11 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>11.90282cm</Top>
-        <Left>16.66276cm</Left>
-        <Height>0.8255cm</Height>
-        <Width>3.41472cm</Width>
-        <ZIndex>32</ZIndex>
+        <Top>11.79699cm</Top>
+        <Left>15.7466cm</Left>
+        <Height>0.93133cm</Height>
+        <Width>2.94099cm</Width>
+        <ZIndex>71</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1204,11 +2420,11 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>12.70569cm</Top>
-        <Left>2.85525cm</Left>
-        <Height>0.8255cm</Height>
-        <Width>4.04145cm</Width>
-        <ZIndex>33</ZIndex>
+        <Top>12.63747cm</Top>
+        <Left>2.61293cm</Left>
+        <Height>0.75495cm</Height>
+        <Width>4.2664cm</Width>
+        <ZIndex>72</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1237,11 +2453,11 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>12.70569cm</Top>
-        <Left>9.45739cm</Left>
-        <Height>0.8255cm</Height>
-        <Width>3.97204cm</Width>
-        <ZIndex>34</ZIndex>
+        <Top>12.63747cm</Top>
+        <Left>9.26362cm</Left>
+        <Height>0.89372cm</Height>
+        <Width>4.16581cm</Width>
+        <ZIndex>73</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1270,11 +2486,11 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>12.70569cm</Top>
-        <Left>16.11645cm</Left>
-        <Height>0.8255cm</Height>
-        <Width>3.95415cm</Width>
-        <ZIndex>35</ZIndex>
+        <Top>12.63747cm</Top>
+        <Left>15.66346cm</Left>
+        <Height>0.89372cm</Height>
+        <Width>3.02413cm</Width>
+        <ZIndex>74</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1303,11 +2519,11 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>13.49825cm</Top>
-        <Left>3.13622cm</Left>
-        <Height>0.89606cm</Height>
-        <Width>4.69434cm</Width>
-        <ZIndex>36</ZIndex>
+        <Top>13.39242cm</Top>
+        <Left>2.78063cm</Left>
+        <Height>0.86078cm</Height>
+        <Width>4.35486cm</Width>
+        <ZIndex>75</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1328,7 +2544,7 @@
                 <Value>=First(Fields!txt34.Value, "DataSetGetReport2")</Value>
                 <Style>
                   <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
+                  <FontSize>14pt</FontSize>
                   <FontWeight>Normal</FontWeight>
                 </Style>
               </TextRun>
@@ -1336,11 +2552,11 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>15.19246cm</Top>
+        <Top>15.1219cm</Top>
         <Left>3.37997cm</Left>
         <Height>0.83491cm</Height>
-        <Width>16.46158cm</Width>
-        <ZIndex>37</ZIndex>
+        <Width>14.62876cm</Width>
+        <ZIndex>76</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1361,7 +2577,7 @@
                 <Value>=First(Fields!txt35.Value, "DataSetGetReport2")</Value>
                 <Style>
                   <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
+                  <FontSize>14pt</FontSize>
                   <FontWeight>Normal</FontWeight>
                 </Style>
               </TextRun>
@@ -1369,11 +2585,11 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>16.10969cm</Top>
-        <Left>3.47406cm</Left>
-        <Height>0.84667cm</Height>
-        <Width>16.45136cm</Width>
-        <ZIndex>38</ZIndex>
+        <Top>16.02737cm</Top>
+        <Left>3.37997cm</Left>
+        <Height>0.92899cm</Height>
+        <Width>14.71263cm</Width>
+        <ZIndex>77</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1394,18 +2610,18 @@
                 <Value>=First(Fields!txt36.Value, "DataSetGetReport2")</Value>
                 <Style>
                   <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
+                  <FontSize>14pt</FontSize>
                 </Style>
               </TextRun>
             </TextRuns>
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>16.99164cm</Top>
-        <Left>3.42423cm</Left>
+        <Top>16.93953cm</Top>
+        <Left>3.37997cm</Left>
         <Height>0.96426cm</Height>
-        <Width>16.48664cm</Width>
-        <ZIndex>39</ZIndex>
+        <Width>14.69808cm</Width>
+        <ZIndex>78</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1426,18 +2642,18 @@
                 <Value>=First(Fields!txt37.Value, "DataSetGetReport2")</Value>
                 <Style>
                   <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
+                  <FontSize>14pt</FontSize>
                 </Style>
               </TextRun>
             </TextRuns>
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>18.00962cm</Top>
-        <Left>3.42423cm</Left>
-        <Height>0.81139cm</Height>
-        <Width>16.52191cm</Width>
-        <ZIndex>40</ZIndex>
+        <Top>17.93906cm</Top>
+        <Left>3.37997cm</Left>
+        <Height>0.88195cm</Height>
+        <Width>14.73335cm</Width>
+        <ZIndex>79</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1465,11 +2681,11 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>19.71701cm</Top>
-        <Left>11.45763cm</Left>
+        <Top>19.49395cm</Top>
+        <Left>11.12196cm</Left>
         <Height>0.88195cm</Height>
-        <Width>4.35922cm</Width>
-        <ZIndex>41</ZIndex>
+        <Width>4.49435cm</Width>
+        <ZIndex>80</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1497,11 +2713,11 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>20.66951cm</Top>
-        <Left>11.49291cm</Left>
-        <Height>0.8255cm</Height>
-        <Width>4.32394cm</Width>
-        <ZIndex>42</ZIndex>
+        <Top>20.95173cm</Top>
+        <Left>11.12196cm</Left>
+        <Height>0.80739cm</Height>
+        <Width>4.49435cm</Width>
+        <ZIndex>81</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1529,11 +2745,11 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>22.70501cm</Top>
-        <Left>11.49291cm</Left>
-        <Height>0.8255cm</Height>
-        <Width>4.32394cm</Width>
-        <ZIndex>43</ZIndex>
+        <Top>23.12853cm</Top>
+        <Left>11.04625cm</Left>
+        <Height>0.91722cm</Height>
+        <Width>4.49435cm</Width>
+        <ZIndex>82</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1561,44 +2777,11 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>23.7069cm</Top>
-        <Left>11.49291cm</Left>
-        <Height>0.8255cm</Height>
-        <Width>4.32394cm</Width>
-        <ZIndex>44</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="txt42">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=First(Fields!txt42.Value, "DataSetGetReport2")</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                  <FontWeight>Normal</FontWeight>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>23.44603cm</Top>
-        <Left>3.83496cm</Left>
-        <Height>0.7667cm</Height>
-        <Width>3.04437cm</Width>
-        <ZIndex>45</ZIndex>
+        <Top>24.56232cm</Top>
+        <Left>11.12196cm</Left>
+        <Height>0.83745cm</Height>
+        <Width>4.49435cm</Width>
+        <ZIndex>83</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1627,11 +2810,11 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>24.28329cm</Top>
+        <Top>24.6594cm</Top>
         <Left>3.83496cm</Left>
-        <Height>0.8255cm</Height>
-        <Width>3.04437cm</Width>
-        <ZIndex>46</ZIndex>
+        <Height>0.6844cm</Height>
+        <Width>2.846cm</Width>
+        <ZIndex>84</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1662,10 +2845,10 @@
           </Paragraph>
         </Paragraphs>
         <Top>1.18347cm</Top>
-        <Left>18.31125cm</Left>
+        <Left>17.35875cm</Left>
         <Height>0.81261cm</Height>
         <Width>1.32884cm</Width>
-        <ZIndex>47</ZIndex>
+        <ZIndex>85</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1696,10 +2879,10 @@
           </Paragraph>
         </Paragraphs>
         <Top>1.8197cm</Top>
-        <Left>18.31125cm</Left>
+        <Left>17.35875cm</Left>
         <Height>0.88117cm</Height>
         <Width>1.32884cm</Width>
-        <ZIndex>48</ZIndex>
+        <ZIndex>86</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1730,42 +2913,10 @@
           </Paragraph>
         </Paragraphs>
         <Top>2.30512cm</Top>
-        <Left>18.33876cm</Left>
+        <Left>17.38626cm</Left>
         <Height>0.85408cm</Height>
         <Width>1.60863cm</Width>
-        <ZIndex>49</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="lb6">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>เขียนที่</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>3.67517cm</Top>
-        <Left>14.01362cm</Left>
-        <Height>0.74084cm</Height>
-        <Width>1.55659cm</Width>
-        <ZIndex>50</ZIndex>
+        <ZIndex>87</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1783,7 +2934,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>เดือน</Value>
+                <Value>เดือน ...............................................</Value>
                 <Style>
                   <FontFamily>th Sarabun New</FontFamily>
                   <FontSize>16pt</FontSize>
@@ -1793,11 +2944,11 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>4.57829cm</Top>
+        <Top>4.55712cm</Top>
         <Left>9.26362cm</Left>
-        <Height>0.8255cm</Height>
-        <Width>1.23073cm</Width>
-        <ZIndex>51</ZIndex>
+        <Height>0.86458cm</Height>
+        <Width>5.63888cm</Width>
+        <ZIndex>88</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1815,7 +2966,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>ปี</Value>
+                <Value>ปี ..............................</Value>
                 <Style>
                   <FontFamily>th Sarabun New</FontFamily>
                   <FontSize>16pt</FontSize>
@@ -1828,8 +2979,8 @@
         <Top>4.55712cm</Top>
         <Left>14.97306cm</Left>
         <Height>0.84667cm</Height>
-        <Width>0.59715cm</Width>
-        <ZIndex>52</ZIndex>
+        <Width>3.65449cm</Width>
+        <ZIndex>89</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1858,42 +3009,10 @@
           </Paragraph>
         </Paragraphs>
         <Top>5.59809cm</Top>
-        <Left>19.48916cm</Left>
+        <Left>18.21916cm</Left>
         <Height>0.84667cm</Height>
         <Width>0.45823cm</Width>
-        <ZIndex>53</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="lb10">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>โดยหนังสือฉบับนี้ ข้าพเจ้า</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>5.59809cm</Top>
-        <Left>2.6303cm</Left>
-        <Height>0.84667cm</Height>
-        <Width>4.86736cm</Width>
-        <ZIndex>54</ZIndex>
+        <ZIndex>90</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1911,7 +3030,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>อายุ</Value>
+                <Value>อายุ...................</Value>
                 <Style>
                   <FontFamily>th Sarabun New</FontFamily>
                   <FontSize>16pt</FontSize>
@@ -1922,266 +3041,10 @@
           </Paragraph>
         </Paragraphs>
         <Top>5.59809cm</Top>
-        <Left>16.93346cm</Left>
+        <Left>15.66346cm</Left>
         <Height>0.84667cm</Height>
-        <Width>1.2014cm</Width>
-        <ZIndex>55</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="lb12">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>เชื้อชาติ</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>6.51532cm</Top>
-        <Left>1.45661cm</Left>
-        <Height>0.84667cm</Height>
-        <Width>1.62977cm</Width>
-        <ZIndex>56</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="lb13">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>สัญชาติ</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>6.51532cm</Top>
-        <Left>4.69219cm</Left>
-        <Height>0.84667cm</Height>
-        <Width>1.58816cm</Width>
-        <ZIndex>57</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="lb14">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>อยู่บ้านเลขที่</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>6.51532cm</Top>
-        <Left>7.92183cm</Left>
-        <Height>0.84667cm</Height>
-        <Width>2.44724cm</Width>
-        <ZIndex>58</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="lb15">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>หมู่ที่</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>6.51532cm</Top>
-        <Left>12.56094cm</Left>
-        <Height>0.84667cm</Height>
-        <Width>1.16097cm</Width>
-        <ZIndex>59</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="lb16">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>ซอย</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>6.51532cm</Top>
-        <Left>15.26323cm</Left>
-        <Height>0.84667cm</Height>
-        <Width>1.00921cm</Width>
-        <ZIndex>60</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="lb17">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>ซอย</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>11.90282cm</Top>
-        <Left>15.58173cm</Left>
-        <Height>0.84667cm</Height>
-        <Width>1.04575cm</Width>
-        <ZIndex>61</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="lb18">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>หมู่ที่</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>11.90282cm</Top>
-        <Left>11.86994cm</Left>
-        <Height>0.89489cm</Height>
-        <Width>1.09041cm</Width>
-        <ZIndex>62</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="lb19">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>อายุ</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>11.06321cm</Top>
-        <Left>12.62568cm</Left>
-        <Height>1.02306cm</Height>
-        <Width>0.87431cm</Width>
-        <ZIndex>63</ZIndex>
+        <Width>2.5557cm</Width>
+        <ZIndex>91</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -2213,583 +3076,7 @@
         <Left>14.93298cm</Left>
         <Height>0.84667cm</Height>
         <Width>0.4481cm</Width>
-        <ZIndex>64</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="lb21">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>เชื้อชาติ</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>11.06321cm</Top>
-        <Left>15.38108cm</Left>
-        <Height>0.8255cm</Height>
-        <Width>1.58766cm</Width>
-        <ZIndex>65</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="lb22">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>สัญชาติ</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>11.90282cm</Top>
-        <Left>1.51738cm</Left>
-        <Height>0.89489cm</Height>
-        <Width>1.62977cm</Width>
-        <ZIndex>66</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="lb23">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>อยู่บ้านเลขที่</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>11.90282cm</Top>
-        <Left>5.99519cm</Left>
-        <Height>0.89489cm</Height>
-        <Width>2.45122cm</Width>
-        <ZIndex>67</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="lb24">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>ถนน</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>7.44666cm</Top>
-        <Left>1.47117cm</Left>
-        <Height>0.84667cm</Height>
-        <Width>1.27419cm</Width>
-        <ZIndex>68</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="lb25">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>ถนน</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>12.70569cm</Top>
-        <Left>1.54578cm</Left>
-        <Height>0.84667cm</Height>
-        <Width>1.30947cm</Width>
-        <ZIndex>69</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="lb26">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>ตำบล/แขวง</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>7.44666cm</Top>
-        <Left>6.85736cm</Left>
-        <Height>0.84667cm</Height>
-        <Width>2.31375cm</Width>
-        <ZIndex>70</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="lb27">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>ตำบล/แขวง</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>12.70569cm</Top>
-        <Left>7.00253cm</Left>
-        <Height>0.84667cm</Height>
-        <Width>2.27847cm</Width>
-        <ZIndex>71</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="lb28">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>อำเภอ/เขต</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>12.70569cm</Top>
-        <Left>13.60582cm</Left>
-        <Height>0.8255cm</Height>
-        <Width>2.33424cm</Width>
-        <ZIndex>72</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="lb29">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>อำเภอ/เขต</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>7.42549cm</Top>
-        <Left>13.44275cm</Left>
-        <Height>0.84667cm</Height>
-        <Width>2.14078cm</Width>
-        <ZIndex>73</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="lb30">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>อำเภอ/เขต</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>10.24006cm</Top>
-        <Left>1.46862cm</Left>
-        <Height>0.78787cm</Height>
-        <Width>2.16279cm</Width>
-        <ZIndex>74</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="lb31">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>ถนน</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>9.31051cm</Top>
-        <Left>6.94988cm</Left>
-        <Height>0.89428cm</Height>
-        <Width>1.25472cm</Width>
-        <ZIndex>75</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="lb32">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>ตำบล/แขวง</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>9.31051cm</Top>
-        <Left>12.88592cm</Left>
-        <Height>0.89428cm</Height>
-        <Width>2.27272cm</Width>
-        <ZIndex>76</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="lb33">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>จังหวัด</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>10.24006cm</Top>
-        <Left>7.20605cm</Left>
-        <Height>0.78787cm</Height>
-        <Width>1.5571cm</Width>
-        <ZIndex>77</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="lb34">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>จังหวัด</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>13.49825cm</Top>
-        <Left>1.47117cm</Left>
-        <Height>0.96426cm</Height>
-        <Width>1.62977cm</Width>
-        <ZIndex>78</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="lb35">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>จังหวัด</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>8.36388cm</Top>
-        <Left>1.43588cm</Left>
-        <Height>0.87607cm</Height>
-        <Width>1.34475cm</Width>
-        <ZIndex>79</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="lb36">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>ซึ่งเป็นผู้มีอำนาจลงนามผูกพัน</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>8.36388cm</Top>
-        <Left>7.03374cm</Left>
-        <Height>0.87607cm</Height>
-        <Width>5.25247cm</Width>
-        <ZIndex>80</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="lb37">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>สำนักงานตั้งอยู่ที่</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>9.31051cm</Top>
-        <Left>1.45785cm</Left>
-        <Height>0.89428cm</Height>
-        <Width>3.05919cm</Width>
-        <ZIndex>81</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="lb38">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>โทรศัพท์</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>10.24006cm</Top>
-        <Left>13.4402cm</Left>
-        <Height>0.78787cm</Height>
-        <Width>1.7292cm</Width>
-        <ZIndex>82</ZIndex>
+        <ZIndex>92</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -2821,135 +3108,7 @@
         <Left>2.73204cm</Left>
         <Height>0.88987cm</Height>
         <Width>7.33407cm</Width>
-        <ZIndex>83</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="lb40">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>1.</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>15.19246cm</Top>
-        <Left>2.73204cm</Left>
-        <Height>0.84667cm</Height>
-        <Width>0.72747cm</Width>
-        <ZIndex>84</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="lb41">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>2.</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>16.10969cm</Top>
-        <Left>2.71007cm</Left>
-        <Height>0.84667cm</Height>
-        <Width>0.72747cm</Width>
-        <ZIndex>85</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="lb42">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>3.</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>16.99164cm</Top>
-        <Left>2.69676cm</Left>
-        <Height>0.96426cm</Height>
-        <Width>0.69219cm</Width>
-        <ZIndex>86</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="lb43">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>4.</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>18.00962cm</Top>
-        <Left>2.69676cm</Left>
-        <Height>0.81139cm</Height>
-        <Width>0.72747cm</Width>
-        <ZIndex>87</ZIndex>
+        <ZIndex>93</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -2977,139 +3136,11 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>18.89157cm</Top>
-        <Left>2.69552cm</Left>
-        <Height>0.75489cm</Height>
-        <Width>17.21535cm</Width>
-        <ZIndex>88</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="lb45">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>(ลงชื่อ)</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>19.71701cm</Top>
-        <Left>9.84431cm</Left>
-        <Height>0.84667cm</Height>
-        <Width>1.47221cm</Width>
-        <ZIndex>89</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="lb46">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>(ลงชื่อ)</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>20.66951cm</Top>
-        <Left>9.84431cm</Left>
-        <Height>0.7961cm</Height>
-        <Width>1.47221cm</Width>
-        <ZIndex>90</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="lb47">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>(ลงชื่อ)</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>22.72442cm</Top>
-        <Left>9.84431cm</Left>
-        <Height>0.84667cm</Height>
-        <Width>1.47221cm</Width>
-        <ZIndex>91</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="lb48">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>(ลงชื่อ)</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>23.7069cm</Top>
-        <Left>9.84431cm</Left>
-        <Height>0.84667cm</Height>
-        <Width>1.47221cm</Width>
-        <ZIndex>92</ZIndex>
+        <Top>18.78573cm</Top>
+        <Left>2.67355cm</Left>
+        <Height>0.86073cm</Height>
+        <Width>14.40152cm</Width>
+        <ZIndex>94</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -3137,11 +3168,11 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>19.71701cm</Top>
+        <Top>19.68174cm</Top>
         <Left>15.99324cm</Left>
         <Height>0.84667cm</Height>
         <Width>3.01867cm</Width>
-        <ZIndex>93</ZIndex>
+        <ZIndex>95</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -3169,11 +3200,11 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>20.66951cm</Top>
+        <Top>20.98701cm</Top>
         <Left>15.99324cm</Left>
         <Height>0.8255cm</Height>
         <Width>3.01867cm</Width>
-        <ZIndex>94</ZIndex>
+        <ZIndex>96</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -3201,11 +3232,11 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>21.56557cm</Top>
+        <Top>22.34487cm</Top>
         <Left>1.42257cm</Left>
-        <Height>0.98247cm</Height>
-        <Width>13.88795cm</Width>
-        <ZIndex>95</ZIndex>
+        <Height>0.87345cm</Height>
+        <Width>13.22711cm</Width>
+        <ZIndex>97</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -3233,11 +3264,11 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>22.72442cm</Top>
-        <Left>15.99324cm</Left>
+        <Top>23.25359cm</Top>
+        <Left>15.97622cm</Left>
         <Height>0.84667cm</Height>
         <Width>3.01867cm</Width>
-        <ZIndex>96</ZIndex>
+        <ZIndex>98</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -3265,74 +3296,10 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>23.7069cm</Top>
+        <Top>24.6594cm</Top>
         <Left>15.99324cm</Left>
         <Height>0.84667cm</Height>
         <Width>3.01867cm</Width>
-        <ZIndex>97</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="lb55">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>เลขที่</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>23.44603cm</Top>
-        <Left>1.69747cm</Left>
-        <Height>0.7667cm</Height>
-        <Width>1.92317cm</Width>
-        <ZIndex>98</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="lb56">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>วันออกบัตร</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>24.28329cm</Top>
-        <Left>1.69747cm</Left>
-        <Height>0.75495cm</Height>
-        <Width>1.92317cm</Width>
         <ZIndex>99</ZIndex>
         <Style>
           <Border>
@@ -3361,10 +3328,10 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>24.72996cm</Top>
-        <Left>15.99324cm</Left>
+        <Top>26.20459cm</Top>
+        <Left>14.97306cm</Left>
         <Height>0.94426cm</Height>
-        <Width>4.45294cm</Width>
+        <Width>4.03885cm</Width>
         <ZIndex>100</ZIndex>
         <Style>
           <Border>
@@ -3376,27 +3343,27 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Textbox Name="lb59">
+      <Textbox Name="lb60">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>ขอมอบอำนาจให้</Value>
+                <Value>(.....................................................)</Value>
                 <Style>
                   <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
+                  <FontSize>14pt</FontSize>
                 </Style>
               </TextRun>
             </TextRuns>
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>11.06321cm</Top>
-        <Left>2.95702cm</Left>
-        <Height>0.75848cm</Height>
-        <Width>2.97864cm</Width>
+        <Top>21.66529cm</Top>
+        <Left>11.09855cm</Left>
+        <Height>0.91753cm</Height>
+        <Width>4.87128cm</Width>
         <ZIndex>101</ZIndex>
         <Style>
           <Border>
@@ -3408,11 +3375,300 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
+      <Textbox Name="lb61">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>(.....................................................)</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>14pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>20.3759cm</Top>
+        <Left>11.06327cm</Left>
+        <Height>0.84697cm</Height>
+        <Width>4.92997cm</Width>
+        <ZIndex>102</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="lb62">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>(....................................................)</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>14pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>24.08103cm</Top>
+        <Left>11.09855cm</Left>
+        <Height>0.91753cm</Height>
+        <Width>4.87128cm</Width>
+        <ZIndex>103</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="lb63">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>(....................................................)</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>14pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>25.39977cm</Top>
+        <Left>11.12196cm</Left>
+        <Height>0.91753cm</Height>
+        <Width>4.87128cm</Width>
+        <ZIndex>104</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="txt44">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!txt44.Value, "DataSetGetReport2")</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>25.4263cm</Top>
+        <Left>3.83496cm</Left>
+        <Height>0.82045cm</Height>
+        <Width>2.846cm</Width>
+        <ZIndex>105</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="txt45">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!txt38.Value, "DataSetGetReport2")</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>20.24838cm</Top>
+        <Left>11.22264cm</Left>
+        <Height>0.73863cm</Height>
+        <Width>4.09401cm</Width>
+        <ZIndex>106</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="txt46">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!txt39.Value, "DataSetGetReport2")</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>21.51349cm</Top>
+        <Left>11.22264cm</Left>
+        <Height>0.7961cm</Height>
+        <Width>4.49435cm</Width>
+        <ZIndex>107</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="txt47">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!txt40.Value, "DataSetGetReport2")</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>23.82468cm</Top>
+        <Left>11.22264cm</Left>
+        <Height>0.91722cm</Height>
+        <Width>4.49435cm</Width>
+        <ZIndex>108</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="txt48">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!txt41.Value, "DataSetGetReport2")</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>25.2168cm</Top>
+        <Left>11.23966cm</Left>
+        <Height>0.91723cm</Height>
+        <Width>4.49435cm</Width>
+        <ZIndex>109</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="lb57">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>วันหมดอายุ.................................</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>25.44963cm</Top>
+        <Left>1.69747cm</Left>
+        <Height>0.82045cm</Height>
+        <Width>5.18185cm</Width>
+        <ZIndex>110</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
     </ReportItems>
-    <Height>29cm</Height>
+    <Height>27.3897cm</Height>
     <Style />
   </Body>
-  <Width>21cm</Width>
+  <Width>19.77233cm</Width>
   <Page>
     <PageHeight>29.5cm</PageHeight>
     <PageWidth>21cm</PageWidth>

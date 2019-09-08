@@ -2,118 +2,6 @@
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <Body>
     <ReportItems>
-      <Image Name="Image7">
-        <Source>Embedded</Source>
-        <Value>ID05kruttranslucent</Value>
-        <Sizing>FitProportional</Sizing>
-        <Top>0.89227cm</Top>
-        <Left>8.9912cm</Left>
-        <Height>3.07413cm</Height>
-        <Width>2.7292cm</Width>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-        </Style>
-      </Image>
-      <Rectangle Name="Rectangle1">
-        <ReportItems>
-          <Textbox Name="lb1">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>คำขอที่</Value>
-                    <Style>
-                      <FontFamily>th Sarabun New</FontFamily>
-                      <FontSize>16pt</FontSize>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <Top>0.10851cm</Top>
-            <Left>0.03528cm</Left>
-            <Height>0.75082cm</Height>
-            <Width>1.50207cm</Width>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="txt1">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=First(Fields!txt1.Value, "DataSetGetReport1")</Value>
-                    <Style>
-                      <FontFamily>th Sarabun New</FontFamily>
-                      <FontSize>16pt</FontSize>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <Top>0.13127cm</Top>
-            <Left>1.60791cm</Left>
-            <Height>0.72806cm</Height>
-            <Width>2.96273cm</Width>
-            <ZIndex>1</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-        </ReportItems>
-        <KeepTogether>true</KeepTogether>
-        <Top>2.2225cm</Top>
-        <Left>1.42067cm</Left>
-        <Height>2.6901cm</Height>
-        <Width>4.58319cm</Width>
-        <ZIndex>1</ZIndex>
-        <Style>
-          <Border>
-            <Style>Solid</Style>
-          </Border>
-          <TopBorder>
-            <Color>Black</Color>
-            <Style>Solid</Style>
-            <Width>1pt</Width>
-          </TopBorder>
-          <BottomBorder>
-            <Color>Black</Color>
-            <Style>Solid</Style>
-            <Width>1pt</Width>
-          </BottomBorder>
-          <LeftBorder>
-            <Color>Black</Color>
-            <Style>Solid</Style>
-            <Width>1pt</Width>
-          </LeftBorder>
-          <RightBorder>
-            <Color>Black</Color>
-            <Style>Solid</Style>
-            <Width>1pt</Width>
-          </RightBorder>
-        </Style>
-      </Rectangle>
       <Rectangle Name="Rectangle2">
         <ReportItems>
           <Textbox Name="lb5">
@@ -123,7 +11,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>จังหวัด</Value>
+                    <Value>จังหวัด....................................</Value>
                     <Style>
                       <FontFamily>th Sarabun New</FontFamily>
                       <FontSize>16pt</FontSize>
@@ -134,41 +22,9 @@
               </Paragraph>
             </Paragraphs>
             <Top>0.75254cm</Top>
-            <Left>0.33032cm</Left>
+            <Left>0.01282cm</Left>
             <Height>0.67767cm</Height>
-            <Width>1.5911cm</Width>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="txt5">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=First(Fields!txt5.Value, "DataSetGetReport1")</Value>
-                    <Style>
-                      <FontFamily>th Sarabun New</FontFamily>
-                      <FontSize>16pt</FontSize>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <Top>0.75254cm</Top>
-            <Left>2.41793cm</Left>
-            <Height>0.68823cm</Height>
-            <Width>2.66493cm</Width>
-            <ZIndex>1</ZIndex>
+            <Width>4.55541cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -183,9 +39,8 @@
         <KeepTogether>true</KeepTogether>
         <Top>6.02116cm</Top>
         <Left>14.21852cm</Left>
-        <Height>1.75836cm</Height>
-        <Width>5.31529cm</Width>
-        <ZIndex>2</ZIndex>
+        <Height>1.68781cm</Height>
+        <Width>4.75539cm</Width>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -212,230 +67,6 @@
           </RightBorder>
         </Style>
       </Rectangle>
-      <Textbox Name="txt2">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=First(Fields!txt2.Value, "DataSetGetReport1")</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>3.08183cm</Top>
-        <Left>3.04113cm</Left>
-        <Height>0.88457cm</Height>
-        <Width>2.96273cm</Width>
-        <ZIndex>3</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="txt4">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=First(Fields!txt4.Value, "DataSetGetReport1")</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>6.0415cm</Top>
-        <Left>16.63645cm</Left>
-        <Height>0.69692cm</Height>
-        <Width>2.64419cm</Width>
-        <ZIndex>4</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="txt6">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=First(Fields!txt6.Value, "DataSetGetReport1")</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>7.88536cm</Top>
-        <Left>11.66201cm</Left>
-        <Height>0.77035cm</Height>
-        <Width>0.9621cm</Width>
-        <ZIndex>5</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="txt7">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=First(Fields!txt7.Value, "DataSetGetReport1")</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>7.88536cm</Top>
-        <Left>14.01989cm</Left>
-        <Height>0.77035cm</Height>
-        <Width>2.85699cm</Width>
-        <ZIndex>6</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="txt8">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=First(Fields!txt8.Value, "DataSetGetReport1")</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>7.88536cm</Top>
-        <Left>18.02031cm</Left>
-        <Height>0.77035cm</Height>
-        <Width>1.80538cm</Width>
-        <ZIndex>7</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="txt9">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=First(Fields!txt9.Value, "DataSetGetReport1")</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>9.66018cm</Top>
-        <Left>4.51918cm</Left>
-        <Height>0.8214cm</Height>
-        <Width>10.4841cm</Width>
-        <ZIndex>8</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="txt10">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=First(Fields!txt10.Value, "DataSetGetReport1")</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>9.66784cm</Top>
-        <Left>16.21049cm</Left>
-        <Height>0.84901cm</Height>
-        <Width>2.89376cm</Width>
-        <ZIndex>9</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
       <Textbox Name="txt11">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
@@ -453,907 +84,11 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>10.51685cm</Top>
-        <Left>2.62003cm</Left>
-        <Height>0.81657cm</Height>
-        <Width>1.12464cm</Width>
-        <ZIndex>10</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="txt12">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=First(Fields!txt12.Value, "DataSetGetReport1")</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>10.51685cm</Top>
-        <Left>4.7629cm</Left>
-        <Height>0.82128cm</Height>
-        <Width>1.27624cm</Width>
-        <ZIndex>11</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="txt13">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=First(Fields!txt13.Value, "DataSetGetReport1")</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>10.51685cm</Top>
-        <Left>7.33144cm</Left>
-        <Height>0.82128cm</Height>
-        <Width>2.64271cm</Width>
-        <ZIndex>12</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="txt14">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=First(Fields!txt14.Value, "DataSetGetReport1")</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>10.51685cm</Top>
-        <Left>11.36862cm</Left>
-        <Height>0.82128cm</Height>
-        <Width>2.93635cm</Width>
-        <ZIndex>13</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="txt15">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=First(Fields!txt15.Value, "DataSetGetReport1")</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>10.51685cm</Top>
-        <Left>16.42479cm</Left>
-        <Height>0.82128cm</Height>
-        <Width>3.4009cm</Width>
-        <ZIndex>14</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="txt16">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=First(Fields!txt16.Value, "DataSetGetReport1")</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>11.37576cm</Top>
-        <Left>3.72616cm</Left>
-        <Height>0.81969cm</Height>
-        <Width>4.007cm</Width>
-        <ZIndex>15</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="txt17">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=First(Fields!txt17.Value, "DataSetGetReport1")</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>11.37576cm</Top>
-        <Left>9.31572cm</Left>
-        <Height>0.81969cm</Height>
-        <Width>4.18679cm</Width>
-        <ZIndex>16</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="txt18">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=First(Fields!txt18.Value, "DataSetGetReport1")</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>11.37576cm</Top>
-        <Left>15.29931cm</Left>
-        <Height>0.81969cm</Height>
-        <Width>4.56166cm</Width>
-        <ZIndex>17</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="txt19">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=First(Fields!txt19.Value, "DataSetGetReport1")</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>12.23073cm</Top>
-        <Left>9.55129cm</Left>
-        <Height>0.85741cm</Height>
-        <Width>10.2744cm</Width>
-        <ZIndex>18</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="txt20">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=First(Fields!txt20.Value, "DataSetGetReport1")</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>13.12341cm</Top>
-        <Left>4.65202cm</Left>
-        <Height>0.94858cm</Height>
-        <Width>1.41413cm</Width>
-        <ZIndex>19</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="txt21">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=First(Fields!txt21.Value, "DataSetGetReport1")</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>13.12341cm</Top>
-        <Left>7.24811cm</Left>
-        <Height>0.94858cm</Height>
-        <Width>1.08635cm</Width>
-        <ZIndex>20</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="txt22">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=First(Fields!txt22.Value, "DataSetGetReport1")</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>13.12341cm</Top>
-        <Left>9.59977cm</Left>
-        <Height>0.94858cm</Height>
-        <Width>4.35588cm</Width>
-        <ZIndex>21</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="txt23">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=First(Fields!txt23.Value, "DataSetGetReport1")</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>13.12341cm</Top>
-        <Left>15.22876cm</Left>
-        <Height>0.94858cm</Height>
-        <Width>4.59693cm</Width>
-        <ZIndex>22</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="txt24">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=First(Fields!txt24.Value, "DataSetGetReport1")</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>14.10727cm</Top>
-        <Left>3.8568cm</Left>
-        <Height>0.88714cm</Height>
-        <Width>3.90117cm</Width>
-        <ZIndex>23</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="txt25">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=First(Fields!txt25.Value, "DataSetGetReport1")</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>14.10727cm</Top>
-        <Left>10.15388cm</Left>
-        <Height>0.88714cm</Height>
-        <Width>3.9983cm</Width>
-        <ZIndex>24</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="txt26">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=First(Fields!txt26.Value, "DataSetGetReport1")</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>14.10727cm</Top>
-        <Left>15.79287cm</Left>
-        <Height>0.88714cm</Height>
-        <Width>4.03282cm</Width>
-        <ZIndex>25</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="txt27">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=First(Fields!txt27.Value, "DataSetGetReport1")</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>14.97336cm</Top>
-        <Left>3.41869cm</Left>
-        <Height>0.7385cm</Height>
-        <Width>4.89031cm</Width>
-        <ZIndex>26</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="txt28">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=First(Fields!txt28.Value, "DataSetGetReport1")</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>16.52091cm</Top>
-        <Left>1.51219cm</Left>
-        <Height>1.343cm</Height>
-        <Width>18.15175cm</Width>
-        <ZIndex>27</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="txt29">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=First(Fields!txt29.Value, "DataSetGetReport1")</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>18.95162cm</Top>
-        <Left>2.23984cm</Left>
-        <Height>0.8815cm</Height>
-        <Width>8.21438cm</Width>
-        <ZIndex>28</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="txt30">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=First(Fields!txt30.Value, "DataSetGetReport1")</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>18.95162cm</Top>
-        <Left>11.28646cm</Left>
-        <Height>0.82204cm</Height>
-        <Width>8.36699cm</Width>
-        <ZIndex>29</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="txt31">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=First(Fields!txt31.Value, "DataSetGetReport1")</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>19.87949cm</Top>
-        <Left>2.23984cm</Left>
-        <Height>0.79231cm</Height>
-        <Width>8.21438cm</Width>
-        <ZIndex>30</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="txt32">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=First(Fields!txt32.Value, "DataSetGetReport1")</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>19.91477cm</Top>
-        <Left>11.28646cm</Left>
-        <Height>0.78676cm</Height>
-        <Width>8.36699cm</Width>
-        <ZIndex>31</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="txt33">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=First(Fields!txt33.Value, "DataSetGetReport1")</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>20.72656cm</Top>
-        <Left>2.23984cm</Left>
-        <Height>0.82204cm</Height>
-        <Width>8.21438cm</Width>
-        <ZIndex>32</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="txt34">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=First(Fields!txt34.Value, "DataSetGetReport1")</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>20.76184cm</Top>
-        <Left>11.28646cm</Left>
-        <Height>0.78676cm</Height>
-        <Width>8.36699cm</Width>
-        <ZIndex>33</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="txt35">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=First(Fields!txt35.Value, "DataSetGetReport1")</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>21.97193cm</Top>
-        <Left>12.83839cm</Left>
-        <Height>1.03578cm</Height>
-        <Width>4.09689cm</Width>
-        <ZIndex>34</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="lb4">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>เลขทะเบียน</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>6.0415cm</Top>
-        <Left>14.54884cm</Left>
-        <Height>0.69692cm</Height>
-        <Width>2.08761cm</Width>
-        <ZIndex>35</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="lb6">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>วันที่</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>7.88536cm</Top>
-        <Left>10.50967cm</Left>
-        <Height>0.77035cm</Height>
-        <Width>1.15234cm</Width>
-        <ZIndex>36</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="lb7">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>เดือน</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>7.88536cm</Top>
-        <Left>12.8005cm</Left>
-        <Height>0.77035cm</Height>
-        <Width>1.14884cm</Width>
-        <ZIndex>37</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="lb8">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>พ.ศ.</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>7.88536cm</Top>
-        <Left>17.05328cm</Left>
-        <Height>0.77035cm</Height>
-        <Width>0.96703cm</Width>
-        <ZIndex>38</ZIndex>
+        <Top>10.41337cm</Top>
+        <Left>2.65827cm</Left>
+        <Height>0.92005cm</Height>
+        <Width>1.30103cm</Width>
+        <ZIndex>1</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1371,7 +106,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>ข้าพเจ้า</Value>
+                <Value>ข้าพเจ้า........................................................................................................................</Value>
                 <Style>
                   <FontFamily>th Sarabun New</FontFamily>
                   <FontSize>16pt</FontSize>
@@ -1382,10 +117,10 @@
           </Paragraph>
         </Paragraphs>
         <Top>9.66784cm</Top>
-        <Left>2.65827cm</Left>
+        <Left>2.97577cm</Left>
         <Height>0.77846cm</Height>
-        <Width>1.79035cm</Width>
-        <ZIndex>39</ZIndex>
+        <Width>12.30973cm</Width>
+        <ZIndex>2</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1403,7 +138,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>อายุ</Value>
+                <Value>อายุ....................</Value>
                 <Style>
                   <FontFamily>th Sarabun New</FontFamily>
                   <FontSize>16pt</FontSize>
@@ -1414,10 +149,10 @@
           </Paragraph>
         </Paragraphs>
         <Top>9.66784cm</Top>
-        <Left>15.14439cm</Left>
+        <Left>15.46189cm</Left>
         <Height>0.84901cm</Height>
-        <Width>0.99555cm</Width>
-        <ZIndex>40</ZIndex>
+        <Width>2.85838cm</Width>
+        <ZIndex>3</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1445,11 +180,11 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>9.66784cm</Top>
-        <Left>19.13953cm</Left>
-        <Height>0.75084cm</Height>
+        <Top>9.63256cm</Top>
+        <Left>18.05985cm</Left>
+        <Height>0.81374cm</Height>
         <Width>0.56816cm</Width>
-        <ZIndex>41</ZIndex>
+        <ZIndex>4</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1467,7 +202,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>อยู่ที่</Value>
+                <Value>อยู่ที่............</Value>
                 <Style>
                   <FontFamily>th Sarabun New</FontFamily>
                   <FontSize>16pt</FontSize>
@@ -1478,10 +213,10 @@
           </Paragraph>
         </Paragraphs>
         <Top>10.51685cm</Top>
-        <Left>1.52651cm</Left>
+        <Left>1.84401cm</Left>
         <Height>0.82128cm</Height>
-        <Width>0.99065cm</Width>
-        <ZIndex>42</ZIndex>
+        <Width>2.21816cm</Width>
+        <ZIndex>5</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1499,7 +234,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>หมู่ที่</Value>
+                <Value>หมู่ที่...............</Value>
                 <Style>
                   <FontFamily>th Sarabun New</FontFamily>
                   <FontSize>16pt</FontSize>
@@ -1510,10 +245,10 @@
           </Paragraph>
         </Paragraphs>
         <Top>10.51685cm</Top>
-        <Left>3.67708cm</Left>
+        <Left>3.99458cm</Left>
         <Height>0.82128cm</Height>
-        <Width>1.05054cm</Width>
-        <ZIndex>43</ZIndex>
+        <Width>2.50317cm</Width>
+        <ZIndex>6</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1531,7 +266,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>ซอย</Value>
+                <Value>ซอย.................................</Value>
                 <Style>
                   <FontFamily>th Sarabun New</FontFamily>
                   <FontSize>16pt</FontSize>
@@ -1542,10 +277,10 @@
           </Paragraph>
         </Paragraphs>
         <Top>10.51685cm</Top>
-        <Left>6.18025cm</Left>
+        <Left>6.49775cm</Left>
         <Height>0.82128cm</Height>
-        <Width>1.15119cm</Width>
-        <ZIndex>44</ZIndex>
+        <Width>3.93835cm</Width>
+        <ZIndex>7</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1563,7 +298,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>ถนน</Value>
+                <Value>ถนน...............................</Value>
                 <Style>
                   <FontFamily>th Sarabun New</FontFamily>
                   <FontSize>16pt</FontSize>
@@ -1574,10 +309,10 @@
           </Paragraph>
         </Paragraphs>
         <Top>10.51685cm</Top>
-        <Left>10.07998cm</Left>
+        <Left>10.39748cm</Left>
         <Height>0.82128cm</Height>
-        <Width>1.21808cm</Width>
-        <ZIndex>45</ZIndex>
+        <Width>3.87567cm</Width>
+        <ZIndex>8</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1595,7 +330,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>ตำบล/แขวง</Value>
+                <Value>ตำบล/แขวง............................</Value>
                 <Style>
                   <FontFamily>th Sarabun New</FontFamily>
                   <FontSize>16pt</FontSize>
@@ -1605,11 +340,11 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>10.51685cm</Top>
-        <Left>14.30496cm</Left>
+        <Top>10.5192cm</Top>
+        <Left>14.30843cm</Left>
         <Height>0.82128cm</Height>
-        <Width>2.04927cm</Width>
-        <ZIndex>46</ZIndex>
+        <Width>4.65056cm</Width>
+        <ZIndex>9</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1627,7 +362,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>อำเภอ/เขต</Value>
+                <Value>อำเภอ/เขต.............................................</Value>
                 <Style>
                   <FontFamily>th Sarabun New</FontFamily>
                   <FontSize>16pt</FontSize>
@@ -1638,10 +373,10 @@
           </Paragraph>
         </Paragraphs>
         <Top>11.37576cm</Top>
-        <Left>1.5397cm</Left>
+        <Left>1.8572cm</Left>
         <Height>0.81969cm</Height>
-        <Width>2.19966cm</Width>
-        <ZIndex>47</ZIndex>
+        <Width>6.17966cm</Width>
+        <ZIndex>10</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1659,7 +394,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>จังหวัด</Value>
+                <Value>จังหวัด.................................................</Value>
                 <Style>
                   <FontFamily>th Sarabun New</FontFamily>
                   <FontSize>16pt</FontSize>
@@ -1670,10 +405,10 @@
           </Paragraph>
         </Paragraphs>
         <Top>11.37576cm</Top>
-        <Left>7.73317cm</Left>
+        <Left>8.05067cm</Left>
         <Height>0.81969cm</Height>
-        <Width>1.40617cm</Width>
-        <ZIndex>48</ZIndex>
+        <Width>5.73407cm</Width>
+        <ZIndex>11</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1691,7 +426,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>โทรศัพท์</Value>
+                <Value>โทรศัพท์......................................</Value>
                 <Style>
                   <FontFamily>th Sarabun New</FontFamily>
                   <FontSize>16pt</FontSize>
@@ -1702,10 +437,10 @@
           </Paragraph>
         </Paragraphs>
         <Top>11.37576cm</Top>
-        <Left>13.50252cm</Left>
+        <Left>13.82002cm</Left>
         <Height>0.81969cm</Height>
-        <Width>1.8132cm</Width>
-        <ZIndex>49</ZIndex>
+        <Width>5.15389cm</Width>
+        <ZIndex>12</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1723,7 +458,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>ได้รับมอบอำนาจจากผู้ประกอบการขนส่งชื่อ</Value>
+                <Value>ได้รับมอบอำนาจจากผู้ประกอบการขนส่งชื่อ................................................................................................................</Value>
                 <Style>
                   <FontFamily>th Sarabun New</FontFamily>
                   <FontSize>16pt</FontSize>
@@ -1734,10 +469,10 @@
           </Paragraph>
         </Paragraphs>
         <Top>12.23073cm</Top>
-        <Left>1.5397cm</Left>
+        <Left>1.8572cm</Left>
         <Height>0.85741cm</Height>
-        <Width>8.0116cm</Width>
-        <ZIndex>50</ZIndex>
+        <Width>17.11671cm</Width>
+        <ZIndex>13</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1755,7 +490,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>สำนักงานตั้งอยู่ที่</Value>
+                <Value>สำนักงานตั้งอยู่ที่..................</Value>
                 <Style>
                   <FontFamily>th Sarabun New</FontFamily>
                   <FontSize>16pt</FontSize>
@@ -1766,10 +501,10 @@
           </Paragraph>
         </Paragraphs>
         <Top>13.12341cm</Top>
-        <Left>1.5397cm</Left>
+        <Left>1.8572cm</Left>
         <Height>0.94858cm</Height>
-        <Width>3.11232cm</Width>
-        <ZIndex>51</ZIndex>
+        <Width>4.597cm</Width>
+        <ZIndex>14</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1787,7 +522,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>หมู่ที่</Value>
+                <Value>หมู่ที่.............</Value>
                 <Style>
                   <FontFamily>th Sarabun New</FontFamily>
                   <FontSize>16pt</FontSize>
@@ -1798,10 +533,10 @@
           </Paragraph>
         </Paragraphs>
         <Top>13.12341cm</Top>
-        <Left>6.17198cm</Left>
+        <Left>6.48948cm</Left>
         <Height>0.94858cm</Height>
-        <Width>1.13613cm</Width>
-        <ZIndex>52</ZIndex>
+        <Width>2.33886cm</Width>
+        <ZIndex>15</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1819,7 +554,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>ซอย</Value>
+                <Value>ซอย..................................................</Value>
                 <Style>
                   <FontFamily>th Sarabun New</FontFamily>
                   <FontSize>16pt</FontSize>
@@ -1830,10 +565,10 @@
           </Paragraph>
         </Paragraphs>
         <Top>13.12341cm</Top>
-        <Left>8.51084cm</Left>
+        <Left>8.82834cm</Left>
         <Height>0.94858cm</Height>
-        <Width>1.08893cm</Width>
-        <ZIndex>53</ZIndex>
+        <Width>5.52316cm</Width>
+        <ZIndex>16</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1851,7 +586,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>ถนน</Value>
+                <Value>ถนน.......................................</Value>
                 <Style>
                   <FontFamily>th Sarabun New</FontFamily>
                   <FontSize>16pt</FontSize>
@@ -1862,10 +597,10 @@
           </Paragraph>
         </Paragraphs>
         <Top>13.12341cm</Top>
-        <Left>14.034cm</Left>
+        <Left>14.3515cm</Left>
         <Height>0.94858cm</Height>
-        <Width>1.08893cm</Width>
-        <ZIndex>54</ZIndex>
+        <Width>4.62241cm</Width>
+        <ZIndex>17</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1883,7 +618,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>ตำบล/แขวง</Value>
+                <Value>ตำบล/แขวง...............................................</Value>
                 <Style>
                   <FontFamily>th Sarabun New</FontFamily>
                   <FontSize>16pt</FontSize>
@@ -1894,10 +629,10 @@
           </Paragraph>
         </Paragraphs>
         <Top>14.10727cm</Top>
-        <Left>1.52651cm</Left>
+        <Left>1.8572cm</Left>
         <Height>0.88714cm</Height>
-        <Width>2.29501cm</Width>
-        <ZIndex>55</ZIndex>
+        <Width>6.35938cm</Width>
+        <ZIndex>18</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1915,7 +650,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>อำเภอ/เขต</Value>
+                <Value>อำเภอ/เขต.............................................</Value>
                 <Style>
                   <FontFamily>th Sarabun New</FontFamily>
                   <FontSize>16pt</FontSize>
@@ -1926,10 +661,10 @@
           </Paragraph>
         </Paragraphs>
         <Top>14.10727cm</Top>
-        <Left>7.93436cm</Left>
+        <Left>8.25186cm</Left>
         <Height>0.88714cm</Height>
-        <Width>2.18424cm</Width>
-        <ZIndex>56</ZIndex>
+        <Width>6.06436cm</Width>
+        <ZIndex>19</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1947,7 +682,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>จังหวัด</Value>
+                <Value>จังหวัด...................................</Value>
                 <Style>
                   <FontFamily>th Sarabun New</FontFamily>
                   <FontSize>16pt</FontSize>
@@ -1958,10 +693,10 @@
           </Paragraph>
         </Paragraphs>
         <Top>14.10727cm</Top>
-        <Left>14.22273cm</Left>
+        <Left>14.3515cm</Left>
         <Height>0.88714cm</Height>
-        <Width>1.57013cm</Width>
-        <ZIndex>57</ZIndex>
+        <Width>4.62241cm</Width>
+        <ZIndex>20</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1979,7 +714,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>โทรศัพท์</Value>
+                <Value>โทรศัพท์....................................................</Value>
                 <Style>
                   <FontFamily>th Sarabun New</FontFamily>
                   <FontSize>16pt</FontSize>
@@ -1989,11 +724,11 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>14.97336cm</Top>
-        <Left>1.5397cm</Left>
-        <Height>0.7385cm</Height>
-        <Width>1.87899cm</Width>
-        <ZIndex>58</ZIndex>
+        <Top>14.95913cm</Top>
+        <Left>1.8572cm</Left>
+        <Height>0.75273cm</Height>
+        <Width>6.7693cm</Width>
+        <ZIndex>21</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -2011,7 +746,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>มีความประสงค์</Value>
+                <Value>มีความประสงค์..............................................................................................................................................................</Value>
                 <Style>
                   <FontFamily>th Sarabun New</FontFamily>
                   <FontSize>16pt</FontSize>
@@ -2022,10 +757,1403 @@
           </Paragraph>
         </Paragraphs>
         <Top>15.74713cm</Top>
-        <Left>1.45595cm</Left>
+        <Left>1.8572cm</Left>
         <Height>0.7385cm</Height>
-        <Width>3.18288cm</Width>
+        <Width>16.92955cm</Width>
+        <ZIndex>22</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="lb32">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>1. .....................................................................................</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>19.58662cm</Top>
+        <Left>1.80873cm</Left>
+        <Height>0.8815cm</Height>
+        <Width>8.4691cm</Width>
+        <ZIndex>23</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="lb34">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>3. .....................................................................................</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>20.51449cm</Top>
+        <Left>1.80873cm</Left>
+        <Height>0.79231cm</Height>
+        <Width>8.50438cm</Width>
+        <ZIndex>24</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="lb36">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>5. .....................................................................................</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>21.36156cm</Top>
+        <Left>1.80873cm</Left>
+        <Height>0.82204cm</Height>
+        <Width>8.50438cm</Width>
+        <ZIndex>25</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="lb43">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>2. .....................................................................................</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>19.58662cm</Top>
+        <Left>10.27783cm</Left>
+        <Height>0.82204cm</Height>
+        <Width>8.50892cm</Width>
+        <ZIndex>26</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="lb44">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>4. .....................................................................................</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>20.51449cm</Top>
+        <Left>10.31311cm</Left>
+        <Height>0.82204cm</Height>
+        <Width>8.47364cm</Width>
+        <ZIndex>27</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="lb45">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>6. .....................................................................................</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>21.36156cm</Top>
+        <Left>10.31311cm</Left>
+        <Height>0.82204cm</Height>
+        <Width>8.47364cm</Width>
+        <ZIndex>28</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="lb6">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>วันที่............. เดือน........................ พ.ศ. ...................</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>7.88536cm</Top>
+        <Left>10.82717cm</Left>
+        <Height>0.77035cm</Height>
+        <Width>7.95958cm</Width>
+        <ZIndex>29</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="lb4">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>เลขทะเบียน............................</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>6.0415cm</Top>
+        <Left>14.23134cm</Left>
+        <Height>0.69692cm</Height>
+        <Width>4.55541cm</Width>
+        <ZIndex>30</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Rectangle Name="Rectangle1">
+        <ReportItems>
+          <Textbox Name="lb1">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>คำขอที่...............................</Value>
+                    <Style>
+                      <FontFamily>th Sarabun New</FontFamily>
+                      <FontSize>16pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <Top>0.07911cm</Top>
+            <Left>0.03528cm</Left>
+            <Height>0.75082cm</Height>
+            <Width>4.23007cm</Width>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+        </ReportItems>
+        <KeepTogether>true</KeepTogether>
+        <Top>2.2519cm</Top>
+        <Left>1.73817cm</Left>
+        <Height>2.7033cm</Height>
+        <Width>4.58319cm</Width>
+        <ZIndex>31</ZIndex>
+        <Style>
+          <Border>
+            <Style>Solid</Style>
+          </Border>
+          <TopBorder>
+            <Color>Black</Color>
+            <Style>Solid</Style>
+            <Width>1pt</Width>
+          </TopBorder>
+          <BottomBorder>
+            <Color>Black</Color>
+            <Style>Solid</Style>
+            <Width>1pt</Width>
+          </BottomBorder>
+          <LeftBorder>
+            <Color>Black</Color>
+            <Style>Solid</Style>
+            <Width>1pt</Width>
+          </LeftBorder>
+          <RightBorder>
+            <Color>Black</Color>
+            <Style>Solid</Style>
+            <Width>1pt</Width>
+          </RightBorder>
+        </Style>
+      </Rectangle>
+      <Textbox Name="lb3">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>ผู้รับ....................................</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>3.80906cm</Top>
+        <Left>1.77345cm</Left>
+        <Height>1.14614cm</Height>
+        <Width>4.23007cm</Width>
+        <ZIndex>32</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="lb2">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>รับวันที่...............................</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>3.08183cm</Top>
+        <Left>1.76067cm</Left>
+        <Height>0.88457cm</Height>
+        <Width>4.24285cm</Width>
+        <ZIndex>33</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Image Name="Image7">
+        <Source>Embedded</Source>
+        <Value>ID05kruttranslucent</Value>
+        <Sizing>FitProportional</Sizing>
+        <Top>0.89227cm</Top>
+        <Left>9.3087cm</Left>
+        <Height>3.07413cm</Height>
+        <Width>2.7292cm</Width>
+        <ZIndex>34</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Image>
+      <Textbox Name="txt2">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!txt2.Value, "DataSetGetReport1")</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>3.01524cm</Top>
+        <Left>3.04113cm</Left>
+        <Height>0.95116cm</Height>
+        <Width>2.96273cm</Width>
+        <ZIndex>35</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="txt4">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!txt4.Value, "DataSetGetReport1")</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>5.93567cm</Top>
+        <Left>16.21049cm</Left>
+        <Height>0.80275cm</Height>
+        <Width>2.4678cm</Width>
+        <ZIndex>36</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="txt6">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!txt6.Value, "DataSetGetReport1")</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>7.77953cm</Top>
+        <Left>11.68612cm</Left>
+        <Height>0.87618cm</Height>
+        <Width>0.99337cm</Width>
+        <ZIndex>37</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="txt7">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!txt7.Value, "DataSetGetReport1")</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>7.77953cm</Top>
+        <Left>13.7165cm</Left>
+        <Height>0.87618cm</Height>
+        <Width>1.937cm</Width>
+        <ZIndex>38</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="txt8">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!txt8.Value, "DataSetGetReport1")</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>7.77953cm</Top>
+        <Left>16.45372cm</Left>
+        <Height>0.87618cm</Height>
+        <Width>2.01553cm</Width>
+        <ZIndex>39</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="txt9">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!txt9.Value, "DataSetGetReport1")</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>9.59728cm</Top>
+        <Left>4.42449cm</Left>
+        <Height>0.81609cm</Height>
+        <Width>10.49097cm</Width>
+        <ZIndex>40</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="txt10">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!txt10.Value, "DataSetGetReport1")</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>9.59728cm</Top>
+        <Left>16.21049cm</Left>
+        <Height>0.91957cm</Height>
+        <Width>1.89707cm</Width>
+        <ZIndex>41</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="txt12">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!txt12.Value, "DataSetGetReport1")</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>10.41337cm</Top>
+        <Left>4.96952cm</Left>
+        <Height>0.92476cm</Height>
+        <Width>1.38712cm</Width>
+        <ZIndex>42</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="txt13">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!txt13.Value, "DataSetGetReport1")</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>10.41337cm</Top>
+        <Left>7.41567cm</Left>
+        <Height>0.92476cm</Height>
+        <Width>2.78615cm</Width>
+        <ZIndex>43</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="txt14">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!txt14.Value, "DataSetGetReport1")</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>10.41337cm</Top>
+        <Left>11.36862cm</Left>
+        <Height>0.92476cm</Height>
+        <Width>2.45139cm</Width>
+        <ZIndex>44</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="txt15">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!txt15.Value, "DataSetGetReport1")</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>10.41337cm</Top>
+        <Left>16.21049cm</Left>
+        <Height>0.92476cm</Height>
+        <Width>2.4678cm</Width>
+        <ZIndex>45</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="txt16">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!txt16.Value, "DataSetGetReport1")</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>11.33342cm</Top>
+        <Left>3.71236cm</Left>
+        <Height>0.82675cm</Height>
+        <Width>3.99842cm</Width>
+        <ZIndex>46</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="txt17">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!txt17.Value, "DataSetGetReport1")</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>11.33342cm</Top>
+        <Left>9.3087cm</Left>
+        <Height>0.82675cm</Height>
+        <Width>4.17711cm</Width>
+        <ZIndex>47</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="txt18">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!txt18.Value, "DataSetGetReport1")</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>11.33342cm</Top>
+        <Left>15.46189cm</Left>
+        <Height>0.82675cm</Height>
+        <Width>3.00736cm</Width>
+        <ZIndex>48</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="txt19">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!txt19.Value, "DataSetGetReport1")</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>12.16017cm</Top>
+        <Left>8.66998cm</Left>
+        <Height>0.85741cm</Height>
+        <Width>9.65029cm</Width>
+        <ZIndex>49</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="txt20">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!txt20.Value, "DataSetGetReport1")</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>13.05286cm</Top>
+        <Left>4.72629cm</Left>
+        <Height>0.98385cm</Height>
+        <Width>1.5868cm</Width>
+        <ZIndex>50</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="txt21">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!txt21.Value, "DataSetGetReport1")</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>13.05286cm</Top>
+        <Left>7.41567cm</Left>
+        <Height>1.01913cm</Height>
+        <Width>1.21083cm</Width>
+        <ZIndex>51</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="txt22">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!txt22.Value, "DataSetGetReport1")</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>13.05286cm</Top>
+        <Left>9.63876cm</Left>
+        <Height>1.01913cm</Height>
+        <Width>4.18125cm</Width>
+        <ZIndex>52</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="txt23">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!txt23.Value, "DataSetGetReport1")</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>13.05286cm</Top>
+        <Left>15.14439cm</Left>
+        <Height>1.01913cm</Height>
+        <Width>3.48362cm</Width>
+        <ZIndex>53</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="txt24">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!txt24.Value, "DataSetGetReport1")</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>14.03671cm</Top>
+        <Left>3.99458cm</Left>
+        <Height>0.81659cm</Height>
+        <Width>3.7162cm</Width>
+        <ZIndex>54</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="txt25">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!txt25.Value, "DataSetGetReport1")</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>14.03671cm</Top>
+        <Left>9.99561cm</Left>
+        <Height>0.9577cm</Height>
+        <Width>3.8244cm</Width>
+        <ZIndex>55</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="txt26">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!txt26.Value, "DataSetGetReport1")</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>14.03671cm</Top>
+        <Left>15.64814cm</Left>
+        <Height>0.9577cm</Height>
+        <Width>2.97987cm</Width>
+        <ZIndex>56</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="txt27">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!txt27.Value, "DataSetGetReport1")</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>14.92385cm</Top>
+        <Left>3.41869cm</Left>
+        <Height>0.71744cm</Height>
+        <Width>4.29209cm</Width>
+        <ZIndex>57</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="txt28">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!txt28.Value, "DataSetGetReport1")</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>15.67657cm</Top>
+        <Left>4.40957cm</Left>
+        <Height>1.0878cm</Height>
+        <Width>14.21844cm</Width>
+        <ZIndex>58</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="txt29">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!txt29.Value, "DataSetGetReport1")</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>19.48079cm</Top>
+        <Left>2.30111cm</Left>
+        <Height>0.91677cm</Height>
+        <Width>7.39031cm</Width>
         <ZIndex>59</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="txt30">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!txt30.Value, "DataSetGetReport1")</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>19.48079cm</Top>
+        <Left>10.96896cm</Left>
+        <Height>0.92787cm</Height>
+        <Width>7.35131cm</Width>
+        <ZIndex>60</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="txt31">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!txt31.Value, "DataSetGetReport1")</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>20.43284cm</Top>
+        <Left>2.30111cm</Left>
+        <Height>0.78761cm</Height>
+        <Width>7.39031cm</Width>
+        <ZIndex>61</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="txt32">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!txt32.Value, "DataSetGetReport1")</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>20.43284cm</Top>
+        <Left>10.96896cm</Left>
+        <Height>0.90369cm</Height>
+        <Width>7.35131cm</Width>
+        <ZIndex>62</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="txt33">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!txt33.Value, "DataSetGetReport1")</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>21.291cm</Top>
+        <Left>2.30111cm</Left>
+        <Height>0.8926cm</Height>
+        <Width>7.39031cm</Width>
+        <ZIndex>63</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="txt34">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!txt34.Value, "DataSetGetReport1")</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>21.291cm</Top>
+        <Left>10.96896cm</Left>
+        <Height>0.8926cm</Height>
+        <Width>7.35131cm</Width>
+        <ZIndex>64</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="txt35">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!txt35.Value, "DataSetGetReport1")</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>22.53266cm</Top>
+        <Left>12.60791cm</Left>
+        <Height>1.11005cm</Height>
+        <Width>3.63264cm</Width>
+        <ZIndex>65</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -2053,107 +2181,11 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>18.00502cm</Top>
-        <Left>1.50171cm</Left>
+        <Top>18.64002cm</Top>
+        <Left>1.81921cm</Left>
         <Height>0.84077cm</Height>
         <Width>8.38261cm</Width>
-        <ZIndex>60</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="lb32">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>1.</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>18.95162cm</Top>
-        <Left>1.49123cm</Left>
-        <Height>0.8815cm</Height>
-        <Width>0.57222cm</Width>
-        <ZIndex>61</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="lb34">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>3.</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>19.87949cm</Top>
-        <Left>1.49123cm</Left>
-        <Height>0.79231cm</Height>
-        <Width>0.57222cm</Width>
-        <ZIndex>62</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="lb36">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>5.</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>20.72656cm</Top>
-        <Left>1.49123cm</Left>
-        <Height>0.82204cm</Height>
-        <Width>0.57222cm</Width>
-        <ZIndex>63</ZIndex>
+        <ZIndex>66</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -2171,7 +2203,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>ลงชื่อ</Value>
+                <Value>ลงชื่อ.............................................</Value>
                 <Style>
                   <FontFamily>th Sarabun New</FontFamily>
                   <FontSize>16pt</FontSize>
@@ -2181,11 +2213,11 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>21.97193cm</Top>
+        <Top>22.60693cm</Top>
         <Left>11.54401cm</Left>
         <Height>1.03578cm</Height>
-        <Width>1.11799cm</Width>
-        <ZIndex>64</ZIndex>
+        <Width>5.22721cm</Width>
+        <ZIndex>67</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -2213,11 +2245,11 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>21.97193cm</Top>
-        <Left>17.19718cm</Left>
+        <Top>22.60693cm</Top>
+        <Left>16.77122cm</Left>
         <Height>1.03578cm</Height>
-        <Width>2.08346cm</Width>
-        <ZIndex>65</ZIndex>
+        <Width>1.90707cm</Width>
+        <ZIndex>68</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -2247,10 +2279,10 @@
           </Paragraph>
         </Paragraphs>
         <Top>4.28364cm</Top>
-        <Left>8.19261cm</Left>
+        <Left>8.51011cm</Left>
         <Height>1.02007cm</Height>
         <Width>4.9757cm</Width>
-        <ZIndex>66</ZIndex>
+        <ZIndex>69</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -2282,10 +2314,10 @@
           </Paragraph>
         </Paragraphs>
         <Top>5.30371cm</Top>
-        <Left>8.64499cm</Left>
+        <Left>8.96249cm</Left>
         <Height>0.94589cm</Height>
         <Width>3.717cm</Width>
-        <ZIndex>67</ZIndex>
+        <ZIndex>70</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -2314,105 +2346,9 @@
           </Paragraph>
         </Paragraphs>
         <Top>8.73609cm</Top>
-        <Left>1.44317cm</Left>
+        <Left>1.76067cm</Left>
         <Height>0.75536cm</Height>
         <Width>4.56069cm</Width>
-        <ZIndex>68</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="lb43">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>2.</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>18.95162cm</Top>
-        <Left>10.59533cm</Left>
-        <Height>0.82204cm</Height>
-        <Width>0.51475cm</Width>
-        <ZIndex>69</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="lb44">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>4.</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>19.87949cm</Top>
-        <Left>10.63061cm</Left>
-        <Height>0.82204cm</Height>
-        <Width>0.47947cm</Width>
-        <ZIndex>70</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="lb45">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>6.</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>20.72656cm</Top>
-        <Left>10.63061cm</Left>
-        <Height>0.82204cm</Height>
-        <Width>0.57222cm</Width>
         <ZIndex>71</ZIndex>
         <Style>
           <Border>
@@ -2424,14 +2360,46 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Textbox Name="lb3">
+      <Textbox Name="lb9">
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>ใช้เฉพาะกฏหมายว่าด้วยการขนส่งทางบกเท่านั้น</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>3.2302cm</Top>
+        <Left>11.97951cm</Left>
+        <Height>0.87705cm</Height>
+        <Width>7.44224cm</Width>
+        <ZIndex>72</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="txt1">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>ผู้รับ</Value>
+                <Value>=First(Fields!txt1.Value, "DataSetGetReport1")</Value>
                 <Style>
                   <FontFamily>th Sarabun New</FontFamily>
                   <FontSize>16pt</FontSize>
@@ -2441,11 +2409,11 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>3.71946cm</Top>
-        <Left>1.4685cm</Left>
-        <Height>0.89034cm</Height>
-        <Width>1.50207cm</Width>
-        <ZIndex>72</ZIndex>
+        <Top>2.2519cm</Top>
+        <Left>3.04113cm</Left>
+        <Height>0.72806cm</Height>
+        <Width>2.95018cm</Width>
+        <ZIndex>73</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -2473,42 +2441,10 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>3.71946cm</Top>
-        <Left>3.0764cm</Left>
-        <Height>0.89034cm</Height>
-        <Width>2.92746cm</Width>
-        <ZIndex>73</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="lb2">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>รับวันที่</Value>
-                <Style>
-                  <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>3.08183cm</Top>
-        <Left>1.44317cm</Left>
-        <Height>0.88457cm</Height>
-        <Width>1.5274cm</Width>
+        <Top>3.7106cm</Top>
+        <Left>3.04113cm</Left>
+        <Height>0.75868cm</Height>
+        <Width>2.96273cm</Width>
         <ZIndex>74</ZIndex>
         <Style>
           <Border>
@@ -2520,27 +2456,27 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Textbox Name="lb9">
+      <Textbox Name="lb46">
+        <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>ใช้เฉพาะกฏหมายว่าด้วยการขนส่งทางบกเท่านั้น</Value>
+                <Value>(............................................)</Value>
                 <Style>
                   <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>18pt</FontSize>
-                  <FontWeight>Normal</FontWeight>
+                  <FontSize>16pt</FontSize>
                 </Style>
               </TextRun>
             </TextRuns>
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>3.2302cm</Top>
-        <Left>11.66201cm</Left>
-        <Height>0.87705cm</Height>
-        <Width>8.53305cm</Width>
+        <Top>23.45332cm</Top>
+        <Left>12.33497cm</Left>
+        <Height>1.22517cm</Height>
+        <Width>4.71475cm</Width>
         <ZIndex>75</ZIndex>
         <Style>
           <Border>
@@ -2552,13 +2488,109 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
+      <Textbox Name="txt36">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!txt35.Value, "DataSetGetReport1")</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>23.39577cm</Top>
+        <Left>12.60791cm</Left>
+        <Height>1.28272cm</Height>
+        <Width>3.63264cm</Width>
+        <ZIndex>76</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="txt5">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!txt5.Value, "DataSetGetReport1")</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>6.70315cm</Top>
+        <Left>15.46189cm</Left>
+        <Height>0.93527cm</Height>
+        <Width>3.16612cm</Width>
+        <ZIndex>77</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="txt37">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................</Value>
+                <Style>
+                  <FontFamily>th Sarabun New</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>16.34452cm</Top>
+        <Left>1.80873cm</Left>
+        <Height>2.32488cm</Height>
+        <Width>16.97802cm</Width>
+        <ZIndex>78</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
     </ReportItems>
-    <Height>29cm</Height>
+    <Height>25.62045cm</Height>
     <Style />
   </Body>
-  <Width>21cm</Width>
+  <Width>20.05364cm</Width>
   <Page>
-    <PageHeight>29.5cm</PageHeight>
+    <PageHeight>29.7cm</PageHeight>
     <PageWidth>21cm</PageWidth>
     <LeftMargin>0cm</LeftMargin>
     <RightMargin>0cm</RightMargin>
