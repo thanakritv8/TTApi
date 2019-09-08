@@ -39,6 +39,7 @@ namespace TTApi.Models
 
     public class PermissionModels
     {
+        public string permission_id { get; set; }
         public string app_id { get; set; }
         public string access_id { get; set; }
         public string group_id { get; set; }

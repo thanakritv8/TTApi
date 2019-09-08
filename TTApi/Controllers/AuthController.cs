@@ -369,6 +369,7 @@ namespace TTApi.Controllers
                     foreach (DataRow _Item in _Dt.Rows)
                     {
                         PermissionModels m = new PermissionModels();
+                        m.permission_id = _Item["permission_id"].ToString();
                         m.access_id = _Item["access_id"].ToString();
                         m.app_id = _Item["app_id"].ToString();
                         m.group_id = _Item["group_id"].ToString();
@@ -378,6 +379,70 @@ namespace TTApi.Controllers
                 con.Close();
             }
             return ul;
+        }
+
+        [AllowAnonymous]
+        [Route("InsertPermission")]
+        public ExecuteModels InsertPermission(PermissionModels val)
+        {
+            ExecuteModels ecm = new ExecuteModels();
+            HomeController hc = new HomeController();
+            using (SqlConnection con = hc.ConnectDatabaseAuth())
+            {
+                string _SQL = "insert into [permission] (group_id, app_id, access_id, create_by_user_id) output inserted.permission_id " +
+                    "values (N'" + val.group_id + "', N'" + val.app_id + "', '" + val.access_id + "', 1)";
+                SqlCommand cmd = new SqlCommand(_SQL, con);
+                try
+                {
+                    var id_return = Int32.Parse(cmd.ExecuteScalar().ToString());
+                    if (id_return >= 1)
+                    {
+                        ecm.result = 0;
+                        ecm.code = "OK";
+                        ecm.id_return = id_return.ToString();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ecm.result = 1;
+                    ecm.code = ex.Message;
+                }
+                con.Close();
+            }
+            return ecm;
+        }
+
+        [AllowAnonymous]
+        [Route("DeletePermission")]
+        public ExecuteModels DelPermission(PermissionModels val)
+        {
+            ExecuteModels ecm = new ExecuteModels();
+            HomeController hc = new HomeController();
+            using (SqlConnection con = hc.ConnectDatabaseAuth())
+            {
+                string _SQL = "delete from [permission] where permission_id = " + val.permission_id;
+                SqlCommand cmd = new SqlCommand(_SQL, con);
+                try
+                {
+                    if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) >= 1)
+                    {
+                        ecm.result = 0;
+                        ecm.code = "OK";
+                    }
+                    else
+                    {
+                        ecm.result = 1;
+                        ecm.code = _SQL;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ecm.result = 1;
+                    ecm.code = ex.Message;
+                }
+                con.Close();
+            }
+            return ecm;
         }
 
         #endregion
