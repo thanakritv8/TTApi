@@ -56,4 +56,10 @@ namespace TTApi.Models
         public string username { get; set; }
         public string password { get; set; }
     }
+
+    public class AccessModels
+    {
+        public string access_id { get; set; }
+        public string access_name { get; set; }
+    }
 }

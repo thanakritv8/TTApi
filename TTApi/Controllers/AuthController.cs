@@ -413,5 +413,36 @@ namespace TTApi.Controllers
         }
 
         #endregion
+
+        #region Access
+        [AllowAnonymous]
+        [Route("GetAccessAll")]
+        public List<AccessModels> GetAccessAll()
+        {
+            HomeController hc = new HomeController();
+            List<AccessModels> ul = new List<AccessModels>();
+            using (SqlConnection con = hc.ConnectDatabaseAuth())
+            {
+                string _SQL = "select * from [access]";
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    DataTable _Dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(_Dt);
+                    da.Dispose();
+                    foreach (DataRow _Item in _Dt.Rows)
+                    {
+                        AccessModels m = new AccessModels();
+                        m.access_id = _Item["access_id"].ToString();
+                        m.access_name = _Item["access_name"].ToString();
+                        ul.Add(m);
+                    }
+                }
+                con.Close();
+            }
+            return ul;
+        }
+        #endregion
+
     }
 }
