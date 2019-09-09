@@ -30,9 +30,11 @@ namespace TTApi.Models
         public string license_id_tail { get; set; }
         public string remark { get; set; }
         public string tran_status_id { get; set; }
+        public string create_by_user_id { get; set; }
         public string sheet_name { get; set; }
         public string cont1 { get; set; }
         public string cont2 { get; set; }
+        public string update_by_user_id { get; set; }
     }
 
     public class WorksheetAllView

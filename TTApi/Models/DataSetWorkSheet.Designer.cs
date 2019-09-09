@@ -321,6 +321,12 @@ namespace TTApi.Models {
             
             private global::System.Data.DataColumn columndriver3_license_expire;
             
+            private global::System.Data.DataColumn columndriver4;
+            
+            private global::System.Data.DataColumn columndriver4_license_start;
+            
+            private global::System.Data.DataColumn columndriver4_license_expire;
+            
             private global::System.Data.DataColumn columnlicense_head;
             
             private global::System.Data.DataColumn columnstyle_car_head;
@@ -358,6 +364,12 @@ namespace TTApi.Models {
             private global::System.Data.DataColumn columncont2;
             
             private global::System.Data.DataColumn columnremark;
+            
+            private global::System.Data.DataColumn columnupdate_by_user_id;
+            
+            private global::System.Data.DataColumn columnupdate_date;
+            
+            private global::System.Data.DataColumn columnApprove_By;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -562,6 +574,30 @@ namespace TTApi.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn driver4Column {
+                get {
+                    return this.columndriver4;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn driver4_license_startColumn {
+                get {
+                    return this.columndriver4_license_start;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn driver4_license_expireColumn {
+                get {
+                    return this.columndriver4_license_expire;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn license_headColumn {
                 get {
                     return this.columnlicense_head;
@@ -714,6 +750,30 @@ namespace TTApi.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn update_by_user_idColumn {
+                get {
+                    return this.columnupdate_by_user_id;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn update_dateColumn {
+                get {
+                    return this.columnupdate_date;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Approve_ByColumn {
+                get {
+                    return this.columnApprove_By;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -763,14 +823,17 @@ namespace TTApi.Models {
                         string destination, 
                         string station, 
                         string driver1, 
-                        System.DateTime driver1_license_start, 
-                        System.DateTime driver1_license_expire, 
+                        string driver1_license_start, 
+                        string driver1_license_expire, 
                         string driver2, 
-                        System.DateTime driver2_license_start, 
-                        System.DateTime driver2_license_expire, 
+                        string driver2_license_start, 
+                        string driver2_license_expire, 
                         string driver3, 
-                        System.DateTime driver3_license_start, 
-                        System.DateTime driver3_license_expire, 
+                        string driver3_license_start, 
+                        string driver3_license_expire, 
+                        string driver4, 
+                        string driver4_license_start, 
+                        string driver4_license_expire, 
                         string license_head, 
                         string style_car_head, 
                         string license_tail, 
@@ -789,7 +852,10 @@ namespace TTApi.Models {
                         string method_style, 
                         string cont1, 
                         string cont2, 
-                        string remark) {
+                        string remark, 
+                        string update_by_user_id, 
+                        System.DateTime update_date, 
+                        string Approve_By) {
                 sp_WorkSheetRow rowsp_WorkSheetRow = ((sp_WorkSheetRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         kind,
@@ -813,6 +879,9 @@ namespace TTApi.Models {
                         driver3,
                         driver3_license_start,
                         driver3_license_expire,
+                        driver4,
+                        driver4_license_start,
+                        driver4_license_expire,
                         license_head,
                         style_car_head,
                         license_tail,
@@ -831,7 +900,10 @@ namespace TTApi.Models {
                         method_style,
                         cont1,
                         cont2,
-                        remark};
+                        remark,
+                        update_by_user_id,
+                        update_date,
+                        Approve_By};
                 rowsp_WorkSheetRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowsp_WorkSheetRow);
                 return rowsp_WorkSheetRow;
@@ -875,6 +947,9 @@ namespace TTApi.Models {
                 this.columndriver3 = base.Columns["driver3"];
                 this.columndriver3_license_start = base.Columns["driver3_license_start"];
                 this.columndriver3_license_expire = base.Columns["driver3_license_expire"];
+                this.columndriver4 = base.Columns["driver4"];
+                this.columndriver4_license_start = base.Columns["driver4_license_start"];
+                this.columndriver4_license_expire = base.Columns["driver4_license_expire"];
                 this.columnlicense_head = base.Columns["license_head"];
                 this.columnstyle_car_head = base.Columns["style_car_head"];
                 this.columnlicense_tail = base.Columns["license_tail"];
@@ -894,6 +969,9 @@ namespace TTApi.Models {
                 this.columncont1 = base.Columns["cont1"];
                 this.columncont2 = base.Columns["cont2"];
                 this.columnremark = base.Columns["remark"];
+                this.columnupdate_by_user_id = base.Columns["update_by_user_id"];
+                this.columnupdate_date = base.Columns["update_date"];
+                this.columnApprove_By = base.Columns["Approve_By"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -925,22 +1003,28 @@ namespace TTApi.Models {
                 base.Columns.Add(this.columnstation);
                 this.columndriver1 = new global::System.Data.DataColumn("driver1", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndriver1);
-                this.columndriver1_license_start = new global::System.Data.DataColumn("driver1_license_start", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                this.columndriver1_license_start = new global::System.Data.DataColumn("driver1_license_start", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndriver1_license_start);
-                this.columndriver1_license_expire = new global::System.Data.DataColumn("driver1_license_expire", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                this.columndriver1_license_expire = new global::System.Data.DataColumn("driver1_license_expire", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndriver1_license_expire);
                 this.columndriver2 = new global::System.Data.DataColumn("driver2", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndriver2);
-                this.columndriver2_license_start = new global::System.Data.DataColumn("driver2_license_start", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                this.columndriver2_license_start = new global::System.Data.DataColumn("driver2_license_start", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndriver2_license_start);
-                this.columndriver2_license_expire = new global::System.Data.DataColumn("driver2_license_expire", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                this.columndriver2_license_expire = new global::System.Data.DataColumn("driver2_license_expire", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndriver2_license_expire);
                 this.columndriver3 = new global::System.Data.DataColumn("driver3", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndriver3);
-                this.columndriver3_license_start = new global::System.Data.DataColumn("driver3_license_start", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                this.columndriver3_license_start = new global::System.Data.DataColumn("driver3_license_start", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndriver3_license_start);
-                this.columndriver3_license_expire = new global::System.Data.DataColumn("driver3_license_expire", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                this.columndriver3_license_expire = new global::System.Data.DataColumn("driver3_license_expire", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndriver3_license_expire);
+                this.columndriver4 = new global::System.Data.DataColumn("driver4", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndriver4);
+                this.columndriver4_license_start = new global::System.Data.DataColumn("driver4_license_start", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndriver4_license_start);
+                this.columndriver4_license_expire = new global::System.Data.DataColumn("driver4_license_expire", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndriver4_license_expire);
                 this.columnlicense_head = new global::System.Data.DataColumn("license_head", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnlicense_head);
                 this.columnstyle_car_head = new global::System.Data.DataColumn("style_car_head", typeof(string), null, global::System.Data.MappingType.Element);
@@ -979,6 +1063,12 @@ namespace TTApi.Models {
                 base.Columns.Add(this.columncont2);
                 this.columnremark = new global::System.Data.DataColumn("remark", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnremark);
+                this.columnupdate_by_user_id = new global::System.Data.DataColumn("update_by_user_id", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnupdate_by_user_id);
+                this.columnupdate_date = new global::System.Data.DataColumn("update_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnupdate_date);
+                this.columnApprove_By = new global::System.Data.DataColumn("Approve_By", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnApprove_By);
                 this.columnkind.ReadOnly = true;
                 this.columnkind.MaxLength = 19;
                 this.columntran_code.ReadOnly = true;
@@ -1006,15 +1096,27 @@ namespace TTApi.Models {
                 this.columndriver1.ReadOnly = true;
                 this.columndriver1.MaxLength = 50;
                 this.columndriver1_license_start.ReadOnly = true;
+                this.columndriver1_license_start.MaxLength = 30;
                 this.columndriver1_license_expire.ReadOnly = true;
+                this.columndriver1_license_expire.MaxLength = 30;
                 this.columndriver2.ReadOnly = true;
                 this.columndriver2.MaxLength = 50;
                 this.columndriver2_license_start.ReadOnly = true;
+                this.columndriver2_license_start.MaxLength = 30;
                 this.columndriver2_license_expire.ReadOnly = true;
+                this.columndriver2_license_expire.MaxLength = 30;
                 this.columndriver3.ReadOnly = true;
                 this.columndriver3.MaxLength = 50;
                 this.columndriver3_license_start.ReadOnly = true;
+                this.columndriver3_license_start.MaxLength = 30;
                 this.columndriver3_license_expire.ReadOnly = true;
+                this.columndriver3_license_expire.MaxLength = 30;
+                this.columndriver4.ReadOnly = true;
+                this.columndriver4.MaxLength = 50;
+                this.columndriver4_license_start.ReadOnly = true;
+                this.columndriver4_license_start.MaxLength = 30;
+                this.columndriver4_license_expire.ReadOnly = true;
+                this.columndriver4_license_expire.MaxLength = 30;
                 this.columnlicense_head.ReadOnly = true;
                 this.columnlicense_head.MaxLength = 21;
                 this.columnstyle_car_head.ReadOnly = true;
@@ -1051,6 +1153,11 @@ namespace TTApi.Models {
                 this.columncont2.MaxLength = 50;
                 this.columnremark.ReadOnly = true;
                 this.columnremark.MaxLength = 2147483647;
+                this.columnupdate_by_user_id.ReadOnly = true;
+                this.columnupdate_by_user_id.MaxLength = 100;
+                this.columnupdate_date.ReadOnly = true;
+                this.columnApprove_By.ReadOnly = true;
+                this.columnApprove_By.MaxLength = 3;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1401,10 +1508,10 @@ namespace TTApi.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime driver1_license_start {
+            public string driver1_license_start {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tablesp_WorkSheet.driver1_license_startColumn]));
+                        return ((string)(this[this.tablesp_WorkSheet.driver1_license_startColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'driver1_license_start\' in table \'sp_WorkSheet\' is DBNull.", e);
@@ -1417,10 +1524,10 @@ namespace TTApi.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime driver1_license_expire {
+            public string driver1_license_expire {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tablesp_WorkSheet.driver1_license_expireColumn]));
+                        return ((string)(this[this.tablesp_WorkSheet.driver1_license_expireColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'driver1_license_expire\' in table \'sp_WorkSheet\' is DBNull.", e);
@@ -1449,10 +1556,10 @@ namespace TTApi.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime driver2_license_start {
+            public string driver2_license_start {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tablesp_WorkSheet.driver2_license_startColumn]));
+                        return ((string)(this[this.tablesp_WorkSheet.driver2_license_startColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'driver2_license_start\' in table \'sp_WorkSheet\' is DBNull.", e);
@@ -1465,10 +1572,10 @@ namespace TTApi.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime driver2_license_expire {
+            public string driver2_license_expire {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tablesp_WorkSheet.driver2_license_expireColumn]));
+                        return ((string)(this[this.tablesp_WorkSheet.driver2_license_expireColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'driver2_license_expire\' in table \'sp_WorkSheet\' is DBNull.", e);
@@ -1497,10 +1604,10 @@ namespace TTApi.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime driver3_license_start {
+            public string driver3_license_start {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tablesp_WorkSheet.driver3_license_startColumn]));
+                        return ((string)(this[this.tablesp_WorkSheet.driver3_license_startColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'driver3_license_start\' in table \'sp_WorkSheet\' is DBNull.", e);
@@ -1513,10 +1620,10 @@ namespace TTApi.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime driver3_license_expire {
+            public string driver3_license_expire {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tablesp_WorkSheet.driver3_license_expireColumn]));
+                        return ((string)(this[this.tablesp_WorkSheet.driver3_license_expireColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'driver3_license_expire\' in table \'sp_WorkSheet\' is DBNull.", e);
@@ -1524,6 +1631,54 @@ namespace TTApi.Models {
                 }
                 set {
                     this[this.tablesp_WorkSheet.driver3_license_expireColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string driver4 {
+                get {
+                    try {
+                        return ((string)(this[this.tablesp_WorkSheet.driver4Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'driver4\' in table \'sp_WorkSheet\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_WorkSheet.driver4Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string driver4_license_start {
+                get {
+                    try {
+                        return ((string)(this[this.tablesp_WorkSheet.driver4_license_startColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'driver4_license_start\' in table \'sp_WorkSheet\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_WorkSheet.driver4_license_startColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string driver4_license_expire {
+                get {
+                    try {
+                        return ((string)(this[this.tablesp_WorkSheet.driver4_license_expireColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'driver4_license_expire\' in table \'sp_WorkSheet\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_WorkSheet.driver4_license_expireColumn] = value;
                 }
             }
             
@@ -1833,6 +1988,54 @@ namespace TTApi.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string update_by_user_id {
+                get {
+                    try {
+                        return ((string)(this[this.tablesp_WorkSheet.update_by_user_idColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'update_by_user_id\' in table \'sp_WorkSheet\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_WorkSheet.update_by_user_idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime update_date {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tablesp_WorkSheet.update_dateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'update_date\' in table \'sp_WorkSheet\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_WorkSheet.update_dateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Approve_By {
+                get {
+                    try {
+                        return ((string)(this[this.tablesp_WorkSheet.Approve_ByColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Approve_By\' in table \'sp_WorkSheet\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_WorkSheet.Approve_ByColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IskindNull() {
                 return this.IsNull(this.tablesp_WorkSheet.kindColumn);
             }
@@ -2085,6 +2288,42 @@ namespace TTApi.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isdriver4Null() {
+                return this.IsNull(this.tablesp_WorkSheet.driver4Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setdriver4Null() {
+                this[this.tablesp_WorkSheet.driver4Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isdriver4_license_startNull() {
+                return this.IsNull(this.tablesp_WorkSheet.driver4_license_startColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setdriver4_license_startNull() {
+                this[this.tablesp_WorkSheet.driver4_license_startColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isdriver4_license_expireNull() {
+                return this.IsNull(this.tablesp_WorkSheet.driver4_license_expireColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setdriver4_license_expireNull() {
+                this[this.tablesp_WorkSheet.driver4_license_expireColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool Islicense_headNull() {
                 return this.IsNull(this.tablesp_WorkSheet.license_headColumn);
             }
@@ -2310,6 +2549,42 @@ namespace TTApi.Models {
             public void SetremarkNull() {
                 this[this.tablesp_WorkSheet.remarkColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isupdate_by_user_idNull() {
+                return this.IsNull(this.tablesp_WorkSheet.update_by_user_idColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setupdate_by_user_idNull() {
+                this[this.tablesp_WorkSheet.update_by_user_idColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isupdate_dateNull() {
+                return this.IsNull(this.tablesp_WorkSheet.update_dateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setupdate_dateNull() {
+                this[this.tablesp_WorkSheet.update_dateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsApprove_ByNull() {
+                return this.IsNull(this.tablesp_WorkSheet.Approve_ByColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetApprove_ByNull() {
+                this[this.tablesp_WorkSheet.Approve_ByColumn] = global::System.Convert.DBNull;
+            }
         }
         
         /// <summary>
@@ -2492,6 +2767,9 @@ namespace TTApi.Models.DataSetWorkSheetTableAdapters {
             tableMapping.ColumnMappings.Add("driver3", "driver3");
             tableMapping.ColumnMappings.Add("driver3_license_start", "driver3_license_start");
             tableMapping.ColumnMappings.Add("driver3_license_expire", "driver3_license_expire");
+            tableMapping.ColumnMappings.Add("driver4", "driver4");
+            tableMapping.ColumnMappings.Add("driver4_license_start", "driver4_license_start");
+            tableMapping.ColumnMappings.Add("driver4_license_expire", "driver4_license_expire");
             tableMapping.ColumnMappings.Add("license_head", "license_head");
             tableMapping.ColumnMappings.Add("style_car_head", "style_car_head");
             tableMapping.ColumnMappings.Add("license_tail", "license_tail");
@@ -2511,6 +2789,9 @@ namespace TTApi.Models.DataSetWorkSheetTableAdapters {
             tableMapping.ColumnMappings.Add("cont1", "cont1");
             tableMapping.ColumnMappings.Add("cont2", "cont2");
             tableMapping.ColumnMappings.Add("remark", "remark");
+            tableMapping.ColumnMappings.Add("update_by_user_id", "update_by_user_id");
+            tableMapping.ColumnMappings.Add("update_date", "update_date");
+            tableMapping.ColumnMappings.Add("Approve_By", "Approve_By");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
