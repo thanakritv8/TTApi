@@ -104,7 +104,7 @@ namespace TTApi.Controllers
             HomeController hc = new HomeController();
             using (SqlConnection con = hc.ConnectDatabase())
             {
-                string _SQL = "insert into equipment_safety (eq_safety_code, eq_name, style, property, suggestion, eq_type_id, create_by_user_id) output inserted.eq_safety_id values (N'" + val.eq_safety_code + "', N'" + val.eq_name + "', N'" + val.style + "', N'" + val.property + "', N'" + val.suggestion + "', " + val.eq_type_id + ", 1)";
+                string _SQL = "insert into equipment_safety (eq_safety_code, eq_name, style, property, suggestion, eq_type_id, create_by_user_id) output inserted.eq_safety_id values (N'" + val.eq_safety_code + "', N'" + val.eq_name + "', N'" + val.style + "', N'" + val.property + "', N'" + val.suggestion + "', " + val.eq_type_id + ", "+ val.user_id +")";
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     try
@@ -224,7 +224,7 @@ namespace TTApi.Controllers
                 }
                 // End Upload file
 
-                string _SQL = "update equipment_safety set " + _SQL_Set + " create_by_user_id = 1 where eq_safety_id = " + val.eq_safety_id;
+                string _SQL = "update equipment_safety set " + _SQL_Set + " update_by_user_id = "+ val.user_id +" where eq_safety_id = " + val.eq_safety_id;
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     try
@@ -371,7 +371,7 @@ namespace TTApi.Controllers
             HomeController hc = new HomeController();
             using (SqlConnection con = hc.ConnectDatabase())
             {
-                string _SQL = "insert into equipment_transport (eq_tran_code, eq_name, style, property, suggestion, eq_type_id, create_by_user_id) output inserted.eq_tran_id values (N'" + val.eq_tran_code + "', N'" + val.eq_name + "', N'" + val.style + "', N'" + val.property + "', N'" + val.suggestion + "', " + val.eq_type_id + ", 1)";
+                string _SQL = "insert into equipment_transport (eq_tran_code, eq_name, style, property, suggestion, eq_type_id, create_by_user_id) output inserted.eq_tran_id values (N'" + val.eq_tran_code + "', N'" + val.eq_name + "', N'" + val.style + "', N'" + val.property + "', N'" + val.suggestion + "', " + val.eq_type_id + ", "+ val.user_id +")";
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     try
@@ -490,7 +490,7 @@ namespace TTApi.Controllers
                 }
                 // End Upload file
 
-                string _SQL = "update equipment_transport set " + _SQL_Set + " create_by_user_id = 1 where eq_tran_id = " + val.eq_tran_id;
+                string _SQL = "update equipment_transport set " + _SQL_Set + " update_by_user_id = " + val.user_id +" where eq_tran_id = " + val.eq_tran_id;
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     try
@@ -662,7 +662,7 @@ namespace TTApi.Controllers
             HomeController hc = new HomeController();
             using (SqlConnection con = hc.ConnectDatabase())
             {
-                string _SQL = "insert into document (doc_code, doc_name, remark, doc_type_id, create_by_user_id) output inserted.doc_id values (N'" + val.doc_code + "', N'" + val.doc_name + "', N'" + val.remark + "', N'" + val.doc_type_id + "', 1)";
+                string _SQL = "insert into document (doc_code, doc_name, remark, doc_type_id, create_by_user_id) output inserted.doc_id values (N'" + val.doc_code + "', N'" + val.doc_name + "', N'" + val.remark + "', N'" + val.doc_type_id + "', "+ val.user_id +")";
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     try
@@ -782,7 +782,7 @@ namespace TTApi.Controllers
                 // End Upload file
 
 
-                string _SQL = "update document set " + _SQL_Set + " create_by_user_id = 1 where doc_id = " + val.doc_id;
+                string _SQL = "update document set " + _SQL_Set + " update_by_user_id = "+ val.user_id +" where doc_id = " + val.doc_id;
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     try
@@ -1183,7 +1183,7 @@ namespace TTApi.Controllers
             HomeController hc = new HomeController();
             using (SqlConnection con = hc.ConnectDatabase())
             {
-                string _SQL = "insert into customer (cus_name, create_by_user_id) output inserted.cus_id values (N'" + val.cus_name + "', 1)";
+                string _SQL = "insert into customer (cus_name, create_by_user_id) output inserted.cus_id values (N'" + val.cus_name + "', "+ val.user_id + ")";
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     try
@@ -1220,7 +1220,7 @@ namespace TTApi.Controllers
             HomeController hc = new HomeController();
             using (SqlConnection con = hc.ConnectDatabase())
             {                
-                string _SQL = "update customer set cus_name = N'" + val.cus_name + "', create_by_user_id = 1 where cus_id = " + val.cus_id;
+                string _SQL = "update customer set cus_name = N'" + val.cus_name + "', update_by_user_id = "+ val.user_id +" where cus_id = " + val.cus_id;
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     try
@@ -1343,7 +1343,7 @@ namespace TTApi.Controllers
             using (SqlConnection con = hc.ConnectDatabase())
             {
                 string _SQL = "insert into branch_customer (address,branch_name,zip_code,province_id,cus_id,create_by_user_id) output inserted.branch_id " +
-                    "values (N'" + val.address + "', N'" + val.branch_name + "', N'" + val.zip_code + "', N'" + val.province_id + "', " + val.cus_id + ", 1)";
+                    "values (N'" + val.address + "', N'" + val.branch_name + "', N'" + val.zip_code + "', N'" + val.province_id + "', " + val.cus_id + ", "+ val.user_id + ")";
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     try
@@ -1390,7 +1390,7 @@ namespace TTApi.Controllers
             HomeController hc = new HomeController();
             using (SqlConnection con = hc.ConnectDatabase())
             {
-                string _SQL = "update branch_customer set " + _SQL_Set + " create_by_user_id = 1 where branch_id = " + val.branch_id;
+                string _SQL = "update branch_customer set " + _SQL_Set + " update_by_user_id = "+ val.user_id +" where branch_id = " + val.branch_id;
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     try
@@ -1511,7 +1511,7 @@ namespace TTApi.Controllers
             using (SqlConnection con = hc.ConnectDatabase())
             {
                 string _SQL = "insert into trunk (source,destination,create_by_user_id) output inserted.trunk_id " +
-                    "values (N'" + val.source + "', N'" + val.destination + "', 1)";
+                    "values (N'" + val.source + "', N'" + val.destination + "', "+ val.user_id + ")";
                 SqlCommand cmd = new SqlCommand(_SQL, con);                
                 try
                 {
@@ -1565,7 +1565,7 @@ namespace TTApi.Controllers
             HomeController hc = new HomeController();
             using (SqlConnection con = hc.ConnectDatabase())
             {
-                string _SQL = "update trunk set " + _SQL_Set + " create_by_user_id = 1 where trunk_id = " + val.trunk_id;
+                string _SQL = "update trunk set " + _SQL_Set + " update_by_user_id = " + val.user_id + " where trunk_id = " + val.trunk_id;
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     try
@@ -1698,7 +1698,7 @@ namespace TTApi.Controllers
             using (SqlConnection con = hc.ConnectDatabase())
             {
                 string _SQL = "insert into contact_customer (name,position,tel,line,email,create_by_user_id) output inserted.contact_id " +
-                    "values (N'" + val.name + "', N'" + val.position + "', N'" + val.tel + "', N'" + val.line + "', N'" + val.email + "', 1)";
+                    "values (N'" + val.name + "', N'" + val.position + "', N'" + val.tel + "', N'" + val.line + "', N'" + val.email + "', "+ val.user_id + ")";
                 SqlCommand cmd = new SqlCommand(_SQL, con);
                 try
                 {
@@ -1753,7 +1753,7 @@ namespace TTApi.Controllers
             HomeController hc = new HomeController();
             using (SqlConnection con = hc.ConnectDatabase())
             {
-                string _SQL = "update contact_customer set " + _SQL_Set + " create_by_user_id = 1 where contact_id = " + val.contact_id;
+                string _SQL = "update contact_customer set " + _SQL_Set + " update_by_user_id = "+ val.user_id +" where contact_id = " + val.contact_id;
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     try
@@ -1999,7 +1999,7 @@ namespace TTApi.Controllers
             using (SqlConnection con = hc.ConnectDatabase())
             {
                 string _SQL = "insert into product (product_name,fleet,method_style,method_normal,method_contain,method_special,create_by_user_id) output inserted.product_id " +
-                    "values (N'" + val.product_name + "', N'" + val.fleet + "', N'" + val.method_style + "', N'" + val.method_normal + "', N'" + val.method_contain + "', N'" + val.method_special + "', 1)";
+                    "values (N'" + val.product_name + "', N'" + val.fleet + "', N'" + val.method_style + "', N'" + val.method_normal + "', N'" + val.method_contain + "', N'" + val.method_special + "', "+val.user_id+")";
                 SqlCommand cmd = new SqlCommand(_SQL, con);
                 try
                 {
@@ -2053,7 +2053,7 @@ namespace TTApi.Controllers
             HomeController hc = new HomeController();
             using (SqlConnection con = hc.ConnectDatabase())
             {
-                string _SQL = "update product set " + _SQL_Set + " create_by_user_id = 1 where product_id = " + val.product_id;
+                string _SQL = "update product set " + _SQL_Set + " update_by_user_id = "+ val.user_id +" where product_id = " + val.product_id;
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     try
@@ -2156,7 +2156,7 @@ namespace TTApi.Controllers
             using (SqlConnection con = hc.ConnectDatabase())
             {
                 string _SQL = "insert into relation_driver_product (driver_id,product_id,score,create_by_user_id) output inserted.rel_d_p_id " +
-                    "values ('" + val.driver_id + "', '" + val.product_id + "', '" + val.score + "', 1)";
+                    "values ('" + val.driver_id + "', '" + val.product_id + "', '" + val.score + "', "+ val.user_id +")";
                 SqlCommand cmd = new SqlCommand(_SQL, con);
                 try
                 {
@@ -2193,7 +2193,7 @@ namespace TTApi.Controllers
             using (SqlConnection con = hc.ConnectDatabase())
             {
                 string _SQL = "insert into relation_document_product (doc_id,product_id,doc_type_id,create_by_user_id) output inserted.rel_d_p_id " +
-                    "values ('" + val.doc_id + "', '" + val.product_id + "', '" + val.doc_type_id + "', 1)";
+                    "values ('" + val.doc_id + "', '" + val.product_id + "', '" + val.doc_type_id + "', "+ val.user_id +")";
                 SqlCommand cmd = new SqlCommand(_SQL, con);
                 try
                 {
@@ -2230,7 +2230,7 @@ namespace TTApi.Controllers
             using (SqlConnection con = hc.ConnectDatabase())
             {
                 string _SQL = "insert into relation_equipment_safety_product (eq_safety_id,product_id,amount,create_by_user_id) output inserted.rel_e_s_p_id " +
-                    "values ('" + val.eq_safety_id + "', '" + val.product_id + "', '" + val.amount + "', 1)";
+                    "values ('" + val.eq_safety_id + "', '" + val.product_id + "', '" + val.amount + "', "+ val.user_id +")";
                 SqlCommand cmd = new SqlCommand(_SQL, con);
                 try
                 {
@@ -2267,7 +2267,7 @@ namespace TTApi.Controllers
             using (SqlConnection con = hc.ConnectDatabase())
             {
                 string _SQL = "insert into relation_equipment_transport_product (eq_tran_id,product_id,amount,create_by_user_id) output inserted.rel_e_t_p_id " +
-                    "values ('" + val.eq_tran_id + "', '" + val.product_id + "', '" + val.amount + "', 1)";
+                    "values ('" + val.eq_tran_id + "', '" + val.product_id + "', '" + val.amount + "', "+ val.user_id +")";
                 SqlCommand cmd = new SqlCommand(_SQL, con);
                 try
                 {
@@ -2304,7 +2304,7 @@ namespace TTApi.Controllers
             using (SqlConnection con = hc.ConnectDatabase())
             {
                 string _SQL = "insert into relation_license_product (license_id,product_id,create_by_user_id) output inserted.rel_l_p_id " +
-                    "values ('" + val.license_id + "', '" + val.product_id + "', 1)";
+                    "values ('" + val.license_id + "', '" + val.product_id + "', "+ val.user_id +")";
                 SqlCommand cmd = new SqlCommand(_SQL, con);
                 try
                 {
