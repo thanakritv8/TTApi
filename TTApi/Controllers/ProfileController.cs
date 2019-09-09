@@ -100,11 +100,11 @@ namespace TTApi.Controllers
                         }
                     }
                 }
-            }            
+            }
             HomeController hc = new HomeController();
             using (SqlConnection con = hc.ConnectDatabase())
             {
-                string _SQL = "insert into equipment_safety (eq_safety_code, eq_name, style, property, suggestion, eq_type_id, create_by_user_id) output inserted.eq_safety_id values (N'" + val.eq_safety_code + "', N'" + val.eq_name + "', N'" + val.style + "', N'" + val.property + "', N'" + val.suggestion + "', " + val.eq_type_id + ", 1)";
+                string _SQL = "insert into equipment_safety (eq_safety_code, eq_name, style, property, suggestion, eq_type_id, create_by_user_id) output inserted.eq_safety_id values (N'" + val.eq_safety_code + "', N'" + val.eq_name + "', N'" + val.style + "', N'" + val.property + "', N'" + val.suggestion + "', " + val.eq_type_id + ", " + val.user_id + ")";
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     try
@@ -178,17 +178,17 @@ namespace TTApi.Controllers
             var val = new EquipmentSafety();
             foreach (string kvp in nvc.AllKeys)
             {
-                if(kvp != "Image")
+                if (kvp != "Image")
                 {
                     PropertyInfo pi = val.GetType().GetProperty(kvp, BindingFlags.Public | BindingFlags.Instance);
                     if (pi != null)
                     {
-                        if(nvc[kvp] != "undefined")
+                        if (nvc[kvp] != "undefined")
                         {
                             pi.SetValue(val, nvc[kvp], null);
-                        }                        
+                        }
                     }
-                }                
+                }
             }
             HomeController hc = new HomeController();
             using (SqlConnection con = hc.ConnectDatabase())
@@ -207,14 +207,14 @@ namespace TTApi.Controllers
                 // Upload file
                 string path = string.Empty;
                 if (HttpContext.Current.Request.Files.Count > 0)
-                {                    
+                {
                     if (HttpContext.Current.Request.Files.Count > 0)
                     {
                         try
                         {
                             val.Image = HttpContext.Current.Request.Files[0];
                             path = HttpContext.Current.Request.MapPath(@"~/Files/es/" + val.eq_safety_id + ".png");
-                            val.Image.SaveAs(path);                            
+                            val.Image.SaveAs(path);
                         }
                         catch (Exception ex)
                         {
@@ -230,7 +230,7 @@ namespace TTApi.Controllers
                 }
                 // End Upload file
 
-                string _SQL = "update equipment_safety set " + _SQL_Set + " create_by_user_id = 1 where eq_safety_id = " + val.eq_safety_id;
+                string _SQL = "update equipment_safety set " + _SQL_Set + " update_by_user_id = " + val.user_id + " where eq_safety_id = " + val.eq_safety_id;
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     try
@@ -376,7 +376,7 @@ namespace TTApi.Controllers
             HomeController hc = new HomeController();
             using (SqlConnection con = hc.ConnectDatabase())
             {
-                string _SQL = "insert into equipment_transport (eq_tran_code, eq_name, style, property, suggestion, eq_type_id, create_by_user_id) output inserted.eq_tran_id values (N'" + val.eq_tran_code + "', N'" + val.eq_name + "', N'" + val.style + "', N'" + val.property + "', N'" + val.suggestion + "', " + val.eq_type_id + ", 1)";
+                string _SQL = "insert into equipment_transport (eq_tran_code, eq_name, style, property, suggestion, eq_type_id, create_by_user_id) output inserted.eq_tran_id values (N'" + val.eq_tran_code + "', N'" + val.eq_name + "', N'" + val.style + "', N'" + val.property + "', N'" + val.suggestion + "', " + val.eq_type_id + ", " + val.user_id + ")";
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     try
@@ -405,8 +405,8 @@ namespace TTApi.Controllers
                                         else
                                         {
                                             ecm.result = 1;
-                                            ecm.code = "error about update eq_path";                                            
-                                        }                                        
+                                            ecm.code = "error about update eq_path";
+                                        }
                                     }
                                 }
                                 catch (Exception ex)
@@ -469,7 +469,7 @@ namespace TTApi.Controllers
                 string[] Val_Arr = { val.eq_tran_code, val.eq_name, val.style, val.property, val.suggestion, val.eq_type_id };
                 for (int n = 0; n <= Val_Arr.Length - 1; n++)
                 {
-                    if(Val_Arr[n] != null)
+                    if (Val_Arr[n] != null)
                     {
                         _SQL_Set += Col_Arr[n] + " = N'" + Val_Arr[n] + "', ";
                     }
@@ -478,7 +478,7 @@ namespace TTApi.Controllers
                 // Upload file
                 string path = string.Empty;
                 if (HttpContext.Current.Request.Files.Count > 0)
-                {                    
+                {
                     if (HttpContext.Current.Request.Files.Count > 0)
                     {
                         try
@@ -495,13 +495,13 @@ namespace TTApi.Controllers
                         }
                     }
                 }
-                if(path != string.Empty)
+                if (path != string.Empty)
                 {
                     _SQL_Set += "eq_path = N'" + path + "', ";
                 }
                 // End Upload file
 
-                string _SQL = "update equipment_transport set " + _SQL_Set + " create_by_user_id = 1 where eq_tran_id = " + val.eq_tran_id;
+                string _SQL = "update equipment_transport set " + _SQL_Set + " update_by_user_id = " + val.user_id + " where eq_tran_id = " + val.eq_tran_id;
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     try
@@ -599,7 +599,7 @@ namespace TTApi.Controllers
         }
         #endregion
         #endregion
-               
+
         #region Document
         // POST CheckList/Profile/GetDocumentAll
         [AllowAnonymous]
@@ -673,7 +673,7 @@ namespace TTApi.Controllers
             HomeController hc = new HomeController();
             using (SqlConnection con = hc.ConnectDatabase())
             {
-                string _SQL = "insert into document (doc_code, doc_name, remark, doc_type_id, create_by_user_id) output inserted.doc_id values (N'" + val.doc_code + "', N'" + val.doc_name + "', N'" + val.remark + "', N'" + val.doc_type_id + "', 1)";
+                string _SQL = "insert into document (doc_code, doc_name, remark, doc_type_id, create_by_user_id) output inserted.doc_id values (N'" + val.doc_code + "', N'" + val.doc_name + "', N'" + val.remark + "', N'" + val.doc_type_id + "', " + val.user_id + ")";
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     try
@@ -775,7 +775,7 @@ namespace TTApi.Controllers
                 // Upload file
                 string path = string.Empty;
                 if (HttpContext.Current.Request.Files.Count > 0)
-                {                    
+                {
                     if (HttpContext.Current.Request.Files.Count > 0)
                     {
                         try
@@ -792,14 +792,14 @@ namespace TTApi.Controllers
                         }
                     }
                 }
-                if(path != string.Empty)
+                if (path != string.Empty)
                 {
                     _SQL_Set += "doc_path = N'" + path + "', ";
                 }
                 // End Upload file
 
 
-                string _SQL = "update document set " + _SQL_Set + " create_by_user_id = 1 where doc_id = " + val.doc_id;
+                string _SQL = "update document set " + _SQL_Set + " update_by_user_id = " + val.user_id + " where doc_id = " + val.doc_id;
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     try
@@ -1136,7 +1136,7 @@ namespace TTApi.Controllers
                             "from [TT1995].[dbo].[license] " +
                             "where  [p" + c + "] is not null and license_id = " + val.license_id;
                         }
-                        
+
 
                         using (SqlCommand cmdTemp = new SqlCommand(_SQL, con))
                         {
@@ -1183,7 +1183,7 @@ namespace TTApi.Controllers
             List<CustomerAllView> ul = new List<CustomerAllView>();
             using (SqlConnection con = hc.ConnectDatabase())
             {
-                string _SQL = "select cus_id, cus_name from customer";
+                string _SQL = "select cus_id, cus_name from customer where enable_status <> 1";
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     DataTable _Dt = new DataTable();
@@ -1218,7 +1218,7 @@ namespace TTApi.Controllers
             HomeController hc = new HomeController();
             using (SqlConnection con = hc.ConnectDatabase())
             {
-                string _SQL = "insert into customer (cus_name, create_by_user_id) output inserted.cus_id values (N'" + val.cus_name + "', 1)";
+                string _SQL = "insert into customer (cus_name, enable_status, create_by_user_id) output inserted.cus_id values (N'" + val.cus_name + "', 0, " + val.user_id + ")";
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     try
@@ -1251,11 +1251,11 @@ namespace TTApi.Controllers
         [Route("UpdateCustomer")]
         public ExecuteModels UpdateCustomer(CustomerModels val)
         {
-            ExecuteModels ecm = new ExecuteModels();            
+            ExecuteModels ecm = new ExecuteModels();
             HomeController hc = new HomeController();
             using (SqlConnection con = hc.ConnectDatabase())
-            {                
-                string _SQL = "update customer set cus_name = N'" + val.cus_name + "', create_by_user_id = 1 where cus_id = " + val.cus_id;
+            {
+                string _SQL = "update customer set cus_name = N'" + val.cus_name + "', update_by_user_id = " + val.user_id + " where cus_id = " + val.cus_id;
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     try
@@ -1296,7 +1296,7 @@ namespace TTApi.Controllers
             HomeController hc = new HomeController();
             using (SqlConnection con = hc.ConnectDatabase())
             {
-                string _SQL = "delete from customer where cus_id = " + val.cus_id;
+                string _SQL = "update customer set enable_status = 1 where cus_id = " + val.cus_id;
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     try
@@ -1341,7 +1341,7 @@ namespace TTApi.Controllers
             {
                 string _SQL = "select * from branch_customer where cus_id = " + val.cus_id;
 
-                if(val.typeGet == 1)
+                if (val.typeGet == 1)
                 {
                     _SQL += " and status_approve = 1";
                 }
@@ -1384,7 +1384,7 @@ namespace TTApi.Controllers
             using (SqlConnection con = hc.ConnectDatabase())
             {
                 string _SQL = "insert into branch_customer (address,branch_name,zip_code,cus_id,create_by_user_id) output inserted.branch_id " +
-                    "values (N'" + val.address + "', N'" + val.branch_name + "', N'" + val.zip_code + "', " + val.cus_id + ", 1)";
+                    "values (N'" + val.address + "', N'" + val.branch_name + "', N'" + val.zip_code + "', " + val.cus_id + ", " + val.user_id + ")";
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     try
@@ -1431,7 +1431,7 @@ namespace TTApi.Controllers
             HomeController hc = new HomeController();
             using (SqlConnection con = hc.ConnectDatabase())
             {
-                string _SQL = "update branch_customer set " + _SQL_Set + " create_by_user_id = 1 where branch_id = " + val.branch_id;
+                string _SQL = "update branch_customer set " + _SQL_Set + " update_by_user_id = " + val.user_id + " where branch_id = " + val.branch_id;
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     try
@@ -1496,7 +1496,7 @@ namespace TTApi.Controllers
                     ecm.code = ex.Message;
                 }
                 con.Close();
-            }            
+            }
             return ecm;
         }
 
@@ -1555,8 +1555,8 @@ namespace TTApi.Controllers
             using (SqlConnection con = hc.ConnectDatabase())
             {
                 string _SQL = "insert into trunk (source,destination,station,cus_id,create_by_user_id) output inserted.trunk_id " +
-                    "values (N'" + val.source + "', N'" + val.destination + "',N'" + val.station + "', " + val.cus_id + ", 1)";
-                SqlCommand cmd = new SqlCommand(_SQL, con);                
+                    "values (N'" + val.source + "', N'" + val.destination + "',N'" + val.station + "', " + val.cus_id + ", " + val.user_id + ")";
+                SqlCommand cmd = new SqlCommand(_SQL, con);
                 try
                 {
                     var id_return = Int32.Parse(cmd.ExecuteScalar().ToString());
@@ -1589,7 +1589,7 @@ namespace TTApi.Controllers
                 {
                     ecm.result = 1;
                     ecm.code = ex.Message;
-                }                
+                }
                 con.Close();
             }
             return ecm;
@@ -1618,7 +1618,7 @@ namespace TTApi.Controllers
             HomeController hc = new HomeController();
             using (SqlConnection con = hc.ConnectDatabase())
             {
-                string _SQL = "update trunk set " + _SQL_Set + " create_by_user_id = 1 where trunk_id = " + val.trunk_id;
+                string _SQL = "update trunk set " + _SQL_Set + " update_by_user_id = " + val.user_id + " where trunk_id = " + val.trunk_id;
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     try
@@ -1678,7 +1678,7 @@ namespace TTApi.Controllers
                 {
                     ecm.result = 1;
                     ecm.code = ex.Message;
-                }                
+                }
                 con.Close();
             }
             return ecm;
@@ -1740,14 +1740,14 @@ namespace TTApi.Controllers
             using (SqlConnection con = hc.ConnectDatabase())
             {
                 string _SQL = "insert into contact_customer (name,position,tel,line,email,create_by_user_id) output inserted.contact_id " +
-                    "values (N'" + val.name + "', N'" + val.position + "', N'" + val.tel + "', N'" + val.line + "', N'" + val.email + "', 1)";
+                    "values (N'" + val.name + "', N'" + val.position + "', N'" + val.tel + "', N'" + val.line + "', N'" + val.email + "', " + val.user_id + ")";
                 SqlCommand cmd = new SqlCommand(_SQL, con);
                 try
                 {
                     var id_return = Int32.Parse(cmd.ExecuteScalar().ToString());
                     if (id_return >= 1)
                     {
-                        _SQL = "insert into relation_contact_branch (contact_id, branch_id) values (" + id_return + ", " + val.branch_id + ")";
+                        _SQL = "insert into relation_contact_branch (contact_id, branch_id, create_by_user_id) values (" + id_return + ", " + val.branch_id + ", " + val.user_id + ")";
                         cmd = new SqlCommand(_SQL, con);
                         if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
                         {
@@ -1784,7 +1784,7 @@ namespace TTApi.Controllers
             ExecuteModels ecm = new ExecuteModels();
             string _SQL_Set = string.Empty;
             string[] Col_Arr = { "name", "position", "tel", "line", "email" };
-            string[] Val_Arr = { val.name, val.position, val.tel, val.line , val.email };
+            string[] Val_Arr = { val.name, val.position, val.tel, val.line, val.email };
             for (int n = 0; n <= Val_Arr.Length - 1; n++)
             {
                 if (Val_Arr[n] != null)
@@ -1795,7 +1795,7 @@ namespace TTApi.Controllers
             HomeController hc = new HomeController();
             using (SqlConnection con = hc.ConnectDatabase())
             {
-                string _SQL = "update contact_customer set " + _SQL_Set + " create_by_user_id = 1 where contact_id = " + val.contact_id;
+                string _SQL = "update contact_customer set " + _SQL_Set + " update_by_user_id = " + val.user_id + " where contact_id = " + val.contact_id;
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     try
@@ -1900,7 +1900,7 @@ namespace TTApi.Controllers
                     {
                         DriverAllView dav = new DriverAllView();
                         dav.driver_id = _Item["driver_id"].ToString();
-                        dav.driver_name = _Item["driver_name"].ToString();  
+                        dav.driver_name = _Item["driver_name"].ToString();
                         dav.sex = _Item["sex"].ToString();
                         dav.age = _Item["age"].ToString();
                         dav.other = _Item["other"].ToString();
@@ -2007,14 +2007,14 @@ namespace TTApi.Controllers
             using (SqlConnection con = hc.ConnectDatabase())
             {
                 string _SQL = "insert into product (product_name,fleet,method_style,method_normal,method_contain,method_special,create_by_user_id) output inserted.product_id " +
-                    "values (N'" + val.product_name + "', N'" + val.fleet + "', N'" + val.method_style + "', N'" + val.method_normal + "', N'" + val.method_contain + "', N'" + val.method_special + "', 1)";
+                    "values (N'" + val.product_name + "', N'" + val.fleet + "', N'" + val.method_style + "', N'" + val.method_normal + "', N'" + val.method_contain + "', N'" + val.method_special + "', " + val.user_id + ")";
                 SqlCommand cmd = new SqlCommand(_SQL, con);
                 try
                 {
                     var id_return = Int32.Parse(cmd.ExecuteScalar().ToString());
                     if (id_return >= 1)
                     {
-                        _SQL = "insert into relation_product_customer (product_id, cus_id) values (" + id_return + ", " + val.cus_id + ")";
+                        _SQL = "insert into relation_product_customer (product_id, cus_id, create_by_user_id) values (" + id_return + ", " + val.cus_id + ", " + val.user_id + ")";
                         cmd = new SqlCommand(_SQL, con);
                         if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
                         {
@@ -2062,7 +2062,7 @@ namespace TTApi.Controllers
             HomeController hc = new HomeController();
             using (SqlConnection con = hc.ConnectDatabase())
             {
-                string _SQL = "update product set " + _SQL_Set + " create_by_user_id = 1 where product_id = " + val.product_id;
+                string _SQL = "update product set " + _SQL_Set + " update_by_user_id = " + val.user_id + " where product_id = " + val.product_id;
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     try
@@ -2165,7 +2165,7 @@ namespace TTApi.Controllers
             using (SqlConnection con = hc.ConnectDatabase())
             {
                 string _SQL = "insert into relation_driver_product (driver_id,product_id,score,create_by_user_id) output inserted.rel_d_p_id " +
-                    "values ('" + val.driver_id + "', '" + val.product_id + "', '" + val.score + "', 1)";
+                    "values ('" + val.driver_id + "', '" + val.product_id + "', '" + val.score + "', " + val.user_id + ")";
                 SqlCommand cmd = new SqlCommand(_SQL, con);
                 try
                 {
@@ -2202,7 +2202,7 @@ namespace TTApi.Controllers
             using (SqlConnection con = hc.ConnectDatabase())
             {
                 string _SQL = "insert into relation_document_product (doc_id,product_id,doc_type_id,create_by_user_id) output inserted.rel_d_p_id " +
-                    "values ('" + val.doc_id + "', '" + val.product_id + "', '" + val.doc_type_id + "', 1)";
+                    "values ('" + val.doc_id + "', '" + val.product_id + "', '" + val.doc_type_id + "', " + val.user_id + ")";
                 SqlCommand cmd = new SqlCommand(_SQL, con);
                 try
                 {
@@ -2239,7 +2239,7 @@ namespace TTApi.Controllers
             using (SqlConnection con = hc.ConnectDatabase())
             {
                 string _SQL = "insert into relation_equipment_safety_product (eq_safety_id,product_id,amount,create_by_user_id) output inserted.rel_e_s_p_id " +
-                    "values ('" + val.eq_safety_id + "', '" + val.product_id + "', '" + val.amount + "', 1)";
+                    "values ('" + val.eq_safety_id + "', '" + val.product_id + "', '" + val.amount + "', " + val.user_id + ")";
                 SqlCommand cmd = new SqlCommand(_SQL, con);
                 try
                 {
@@ -2276,7 +2276,7 @@ namespace TTApi.Controllers
             using (SqlConnection con = hc.ConnectDatabase())
             {
                 string _SQL = "insert into relation_equipment_transport_product (eq_tran_id,product_id,amount,create_by_user_id) output inserted.rel_e_t_p_id " +
-                    "values ('" + val.eq_tran_id + "', '" + val.product_id + "', '" + val.amount + "', 1)";
+                    "values ('" + val.eq_tran_id + "', '" + val.product_id + "', '" + val.amount + "', " + val.user_id + ")";
                 SqlCommand cmd = new SqlCommand(_SQL, con);
                 try
                 {
@@ -2313,7 +2313,7 @@ namespace TTApi.Controllers
             using (SqlConnection con = hc.ConnectDatabase())
             {
                 string _SQL = "insert into relation_license_product (license_id,product_id,create_by_user_id) output inserted.rel_l_p_id " +
-                    "values ('" + val.license_id + "', '" + val.product_id + "', 1)";
+                    "values ('" + val.license_id + "', '" + val.product_id + "', " + val.user_id + ")";
                 SqlCommand cmd = new SqlCommand(_SQL, con);
                 try
                 {
@@ -2351,7 +2351,7 @@ namespace TTApi.Controllers
             {
                 string _SQL = string.Empty;
                 try
-                {                   
+                {
                     _SQL = "delete from relation_driver_product where product_id = " + val.id;
                     SqlCommand cmd = new SqlCommand(_SQL, con);
                     if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) >= 1)
@@ -2610,7 +2610,7 @@ namespace TTApi.Controllers
                         rel.type_default = _Item["type_default"].ToString();
                         rel.status_approve = _Item["status_approve"].ToString();
                         rel.type_rel = _Item["type_rel"].ToString();
-                        if(_Item["rel_status"].ToString() == "1")
+                        if (_Item["rel_status"].ToString() == "1")
                         {
                             rel.type_show = _Item["type_rel"].ToString();
                         }
@@ -2779,7 +2779,7 @@ namespace TTApi.Controllers
                 using (SqlConnection con = hc.ConnectDatabase())
                 {
 
-                    string _SQL = "update " + val.nametable + " set status_approve = 1 where " + val.nameid + " = " + val.id;
+                    string _SQL = "update " + val.nametable + " set status_approve = 1, update_by_user_id = " + val.user_id + " where " + val.nameid + " = " + val.id;
                     using (SqlCommand cmd = new SqlCommand(_SQL, con))
                     {
                         if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
@@ -2801,7 +2801,7 @@ namespace TTApi.Controllers
                 ecm.result = 1;
                 ecm.code = ex.Message;
             }
-            return ecm;                              
+            return ecm;
         }
 
         [AllowAnonymous]
@@ -2869,8 +2869,8 @@ namespace TTApi.Controllers
                         rel.fleet = _Item["fleet"].ToString();
                         rel.method_style = _Item["method_style"].ToString();
                         rel.method_normal = _Item["method_normal"].ToString();
-                        rel.method_contain= _Item["method_contain"].ToString();
-                        rel.method_special= _Item["method_special"].ToString();
+                        rel.method_contain = _Item["method_contain"].ToString();
+                        rel.method_special = _Item["method_special"].ToString();
                         rel.product_path = _Item["product_path"].ToString();
                         ul.Add(rel);
                     }

@@ -371,6 +371,10 @@ namespace TTApi.Models {
             
             private global::System.Data.DataColumn columnApprove_By;
             
+            private global::System.Data.DataColumn columnweight_head;
+            
+            private global::System.Data.DataColumn columnweight_tail;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public sp_WorkSheetDataTable() {
@@ -774,6 +778,22 @@ namespace TTApi.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn weight_headColumn {
+                get {
+                    return this.columnweight_head;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn weight_tailColumn {
+                get {
+                    return this.columnweight_tail;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -855,7 +875,9 @@ namespace TTApi.Models {
                         string remark, 
                         string update_by_user_id, 
                         System.DateTime update_date, 
-                        string Approve_By) {
+                        string Approve_By, 
+                        int weight_head, 
+                        int weight_tail) {
                 sp_WorkSheetRow rowsp_WorkSheetRow = ((sp_WorkSheetRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         kind,
@@ -903,7 +925,9 @@ namespace TTApi.Models {
                         remark,
                         update_by_user_id,
                         update_date,
-                        Approve_By};
+                        Approve_By,
+                        weight_head,
+                        weight_tail};
                 rowsp_WorkSheetRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowsp_WorkSheetRow);
                 return rowsp_WorkSheetRow;
@@ -972,6 +996,8 @@ namespace TTApi.Models {
                 this.columnupdate_by_user_id = base.Columns["update_by_user_id"];
                 this.columnupdate_date = base.Columns["update_date"];
                 this.columnApprove_By = base.Columns["Approve_By"];
+                this.columnweight_head = base.Columns["weight_head"];
+                this.columnweight_tail = base.Columns["weight_tail"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1069,6 +1095,10 @@ namespace TTApi.Models {
                 base.Columns.Add(this.columnupdate_date);
                 this.columnApprove_By = new global::System.Data.DataColumn("Approve_By", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnApprove_By);
+                this.columnweight_head = new global::System.Data.DataColumn("weight_head", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnweight_head);
+                this.columnweight_tail = new global::System.Data.DataColumn("weight_tail", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnweight_tail);
                 this.columnkind.ReadOnly = true;
                 this.columnkind.MaxLength = 19;
                 this.columntran_code.ReadOnly = true;
@@ -1158,6 +1188,8 @@ namespace TTApi.Models {
                 this.columnupdate_date.ReadOnly = true;
                 this.columnApprove_By.ReadOnly = true;
                 this.columnApprove_By.MaxLength = 3;
+                this.columnweight_head.ReadOnly = true;
+                this.columnweight_tail.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2036,6 +2068,38 @@ namespace TTApi.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int weight_head {
+                get {
+                    try {
+                        return ((int)(this[this.tablesp_WorkSheet.weight_headColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'weight_head\' in table \'sp_WorkSheet\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_WorkSheet.weight_headColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int weight_tail {
+                get {
+                    try {
+                        return ((int)(this[this.tablesp_WorkSheet.weight_tailColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'weight_tail\' in table \'sp_WorkSheet\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_WorkSheet.weight_tailColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IskindNull() {
                 return this.IsNull(this.tablesp_WorkSheet.kindColumn);
             }
@@ -2585,6 +2649,30 @@ namespace TTApi.Models {
             public void SetApprove_ByNull() {
                 this[this.tablesp_WorkSheet.Approve_ByColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isweight_headNull() {
+                return this.IsNull(this.tablesp_WorkSheet.weight_headColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setweight_headNull() {
+                this[this.tablesp_WorkSheet.weight_headColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isweight_tailNull() {
+                return this.IsNull(this.tablesp_WorkSheet.weight_tailColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setweight_tailNull() {
+                this[this.tablesp_WorkSheet.weight_tailColumn] = global::System.Convert.DBNull;
+            }
         }
         
         /// <summary>
@@ -2792,6 +2880,8 @@ namespace TTApi.Models.DataSetWorkSheetTableAdapters {
             tableMapping.ColumnMappings.Add("update_by_user_id", "update_by_user_id");
             tableMapping.ColumnMappings.Add("update_date", "update_date");
             tableMapping.ColumnMappings.Add("Approve_By", "Approve_By");
+            tableMapping.ColumnMappings.Add("weight_head", "weight_head");
+            tableMapping.ColumnMappings.Add("weight_tail", "weight_tail");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

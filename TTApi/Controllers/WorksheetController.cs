@@ -163,7 +163,7 @@ namespace TTApi.Controllers
         /// <returns></returns>
         [AllowAnonymous]
         [Route("GetWorksheetAll")]
-        public List<WorksheetAllView> Worksheet()
+        public List<WorksheetAllView> GetWorksheetAll()
         {
             HomeController hc = new HomeController();
             List<WorksheetAllView> ul = new List<WorksheetAllView>();
@@ -217,7 +217,7 @@ namespace TTApi.Controllers
         /// <returns></returns>
         [AllowAnonymous]
         [Route("GetWorksheet")]
-        public List<WorksheetView> GetWorksheet(WorksheetIdModels val)
+        public List<WorksheetView> Worksheet(WorksheetIdModels val)
         {
             HomeController hc = new HomeController();
             List<WorksheetView> ul = new List<WorksheetView>();

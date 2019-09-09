@@ -29,6 +29,7 @@ namespace TTApi.Models
         public string suggestion { get; set; }
         public string eq_type_id { get; set; }
         public HttpPostedFile Image { get; set; }
+        public string user_id { get; set; }
     }
     #endregion
 
@@ -56,6 +57,7 @@ namespace TTApi.Models
         public string suggestion { get; set; }
         public string eq_type_id { get; set; }
         public HttpPostedFile Image { get; set; }
+        public string user_id { get; set; }
     }
     #endregion
 
@@ -94,6 +96,7 @@ namespace TTApi.Models
         public string remark { get; set; }
         public string doc_type_id { get; set; }
         public HttpPostedFile Image { get; set; }
+        public string user_id { get; set; }
     }
     #endregion
 
@@ -246,6 +249,7 @@ namespace TTApi.Models
     {
         public string cus_id { get; set; }
         public string cus_name { get; set; }
+        public string user_id { get; set; }
     }
 
     /// <summary>
@@ -309,6 +313,7 @@ namespace TTApi.Models
         public string zip_code { get; set; }
         public string province_id { get; set; }
         public string cus_id { get; set; }
+        public string user_id { get; set; }
     }
 
     public class TrunkView
@@ -332,6 +337,7 @@ namespace TTApi.Models
         public string destination { get; set; }
         public string station { get; set; }
         public string cus_id { get; set; }
+        public string user_id { get; set; }
     }
 
     public class ContactView
@@ -358,6 +364,7 @@ namespace TTApi.Models
         public string line { get; set; }
         public string email { get; set; }
         public string branch_id { get; set; }
+        public string user_id { get; set; }
     }
 
     #endregion
@@ -406,7 +413,7 @@ namespace TTApi.Models
     public class ProductIdModels
     {
         public string product_id { get; set; }
-        
+
     }
 
     public class ProductModels
@@ -419,6 +426,7 @@ namespace TTApi.Models
         public string method_contain { get; set; }
         public string method_special { get; set; }
         public string cus_id { get; set; }
+        public string user_id { get; set; }
     }
 
     public class RelDriverProductModels
@@ -426,6 +434,7 @@ namespace TTApi.Models
         public string driver_id { get; set; }
         public string product_id { get; set; }
         public string score { get; set; }
+        public string user_id { get; set; }
     }
 
     public class RelDocProductModels
@@ -433,6 +442,7 @@ namespace TTApi.Models
         public string doc_id { get; set; }
         public string product_id { get; set; }
         public string doc_type_id { get; set; }
+        public string user_id { get; set; }
     }
 
     public class RelSafetyProductModels
@@ -440,6 +450,7 @@ namespace TTApi.Models
         public string eq_safety_id { get; set; }
         public string product_id { get; set; }
         public string amount { get; set; }
+        public string user_id { get; set; }
     }
 
     public class RelTranProductModels
@@ -447,18 +458,21 @@ namespace TTApi.Models
         public string eq_tran_id { get; set; }
         public string product_id { get; set; }
         public string amount { get; set; }
+        public string user_id { get; set; }
     }
 
     public class RelLicenseProductModels
     {
         public string license_id { get; set; }
         public string product_id { get; set; }
+        public string user_id { get; set; }
     }
 
     public class RelCustomerProductModels
     {
         public string cus_id { get; set; }
         public string product_id { get; set; }
+        public string user_id { get; set; }
     }
 
     public class RelDriverProductView
@@ -592,8 +606,9 @@ namespace TTApi.Models
         public string id { get; set; }
         public string nametable { get; set; }
         public string nameid { get; set; }
+        public string user_id { get; set; }
     }
-        
+
     public class RelContactBranch
     {
         public string rel_id { get; set; }
@@ -604,6 +619,7 @@ namespace TTApi.Models
         public string tel { get; set; }
         public string line { get; set; }
         public string status_approve = "รออนุมัติ";
+        public string user_id { get; set; }
     }
 
     public class RelDocumentProduct
@@ -622,6 +638,7 @@ namespace TTApi.Models
         public string method_special { get; set; }
         public string product_path { get; set; }
         public string status_approve = "รออนุมัติ";
+        public string user_id { get; set; }
     }
 
     public class RelDriverProduct
@@ -635,8 +652,9 @@ namespace TTApi.Models
         public string method_contain { get; set; }
         public string method_special { get; set; }
         public string product_path { get; set; }
-        public string score { get; set; }        
+        public string score { get; set; }
         public string status_approve = "รออนุมัติ";
+        public string user_id { get; set; }
     }
 
     public class RelSafetyProduct
@@ -658,6 +676,7 @@ namespace TTApi.Models
         public string product_path { get; set; }
         public string amount { get; set; }
         public string status_approve = "รออนุมัติ";
+        public string user_id { get; set; }
     }
 
     public class RelTranProduct
@@ -679,13 +698,14 @@ namespace TTApi.Models
         public string product_path { get; set; }
         public string amount { get; set; }
         public string status_approve = "รออนุมัติ";
+        public string user_id { get; set; }
     }
 
     public class RelLicenseProduct
     {
         public string rel_id { get; set; }
         public string number_car { get; set; }
-        public string license_car { get; set; }       
+        public string license_car { get; set; }
         public string product_name { get; set; }
         public string fleet { get; set; }
         public string method_style { get; set; }
@@ -695,12 +715,13 @@ namespace TTApi.Models
         public string product_path { get; set; }
         public string amount { get; set; }
         public string status_approve = "รออนุมัติ";
+        public string user_id { get; set; }
     }
 
     public class RelCustomerProduct
     {
         public string rel_id { get; set; }
-        public string cus_name { get; set; }        
+        public string cus_name { get; set; }
         public string product_name { get; set; }
         public string fleet { get; set; }
         public string method_style { get; set; }
@@ -710,6 +731,7 @@ namespace TTApi.Models
         public string product_path { get; set; }
         public string amount { get; set; }
         public string status_approve = "รออนุมัติ";
+        public string user_id { get; set; }
     }
 
     #endregion

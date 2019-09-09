@@ -2144,7 +2144,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>วิธีการพิเศษ(ควบคุมเฉพาะ)</Value>
+                <Value>การทำงานปรกติ</Value>
                 <Style>
                   <FontFamily>th Sarabun New</FontFamily>
                   <FontSize>16pt</FontSize>
@@ -2776,7 +2776,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>-</Value>
+                <Value>=Sum(Fields!weight_head.Value, "DataSetWorkSheet")</Value>
                 <Style>
                   <FontFamily>Angsana New</FontFamily>
                   <FontSize>14pt</FontSize>
@@ -2932,7 +2932,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>-</Value>
+                <Value>=Sum(Fields!weight_tail.Value, "DataSetWorkSheet")</Value>
                 <Style>
                   <FontFamily>Angsana New</FontFamily>
                   <FontSize>14pt</FontSize>
@@ -3591,7 +3591,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>-</Value>
+                    <Value>=First(Fields!method_style.Value, "DataSetWorkSheet")</Value>
                     <Style>
                       <FontFamily>th Sarabun New</FontFamily>
                       <FontSize>16pt</FontSize>
@@ -3915,7 +3915,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Fields!method_special.Value, "DataSetWorkSheet")</Value>
+                <Value>=First(Fields!method_normal.Value, "DataSetWorkSheet")</Value>
                 <Style>
                   <FontFamily>th Sarabun New</FontFamily>
                   <FontSize>16pt</FontSize>
@@ -3967,7 +3967,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>-</Value>
+                <Value>=First(Fields!method_special.Value, "DataSetWorkSheet")</Value>
                 <Style>
                   <FontFamily>th Sarabun New</FontFamily>
                   <FontSize>16pt</FontSize>
@@ -7534,7 +7534,7 @@
                   <CellContents>
                     <Image Name="Image12">
                       <Source>Embedded</Source>
-                      <Value>=Microsoft.VisualBasic.Interaction.IIF((Fields!doc_type_id.Value = "1"), "check", "checked")</Value>
+                      <Value>=Microsoft.VisualBasic.Interaction.IIF(((Fields!doc_type_id.Value = "1" ) or (Fields!doc_type_id.Value = "3")), "checked", "check")</Value>
                       <Sizing>FitProportional</Sizing>
                       <ZIndex>61</ZIndex>
                       <Style>
@@ -7552,7 +7552,7 @@
                   <CellContents>
                     <Image Name="Image11">
                       <Source>Embedded</Source>
-                      <Value>=Microsoft.VisualBasic.Interaction.IIF((Fields!doc_type_id.Value = "1"), "check", "checked")</Value>
+                      <Value>=Microsoft.VisualBasic.Interaction.IIF(((Fields!doc_type_id.Value = "2" )or (Fields!doc_type_id.Value = "3")), "checked", "check")</Value>
                       <Sizing>FitProportional</Sizing>
                       <ZIndex>61</ZIndex>
                       <Style>
@@ -8661,6 +8661,14 @@
         <Field Name="Approve_By">
           <DataField>Approve_By</DataField>
           <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="weight_head">
+          <DataField>weight_head</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="weight_tail">
+          <DataField>weight_tail</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>

@@ -68,6 +68,8 @@
               <Mapping SourceColumn="update_by_user_id" DataSetColumn="update_by_user_id" />
               <Mapping SourceColumn="update_date" DataSetColumn="update_date" />
               <Mapping SourceColumn="Approve_By" DataSetColumn="Approve_By" />
+              <Mapping SourceColumn="weight_head" DataSetColumn="weight_head" />
+              <Mapping SourceColumn="weight_tail" DataSetColumn="weight_tail" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -386,6 +388,8 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="weight_head" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnweight_head" msprop:Generator_ColumnPropNameInRow="weight_head" msprop:Generator_ColumnPropNameInTable="weight_headColumn" msprop:Generator_UserColumnName="weight_head" type="xs:int" minOccurs="0" />
+              <xs:element name="weight_tail" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnweight_tail" msprop:Generator_ColumnPropNameInRow="weight_tail" msprop:Generator_ColumnPropNameInTable="weight_tailColumn" msprop:Generator_UserColumnName="weight_tail" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
