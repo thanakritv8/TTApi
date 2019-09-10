@@ -100,12 +100,19 @@ namespace TTApi.Controllers
             ExecuteModels ecm = new ExecuteModels();
             string _SQL_Set = string.Empty;
             string[] Col_Arr = { "firstname", "lastname", "tel", "address", "email", "username", "password", "group_id" };
-            string[] Val_Arr = { val.firstname, val.lastname, val.tel, val.address, val.email, val.username, hc.EncryptSHA256Managed(val.password), val.group_id };
+            string[] Val_Arr = { val.firstname, val.lastname, val.tel, val.address, val.email, val.username, val.password, val.group_id };
             for (int n = 0; n <= Val_Arr.Length - 1; n++)
             {
                 if (Val_Arr[n] != null)
                 {
-                    _SQL_Set += Col_Arr[n] + " = N'" + Val_Arr[n] + "', ";
+                    if (Col_Arr[n] == "password")
+                    {
+                        _SQL_Set += Col_Arr[n] + " = N'" + hc.EncryptSHA256Managed(Val_Arr[n]) + "', ";
+                    }
+                    else
+                    {
+                        _SQL_Set += Col_Arr[n] + " = N'" + Val_Arr[n] + "', ";
+                    }                    
                 }
             }
             
@@ -197,6 +204,39 @@ namespace TTApi.Controllers
                         m.email = _Item["email"].ToString();
                         m.address = _Item["address"].ToString();
                         m.group_id = _Item["group_id"].ToString();
+                        ul.Add(m);
+                    }
+                }
+                con.Close();
+            }
+            return ul;
+        }
+
+        [AllowAnonymous]
+        [Route("GetUserById")]
+        public List<UserModels> UsersById(UserModels val)
+        {
+            HomeController hc = new HomeController();
+            List<UserModels> ul = new List<UserModels>();
+            using (SqlConnection con = hc.ConnectDatabaseAuth())
+            {
+                string _SQL = "select * from account where user_id = " + val.user_id;
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    DataTable _Dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(_Dt);
+                    da.Dispose();
+                    foreach (DataRow _Item in _Dt.Rows)
+                    {
+                        UserModels m = new UserModels();
+                        m.user_id = _Item["user_id"].ToString();
+                        m.username = _Item["username"].ToString();
+                        m.firstname = _Item["firstname"].ToString();
+                        m.lastname = _Item["lastname"].ToString();
+                        m.tel = _Item["tel"].ToString();
+                        m.email = _Item["email"].ToString();
+                        m.address = _Item["address"].ToString();
                         ul.Add(m);
                     }
                 }
