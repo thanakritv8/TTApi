@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -37,28 +38,41 @@ namespace TTApi.Controllers
             List<EquipmentSafetyView> ul = new List<EquipmentSafetyView>();
             using (SqlConnection con = hc.ConnectDatabase())
             {
-                string _SQL = "SELECT es.[eq_safety_id], es.[eq_safety_code], es.[eq_name], es.[style], es.[property], es.[suggestion], es.[eq_type_id], et.[eq_type], es.[eq_path], es.[create_date], es.[create_by_user_id], es.[update_date], es.[update_by_user_id] FROM [equipment_safety] as es join equipment_type as et on es.eq_type_id = et.eq_type_id ";
-                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                string _SQL = "SELECT es.[eq_safety_id], es.[eq_safety_code], es.[eq_name], es.[style], es.[property], es.[suggestion], es.[eq_type_id], et.[eq_type], es.[create_date], es.[create_by_user_id], es.[update_date], es.[update_by_user_id] FROM [equipment_safety] as es join equipment_type as et on es.eq_type_id = et.eq_type_id ";
+                SqlCommand cmd = new SqlCommand(_SQL, con);                
+                DataTable _Dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(_Dt);
+                da.Dispose();
+                foreach (DataRow _Item in _Dt.Rows)
                 {
-                    DataTable _Dt = new DataTable();
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    da.Fill(_Dt);
+                    EquipmentSafetyView esv = new EquipmentSafetyView();
+                    esv.eq_safety_id = _Item["eq_safety_id"].ToString();
+                    esv.eq_safety_code = _Item["eq_safety_code"].ToString();
+                    esv.eq_name = _Item["eq_name"].ToString();
+                    esv.style = _Item["style"].ToString();
+                    esv.property = _Item["property"].ToString();
+                    esv.suggestion = _Item["suggestion"].ToString();
+                    esv.eq_type_id = _Item["eq_type_id"].ToString();
+                    esv.eq_type = _Item["eq_type"].ToString();
+
+                    _SQL = "SELECT * FROM file_all where table_id = 1 and fk_id = " + esv.eq_safety_id;
+                    cmd = new SqlCommand(_SQL, con);
+                    DataTable _DtFile = new DataTable();
+                    da = new SqlDataAdapter(cmd);
+                    da.Fill(_DtFile);
                     da.Dispose();
-                    foreach (DataRow _Item in _Dt.Rows)
+                    esv.path = new List<FileAllView>();
+                    foreach (DataRow _Path in _DtFile.Rows)
                     {
-                        EquipmentSafetyView esv = new EquipmentSafetyView();
-                        esv.eq_safety_id = _Item["eq_safety_id"].ToString();
-                        esv.eq_safety_code = _Item["eq_safety_code"].ToString();
-                        esv.eq_name = _Item["eq_name"].ToString();
-                        esv.style = _Item["style"].ToString();
-                        esv.property = _Item["property"].ToString();
-                        esv.suggestion = _Item["suggestion"].ToString();
-                        esv.eq_type_id = _Item["eq_type_id"].ToString();
-                        esv.eq_type = _Item["eq_type"].ToString();
-                        esv.eq_path = _Item["eq_path"].ToString();
-                        ul.Add(esv);
+                        FileAllView f = new FileAllView();
+                        f.seq = _Path["seq"].ToString();
+                        f.path = _Path["path"].ToString();
+                        esv.path.Add(f);
                     }
+                    ul.Add(esv);
                 }
+                
                 con.Close();
             }
             return ul;
@@ -112,45 +126,46 @@ namespace TTApi.Controllers
                         var id_return = Int32.Parse(cmd.ExecuteScalar().ToString());
                         if (id_return >= 1)
                         {
-                            // Upload file
-                            string path = string.Empty;
+                            // Upload File
                             if (HttpContext.Current.Request.Files.Count > 0)
                             {
-                                try
+                                for(int n = 0; n <= HttpContext.Current.Request.Files.Count - 1; n++)
                                 {
-                                    val.Image = HttpContext.Current.Request.Files[0];
-                                    path = HttpContext.Current.Request.MapPath(@"~/Files/es/" + id_return.ToString() + ".png");
-                                    val.Image.SaveAs(path);
-                                    _SQL = "update equipment_safety set eq_path = N'" + path + "' where eq_safety_id = " + id_return;
-                                    using (SqlCommand cmd_update = new SqlCommand(_SQL, con))
+                                    try
                                     {
-                                        if (Int32.Parse(cmd_update.ExecuteNonQuery().ToString()) == 1)
+                                        System.Threading.Thread.Sleep(10);
+                                        Random random = new Random();
+                                        string filename = id_return.ToString() + DateTime.Now.ToString("yyyyMMddhhmmssffftt") + random.Next(0, 999999);
+                                        string path = string.Empty;
+                                        val.Image = HttpContext.Current.Request.Files[n];
+                                        path = HttpContext.Current.Request.MapPath(@"~/Files/es/" + filename + ".png");
+                                        val.Image.SaveAs(path);
+                                        _SQL = "insert into file_all ([fk_id],[table_id],[path],[create_by_user_id]) VALUES (" + id_return + ", 1, N'" + path + "', " + val.user_id + ")";
+                                        using (SqlCommand cmd_update = new SqlCommand(_SQL, con))
                                         {
-                                            ecm.result = 0;
-                                            ecm.code = "OK";
-                                            ecm.id_return = id_return.ToString();
-                                        }
-                                        else
-                                        {
-                                            ecm.result = 1;
-                                            ecm.code = "error about update eq_path";
+                                            if (Int32.Parse(cmd_update.ExecuteNonQuery().ToString()) == 1)
+                                            {
+                                                ecm.result = 0;
+                                                ecm.code = "OK";
+                                                ecm.id_return = id_return.ToString();
+                                            }
+                                            else
+                                            {
+                                                ecm.result = 1;
+                                                ecm.code = "error about insert file_all";
+                                                return ecm;
+                                            }
                                         }
                                     }
-                                }
-                                catch (Exception ex)
-                                {
-                                    ecm.result = 1;
-                                    ecm.code = ex.Message;
-                                    return ecm;
+                                    catch (Exception ex)
+                                    {
+                                        ecm.result = 1;
+                                        ecm.code = ex.Message;
+                                        return ecm;
+                                    }
                                 }
                             }
-                            else
-                            {
-                                ecm.result = 0;
-                                ecm.code = "OK";
-                                ecm.id_return = id_return.ToString();
-                            }
-                            // End Upload file
+                            // End Upload File                            
                         }
                     }
                     catch (Exception ex)
@@ -162,7 +177,7 @@ namespace TTApi.Controllers
                 con.Close();
             }
             return ecm;
-        }
+        }        
 
         // POST CheckList/Profile/UpdateEquipmentSafety
         /// <summary>
@@ -205,16 +220,34 @@ namespace TTApi.Controllers
                 }
 
                 // Upload file
-                string path = string.Empty;
                 if (HttpContext.Current.Request.Files.Count > 0)
                 {
-                    if (HttpContext.Current.Request.Files.Count > 0)
+                    for (int n = 0; n <= HttpContext.Current.Request.Files.Count - 1; n++)
                     {
                         try
                         {
-                            val.Image = HttpContext.Current.Request.Files[0];
-                            path = HttpContext.Current.Request.MapPath(@"~/Files/es/" + val.eq_safety_id + ".png");
+                            System.Threading.Thread.Sleep(10);
+                            Random random = new Random();
+                            string filename = val.eq_safety_id + DateTime.Now.ToString("yyyyMMddhhmmssffftt") + random.Next(0, 999999);
+                            string path = string.Empty;
+                            val.Image = HttpContext.Current.Request.Files[n];
+                            path = HttpContext.Current.Request.MapPath(@"~/Files/es/" + filename + ".png");
                             val.Image.SaveAs(path);
+                            string _SQL_file = "insert into file_all ([fk_id],[table_id],[path],[create_by_user_id]) VALUES (" + val.eq_safety_id + ", 1, N'" + path + "', " + val.user_id + ")";
+                            using (SqlCommand cmd_update = new SqlCommand(_SQL_file, con))
+                            {
+                                if (Int32.Parse(cmd_update.ExecuteNonQuery().ToString()) == 1)
+                                {
+                                    ecm.result = 0;
+                                    ecm.code = "OK";
+                                }
+                                else
+                                {
+                                    ecm.result = 1;
+                                    ecm.code = "error about insert file_all";
+                                    return ecm;
+                                }
+                            }
                         }
                         catch (Exception ex)
                         {
@@ -224,11 +257,7 @@ namespace TTApi.Controllers
                         }
                     }
                 }
-                if (path != string.Empty)
-                {
-                    _SQL_Set += "eq_path = N'" + path + "', ";
-                }
-                // End Upload file
+                // End Upload file                
 
                 string _SQL = "update equipment_safety set " + _SQL_Set + " update_by_user_id = " + val.user_id + " where eq_safety_id = " + val.eq_safety_id;
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
@@ -2847,8 +2876,10 @@ namespace TTApi.Controllers
             List<RelDocumentProduct> ul = new List<RelDocumentProduct>();
             using (SqlConnection con = hc.ConnectDatabase())
             {
-                string _SQL = "SELECT rel.rel_d_p_id, d.doc_code,d.doc_name,d.doc_path,d.remark,p.product_name,p.fleet,p.method_style,p.method_normal,p.method_contain,p.method_special,p.product_path,dt.doc_type " +
+                string _SQL = "SELECT c.cus_name, rel.rel_d_p_id, d.doc_code,d.doc_name,d.doc_path,d.remark,p.product_name,p.fleet,p.method_style,p.method_normal,p.method_contain,p.method_special,p.product_path,dt.doc_type " +
                     "FROM relation_document_product as rel join document_type as dt on rel.doc_type_id = dt.doc_type_id " +
+                    "join relation_product_customer as rpc on rel.product_id = rpc.product_id " +
+                    "join customer as c on c.cus_id = rpc.cus_id " +
                     "join document as d on rel.doc_id = d.doc_id join product as p on rel.product_id = p.product_id where rel.status_approve is null";
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
@@ -2872,6 +2903,7 @@ namespace TTApi.Controllers
                         rel.method_contain = _Item["method_contain"].ToString();
                         rel.method_special = _Item["method_special"].ToString();
                         rel.product_path = _Item["product_path"].ToString();
+                        rel.cus_name = _Item["cus_name"].ToString();
                         ul.Add(rel);
                     }
                 }
@@ -3079,6 +3111,53 @@ namespace TTApi.Controllers
             return ul;
         }
 
+        #endregion
+
+        #region File All
+        [AllowAnonymous]
+        [Route("DeleteFile")]
+        public ExecuteModels DelFile(FileAllModels val)
+        {
+            ExecuteModels ecm = new ExecuteModels();
+            HomeController hc = new HomeController();
+            using (SqlConnection con = hc.ConnectDatabase())
+            {
+                string _SQL = "select * from file_all where seq = " + val.seq;
+                SqlCommand cmd = new SqlCommand(_SQL, con);
+                try
+                {
+                    DataTable _Dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(_Dt);
+                    da.Dispose();
+                    foreach (DataRow _Item in _Dt.Rows)
+                    {
+                        File.Delete(_Item["path"].ToString());
+                        _SQL = "delete from file_all where seq = " + val.seq;
+                        cmd = new SqlCommand(_SQL, con);
+                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) >= 1)
+                        {
+                            ecm.result = 0;
+                            ecm.code = "OK";
+                        }
+                        else
+                        {
+                            ecm.result = 1;
+                            ecm.code = _SQL;
+                            return ecm;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ecm.result = 1;
+                    ecm.code = ex.Message;
+                    return ecm;
+                }
+                con.Close();
+            }
+            return ecm;
+        }
         #endregion
     }
 }

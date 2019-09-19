@@ -5,7 +5,19 @@ using System.Web;
 
 namespace TTApi.Models
 {
-    #region EquipmentSafety
+    public class FileAllView
+    {
+        public string seq { get; set; }
+        public string path { get; set; }
+    }
+
+    public class FileAllModels
+    {
+        public string seq { get; set; }
+    }
+
+    #region EquipmentSafety    
+
     public class EquipmentSafetyView
     {
         public string eq_safety_id { get; set; }
@@ -16,7 +28,8 @@ namespace TTApi.Models
         public string suggestion { get; set; }
         public string eq_type_id { get; set; }
         public string eq_type { get; set; }
-        public string eq_path { get; set; }
+        public List<FileAllView> path { get; set; }
+        //public string eq_path { get; set; }
     }
 
     public class EquipmentSafety
@@ -638,6 +651,7 @@ namespace TTApi.Models
         public string method_special { get; set; }
         public string product_path { get; set; }
         public string status_approve = "รออนุมัติ";
+        public string cus_name { get; set; }
         public string user_id { get; set; }
     }
 

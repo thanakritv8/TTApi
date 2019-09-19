@@ -36,13 +36,12 @@ namespace TTApi.Controllers
             //report.SetParameters(new ReportParameter[] { parameter });
             report.DataSources.Add(rds);
             report.Refresh();
-            PrintPDF(report);
+            PrintPDF(report, name_report + ".pdf");
             return View();
         }
 
-        private void PrintPDF(LocalReport report)
+        private void PrintPDF(LocalReport report, string FileName)
         {
-            string FileName = "temp.pdf";
             string extension;
             string encoding;
             string mimeType;
@@ -111,13 +110,14 @@ namespace TTApi.Controllers
             }
 
             //link use Report/ExportWorkSheet?id=2
-            ReportDataSource rds = new ReportDataSource(name_dataset, GetReportWorkSheet(id, name_report));
+            DataTable _Dt = GetReportWorkSheet(id, name_report);
+            ReportDataSource rds = new ReportDataSource(name_dataset, _Dt);
             LocalReport report = new LocalReport();
             report.ReportPath = Path.Combine(Server.MapPath("~/Reports"), name_report + ".rdlc");
             report.DataSources.Clear();
             report.DataSources.Add(rds);
             report.Refresh();
-            PrintPDF(report);
+            PrintPDF(report, _Dt.Rows[0]["tran_code"].ToString() + ".pdf");
             return View();
         }
 
