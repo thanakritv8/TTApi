@@ -165,6 +165,12 @@ namespace TTApi.Controllers
                                     }
                                 }
                             }
+                            else
+                            {
+                                ecm.result = 0;
+                                ecm.code = "OK";
+                                ecm.id_return = id_return.ToString();
+                            }
                             // End Upload File                            
                         }
                     }
@@ -339,27 +345,39 @@ namespace TTApi.Controllers
             using (SqlConnection con = hc.ConnectDatabase())
             {
                 string _SQL = "SELECT es.[eq_tran_id], es.[eq_tran_code], es.[eq_name], es.[style], es.[property], es.[suggestion], es.[eq_type_id], et.[eq_type], es.[eq_path], es.[create_date], es.[create_by_user_id], es.[update_date], es.[update_by_user_id] FROM [equipment_transport] as es join equipment_type as et on es.eq_type_id = et.eq_type_id ";
-                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                SqlCommand cmd = new SqlCommand(_SQL, con);
+                DataTable _Dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(_Dt);
+                da.Dispose();
+                foreach (DataRow _Item in _Dt.Rows)
                 {
-                    DataTable _Dt = new DataTable();
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    da.Fill(_Dt);
+                    EquipmentTransportView etv = new EquipmentTransportView();
+                    etv.eq_tran_id = _Item["eq_tran_id"].ToString();
+                    etv.eq_tran_code = _Item["eq_tran_code"].ToString();
+                    etv.eq_name = _Item["eq_name"].ToString();
+                    etv.style = _Item["style"].ToString();
+                    etv.property = _Item["property"].ToString();
+                    etv.suggestion = _Item["suggestion"].ToString();
+                    etv.eq_type_id = _Item["eq_type_id"].ToString();
+                    etv.eq_type = _Item["eq_type"].ToString();
+                    _SQL = "SELECT * FROM file_all where table_id = 2 and fk_id = " + etv.eq_tran_id;
+                    cmd = new SqlCommand(_SQL, con);
+                    DataTable _DtFile = new DataTable();
+                    da = new SqlDataAdapter(cmd);
+                    da.Fill(_DtFile);
                     da.Dispose();
-                    foreach (DataRow _Item in _Dt.Rows)
+                    etv.path = new List<FileAllView>();
+                    foreach (DataRow _Path in _DtFile.Rows)
                     {
-                        EquipmentTransportView etv = new EquipmentTransportView();
-                        etv.eq_tran_id = _Item["eq_tran_id"].ToString();
-                        etv.eq_tran_code = _Item["eq_tran_code"].ToString();
-                        etv.eq_name = _Item["eq_name"].ToString();
-                        etv.style = _Item["style"].ToString();
-                        etv.property = _Item["property"].ToString();
-                        etv.suggestion = _Item["suggestion"].ToString();
-                        etv.eq_type_id = _Item["eq_type_id"].ToString();
-                        etv.eq_type = _Item["eq_type"].ToString();
-                        etv.eq_path = _Item["eq_path"].ToString();
-                        ul.Add(etv);
+                        FileAllView f = new FileAllView();
+                        f.seq = _Path["seq"].ToString();
+                        f.path = _Path["path"].ToString();
+                        etv.path.Add(f);
                     }
+                    ul.Add(etv);
                 }
+                
                 con.Close();
             }
             return ul;
@@ -414,34 +432,42 @@ namespace TTApi.Controllers
                         if (id_return >= 1)
                         {
                             // Upload file
-                            string path = string.Empty;
                             if (HttpContext.Current.Request.Files.Count > 0)
                             {
-                                try
+                                for (int n = 0; n <= HttpContext.Current.Request.Files.Count - 1; n++)
                                 {
-                                    val.Image = HttpContext.Current.Request.Files[0];
-                                    path = HttpContext.Current.Server.MapPath("~/Files/et/" + id_return.ToString() + ".png");
-                                    val.Image.SaveAs(path);
-                                    _SQL = "update equipment_transport set eq_path = N'" + path + "' where eq_tran_id = " + id_return;
-                                    using (SqlCommand cmd_update = new SqlCommand(_SQL, con))
+                                    try
                                     {
-                                        if (Int32.Parse(cmd_update.ExecuteNonQuery().ToString()) == 1)
+                                        System.Threading.Thread.Sleep(10);
+                                        Random random = new Random();
+                                        string filename = id_return.ToString() + DateTime.Now.ToString("yyyyMMddhhmmssffftt") + random.Next(0, 999999);
+                                        string path = string.Empty;
+                                        val.Image = HttpContext.Current.Request.Files[n];
+                                        path = HttpContext.Current.Request.MapPath(@"~/Files/et/" + filename + ".png");
+                                        val.Image.SaveAs(path);
+                                        string _SQL_file = "insert into file_all ([fk_id],[table_id],[path],[create_by_user_id]) VALUES (" + id_return.ToString() + ", 2, N'" + path + "', " + val.user_id + ")";
+                                        using (SqlCommand cmd_update = new SqlCommand(_SQL_file, con))
                                         {
-                                            ecm.result = 0;
-                                            ecm.code = "OK";
-                                            ecm.id_return = id_return.ToString();
-                                        }
-                                        else
-                                        {
-                                            ecm.result = 1;
-                                            ecm.code = "error about update eq_path";
+                                            if (Int32.Parse(cmd_update.ExecuteNonQuery().ToString()) == 1)
+                                            {
+                                                ecm.result = 0;
+                                                ecm.code = "OK";
+                                                ecm.id_return = id_return.ToString();
+                                            }
+                                            else
+                                            {
+                                                ecm.result = 1;
+                                                ecm.code = "error about insert file_all";
+                                                return ecm;
+                                            }
                                         }
                                     }
-                                }
-                                catch (Exception ex)
-                                {
-                                    ecm.result = 1;
-                                    ecm.code = ex.Message;
+                                    catch (Exception ex)
+                                    {
+                                        ecm.result = 1;
+                                        ecm.code = ex.Message;
+                                        return ecm;
+                                    }
                                 }
                             }
                             else
@@ -450,7 +476,7 @@ namespace TTApi.Controllers
                                 ecm.code = "OK";
                                 ecm.id_return = id_return.ToString();
                             }
-                            // End Upload file
+                            // End Upload file 
                         }
                     }
                     catch (Exception ex)
@@ -505,16 +531,34 @@ namespace TTApi.Controllers
                 }
 
                 // Upload file
-                string path = string.Empty;
                 if (HttpContext.Current.Request.Files.Count > 0)
                 {
-                    if (HttpContext.Current.Request.Files.Count > 0)
+                    for (int n = 0; n <= HttpContext.Current.Request.Files.Count - 1; n++)
                     {
                         try
                         {
-                            val.Image = HttpContext.Current.Request.Files[0];
-                            path = HttpContext.Current.Request.MapPath(@"~/Files/et/" + val.eq_tran_id + ".png");
+                            System.Threading.Thread.Sleep(10);
+                            Random random = new Random();
+                            string filename = val.eq_tran_id + DateTime.Now.ToString("yyyyMMddhhmmssffftt") + random.Next(0, 999999);
+                            string path = string.Empty;
+                            val.Image = HttpContext.Current.Request.Files[n];
+                            path = HttpContext.Current.Request.MapPath(@"~/Files/et/" + filename + ".png");
                             val.Image.SaveAs(path);
+                            string _SQL_file = "insert into file_all ([fk_id],[table_id],[path],[create_by_user_id]) VALUES (" + val.eq_tran_id + ", 2, N'" + path + "', " + val.user_id + ")";
+                            using (SqlCommand cmd_update = new SqlCommand(_SQL_file, con))
+                            {
+                                if (Int32.Parse(cmd_update.ExecuteNonQuery().ToString()) == 1)
+                                {
+                                    ecm.result = 0;
+                                    ecm.code = "OK";
+                                }
+                                else
+                                {
+                                    ecm.result = 1;
+                                    ecm.code = "error about insert file_all";
+                                    return ecm;
+                                }
+                            }
                         }
                         catch (Exception ex)
                         {
@@ -523,10 +567,6 @@ namespace TTApi.Controllers
                             return ecm;
                         }
                     }
-                }
-                if (path != string.Empty)
-                {
-                    _SQL_Set += "eq_path = N'" + path + "', ";
                 }
                 // End Upload file
 

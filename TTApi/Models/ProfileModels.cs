@@ -57,7 +57,7 @@ namespace TTApi.Models
         public string suggestion { get; set; }
         public string eq_type_id { get; set; }
         public string eq_type { get; set; }
-        public string eq_path { get; set; }
+        public List<FileAllView> path { get; set; }
     }
 
     public class EquipmentTransport
