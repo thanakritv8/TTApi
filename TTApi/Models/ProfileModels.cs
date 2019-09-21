@@ -29,7 +29,7 @@ namespace TTApi.Models
         public string eq_type_id { get; set; }
         public string eq_type { get; set; }
         public List<FileAllView> path { get; set; }
-        //public string eq_path { get; set; }
+        public string eq_weight { get; set; }
     }
 
     public class EquipmentSafety
@@ -42,6 +42,7 @@ namespace TTApi.Models
         public string suggestion { get; set; }
         public string eq_type_id { get; set; }
         public HttpPostedFile Image { get; set; }
+        public string eq_weight { get; set; }
         public string user_id { get; set; }
     }
     #endregion
@@ -57,6 +58,7 @@ namespace TTApi.Models
         public string suggestion { get; set; }
         public string eq_type_id { get; set; }
         public string eq_type { get; set; }
+        public string eq_weight { get; set; }
         public List<FileAllView> path { get; set; }
     }
 
@@ -70,6 +72,7 @@ namespace TTApi.Models
         public string suggestion { get; set; }
         public string eq_type_id { get; set; }
         public HttpPostedFile Image { get; set; }
+        public string eq_weight { get; set; }
         public string user_id { get; set; }
     }
     #endregion

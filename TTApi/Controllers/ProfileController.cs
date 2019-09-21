@@ -38,7 +38,7 @@ namespace TTApi.Controllers
             List<EquipmentSafetyView> ul = new List<EquipmentSafetyView>();
             using (SqlConnection con = hc.ConnectDatabase())
             {
-                string _SQL = "SELECT es.[eq_safety_id], es.[eq_safety_code], es.[eq_name], es.[style], es.[property], es.[suggestion], es.[eq_type_id], et.[eq_type], es.[create_date], es.[create_by_user_id], es.[update_date], es.[update_by_user_id] FROM [equipment_safety] as es join equipment_type as et on es.eq_type_id = et.eq_type_id ";
+                string _SQL = "SELECT es.[eq_safety_id], es.[eq_safety_code], es.[eq_name], es.[style], es.[property], es.[suggestion], es.[eq_type_id], et.[eq_type], es.[create_date], es.[create_by_user_id], es.[update_date], es.[update_by_user_id], es.eq_weight FROM [equipment_safety] as es join equipment_type as et on es.eq_type_id = et.eq_type_id ";
                 SqlCommand cmd = new SqlCommand(_SQL, con);                
                 DataTable _Dt = new DataTable();
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -55,7 +55,7 @@ namespace TTApi.Controllers
                     esv.suggestion = _Item["suggestion"].ToString();
                     esv.eq_type_id = _Item["eq_type_id"].ToString();
                     esv.eq_type = _Item["eq_type"].ToString();
-
+                    esv.eq_weight = _Item["eq_weight"].ToString();
                     _SQL = "SELECT * FROM file_all where table_id = 1 and fk_id = " + esv.eq_safety_id;
                     cmd = new SqlCommand(_SQL, con);
                     DataTable _DtFile = new DataTable();
@@ -118,7 +118,7 @@ namespace TTApi.Controllers
             HomeController hc = new HomeController();
             using (SqlConnection con = hc.ConnectDatabase())
             {
-                string _SQL = "insert into equipment_safety (eq_safety_code, eq_name, style, property, suggestion, eq_type_id, create_by_user_id) output inserted.eq_safety_id values (N'" + val.eq_safety_code + "', N'" + val.eq_name + "', N'" + val.style + "', N'" + val.property + "', N'" + val.suggestion + "', " + val.eq_type_id + ", " + val.user_id + ")";
+                string _SQL = "insert into equipment_safety (eq_safety_code, eq_name, style, property, suggestion, eq_type_id, eq_weight, create_by_user_id) output inserted.eq_safety_id values (N'" + val.eq_safety_code + "', N'" + val.eq_name + "', N'" + val.style + "', N'" + val.property + "', N'" + val.suggestion + "', " + val.eq_type_id + ", '" + val.eq_weight + "', " + val.user_id + ")";
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     try
@@ -215,8 +215,8 @@ namespace TTApi.Controllers
             using (SqlConnection con = hc.ConnectDatabase())
             {
                 string _SQL_Set = string.Empty;
-                string[] Col_Arr = { "eq_safety_code", "eq_name", "style", "property", "suggestion", "eq_type_id" };
-                string[] Val_Arr = { val.eq_safety_code, val.eq_name, val.style, val.property, val.suggestion, val.eq_type_id };
+                string[] Col_Arr = { "eq_safety_code", "eq_name", "style", "property", "suggestion", "eq_type_id", "eq_weight" };
+                string[] Val_Arr = { val.eq_safety_code, val.eq_name, val.style, val.property, val.suggestion, val.eq_type_id, val.eq_weight };
                 for (int n = 0; n <= Val_Arr.Length - 1; n++)
                 {
                     if (Val_Arr[n] != null)
@@ -344,7 +344,7 @@ namespace TTApi.Controllers
             List<EquipmentTransportView> ul = new List<EquipmentTransportView>();
             using (SqlConnection con = hc.ConnectDatabase())
             {
-                string _SQL = "SELECT es.[eq_tran_id], es.[eq_tran_code], es.[eq_name], es.[style], es.[property], es.[suggestion], es.[eq_type_id], et.[eq_type], es.[eq_path], es.[create_date], es.[create_by_user_id], es.[update_date], es.[update_by_user_id] FROM [equipment_transport] as es join equipment_type as et on es.eq_type_id = et.eq_type_id ";
+                string _SQL = "SELECT es.[eq_tran_id], es.[eq_tran_code], es.[eq_name], es.[style], es.[property], es.[suggestion], es.[eq_type_id], et.[eq_type], es.[eq_path], es.[create_date], es.[create_by_user_id], es.[update_date], es.[update_by_user_id], es.eq_weight FROM [equipment_transport] as es join equipment_type as et on es.eq_type_id = et.eq_type_id ";
                 SqlCommand cmd = new SqlCommand(_SQL, con);
                 DataTable _Dt = new DataTable();
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -361,6 +361,7 @@ namespace TTApi.Controllers
                     etv.suggestion = _Item["suggestion"].ToString();
                     etv.eq_type_id = _Item["eq_type_id"].ToString();
                     etv.eq_type = _Item["eq_type"].ToString();
+                    etv.eq_weight = _Item["eq_weight"].ToString();
                     _SQL = "SELECT * FROM file_all where table_id = 2 and fk_id = " + etv.eq_tran_id;
                     cmd = new SqlCommand(_SQL, con);
                     DataTable _DtFile = new DataTable();
@@ -423,7 +424,7 @@ namespace TTApi.Controllers
             HomeController hc = new HomeController();
             using (SqlConnection con = hc.ConnectDatabase())
             {
-                string _SQL = "insert into equipment_transport (eq_tran_code, eq_name, style, property, suggestion, eq_type_id, create_by_user_id) output inserted.eq_tran_id values (N'" + val.eq_tran_code + "', N'" + val.eq_name + "', N'" + val.style + "', N'" + val.property + "', N'" + val.suggestion + "', " + val.eq_type_id + ", " + val.user_id + ")";
+                string _SQL = "insert into equipment_transport (eq_tran_code, eq_name, style, property, suggestion, eq_type_id, eq_weight, create_by_user_id) output inserted.eq_tran_id values (N'" + val.eq_tran_code + "', N'" + val.eq_name + "', N'" + val.style + "', N'" + val.property + "', N'" + val.suggestion + "', " + val.eq_type_id + ", '" + val.eq_weight + "', " + val.user_id + ")";
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     try
@@ -520,8 +521,8 @@ namespace TTApi.Controllers
             using (SqlConnection con = hc.ConnectDatabase())
             {
                 string _SQL_Set = string.Empty;
-                string[] Col_Arr = { "eq_tran_code", "eq_name", "style", "property", "suggestion", "eq_type_id" };
-                string[] Val_Arr = { val.eq_tran_code, val.eq_name, val.style, val.property, val.suggestion, val.eq_type_id };
+                string[] Col_Arr = { "eq_tran_code", "eq_name", "style", "property", "suggestion", "eq_type_id", "eq_weight" };
+                string[] Val_Arr = { val.eq_tran_code, val.eq_name, val.style, val.property, val.suggestion, val.eq_type_id, val.eq_weight };
                 for (int n = 0; n <= Val_Arr.Length - 1; n++)
                 {
                     if (Val_Arr[n] != null)
