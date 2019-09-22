@@ -36,6 +36,11 @@ namespace TTApi.Models
         public string cont2 { get; set; }
         public string update_by_user_id { get; set; }
         public string bugget_tran { get; set; }
+        public string date_work { get; set; }
+        public string date_start { get; set; }
+        public string date_end { get; set; }
+        public string value_order { get; set; }
+        public string type_tran { get; set; }
     }
 
     public class WorksheetAllView
@@ -64,6 +69,11 @@ namespace TTApi.Models
         public string update_date { get; set; }
         public string update_by_user_id { get; set; }
         public string bugget_tran { get; set; }
+        public string date_work { get; set; }
+        public string date_start { get; set; }
+        public string date_end { get; set; }
+        public string value_order { get; set; }
+        public string type_tran { get; set; }
 
     }
     public class WorksheetView
@@ -115,6 +125,11 @@ namespace TTApi.Models
         public string update_date { get; set; }
         public string Approve_By { get; set; }
         public string bugget_tran { get; set; }
+        public string date_work { get; set; }
+        public string date_start { get; set; }
+        public string date_end { get; set; }
+        public string value_order { get; set; }
+        public string type_tran { get; set; }
 
     }
 
