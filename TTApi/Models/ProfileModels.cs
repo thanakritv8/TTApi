@@ -97,7 +97,7 @@ namespace TTApi.Models
         public string doc_id { get; set; }
         public string doc_code { get; set; }
         public string doc_name { get; set; }
-        public string doc_path { get; set; }
+        public List<FileAllView> path { get; set; }
         public string remark { get; set; }
         public string doc_type_id { get; set; }
         public string doc_type { get; set; }

@@ -53,10 +53,10 @@ namespace TTApi.Controllers
                 _no = int.Parse(_no).ToString("000");
                 var tran_code = "CHECK" + DateTime.Now.ToString("yyMMdd") + _no;
                 string _SQL = "INSERT INTO [dbo].[transport] (tran_code,number_po  ,cus_id  ,branch_id  ,contact_id ,product_id  ,trunk_id " +
-                    ",driver_id_1  ,driver_id_2 ,driver_id_3  ,license_id_head  ,license_id_tail ,remark ,tran_status_id ,create_by_user_id ,sheet_name ,cont1,cont2 ,driver_id_4,bugget_tran  ) " +
+                    ",driver_id_1  ,driver_id_2 ,driver_id_3  ,license_id_head  ,license_id_tail ,remark ,tran_status_id ,create_by_user_id ,sheet_name ,cont1,cont2 ,driver_id_4,bugget_tran ,date_work, date_start ,date_end, value_order, type_tran ) " +
      " output inserted.tran_id VALUES (N'" + tran_code + "', N'" + val.number_po + "', '" + val.cus_id + "', '" + val.branch_id + "', '" + val.contact_id + "', '" + val.product_id + "'" +
            ", '" + val.trunk_id + "' ,'" + val.driver_id_1 + "' , '" + val.driver_id_2 + "', '" + val.driver_id_3 + "', '" + val.license_id_head + "' , '" + val.license_id_tail + "'" +
-           ", N'" + val.remark + "'  , 1  , " + val.create_by_user_id + "  , '" + val.sheet_name + "' , '" + val.cont1 + "', '" + val.cont2 + "', '" + val.driver_id_4 + "', '" + val.bugget_tran + "')";
+           ", N'" + val.remark + "'  , 1  , " + val.create_by_user_id + "  , '" + val.sheet_name + "' , '" + val.cont1 + "', '" + val.cont2 + "', '" + val.driver_id_4 + "', '" + val.bugget_tran + "', '" + val.date_work + "', '" + val.date_start + "', '" + val.date_end + "', '" + val.value_order + "', '" + val.type_tran + "')";
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     try
@@ -91,8 +91,8 @@ namespace TTApi.Controllers
         {
             ExecuteModels ecm = new ExecuteModels();
             string _SQL_Set = string.Empty;
-            string[] Col_Arr = { "tran_code", "number_po", "cus_id", "branch_id", "contact_id", "product_id", "trunk_id", "driver_id_1", "driver_id_2", "driver_id_3", "license_id_head", "license_id_tail", "remark", "tran_status_id", "update_by_user_id", "sheet_name", "cont1", "cont2", "driver_id_4", "bugget_tran" };
-            string[] Val_Arr = { val.tran_code, val.number_po, val.cus_id, val.branch_id, val.contact_id, val.product_id, val.trunk_id, val.driver_id_1, val.driver_id_2, val.driver_id_3, val.license_id_head, val.license_id_tail, val.remark, val.tran_status_id, val.update_by_user_id, val.sheet_name, val.cont1, val.cont2, val.driver_id_4, val.bugget_tran };
+            string[] Col_Arr = { "tran_code", "number_po", "cus_id", "branch_id", "contact_id", "product_id", "trunk_id", "driver_id_1", "driver_id_2", "driver_id_3", "license_id_head", "license_id_tail", "remark", "tran_status_id", "update_by_user_id", "sheet_name", "cont1", "cont2", "driver_id_4", "bugget_tran", "date_work", "date_start", "date_end", "value_order", "type_tran" };
+            string[] Val_Arr = { val.tran_code, val.number_po, val.cus_id, val.branch_id, val.contact_id, val.product_id, val.trunk_id, val.driver_id_1, val.driver_id_2, val.driver_id_3, val.license_id_head, val.license_id_tail, val.remark, val.tran_status_id, val.update_by_user_id, val.sheet_name, val.cont1, val.cont2, val.driver_id_4, val.bugget_tran, val.date_work, val.date_start, val.date_end, val.value_order, val.type_tran };
             for (int n = 0; n <= Val_Arr.Length - 1; n++)
             {
                 if (Val_Arr[n] != null)
@@ -219,6 +219,11 @@ namespace TTApi.Controllers
                         wsa.update_date = _Item["update_date"].ToString();
                         wsa.update_by_user_id = _Item["update_by_user_id"].ToString();
                         wsa.bugget_tran = _Item["bugget_tran"].ToString();
+                        wsa.date_work = _Item["date_work"].ToString();
+                        wsa.date_start = _Item["date_start"].ToString();
+                        wsa.date_end = _Item["date_end"].ToString();
+                        wsa.value_order = _Item["value_order"].ToString();
+                        wsa.type_tran = _Item["type_tran"].ToString();
                         ul.Add(wsa);
                     }
                 }
@@ -296,7 +301,12 @@ namespace TTApi.Controllers
                         ws.update_by_user_id = _Item["update_by_user_id"].ToString();
                         ws.update_date = _Item["update_date"].ToString();
                         ws.Approve_By = _Item["Approve_By"].ToString();
-
+                        ws.bugget_tran = _Item["bugget_tran"].ToString();
+                        ws.date_work = _Item["date_work"].ToString();
+                        ws.date_start = _Item["date_start"].ToString();
+                        ws.date_end = _Item["date_end"].ToString();
+                        ws.value_order = _Item["value_order"].ToString();
+                        ws.type_tran = _Item["type_tran"].ToString();
 
                         ul.Add(ws);
                     }

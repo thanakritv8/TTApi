@@ -681,25 +681,38 @@ namespace TTApi.Controllers
             using (SqlConnection con = hc.ConnectDatabase())
             {
                 string _SQL = "SELECT d.*, dt.doc_type from document as d join document_type as dt on d.doc_type_id = dt.doc_type_id";
-                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                SqlCommand cmd = new SqlCommand(_SQL, con);
+                
+                DataTable _Dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(_Dt);
+                da.Dispose();
+                foreach (DataRow _Item in _Dt.Rows)
                 {
-                    DataTable _Dt = new DataTable();
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    da.Fill(_Dt);
+                    DocumentView dv = new DocumentView();
+                    dv.doc_id = _Item["doc_id"].ToString();
+                    dv.doc_code = _Item["doc_code"].ToString();
+                    dv.doc_name = _Item["doc_name"].ToString();
+                    dv.remark = _Item["remark"].ToString();
+                    dv.doc_type_id = _Item["doc_type_id"].ToString();
+                    dv.doc_type = _Item["doc_type"].ToString();
+                    _SQL = "SELECT * FROM file_all where table_id = 3 and fk_id = " + dv.doc_id;
+                    cmd = new SqlCommand(_SQL, con);
+                    DataTable _DtFile = new DataTable();
+                    da = new SqlDataAdapter(cmd);
+                    da.Fill(_DtFile);
                     da.Dispose();
-                    foreach (DataRow _Item in _Dt.Rows)
+                    dv.path = new List<FileAllView>();
+                    foreach (DataRow _Path in _DtFile.Rows)
                     {
-                        DocumentView dv = new DocumentView();
-                        dv.doc_id = _Item["doc_id"].ToString();
-                        dv.doc_code = _Item["doc_code"].ToString();
-                        dv.doc_name = _Item["doc_name"].ToString();
-                        dv.doc_path = _Item["doc_path"].ToString();
-                        dv.remark = _Item["remark"].ToString();
-                        dv.doc_type_id = _Item["doc_type_id"].ToString();
-                        dv.doc_type = _Item["doc_type"].ToString();
-                        ul.Add(dv);
+                        FileAllView f = new FileAllView();
+                        f.seq = _Path["seq"].ToString();
+                        f.path = _Path["path"].ToString();
+                        dv.path.Add(f);
                     }
+                    ul.Add(dv);
                 }
+                
                 con.Close();
             }
             return ul;
@@ -752,34 +765,42 @@ namespace TTApi.Controllers
                         if (id_return >= 1)
                         {
                             // Upload file
-                            string path = string.Empty;
                             if (HttpContext.Current.Request.Files.Count > 0)
                             {
-                                try
+                                for (int n = 0; n <= HttpContext.Current.Request.Files.Count - 1; n++)
                                 {
-                                    val.Image = HttpContext.Current.Request.Files[0];
-                                    path = HttpContext.Current.Server.MapPath("~/Files/d/" + id_return.ToString() + ".png");
-                                    val.Image.SaveAs(path);
-                                    _SQL = "update document set doc_path = N'" + path + "' where doc_id = " + id_return;
-                                    using (SqlCommand cmd_update = new SqlCommand(_SQL, con))
+                                    try
                                     {
-                                        if (Int32.Parse(cmd_update.ExecuteNonQuery().ToString()) == 1)
+                                        System.Threading.Thread.Sleep(10);
+                                        Random random = new Random();
+                                        string filename = id_return.ToString() + DateTime.Now.ToString("yyyyMMddhhmmssffftt") + random.Next(0, 999999);
+                                        string path = string.Empty;
+                                        val.Image = HttpContext.Current.Request.Files[n];
+                                        path = HttpContext.Current.Request.MapPath(@"~/Files/d/" + filename + ".png");
+                                        val.Image.SaveAs(path);
+                                        string _SQL_file = "insert into file_all ([fk_id],[table_id],[path],[create_by_user_id]) VALUES (" + id_return.ToString() + ", 3, N'" + path + "', " + val.user_id + ")";
+                                        using (SqlCommand cmd_update = new SqlCommand(_SQL_file, con))
                                         {
-                                            ecm.result = 0;
-                                            ecm.code = "OK";
-                                            ecm.id_return = id_return.ToString();
-                                        }
-                                        else
-                                        {
-                                            ecm.result = 1;
-                                            ecm.code = "error about update doc_path";
+                                            if (Int32.Parse(cmd_update.ExecuteNonQuery().ToString()) == 1)
+                                            {
+                                                ecm.result = 0;
+                                                ecm.code = "OK";
+                                                ecm.id_return = id_return.ToString();
+                                            }
+                                            else
+                                            {
+                                                ecm.result = 1;
+                                                ecm.code = "error about insert file_all";
+                                                return ecm;
+                                            }
                                         }
                                     }
-                                }
-                                catch (Exception ex)
-                                {
-                                    ecm.result = 1;
-                                    ecm.code = ex.Message;
+                                    catch (Exception ex)
+                                    {
+                                        ecm.result = 1;
+                                        ecm.code = ex.Message;
+                                        return ecm;
+                                    }
                                 }
                             }
                             else
@@ -788,7 +809,7 @@ namespace TTApi.Controllers
                                 ecm.code = "OK";
                                 ecm.id_return = id_return.ToString();
                             }
-                            // End Upload file
+                            // End Upload file 
                         }
                     }
                     catch (Exception ex)
@@ -843,16 +864,34 @@ namespace TTApi.Controllers
                 }
 
                 // Upload file
-                string path = string.Empty;
                 if (HttpContext.Current.Request.Files.Count > 0)
                 {
-                    if (HttpContext.Current.Request.Files.Count > 0)
+                    for (int n = 0; n <= HttpContext.Current.Request.Files.Count - 1; n++)
                     {
                         try
                         {
-                            val.Image = HttpContext.Current.Request.Files[0];
-                            path = HttpContext.Current.Request.MapPath(@"~/Files/d/" + val.doc_id + ".png");
+                            System.Threading.Thread.Sleep(10);
+                            Random random = new Random();
+                            string filename = val.doc_id + DateTime.Now.ToString("yyyyMMddhhmmssffftt") + random.Next(0, 999999);
+                            string path = string.Empty;
+                            val.Image = HttpContext.Current.Request.Files[n];
+                            path = HttpContext.Current.Request.MapPath(@"~/Files/d/" + filename + ".png");
                             val.Image.SaveAs(path);
+                            string _SQL_file = "insert into file_all ([fk_id],[table_id],[path],[create_by_user_id]) VALUES (" + val.doc_id + ", 3, N'" + path + "', " + val.user_id + ")";
+                            using (SqlCommand cmd_update = new SqlCommand(_SQL_file, con))
+                            {
+                                if (Int32.Parse(cmd_update.ExecuteNonQuery().ToString()) == 1)
+                                {
+                                    ecm.result = 0;
+                                    ecm.code = "OK";
+                                }
+                                else
+                                {
+                                    ecm.result = 1;
+                                    ecm.code = "error about insert file_all";
+                                    return ecm;
+                                }
+                            }
                         }
                         catch (Exception ex)
                         {
@@ -861,10 +900,6 @@ namespace TTApi.Controllers
                             return ecm;
                         }
                     }
-                }
-                if (path != string.Empty)
-                {
-                    _SQL_Set += "doc_path = N'" + path + "', ";
                 }
                 // End Upload file
 
