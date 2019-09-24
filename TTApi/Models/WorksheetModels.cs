@@ -41,6 +41,13 @@ namespace TTApi.Models
         public string date_end { get; set; }
         public string value_order { get; set; }
         public string type_tran { get; set; }
+        public string size_cont1 { get; set; }
+        public string size_cont2 { get; set; }
+        public string condition_tran { get; set; }
+        public string special_order { get; set; }
+        public string tank_number { get; set; }
+        public string style_tank { get; set; }
+        public string weight_tank { get; set; }
     }
 
     public class WorksheetAllView
@@ -74,6 +81,13 @@ namespace TTApi.Models
         public string date_end { get; set; }
         public string value_order { get; set; }
         public string type_tran { get; set; }
+        public string size_cont1 { get; set; }
+        public string size_cont2 { get; set; }
+        public string condition_tran { get; set; }
+        public string special_order { get; set; }
+        public string tank_number { get; set; }
+        public string style_tank { get; set; }
+        public string weight_tank { get; set; }
 
     }
     public class WorksheetView
@@ -130,6 +144,13 @@ namespace TTApi.Models
         public string date_end { get; set; }
         public string value_order { get; set; }
         public string type_tran { get; set; }
+        public string size_cont1 { get; set; }
+        public string size_cont2 { get; set; }
+        public string condition_tran { get; set; }
+        public string special_order { get; set; }
+        public string tank_number { get; set; }
+        public string style_tank { get; set; }
+        public string weight_tank { get; set; }
 
     }
 

@@ -52,10 +52,12 @@ namespace TTApi.Controllers
                 _no  = int.Parse(_no).ToString("000");
                 var tran_code = "CHECK" + DateTime.Now.ToString("yMMdd") + _no;
                 string _SQL = "INSERT INTO [dbo].[transport] (tran_code,number_po  ,cus_id  ,branch_id  ,contact_id ,product_id  ,trunk_id " +
-                    ",driver_id_1  ,driver_id_2 ,driver_id_3  ,license_id_head  ,license_id_tail ,remark ,tran_status_id ,create_by_user_id ,sheet_name ,cont1,cont2 ,driver_id_4,bugget_tran ,date_work, date_start ,date_end, value_order, type_tran ) " +
+                    ",driver_id_1  ,driver_id_2 ,driver_id_3  ,license_id_head  ,license_id_tail ,remark ,tran_status_id ,create_by_user_id ,sheet_name ,cont1,cont2 ,driver_id_4,bugget_tran ,date_work, date_start ,date_end, value_order, type_tran  " +
+                    " , bugget_tran  , date_work , date_start , date_end , value_order , type_tran  , size_cont1  , size_cont2   , condition_tran , special_order , tank_number ,  style_tank ,  weight_tank) " +
      " output inserted.tran_id VALUES (N'" + tran_code + "', N'" + val.number_po + "', '" + val.cus_id + "', '" + val.branch_id + "', '" + val.contact_id + "', '" + val.product_id + "'" +
            ", '" + val.trunk_id + "' ,'" + val.driver_id_1 + "' , '" + val.driver_id_2 + "', '" + val.driver_id_3 + "', '" + val.license_id_head + "' , '" + val.license_id_tail + "'" +
-           ", N'" + val.remark + "'  , 1  , " + val.create_by_user_id  + "  , '" + val.sheet_name + "' , '" + val.cont1 + "', '" + val.cont2 + "', '" + val.driver_id_4 + "', '" + val.bugget_tran + "', '" + val.date_work + "', '" + val.date_start + "', '" + val.date_end + "', '" + val.value_order + "', '" + val.type_tran + "')";
+           ", N'" + val.remark + "'  , 1  , " + val.create_by_user_id  + "  , '" + val.sheet_name + "' , '" + val.cont1 + "', '" + val.cont2 + "', '" + val.driver_id_4 + "', '" + val.bugget_tran + "', '" + val.date_work + "', '" + val.date_start + "', '" + val.date_end + "'" + 
+           ", '" + val.value_order + "', '" + val.type_tran + "',  '" + val.bugget_tran + "',  '" + val.date_work + "',  '" + val.date_start + "',  '" + val.date_end + "',  '" + val.value_order + "',  '" + val.type_tran + "',  '" + val.size_cont1 + "',  '" + val.size_cont2 + "',  '" + val.condition_tran + "',  '" + val.special_order + "',  '" + val.tank_number + "',   '" + val.style_tank + "',   '" + val.weight_tank + "')";
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     try
@@ -90,8 +92,8 @@ namespace TTApi.Controllers
         {
             ExecuteModels ecm = new ExecuteModels();
             string _SQL_Set = string.Empty;
-            string[] Col_Arr = { "tran_code", "number_po", "cus_id", "branch_id", "contact_id", "product_id", "trunk_id", "driver_id_1", "driver_id_2", "driver_id_3", "license_id_head", "license_id_tail", "remark", "tran_status_id", "update_by_user_id", "sheet_name", "cont1", "cont2", "driver_id_4", "bugget_tran", "date_work", "date_start", "date_end", "value_order", "type_tran" };
-            string[] Val_Arr = { val.tran_code, val.number_po, val.cus_id, val.branch_id, val.contact_id, val.product_id, val.trunk_id, val.driver_id_1, val.driver_id_2, val.driver_id_3, val.license_id_head, val.license_id_tail, val.remark, val.tran_status_id, val.update_by_user_id, val.sheet_name, val.cont1, val.cont2, val.driver_id_4, val.bugget_tran, val.date_work, val.date_start, val.date_end, val.value_order, val.type_tran };
+            string[] Col_Arr = { "tran_code", "number_po", "cus_id", "branch_id", "contact_id", "product_id", "trunk_id", "driver_id_1", "driver_id_2", "driver_id_3", "license_id_head", "license_id_tail", "remark", "tran_status_id", "update_by_user_id", "sheet_name", "cont1", "cont2", "driver_id_4", "bugget_tran", "date_work", "date_start", "date_end", "value_order", "type_tran", "bugget_tran", "date_work", "date_start", "date_end", "value_order", "type_tran", "size_cont1", "size_cont2", "condition_tran", "special_order", "tank_number", "style_tank", "weight_tank" };
+            string[] Val_Arr = { val.tran_code, val.number_po, val.cus_id, val.branch_id, val.contact_id, val.product_id, val.trunk_id, val.driver_id_1, val.driver_id_2, val.driver_id_3, val.license_id_head, val.license_id_tail, val.remark, val.tran_status_id, val.update_by_user_id, val.sheet_name, val.cont1, val.cont2, val.driver_id_4, val.bugget_tran, val.date_work, val.date_start, val.date_end, val.value_order, val.type_tran, val.bugget_tran, val.date_work, val.date_start, val.date_end, val.value_order, val.type_tran, val.size_cont1, val.size_cont2, val.condition_tran, val.special_order, val.tank_number, val.style_tank, val.weight_tank };
             for (int n = 0; n <= Val_Arr.Length - 1; n++)
             {
                 if (Val_Arr[n] != null)
@@ -223,6 +225,14 @@ namespace TTApi.Controllers
                         wsa.date_end = _Item["date_end"].ToString();
                         wsa.value_order = _Item["value_order"].ToString();
                         wsa.type_tran = _Item["type_tran"].ToString();
+                        wsa.size_cont1 = _Item["size_cont1"].ToString();
+                        wsa.size_cont2 = _Item["size_cont2"].ToString();
+                        wsa.condition_tran = _Item["condition_tran"].ToString();
+                        wsa.special_order = _Item["special_order"].ToString();
+                        wsa.tank_number = _Item["tank_number"].ToString();
+                        wsa.style_tank = _Item["style_tank"].ToString();
+                        wsa.type_tran = _Item["weight_tank"].ToString();
+
                         ul.Add(wsa);
                     }
                 }
@@ -306,6 +316,13 @@ namespace TTApi.Controllers
                         ws.date_end = _Item["date_end"].ToString();
                         ws.value_order = _Item["value_order"].ToString();
                         ws.type_tran = _Item["type_tran"].ToString();
+                        ws.size_cont1 = _Item["size_cont1"].ToString();
+                        ws.size_cont2 = _Item["size_cont2"].ToString();
+                        ws.condition_tran = _Item["condition_tran"].ToString();
+                        ws.special_order = _Item["special_order"].ToString();
+                        ws.tank_number = _Item["tank_number"].ToString();
+                        ws.style_tank = _Item["style_tank"].ToString();
+                        ws.weight_tank = _Item["weight_tank"].ToString();
 
 
                         ul.Add(ws);

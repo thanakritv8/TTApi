@@ -74,13 +74,23 @@
               <Mapping SourceColumn="style_tank" DataSetColumn="style_tank" />
               <Mapping SourceColumn="weight_tank" DataSetColumn="weight_tank" />
               <Mapping SourceColumn="weight_fuel_driver" DataSetColumn="weight_fuel_driver" />
-              <Mapping SourceColumn="eq_weight" DataSetColumn="eq_weight" />
               <Mapping SourceColumn="pic_drive1" DataSetColumn="pic_drive1" />
               <Mapping SourceColumn="pic_drive2" DataSetColumn="pic_drive2" />
               <Mapping SourceColumn="pic_drive3" DataSetColumn="pic_drive3" />
               <Mapping SourceColumn="pic_drive4" DataSetColumn="pic_drive4" />
-              <Mapping SourceColumn="weight_summary_equipment" DataSetColumn="weight_summary_equipment" />
               <Mapping SourceColumn="weight_carry" DataSetColumn="weight_carry" />
+              <Mapping SourceColumn="bugget_tran" DataSetColumn="bugget_tran" />
+              <Mapping SourceColumn="date_work" DataSetColumn="date_work" />
+              <Mapping SourceColumn="date_start" DataSetColumn="date_start" />
+              <Mapping SourceColumn="date_end" DataSetColumn="date_end" />
+              <Mapping SourceColumn="value_order" DataSetColumn="value_order" />
+              <Mapping SourceColumn="type_tran" DataSetColumn="type_tran" />
+              <Mapping SourceColumn="size_cont1" DataSetColumn="size_cont1" />
+              <Mapping SourceColumn="size_cont2" DataSetColumn="size_cont2" />
+              <Mapping SourceColumn="condition_tran" DataSetColumn="condition_tran" />
+              <Mapping SourceColumn="special_order" DataSetColumn="special_order" />
+              <Mapping SourceColumn="weight_summary_equipment" DataSetColumn="weight_summary_equipment" />
+              <Mapping SourceColumn="eq_weight" DataSetColumn="eq_weight" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -92,7 +102,7 @@
   <xs:element name="DataSetWorkSheet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSetWorkSheet" msprop:Generator_UserDSName="DataSetWorkSheet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="sp_WorkSheet" msprop:Generator_TableClassName="sp_WorkSheetDataTable" msprop:Generator_TableVarName="tablesp_WorkSheet" msprop:Generator_RowChangedName="sp_WorkSheetRowChanged" msprop:Generator_TablePropName="sp_WorkSheet" msprop:Generator_RowDeletingName="sp_WorkSheetRowDeleting" msprop:Generator_RowChangingName="sp_WorkSheetRowChanging" msprop:Generator_RowEvHandlerName="sp_WorkSheetRowChangeEventHandler" msprop:Generator_RowDeletedName="sp_WorkSheetRowDeleted" msprop:Generator_RowClassName="sp_WorkSheetRow" msprop:Generator_UserTableName="sp_WorkSheet" msprop:Generator_RowEvArgName="sp_WorkSheetRowChangeEvent">
+        <xs:element name="sp_WorkSheet" msprop:Generator_TableClassName="sp_WorkSheetDataTable" msprop:Generator_TableVarName="tablesp_WorkSheet" msprop:Generator_TablePropName="sp_WorkSheet" msprop:Generator_RowDeletingName="sp_WorkSheetRowDeleting" msprop:Generator_RowChangingName="sp_WorkSheetRowChanging" msprop:Generator_RowEvHandlerName="sp_WorkSheetRowChangeEventHandler" msprop:Generator_RowDeletedName="sp_WorkSheetRowDeleted" msprop:Generator_UserTableName="sp_WorkSheet" msprop:Generator_RowChangedName="sp_WorkSheetRowChanged" msprop:Generator_RowEvArgName="sp_WorkSheetRowChangeEvent" msprop:Generator_RowClassName="sp_WorkSheetRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="kind" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnkind" msprop:Generator_ColumnPropNameInRow="kind" msprop:Generator_ColumnPropNameInTable="kindColumn" msprop:Generator_UserColumnName="kind" minOccurs="0">
@@ -423,7 +433,6 @@
                 </xs:simpleType>
               </xs:element>
               <xs:element name="weight_fuel_driver" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnweight_fuel_driver" msprop:Generator_ColumnPropNameInRow="weight_fuel_driver" msprop:Generator_ColumnPropNameInTable="weight_fuel_driverColumn" msprop:Generator_UserColumnName="weight_fuel_driver" type="xs:int" minOccurs="0" />
-              <xs:element name="eq_weight" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columneq_weight" msprop:Generator_ColumnPropNameInRow="eq_weight" msprop:Generator_ColumnPropNameInTable="eq_weightColumn" msprop:Generator_UserColumnName="eq_weight" type="xs:int" minOccurs="0" />
               <xs:element name="pic_drive1" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnpic_drive1" msprop:Generator_ColumnPropNameInRow="pic_drive1" msprop:Generator_ColumnPropNameInTable="pic_drive1Column" msprop:Generator_UserColumnName="pic_drive1" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -452,8 +461,55 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="weight_summary_equipment" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnweight_summary_equipment" msprop:Generator_ColumnPropNameInRow="weight_summary_equipment" msprop:Generator_ColumnPropNameInTable="weight_summary_equipmentColumn" msprop:Generator_UserColumnName="weight_summary_equipment" type="xs:int" minOccurs="0" />
               <xs:element name="weight_carry" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnweight_carry" msprop:Generator_ColumnPropNameInRow="weight_carry" msprop:Generator_ColumnPropNameInTable="weight_carryColumn" msprop:Generator_UserColumnName="weight_carry" type="xs:int" minOccurs="0" />
+              <xs:element name="bugget_tran" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnbugget_tran" msprop:Generator_ColumnPropNameInRow="bugget_tran" msprop:Generator_ColumnPropNameInTable="bugget_tranColumn" msprop:Generator_UserColumnName="bugget_tran" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="date_work" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columndate_work" msprop:Generator_ColumnPropNameInRow="date_work" msprop:Generator_ColumnPropNameInTable="date_workColumn" msprop:Generator_UserColumnName="date_work" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="date_start" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columndate_start" msprop:Generator_ColumnPropNameInRow="date_start" msprop:Generator_ColumnPropNameInTable="date_startColumn" msprop:Generator_UserColumnName="date_start" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="date_end" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columndate_end" msprop:Generator_ColumnPropNameInRow="date_end" msprop:Generator_ColumnPropNameInTable="date_endColumn" msprop:Generator_UserColumnName="date_end" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="value_order" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnvalue_order" msprop:Generator_ColumnPropNameInRow="value_order" msprop:Generator_ColumnPropNameInTable="value_orderColumn" msprop:Generator_UserColumnName="value_order" type="xs:int" minOccurs="0" />
+              <xs:element name="type_tran" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columntype_tran" msprop:Generator_ColumnPropNameInRow="type_tran" msprop:Generator_ColumnPropNameInTable="type_tranColumn" msprop:Generator_UserColumnName="type_tran" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="size_cont1" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnsize_cont1" msprop:Generator_ColumnPropNameInRow="size_cont1" msprop:Generator_ColumnPropNameInTable="size_cont1Column" msprop:Generator_UserColumnName="size_cont1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="size_cont2" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnsize_cont2" msprop:Generator_ColumnPropNameInRow="size_cont2" msprop:Generator_ColumnPropNameInTable="size_cont2Column" msprop:Generator_UserColumnName="size_cont2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="condition_tran" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columncondition_tran" msprop:Generator_ColumnPropNameInRow="condition_tran" msprop:Generator_ColumnPropNameInTable="condition_tranColumn" msprop:Generator_UserColumnName="condition_tran" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="special_order" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnspecial_order" msprop:Generator_ColumnPropNameInRow="special_order" msprop:Generator_ColumnPropNameInTable="special_orderColumn" msprop:Generator_UserColumnName="special_order" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="weight_summary_equipment" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnweight_summary_equipment" msprop:Generator_ColumnPropNameInRow="weight_summary_equipment" msprop:Generator_ColumnPropNameInTable="weight_summary_equipmentColumn" msprop:Generator_UserColumnName="weight_summary_equipment" type="xs:double" minOccurs="0" />
+              <xs:element name="eq_weight" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columneq_weight" msprop:Generator_ColumnPropNameInRow="eq_weight" msprop:Generator_ColumnPropNameInTable="eq_weightColumn" msprop:Generator_UserColumnName="eq_weight" type="xs:double" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
