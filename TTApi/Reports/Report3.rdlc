@@ -1229,7 +1229,7 @@
                 <Value>=First(Fields!txt1.Value, "DataSetGetReport3")</Value>
                 <Style>
                   <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
+                  <FontSize>13pt</FontSize>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -1261,7 +1261,7 @@
                 <Value>=First(Fields!txt2.Value, "DataSetGetReport3")</Value>
                 <Style>
                   <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
+                  <FontSize>13pt</FontSize>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -1293,7 +1293,7 @@
                 <Value>=First(Fields!txt3.Value, "DataSetGetReport3")</Value>
                 <Style>
                   <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
+                  <FontSize>13pt</FontSize>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -1325,7 +1325,7 @@
                 <Value>=First(Fields!txt4.Value, "DataSetGetReport3")</Value>
                 <Style>
                   <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
+                  <FontSize>13pt</FontSize>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -1357,7 +1357,7 @@
                 <Value>=First(Fields!txt5.Value, "DataSetGetReport3")</Value>
                 <Style>
                   <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
+                  <FontSize>13pt</FontSize>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -1389,7 +1389,7 @@
                 <Value>=First(Fields!txt6.Value, "DataSetGetReport3")</Value>
                 <Style>
                   <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
+                  <FontSize>13pt</FontSize>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -1421,7 +1421,7 @@
                 <Value>=First(Fields!txt7.Value, "DataSetGetReport3")</Value>
                 <Style>
                   <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
+                  <FontSize>13pt</FontSize>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -1453,7 +1453,7 @@
                 <Value>=First(Fields!txt8.Value, "DataSetGetReport3")</Value>
                 <Style>
                   <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
+                  <FontSize>13pt</FontSize>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -1485,7 +1485,7 @@
                 <Value>=First(Fields!txt9.Value, "DataSetGetReport3")</Value>
                 <Style>
                   <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
+                  <FontSize>13pt</FontSize>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -1517,7 +1517,7 @@
                 <Value>=First(Fields!txt10.Value, "DataSetGetReport3")</Value>
                 <Style>
                   <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
+                  <FontSize>13pt</FontSize>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -1549,7 +1549,7 @@
                 <Value>=First(Fields!txt11.Value, "DataSetGetReport3")</Value>
                 <Style>
                   <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
+                  <FontSize>13pt</FontSize>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -1581,7 +1581,7 @@
                 <Value>=First(Fields!txt12.Value, "DataSetGetReport3")</Value>
                 <Style>
                   <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
+                  <FontSize>13pt</FontSize>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -1613,7 +1613,7 @@
                 <Value>=First(Fields!txt13.Value, "DataSetGetReport3")</Value>
                 <Style>
                   <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
+                  <FontSize>13pt</FontSize>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -1645,14 +1645,14 @@
                 <Value>=First(Fields!txt15.Value, "DataSetGetReport3")</Value>
                 <Style>
                   <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
+                  <FontSize>13pt</FontSize>
                 </Style>
               </TextRun>
             </TextRuns>
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>12.79561cm</Top>
+        <Top>12.86616cm</Top>
         <Left>2.53241cm</Left>
         <Height>0.80404cm</Height>
         <Width>2.29694cm</Width>
@@ -1677,16 +1677,16 @@
                 <Value>=First(Fields!txt16.Value, "DataSetGetReport3")</Value>
                 <Style>
                   <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
+                  <FontSize>13pt</FontSize>
                 </Style>
               </TextRun>
             </TextRuns>
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>12.79561cm</Top>
+        <Top>12.86616cm</Top>
         <Left>6.38273cm</Left>
-        <Height>0.90987cm</Height>
+        <Height>0.83932cm</Height>
         <Width>1.42471cm</Width>
         <ZIndex>52</ZIndex>
         <Style>
@@ -1709,16 +1709,16 @@
                 <Value>=First(Fields!txt17.Value, "DataSetGetReport3")</Value>
                 <Style>
                   <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
+                  <FontSize>13pt</FontSize>
                 </Style>
               </TextRun>
             </TextRuns>
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>12.79561cm</Top>
+        <Top>12.86616cm</Top>
         <Left>12.90996cm</Left>
-        <Height>0.90987cm</Height>
+        <Height>0.83932cm</Height>
         <Width>6.07369cm</Width>
         <ZIndex>53</ZIndex>
         <Style>
@@ -1741,16 +1741,16 @@
                 <Value>=First(Fields!txt18.Value, "DataSetGetReport3")</Value>
                 <Style>
                   <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
+                  <FontSize>13pt</FontSize>
                 </Style>
               </TextRun>
             </TextRuns>
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>13.63492cm</Top>
+        <Top>13.6702cm</Top>
         <Left>2.53241cm</Left>
-        <Height>1.00088cm</Height>
+        <Height>0.89505cm</Height>
         <Width>6.84519cm</Width>
         <ZIndex>54</ZIndex>
         <Style>
@@ -1773,16 +1773,16 @@
                 <Value>=First(Fields!txt19.Value, "DataSetGetReport3")</Value>
                 <Style>
                   <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
+                  <FontSize>13pt</FontSize>
                 </Style>
               </TextRun>
             </TextRuns>
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>13.63492cm</Top>
+        <Top>13.6702cm</Top>
         <Left>11.40231cm</Left>
-        <Height>1.00088cm</Height>
+        <Height>0.85977cm</Height>
         <Width>1.22543cm</Width>
         <ZIndex>55</ZIndex>
         <Style>
@@ -1805,16 +1805,16 @@
                 <Value>=First(Fields!txt20.Value, "DataSetGetReport3")</Value>
                 <Style>
                   <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
+                  <FontSize>13pt</FontSize>
                 </Style>
               </TextRun>
             </TextRuns>
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>13.63492cm</Top>
+        <Top>13.6702cm</Top>
         <Left>14.20555cm</Left>
-        <Height>1.00088cm</Height>
+        <Height>0.85977cm</Height>
         <Width>2.38686cm</Width>
         <ZIndex>56</ZIndex>
         <Style>
@@ -1837,16 +1837,16 @@
                 <Value>=First(Fields!txt21.Value, "DataSetGetReport3")</Value>
                 <Style>
                   <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
+                  <FontSize>13pt</FontSize>
                 </Style>
               </TextRun>
             </TextRuns>
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>13.63492cm</Top>
+        <Top>13.6702cm</Top>
         <Left>17.8518cm</Left>
-        <Height>1.00088cm</Height>
+        <Height>0.89505cm</Height>
         <Width>1.34352cm</Width>
         <ZIndex>57</ZIndex>
         <Style>
@@ -1869,7 +1869,7 @@
                 <Value>=First(Fields!txt22.Value, "DataSetGetReport3")</Value>
                 <Style>
                   <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
+                  <FontSize>13pt</FontSize>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -1901,7 +1901,7 @@
                 <Value>=First(Fields!txt23.Value, "DataSetGetReport3")</Value>
                 <Style>
                   <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
+                  <FontSize>13pt</FontSize>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -1933,7 +1933,7 @@
                 <Value>=First(Fields!txt24.Value, "DataSetGetReport3")</Value>
                 <Style>
                   <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
+                  <FontSize>13pt</FontSize>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -2042,7 +2042,7 @@
                 <Value>=First(Fields!txt23.Value, "DataSetGetReport3")</Value>
                 <Style>
                   <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>16pt</FontSize>
+                  <FontSize>13pt</FontSize>
                 </Style>
               </TextRun>
             </TextRuns>

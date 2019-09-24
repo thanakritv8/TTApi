@@ -970,6 +970,12 @@
         </member>
         <member name="M:TTApi.Controllers.WorksheetController.GetWorksheetAll">
             <summary>
+            เรียกดูข้อมูลWorksheetAll
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TTApi.Controllers.WorksheetController.Worksheet(TTApi.Models.WorksheetIdModels)">
+            <summary>
             เรียกดูข้อมูลWorksheet
             </summary>
             <returns></returns>

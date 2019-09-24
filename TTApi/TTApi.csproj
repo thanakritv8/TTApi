@@ -395,7 +395,10 @@
     <EmbeddedResource Include="Reports\Report3.rdlc" />
     <EmbeddedResource Include="Reports\Report2.rdlc" />
     <EmbeddedResource Include="Reports\Report1.rdlc" />
+    <EmbeddedResource Include="Reports\Report4V2.rdlc" />
+    <EmbeddedResource Include="Reports\Report4 - Copy.rdlc" />
     <EmbeddedResource Include="Reports\Report4.rdlc" />
+    <EmbeddedResource Include="Reports\Report4bk.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
