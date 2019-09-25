@@ -401,8 +401,6 @@ namespace TTApi.Models {
             
             private global::System.Data.DataColumn columndate_end;
             
-            private global::System.Data.DataColumn columnvalue_order;
-            
             private global::System.Data.DataColumn columntype_tran;
             
             private global::System.Data.DataColumn columnsize_cont1;
@@ -416,6 +414,10 @@ namespace TTApi.Models {
             private global::System.Data.DataColumn columnweight_summary_equipment;
             
             private global::System.Data.DataColumn columneq_weight;
+            
+            private global::System.Data.DataColumn columnmethod_condition;
+            
+            private global::System.Data.DataColumn columnvalue_order;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -940,14 +942,6 @@ namespace TTApi.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn value_orderColumn {
-                get {
-                    return this.columnvalue_order;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn type_tranColumn {
                 get {
                     return this.columntype_tran;
@@ -999,6 +993,22 @@ namespace TTApi.Models {
             public global::System.Data.DataColumn eq_weightColumn {
                 get {
                     return this.columneq_weight;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn method_conditionColumn {
+                get {
+                    return this.columnmethod_condition;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn value_orderColumn {
+                get {
+                    return this.columnvalue_order;
                 }
             }
             
@@ -1101,14 +1111,15 @@ namespace TTApi.Models {
                         System.DateTime date_work, 
                         System.DateTime date_start, 
                         System.DateTime date_end, 
-                        int value_order, 
                         string type_tran, 
                         string size_cont1, 
                         string size_cont2, 
                         string condition_tran, 
                         string special_order, 
                         double weight_summary_equipment, 
-                        double eq_weight) {
+                        double eq_weight, 
+                        string method_condition, 
+                        string value_order) {
                 sp_WorkSheetRow rowsp_WorkSheetRow = ((sp_WorkSheetRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         kind,
@@ -1172,14 +1183,15 @@ namespace TTApi.Models {
                         date_work,
                         date_start,
                         date_end,
-                        value_order,
                         type_tran,
                         size_cont1,
                         size_cont2,
                         condition_tran,
                         special_order,
                         weight_summary_equipment,
-                        eq_weight};
+                        eq_weight,
+                        method_condition,
+                        value_order};
                 rowsp_WorkSheetRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowsp_WorkSheetRow);
                 return rowsp_WorkSheetRow;
@@ -1263,7 +1275,6 @@ namespace TTApi.Models {
                 this.columndate_work = base.Columns["date_work"];
                 this.columndate_start = base.Columns["date_start"];
                 this.columndate_end = base.Columns["date_end"];
-                this.columnvalue_order = base.Columns["value_order"];
                 this.columntype_tran = base.Columns["type_tran"];
                 this.columnsize_cont1 = base.Columns["size_cont1"];
                 this.columnsize_cont2 = base.Columns["size_cont2"];
@@ -1271,6 +1282,8 @@ namespace TTApi.Models {
                 this.columnspecial_order = base.Columns["special_order"];
                 this.columnweight_summary_equipment = base.Columns["weight_summary_equipment"];
                 this.columneq_weight = base.Columns["eq_weight"];
+                this.columnmethod_condition = base.Columns["method_condition"];
+                this.columnvalue_order = base.Columns["value_order"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1402,8 +1415,6 @@ namespace TTApi.Models {
                 base.Columns.Add(this.columndate_start);
                 this.columndate_end = new global::System.Data.DataColumn("date_end", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndate_end);
-                this.columnvalue_order = new global::System.Data.DataColumn("value_order", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnvalue_order);
                 this.columntype_tran = new global::System.Data.DataColumn("type_tran", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntype_tran);
                 this.columnsize_cont1 = new global::System.Data.DataColumn("size_cont1", typeof(string), null, global::System.Data.MappingType.Element);
@@ -1418,6 +1429,10 @@ namespace TTApi.Models {
                 base.Columns.Add(this.columnweight_summary_equipment);
                 this.columneq_weight = new global::System.Data.DataColumn("eq_weight", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columneq_weight);
+                this.columnmethod_condition = new global::System.Data.DataColumn("method_condition", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnmethod_condition);
+                this.columnvalue_order = new global::System.Data.DataColumn("value_order", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnvalue_order);
                 this.columnkind.ReadOnly = true;
                 this.columnkind.MaxLength = 19;
                 this.columntran_code.ReadOnly = true;
@@ -1530,7 +1545,6 @@ namespace TTApi.Models {
                 this.columndate_work.ReadOnly = true;
                 this.columndate_start.ReadOnly = true;
                 this.columndate_end.ReadOnly = true;
-                this.columnvalue_order.ReadOnly = true;
                 this.columntype_tran.ReadOnly = true;
                 this.columntype_tran.MaxLength = 150;
                 this.columnsize_cont1.ReadOnly = true;
@@ -1543,6 +1557,10 @@ namespace TTApi.Models {
                 this.columnspecial_order.MaxLength = 2147483647;
                 this.columnweight_summary_equipment.ReadOnly = true;
                 this.columneq_weight.ReadOnly = true;
+                this.columnmethod_condition.ReadOnly = true;
+                this.columnmethod_condition.MaxLength = 2147483647;
+                this.columnvalue_order.ReadOnly = true;
+                this.columnvalue_order.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2661,22 +2679,6 @@ namespace TTApi.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int value_order {
-                get {
-                    try {
-                        return ((int)(this[this.tablesp_WorkSheet.value_orderColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'value_order\' in table \'sp_WorkSheet\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_WorkSheet.value_orderColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string type_tran {
                 get {
                     try {
@@ -2785,6 +2787,38 @@ namespace TTApi.Models {
                 }
                 set {
                     this[this.tablesp_WorkSheet.eq_weightColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string method_condition {
+                get {
+                    try {
+                        return ((string)(this[this.tablesp_WorkSheet.method_conditionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'method_condition\' in table \'sp_WorkSheet\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_WorkSheet.method_conditionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string value_order {
+                get {
+                    try {
+                        return ((string)(this[this.tablesp_WorkSheet.value_orderColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'value_order\' in table \'sp_WorkSheet\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_WorkSheet.value_orderColumn] = value;
                 }
             }
             
@@ -3522,18 +3556,6 @@ namespace TTApi.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Isvalue_orderNull() {
-                return this.IsNull(this.tablesp_WorkSheet.value_orderColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Setvalue_orderNull() {
-                this[this.tablesp_WorkSheet.value_orderColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool Istype_tranNull() {
                 return this.IsNull(this.tablesp_WorkSheet.type_tranColumn);
             }
@@ -3614,6 +3636,30 @@ namespace TTApi.Models {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void Seteq_weightNull() {
                 this[this.tablesp_WorkSheet.eq_weightColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Ismethod_conditionNull() {
+                return this.IsNull(this.tablesp_WorkSheet.method_conditionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setmethod_conditionNull() {
+                this[this.tablesp_WorkSheet.method_conditionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isvalue_orderNull() {
+                return this.IsNull(this.tablesp_WorkSheet.value_orderColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setvalue_orderNull() {
+                this[this.tablesp_WorkSheet.value_orderColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -3837,7 +3883,6 @@ namespace TTApi.Models.DataSetWorkSheetTableAdapters {
             tableMapping.ColumnMappings.Add("date_work", "date_work");
             tableMapping.ColumnMappings.Add("date_start", "date_start");
             tableMapping.ColumnMappings.Add("date_end", "date_end");
-            tableMapping.ColumnMappings.Add("value_order", "value_order");
             tableMapping.ColumnMappings.Add("type_tran", "type_tran");
             tableMapping.ColumnMappings.Add("size_cont1", "size_cont1");
             tableMapping.ColumnMappings.Add("size_cont2", "size_cont2");
@@ -3845,6 +3890,8 @@ namespace TTApi.Models.DataSetWorkSheetTableAdapters {
             tableMapping.ColumnMappings.Add("special_order", "special_order");
             tableMapping.ColumnMappings.Add("weight_summary_equipment", "weight_summary_equipment");
             tableMapping.ColumnMappings.Add("eq_weight", "eq_weight");
+            tableMapping.ColumnMappings.Add("method_condition", "method_condition");
+            tableMapping.ColumnMappings.Add("value_order", "value_order");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
