@@ -2780,7 +2780,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
             <Top>2.413cm</Top>
-            <Left>13.30549cm</Left>
+            <Left>11.45602cm</Left>
             <Height>0.762cm</Height>
             <Width>1.29428cm</Width>
             <ZIndex>4</ZIndex>
@@ -2834,7 +2834,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
             <Top>3.175cm</Top>
-            <Left>13.30549cm</Left>
+            <Left>11.45602cm</Left>
             <Height>0.762cm</Height>
             <Width>1.89328cm</Width>
             <ZIndex>5</ZIndex>
@@ -2987,7 +2987,7 @@
                     <Value>=First(Fields!product_name.Value, "DataSetWorkSheet")</Value>
                     <Style>
                       <FontFamily>th Sarabun New</FontFamily>
-                      <FontSize>14pt</FontSize>
+                      <FontSize>12pt</FontSize>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -3040,7 +3040,7 @@
                     <Value>=First(Fields!method_style.Value, "DataSetWorkSheet")</Value>
                     <Style>
                       <FontFamily>th Sarabun New</FontFamily>
-                      <FontSize>14pt</FontSize>
+                      <FontSize>12pt</FontSize>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -3093,7 +3093,7 @@
                     <Value>=First(Fields!method_contain.Value, "DataSetWorkSheet")</Value>
                     <Style>
                       <FontFamily>th Sarabun New</FontFamily>
-                      <FontSize>14pt</FontSize>
+                      <FontSize>12pt</FontSize>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -3101,9 +3101,9 @@
               </Paragraph>
             </Paragraphs>
             <Top>3.175cm</Top>
-            <Left>15.19877cm</Left>
+            <Left>13.3493cm</Left>
             <Height>0.762cm</Height>
-            <Width>3.23111cm</Width>
+            <Width>5.08058cm</Width>
             <ZIndex>10</ZIndex>
             <Style>
               <Border>
@@ -3146,7 +3146,7 @@
                     <Value>=First(Fields!fleet.Value, "DataSetWorkSheet")</Value>
                     <Style>
                       <FontFamily>th Sarabun New</FontFamily>
-                      <FontSize>14pt</FontSize>
+                      <FontSize>12pt</FontSize>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -3154,9 +3154,9 @@
               </Paragraph>
             </Paragraphs>
             <Top>2.413cm</Top>
-            <Left>14.59977cm</Left>
+            <Left>12.7503cm</Left>
             <Height>0.762cm</Height>
-            <Width>3.83011cm</Width>
+            <Width>5.67958cm</Width>
             <ZIndex>11</ZIndex>
             <Style>
               <Border>
@@ -3199,7 +3199,7 @@
                     <Value>=First(Fields!cont1.Value, "DataSetWorkSheet")</Value>
                     <Style>
                       <FontFamily>th Sarabun New</FontFamily>
-                      <FontSize>14pt</FontSize>
+                      <FontSize>12pt</FontSize>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -3209,7 +3209,7 @@
             <Top>2.413cm</Top>
             <Left>2.02298cm</Left>
             <Height>0.762cm</Height>
-            <Width>5.30499cm</Width>
+            <Width>4.21515cm</Width>
             <ZIndex>12</ZIndex>
             <Style>
               <Border>
@@ -3287,7 +3287,7 @@
                         <Value>=First(Fields!method_normal.Value, "DataSetWorkSheet")</Value>
                         <Style>
                           <FontFamily>th Sarabun New</FontFamily>
-                          <FontSize>13pt</FontSize>
+                          <FontSize>12pt</FontSize>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -3394,7 +3394,7 @@
                         <Value>=First(Fields!method_special.Value, "DataSetWorkSheet")</Value>
                         <Style>
                           <FontFamily>th Sarabun New</FontFamily>
-                          <FontSize>14pt</FontSize>
+                          <FontSize>12pt</FontSize>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -3501,7 +3501,7 @@
                         <Value>=First(Fields!remark.Value, "DataSetWorkSheet")</Value>
                         <Style>
                           <FontFamily>th Sarabun New</FontFamily>
-                          <FontSize>14pt</FontSize>
+                          <FontSize>12pt</FontSize>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -3554,7 +3554,7 @@
                         <Value>=First(Fields!source.Value, "DataSetWorkSheet")</Value>
                         <Style>
                           <FontFamily>th Sarabun New</FontFamily>
-                          <FontSize>14pt</FontSize>
+                          <FontSize>12pt</FontSize>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -3562,9 +3562,9 @@
                   </Paragraph>
                 </Paragraphs>
                 <Top>2.27644cm</Top>
-                <Left>2.02295cm</Left>
-                <Height>0.71056cm</Height>
-                <Width>6.88075cm</Width>
+                <Left>1.84656cm</Left>
+                <Height>0.79068cm</Height>
+                <Width>7.05714cm</Width>
                 <ZIndex>6</ZIndex>
                 <Style>
                   <Border>
@@ -3607,7 +3607,7 @@
                         <Value>=First(Fields!destination.Value, "DataSetWorkSheet")</Value>
                         <Style>
                           <FontFamily>th Sarabun New</FontFamily>
-                          <FontSize>14pt</FontSize>
+                          <FontSize>12pt</FontSize>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -3615,9 +3615,9 @@
                   </Paragraph>
                 </Paragraphs>
                 <Top>2.987cm</Top>
-                <Left>2.02294cm</Left>
+                <Left>1.84655cm</Left>
                 <Height>0.82553cm</Height>
-                <Width>6.88075cm</Width>
+                <Width>7.05714cm</Width>
                 <ZIndex>7</ZIndex>
                 <Style>
                   <Border>
@@ -3673,7 +3673,7 @@
                 <Top>2.27644cm</Top>
                 <Left>0.00001cm</Left>
                 <Height>0.71056cm</Height>
-                <Width>2.02297cm</Width>
+                <Width>1.84655cm</Width>
                 <ZIndex>8</ZIndex>
                 <Style>
                   <Border>
@@ -3729,7 +3729,7 @@
                 <Top>2.987cm</Top>
                 <Left>0cm</Left>
                 <Height>0.82552cm</Height>
-                <Width>2.02294cm</Width>
+                <Width>1.84652cm</Width>
                 <ZIndex>9</ZIndex>
                 <Style>
                   <Border>
@@ -3772,7 +3772,7 @@
                         <Value>=First(Fields!date_start.Value, "DataSetWorkSheet")</Value>
                         <Style>
                           <FontFamily>th Sarabun New</FontFamily>
-                          <FontSize>14pt</FontSize>
+                          <FontSize>12pt</FontSize>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -3879,7 +3879,7 @@
                         <Value>=First(Fields!date_end.Value, "DataSetWorkSheet")</Value>
                         <Style>
                           <FontFamily>th Sarabun New</FontFamily>
-                          <FontSize>14pt</FontSize>
+                          <FontSize>12pt</FontSize>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -3986,7 +3986,7 @@
                         <Value>=First(Fields!station.Value, "DataSetWorkSheet")</Value>
                         <Style>
                           <FontFamily>th Sarabun New</FontFamily>
-                          <FontSize>14pt</FontSize>
+                          <FontSize>13pt</FontSize>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -3995,7 +3995,7 @@
                 </Paragraphs>
                 <Top>2.27644cm</Top>
                 <Left>13.80614cm</Left>
-                <Height>0.701cm</Height>
+                <Height>0.79068cm</Height>
                 <Width>4.62374cm</Width>
                 <ZIndex>14</ZIndex>
                 <Style>
@@ -4095,7 +4095,7 @@
                         <Value>=First(Fields!bugget_tran.Value, "DataSetWorkSheet")</Value>
                         <Style>
                           <FontFamily>th Sarabun New</FontFamily>
-                          <FontSize>14pt</FontSize>
+                          <FontSize>12pt</FontSize>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -4272,7 +4272,7 @@
                     <Value>=First(Fields!cont2.Value, "DataSetWorkSheet")</Value>
                     <Style>
                       <FontFamily>th Sarabun New</FontFamily>
-                      <FontSize>14pt</FontSize>
+                      <FontSize>12pt</FontSize>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -4282,7 +4282,7 @@
             <Top>3.175cm</Top>
             <Left>2.02299cm</Left>
             <Height>0.762cm</Height>
-            <Width>5.30499cm</Width>
+            <Width>4.21515cm</Width>
             <ZIndex>15</ZIndex>
             <Style>
               <Border>
@@ -4325,7 +4325,7 @@
                     <Value>=First(Fields!condition_tran.Value, "DataSetWorkSheet")</Value>
                     <Style>
                       <FontFamily>th Sarabun New</FontFamily>
-                      <FontSize>14pt</FontSize>
+                      <FontSize>12pt</FontSize>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -4387,7 +4387,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
             <Top>2.413cm</Top>
-            <Left>7.32798cm</Left>
+            <Left>6.1974cm</Left>
             <Height>0.762cm</Height>
             <Width>1.14505cm</Width>
             <ZIndex>17</ZIndex>
@@ -4441,7 +4441,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
             <Top>3.175cm</Top>
-            <Left>7.32798cm</Left>
+            <Left>6.1974cm</Left>
             <Height>0.762cm</Height>
             <Width>1.14505cm</Width>
             <ZIndex>18</ZIndex>
@@ -4486,7 +4486,7 @@
                     <Value>=First(Fields!cont1.Value, "DataSetWorkSheet")</Value>
                     <Style>
                       <FontFamily>th Sarabun New</FontFamily>
-                      <FontSize>14pt</FontSize>
+                      <FontSize>12pt</FontSize>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -4494,9 +4494,9 @@
               </Paragraph>
             </Paragraphs>
             <Top>2.413cm</Top>
-            <Left>8.47302cm</Left>
+            <Left>7.34245cm</Left>
             <Height>0.762cm</Height>
-            <Width>4.83247cm</Width>
+            <Width>4.11357cm</Width>
             <ZIndex>19</ZIndex>
             <Style>
               <Border>
@@ -4539,7 +4539,7 @@
                     <Value>=First(Fields!cont1.Value, "DataSetWorkSheet")</Value>
                     <Style>
                       <FontFamily>th Sarabun New</FontFamily>
-                      <FontSize>14pt</FontSize>
+                      <FontSize>12pt</FontSize>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -4547,9 +4547,9 @@
               </Paragraph>
             </Paragraphs>
             <Top>3.175cm</Top>
-            <Left>8.47303cm</Left>
+            <Left>7.34246cm</Left>
             <Height>0.762cm</Height>
-            <Width>4.83246cm</Width>
+            <Width>4.11356cm</Width>
             <ZIndex>20</ZIndex>
             <Style>
               <Border>
@@ -4646,7 +4646,7 @@
                     <Value>=Sum(Fields!value_order.Value, "DataSetWorkSheet")</Value>
                     <Style>
                       <FontFamily>th Sarabun New</FontFamily>
-                      <FontSize>14pt</FontSize>
+                      <FontSize>12pt</FontSize>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -4753,7 +4753,7 @@
                     <Value>=Microsoft.VisualBasic.Interaction.IIF( First(Fields!type_tran.Value, "DataSetWorkSheet") = "", "-", First(Fields!type_tran.Value, "DataSetWorkSheet"))</Value>
                     <Style>
                       <FontFamily>th Sarabun New</FontFamily>
-                      <FontSize>14pt</FontSize>
+                      <FontSize>12pt</FontSize>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -6293,7 +6293,7 @@
                     <Value>=First(Fields!branch_name.Value, "DataSetWorkSheet")</Value>
                     <Style>
                       <FontFamily>th Sarabun New</FontFamily>
-                      <FontSize>14pt</FontSize>
+                      <FontSize>13pt</FontSize>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -6397,7 +6397,7 @@
                     <Value>=First(Fields!license_head.Value, "DataSetWorkSheet")</Value>
                     <Style>
                       <FontFamily>th Sarabun New</FontFamily>
-                      <FontSize>14pt</FontSize>
+                      <FontSize>13pt</FontSize>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -6449,7 +6449,7 @@
                     <Value>=First(Fields!style_car_head.Value, "DataSetWorkSheet")</Value>
                     <Style>
                       <FontFamily>th Sarabun New</FontFamily>
-                      <FontSize>14pt</FontSize>
+                      <FontSize>13pt</FontSize>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -6501,7 +6501,7 @@
                     <Value>=Sum(Fields!weight_head.Value, "DataSetWorkSheet")</Value>
                     <Style>
                       <FontFamily>th Sarabun New</FontFamily>
-                      <FontSize>14pt</FontSize>
+                      <FontSize>13pt</FontSize>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -6535,7 +6535,7 @@
                     <Value>=First(Fields!license_tail.Value, "DataSetWorkSheet")</Value>
                     <Style>
                       <FontFamily>th Sarabun New</FontFamily>
-                      <FontSize>14pt</FontSize>
+                      <FontSize>13pt</FontSize>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -6587,7 +6587,7 @@
                     <Value>=First(Fields!style_car_tail.Value, "DataSetWorkSheet")</Value>
                     <Style>
                       <FontFamily>th Sarabun New</FontFamily>
-                      <FontSize>14pt</FontSize>
+                      <FontSize>13pt</FontSize>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -6639,7 +6639,7 @@
                     <Value>=Sum(Fields!weight_tail.Value, "DataSetWorkSheet")</Value>
                     <Style>
                       <FontFamily>th Sarabun New</FontFamily>
-                      <FontSize>14pt</FontSize>
+                      <FontSize>13pt</FontSize>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -7139,7 +7139,7 @@
                     <Value>=Sum(Fields!weight_head.Value, "DataSetWorkSheet")</Value>
                     <Style>
                       <FontFamily>th Sarabun New</FontFamily>
-                      <FontSize>14pt</FontSize>
+                      <FontSize>13pt</FontSize>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -7227,7 +7227,7 @@
                     <Value>=First(Fields!tank_number.Value, "DataSetWorkSheet")</Value>
                     <Style>
                       <FontFamily>th Sarabun New</FontFamily>
-                      <FontSize>14pt</FontSize>
+                      <FontSize>13pt</FontSize>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -7335,7 +7335,7 @@
                     <Value>=First(Fields!style_tank.Value, "DataSetWorkSheet")</Value>
                     <Style>
                       <FontFamily>th Sarabun New</FontFamily>
-                      <FontSize>14pt</FontSize>
+                      <FontSize>13pt</FontSize>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -7443,7 +7443,7 @@
                     <Value>=First(Fields!weight_tank.Value, "DataSetWorkSheet")</Value>
                     <Style>
                       <FontFamily>th Sarabun New</FontFamily>
-                      <FontSize>14pt</FontSize>
+                      <FontSize>13pt</FontSize>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -7880,87 +7880,23 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>="จัดทำใบงานโดย :" &amp; First(Fields!update_by_user_id.Value, "DataSetWorkSheet")</Value>
+                  <Value>="จัดทำใบงานโดย :" &amp; First(Fields!update_by_user_id.Value, "DataSetWorkSheet") &amp; "  -  วันเวลาที่ : " &amp;First(Fields!update_date.Value, "DataSetWorkSheet") &amp; "  -  เอกสารเลขที่ " &amp; First(Fields!tran_code.Value, "DataSetWorkSheet") &amp; "  หน้าที่ " &amp; Globals.PageNumber &amp; "/" &amp; Globals.TotalPages</Value>
                   <Style>
                     <FontFamily>th Sarabun New</FontFamily>
                     <FontSize>12pt</FontSize>
                   </Style>
                 </TextRun>
               </TextRuns>
-              <Style />
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox8</rd:DefaultName>
           <Top>0.17639cm</Top>
-          <Left>1.00442cm</Left>
+          <Left>1.28418cm</Left>
           <Height>0.6cm</Height>
-          <Width>7.64407cm</Width>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <PaddingLeft>2pt</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
-            <PaddingTop>2pt</PaddingTop>
-            <PaddingBottom>2pt</PaddingBottom>
-          </Style>
-        </Textbox>
-        <Textbox Name="Textbox26">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>= "วันเวลาที่ : " &amp;First(Fields!update_date.Value, "DataSetWorkSheet")</Value>
-                  <Style>
-                    <FontFamily>th Sarabun New</FontFamily>
-                    <FontSize>12pt</FontSize>
-                  </Style>
-                </TextRun>
-              </TextRuns>
-              <Style />
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>Textbox8</rd:DefaultName>
-          <Top>0.17639cm</Top>
-          <Left>8.96102cm</Left>
-          <Height>0.6cm</Height>
-          <Width>4.64087cm</Width>
-          <ZIndex>1</ZIndex>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <PaddingLeft>2pt</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
-            <PaddingTop>2pt</PaddingTop>
-            <PaddingBottom>2pt</PaddingBottom>
-          </Style>
-        </Textbox>
-        <Textbox Name="Textbox43">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>= "เอกสารเลขที่ " &amp; First(Fields!tran_code.Value, "DataSetWorkSheet") &amp; "  หน้าที่ " &amp; Globals.PageNumber &amp; "/" &amp; Globals.TotalPages</Value>
-                  <Style>
-                    <FontFamily>th Sarabun New</FontFamily>
-                    <FontSize>12pt</FontSize>
-                  </Style>
-                </TextRun>
-              </TextRuns>
-              <Style />
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>Textbox8</rd:DefaultName>
-          <Top>0.14111cm</Top>
-          <Left>13.77828cm</Left>
-          <Height>0.6cm</Height>
-          <Width>5.80174cm</Width>
-          <ZIndex>2</ZIndex>
+          <Width>18.34516cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -8248,10 +8184,6 @@
           <DataField>date_end</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
-        <Field Name="value_order">
-          <DataField>value_order</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
         <Field Name="type_tran">
           <DataField>type_tran</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -8279,6 +8211,14 @@
         <Field Name="eq_weight">
           <DataField>eq_weight</DataField>
           <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="method_condition">
+          <DataField>method_condition</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="value_order">
+          <DataField>value_order</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
