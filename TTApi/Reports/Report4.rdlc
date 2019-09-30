@@ -968,9 +968,9 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Fields!tran_code.Value, "DataSetWorkSheet")</Value>
+                <Value>="http://tabien.threetrans.com" &amp; (First(Fields!pic_drive1.Value, "DataSetWorkSheet")).Trim("..")</Value>
                 <Style>
-                  <FontFamily>AlphanumericQR</FontFamily>
+                  <FontFamily>AngsanaUPC</FontFamily>
                   <FontSize>14pt</FontSize>
                 </Style>
               </TextRun>
@@ -1214,7 +1214,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
             <Top>2.413cm</Top>
-            <Left>10.25946cm</Left>
+            <Left>9.59048cm</Left>
             <Height>0.762cm</Height>
             <Width>0.87095cm</Width>
             <ZIndex>4</ZIndex>
@@ -1268,7 +1268,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
             <Top>3.175cm</Top>
-            <Left>10.26781cm</Left>
+            <Left>9.59048cm</Left>
             <Height>0.762cm</Height>
             <Width>1.91936cm</Width>
             <ZIndex>5</ZIndex>
@@ -1535,9 +1535,9 @@
               </Paragraph>
             </Paragraphs>
             <Top>3.175cm</Top>
-            <Left>12.18716cm</Left>
+            <Left>11.50984cm</Left>
             <Height>0.762cm</Height>
-            <Width>6.26459cm</Width>
+            <Width>6.94191cm</Width>
             <ZIndex>10</ZIndex>
             <Style>
               <Border>
@@ -1588,9 +1588,9 @@
               </Paragraph>
             </Paragraphs>
             <Top>2.413cm</Top>
-            <Left>11.13041cm</Left>
+            <Left>10.45308cm</Left>
             <Height>0.762cm</Height>
-            <Width>7.32134cm</Width>
+            <Width>7.99867cm</Width>
             <ZIndex>11</ZIndex>
             <Style>
               <Border>
@@ -1643,7 +1643,7 @@
             <Top>2.413cm</Top>
             <Left>1.86841cm</Left>
             <Height>0.762cm</Height>
-            <Width>3.77776cm</Width>
+            <Width>3.49058cm</Width>
             <ZIndex>12</ZIndex>
             <Style>
               <Border>
@@ -2274,7 +2274,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value />
+                            <Value>=First(Fields!date_end.Value, "DataSetWorkSheet")</Value>
                             <Style>
                               <FontFamily>th Sarabun New</FontFamily>
                               <FontSize>12pt</FontSize>
@@ -2484,9 +2484,9 @@
                       </Paragraph>
                     </Paragraphs>
                     <Top>1.47256cm</Top>
-                    <Left>15.53123cm</Left>
+                    <Left>15.39012cm</Left>
                     <Height>0.82552cm</Height>
-                    <Width>2.89865cm</Width>
+                    <Width>3.03976cm</Width>
                     <ZIndex>12</ZIndex>
                     <Style>
                       <Border>
@@ -2542,7 +2542,7 @@
                     <Top>1.47256cm</Top>
                     <Left>12.47224cm</Left>
                     <Height>0.82552cm</Height>
-                    <Width>3.11915cm</Width>
+                    <Width>2.91788cm</Width>
                     <ZIndex>13</ZIndex>
                     <Style>
                       <Border>
@@ -2696,7 +2696,7 @@
             <Top>3.175cm</Top>
             <Left>1.86842cm</Left>
             <Height>0.762cm</Height>
-            <Width>3.77775cm</Width>
+            <Width>3.49057cm</Width>
             <ZIndex>15</ZIndex>
             <Style>
               <Border>
@@ -2801,7 +2801,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
             <Top>2.413cm</Top>
-            <Left>5.64617cm</Left>
+            <Left>5.35899cm</Left>
             <Height>0.762cm</Height>
             <Width>1.0894cm</Width>
             <ZIndex>17</ZIndex>
@@ -2855,7 +2855,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
             <Top>3.175cm</Top>
-            <Left>5.64617cm</Left>
+            <Left>5.35899cm</Left>
             <Height>0.762cm</Height>
             <Width>1.0894cm</Width>
             <ZIndex>18</ZIndex>
@@ -2908,9 +2908,9 @@
               </Paragraph>
             </Paragraphs>
             <Top>2.413cm</Top>
-            <Left>6.73556cm</Left>
+            <Left>6.3641cm</Left>
             <Height>0.762cm</Height>
-            <Width>3.53225cm</Width>
+            <Width>3.22638cm</Width>
             <ZIndex>19</ZIndex>
             <Style>
               <Border>
@@ -2961,9 +2961,9 @@
               </Paragraph>
             </Paragraphs>
             <Top>3.175cm</Top>
-            <Left>6.73557cm</Left>
+            <Left>6.36411cm</Left>
             <Height>0.762cm</Height>
-            <Width>3.53224cm</Width>
+            <Width>3.22637cm</Width>
             <ZIndex>20</ZIndex>
             <Style>
               <Border>
@@ -3373,8 +3373,8 @@
       <Rectangle Name="Rectangle2">
         <ReportItems>
           <Image Name="Image9">
-            <Source>Database</Source>
-            <Value>=First(Fields!pic_drive3.Value, "DataSetWorkSheet")</Value>
+            <Source>External</Source>
+            <Value>="http://tabien.threetrans.com" &amp; (First(Fields!pic_drive3.Value, "DataSetWorkSheet")).Trim("..")</Value>
             <MIMEType>image/jpeg</MIMEType>
             <Sizing>FitProportional</Sizing>
             <Top>0cm</Top>
@@ -3480,7 +3480,7 @@
             </Paragraphs>
             <Top>0.03018cm</Top>
             <Left>0cm</Left>
-            <Height>0.75256cm</Height>
+            <Height>0.75257cm</Height>
             <Width>1.16457cm</Width>
             <Style>
               <Border>
@@ -3512,131 +3512,6 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
-          <Rectangle Name="Rectangle7">
-            <ReportItems>
-              <Textbox Name="lb53">
-                <CanGrow>true</CanGrow>
-                <KeepTogether>true</KeepTogether>
-                <Paragraphs>
-                  <Paragraph>
-                    <TextRuns>
-                      <TextRun>
-                        <Value>ฝึกงาน</Value>
-                        <Style>
-                          <FontFamily>th Sarabun New</FontFamily>
-                          <FontSize>12pt</FontSize>
-                        </Style>
-                      </TextRun>
-                    </TextRuns>
-                    <Style>
-                      <TextAlign>Center</TextAlign>
-                    </Style>
-                  </Paragraph>
-                </Paragraphs>
-                <Top>0.00381cm</Top>
-                <Left>0cm</Left>
-                <Height>0.76384cm</Height>
-                <Width>1.1703cm</Width>
-                <Style>
-                  <Border>
-                    <Style>Solid</Style>
-                  </Border>
-                  <TopBorder>
-                    <Color>Black</Color>
-                    <Style>Solid</Style>
-                    <Width>1pt</Width>
-                  </TopBorder>
-                  <BottomBorder>
-                    <Color>Black</Color>
-                    <Style>Solid</Style>
-                    <Width>1pt</Width>
-                  </BottomBorder>
-                  <LeftBorder>
-                    <Color>Black</Color>
-                    <Style>Solid</Style>
-                    <Width>1pt</Width>
-                  </LeftBorder>
-                  <RightBorder>
-                    <Color>Black</Color>
-                    <Style>Solid</Style>
-                    <Width>1pt</Width>
-                  </RightBorder>
-                  <PaddingLeft>2pt</PaddingLeft>
-                  <PaddingRight>2pt</PaddingRight>
-                  <PaddingTop>2pt</PaddingTop>
-                  <PaddingBottom>2pt</PaddingBottom>
-                </Style>
-              </Textbox>
-              <Textbox Name="txt146">
-                <CanGrow>true</CanGrow>
-                <KeepTogether>true</KeepTogether>
-                <Paragraphs>
-                  <Paragraph>
-                    <TextRuns>
-                      <TextRun>
-                        <Value>=Microsoft.VisualBasic.Interaction.IIF( First(Fields!driver4.Value, "DataSetWorkSheet") = "", "-", First(Fields!driver4.Value, "DataSetWorkSheet"))</Value>
-                        <Style>
-                          <FontFamily>th Sarabun New</FontFamily>
-                          <FontSize>12pt</FontSize>
-                        </Style>
-                      </TextRun>
-                    </TextRuns>
-                    <Style>
-                      <TextAlign>Center</TextAlign>
-                    </Style>
-                  </Paragraph>
-                </Paragraphs>
-                <Top>0.00381cm</Top>
-                <Left>1.16344cm</Left>
-                <Height>0.75256cm</Height>
-                <Width>4.17723cm</Width>
-                <ZIndex>1</ZIndex>
-                <Style>
-                  <Border>
-                    <Style>Solid</Style>
-                  </Border>
-                  <TopBorder>
-                    <Color>Black</Color>
-                    <Style>Solid</Style>
-                    <Width>1pt</Width>
-                  </TopBorder>
-                  <BottomBorder>
-                    <Color>Black</Color>
-                    <Style>Solid</Style>
-                    <Width>1pt</Width>
-                  </BottomBorder>
-                  <LeftBorder>
-                    <Color>Black</Color>
-                    <Style>Solid</Style>
-                    <Width>1pt</Width>
-                  </LeftBorder>
-                  <RightBorder>
-                    <Color>Black</Color>
-                    <Style>Solid</Style>
-                    <Width>1pt</Width>
-                  </RightBorder>
-                  <PaddingLeft>2pt</PaddingLeft>
-                  <PaddingRight>2pt</PaddingRight>
-                  <PaddingTop>2pt</PaddingTop>
-                  <PaddingBottom>2pt</PaddingBottom>
-                </Style>
-              </Textbox>
-            </ReportItems>
-            <KeepTogether>true</KeepTogether>
-            <Top>0.76766cm</Top>
-            <Left>0.00113cm</Left>
-            <Height>0.77147cm</Height>
-            <Width>9.99645cm</Width>
-            <ZIndex>1</ZIndex>
-            <Visibility>
-              <Hidden>true</Hidden>
-            </Visibility>
-            <Style>
-              <Border>
-                <Style>Solid</Style>
-              </Border>
-            </Style>
-          </Rectangle>
           <Textbox Name="txt141">
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
@@ -3660,61 +3535,7 @@
             <Left>1.17143cm</Left>
             <Height>0.75256cm</Height>
             <Width>4.17037cm</Width>
-            <ZIndex>2</ZIndex>
-            <Style>
-              <Border>
-                <Style>Solid</Style>
-              </Border>
-              <TopBorder>
-                <Color>Black</Color>
-                <Style>Solid</Style>
-                <Width>1pt</Width>
-              </TopBorder>
-              <BottomBorder>
-                <Color>Black</Color>
-                <Style>Solid</Style>
-                <Width>1pt</Width>
-              </BottomBorder>
-              <LeftBorder>
-                <Color>Black</Color>
-                <Style>Solid</Style>
-                <Width>1pt</Width>
-              </LeftBorder>
-              <RightBorder>
-                <Color>Black</Color>
-                <Style>Solid</Style>
-                <Width>1pt</Width>
-              </RightBorder>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="txt138">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=First(Fields!driver4_license_start.Value, "DataSetWorkSheet") &amp; " / " &amp; First(Fields!driver4_license_expire.Value, "DataSetWorkSheet")</Value>
-                    <Style>
-                      <FontFamily>th Sarabun New</FontFamily>
-                      <FontSize>12pt</FontSize>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Center</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <Top>0.76766cm</Top>
-            <Left>5.3418cm</Left>
-            <Height>0.77147cm</Height>
-            <Width>4.65578cm</Width>
-            <ZIndex>3</ZIndex>
+            <ZIndex>1</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -3766,9 +3587,9 @@
             </Paragraphs>
             <Top>0cm</Top>
             <Left>5.3418cm</Left>
-            <Height>0.77147cm</Height>
+            <Height>0.78275cm</Height>
             <Width>4.65578cm</Width>
-            <ZIndex>4</ZIndex>
+            <ZIndex>2</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -3803,7 +3624,7 @@
         <KeepTogether>true</KeepTogether>
         <Top>4.73389cm</Top>
         <Left>1.30136cm</Left>
-        <Height>1.53913cm</Height>
+        <Height>0.78275cm</Height>
         <Width>9.99758cm</Width>
         <ZIndex>26</ZIndex>
         <Visibility>
@@ -3838,8 +3659,8 @@
       <Rectangle Name="Rectangle8">
         <ReportItems>
           <Image Name="Image8">
-            <Source>Database</Source>
-            <Value>=First(Fields!pic_drive2.Value, "DataSetWorkSheet")</Value>
+            <Source>External</Source>
+            <Value>="http://tabien.threetrans.com" &amp; (First(Fields!pic_drive2.Value, "DataSetWorkSheet")).Trim("..")</Value>
             <MIMEType>image/jpeg</MIMEType>
             <Sizing>FitProportional</Sizing>
             <Top>0.01129cm</Top>
@@ -3945,8 +3766,8 @@
       <Rectangle Name="Rectangle9">
         <ReportItems>
           <Image Name="Image1">
-            <Source>Database</Source>
-            <Value>="http://tabien.threetrans.com" &amp; First(Fields!pic_drive1.Value, "DataSetWorkSheet").ToString.TrimStart("..")</Value>
+            <Source>External</Source>
+            <Value>="http://tabien.threetrans.com" &amp; (First(Fields!pic_drive1.Value, "DataSetWorkSheet")).Trim("..")</Value>
             <MIMEType>image/jpeg</MIMEType>
             <Sizing>FitProportional</Sizing>
             <Top>0cm</Top>
@@ -4392,7 +4213,7 @@
             <Top>2.25354cm</Top>
             <Left>2.5598cm</Left>
             <Height>0.76906cm</Height>
-            <Width>4.66964cm</Width>
+            <Width>3.06097cm</Width>
             <ZIndex>6</ZIndex>
             <Style>
               <Border>
@@ -4442,9 +4263,9 @@
               </Paragraph>
             </Paragraphs>
             <Top>2.25354cm</Top>
-            <Left>7.22944cm</Left>
+            <Left>5.62077cm</Left>
             <Height>0.76906cm</Height>
-            <Width>4.99517cm</Width>
+            <Width>6.60384cm</Width>
             <ZIndex>7</ZIndex>
             <Style>
               <Border>
@@ -4530,7 +4351,7 @@
             <Top>3.01554cm</Top>
             <Left>2.5598cm</Left>
             <Height>0.762cm</Height>
-            <Width>4.66964cm</Width>
+            <Width>3.06097cm</Width>
             <ZIndex>9</ZIndex>
             <Style>
               <Border>
@@ -4580,9 +4401,9 @@
               </Paragraph>
             </Paragraphs>
             <Top>3.01554cm</Top>
-            <Left>7.22944cm</Left>
+            <Left>5.62077cm</Left>
             <Height>0.76906cm</Height>
-            <Width>4.99516cm</Width>
+            <Width>6.60383cm</Width>
             <ZIndex>10</ZIndex>
             <Style>
               <Border>
@@ -6120,7 +5941,9 @@
                 <Value>รูปภาพพนักงานขับรถ</Value>
                 <Style>
                   <FontFamily>th Sarabun New</FontFamily>
-                  <FontSize>12pt</FontSize>
+                  <FontSize>14pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                  <TextDecoration>None</TextDecoration>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -6129,9 +5952,9 @@
             </Style>
           </Paragraph>
         </Paragraphs>
-        <Top>2.48748cm</Top>
+        <Top>2.41692cm</Top>
         <Left>13.58701cm</Left>
-        <Height>0.75255cm</Height>
+        <Height>0.82312cm</Height>
         <Width>4.07785cm</Width>
         <ZIndex>36</ZIndex>
         <Style>
@@ -8100,6 +7923,185 @@
           </Border>
         </Style>
       </Rectangle>
+      <Rectangle Name="Rectangle7">
+        <ReportItems>
+          <Textbox Name="lb53">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>ฝึกงาน</Value>
+                    <Style>
+                      <FontFamily>th Sarabun New</FontFamily>
+                      <FontSize>12pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <Top>0.00381cm</Top>
+            <Left>0cm</Left>
+            <Height>0.65417cm</Height>
+            <Width>1.1703cm</Width>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+              </Border>
+              <TopBorder>
+                <Color>Black</Color>
+                <Style>Solid</Style>
+                <Width>1pt</Width>
+              </TopBorder>
+              <BottomBorder>
+                <Color>Black</Color>
+                <Style>Solid</Style>
+                <Width>1pt</Width>
+              </BottomBorder>
+              <LeftBorder>
+                <Color>Black</Color>
+                <Style>Solid</Style>
+                <Width>1pt</Width>
+              </LeftBorder>
+              <RightBorder>
+                <Color>Black</Color>
+                <Style>Solid</Style>
+                <Width>1pt</Width>
+              </RightBorder>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="txt146">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Microsoft.VisualBasic.Interaction.IIF( First(Fields!driver4.Value, "DataSetWorkSheet") = "", "-", First(Fields!driver4.Value, "DataSetWorkSheet"))</Value>
+                    <Style>
+                      <FontFamily>th Sarabun New</FontFamily>
+                      <FontSize>12pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <Top>0.00381cm</Top>
+            <Left>1.16344cm</Left>
+            <Height>0.65799cm</Height>
+            <Width>4.17723cm</Width>
+            <ZIndex>1</ZIndex>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+              </Border>
+              <TopBorder>
+                <Color>Black</Color>
+                <Style>Solid</Style>
+                <Width>1pt</Width>
+              </TopBorder>
+              <BottomBorder>
+                <Color>Black</Color>
+                <Style>Solid</Style>
+                <Width>1pt</Width>
+              </BottomBorder>
+              <LeftBorder>
+                <Color>Black</Color>
+                <Style>Solid</Style>
+                <Width>1pt</Width>
+              </LeftBorder>
+              <RightBorder>
+                <Color>Black</Color>
+                <Style>Solid</Style>
+                <Width>1pt</Width>
+              </RightBorder>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="txt138">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!driver4_license_start.Value, "DataSetWorkSheet") &amp; " / " &amp; First(Fields!driver4_license_expire.Value, "DataSetWorkSheet")</Value>
+                    <Style>
+                      <FontFamily>th Sarabun New</FontFamily>
+                      <FontSize>12pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <Top>0cm</Top>
+            <Left>5.34067cm</Left>
+            <Height>0.6618cm</Height>
+            <Width>4.65578cm</Width>
+            <ZIndex>2</ZIndex>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+              </Border>
+              <TopBorder>
+                <Color>Black</Color>
+                <Style>Solid</Style>
+                <Width>1pt</Width>
+              </TopBorder>
+              <BottomBorder>
+                <Color>Black</Color>
+                <Style>Solid</Style>
+                <Width>1pt</Width>
+              </BottomBorder>
+              <LeftBorder>
+                <Color>Black</Color>
+                <Style>Solid</Style>
+                <Width>1pt</Width>
+              </LeftBorder>
+              <RightBorder>
+                <Color>Black</Color>
+                <Style>Solid</Style>
+                <Width>1pt</Width>
+              </RightBorder>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+        </ReportItems>
+        <KeepTogether>true</KeepTogether>
+        <Top>5.59229cm</Top>
+        <Left>1.2805cm</Left>
+        <Height>0.6618cm</Height>
+        <Width>9.99645cm</Width>
+        <ZIndex>40</ZIndex>
+        <Visibility>
+          <Hidden>true</Hidden>
+        </Visibility>
+        <Style>
+          <Border>
+            <Style>Solid</Style>
+          </Border>
+        </Style>
+      </Rectangle>
     </ReportItems>
     <Height>27.52235cm</Height>
     <Style>
@@ -8384,18 +8386,6 @@
           <DataField>weight_tail</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="tank_number">
-          <DataField>tank_number</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="style_tank">
-          <DataField>style_tank</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="weight_tank">
-          <DataField>weight_tank</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
         <Field Name="weight_fuel_driver">
           <DataField>weight_fuel_driver</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
@@ -8470,6 +8460,18 @@
         </Field>
         <Field Name="date_end">
           <DataField>date_end</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="tank_number">
+          <DataField>tank_number</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="style_tank">
+          <DataField>style_tank</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="weight_tank">
+          <DataField>weight_tank</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
