@@ -375,12 +375,6 @@ namespace TTApi.Models {
             
             private global::System.Data.DataColumn columnweight_tail;
             
-            private global::System.Data.DataColumn columntank_number;
-            
-            private global::System.Data.DataColumn columnstyle_tank;
-            
-            private global::System.Data.DataColumn columnweight_tank;
-            
             private global::System.Data.DataColumn columnweight_fuel_driver;
             
             private global::System.Data.DataColumn columnpic_drive1;
@@ -418,6 +412,12 @@ namespace TTApi.Models {
             private global::System.Data.DataColumn columndate_start;
             
             private global::System.Data.DataColumn columndate_end;
+            
+            private global::System.Data.DataColumn columntank_number;
+            
+            private global::System.Data.DataColumn columnstyle_tank;
+            
+            private global::System.Data.DataColumn columnweight_tank;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -838,30 +838,6 @@ namespace TTApi.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn tank_numberColumn {
-                get {
-                    return this.columntank_number;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn style_tankColumn {
-                get {
-                    return this.columnstyle_tank;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn weight_tankColumn {
-                get {
-                    return this.columnweight_tank;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn weight_fuel_driverColumn {
                 get {
                     return this.columnweight_fuel_driver;
@@ -1014,6 +990,30 @@ namespace TTApi.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn tank_numberColumn {
+                get {
+                    return this.columntank_number;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn style_tankColumn {
+                get {
+                    return this.columnstyle_tank;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn weight_tankColumn {
+                get {
+                    return this.columnweight_tank;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1098,9 +1098,6 @@ namespace TTApi.Models {
                         string driver3_license_expire, 
                         int weight_head, 
                         int weight_tail, 
-                        string tank_number, 
-                        string style_tank, 
-                        string weight_tank, 
                         int weight_fuel_driver, 
                         string pic_drive1, 
                         string pic_drive2, 
@@ -1119,7 +1116,10 @@ namespace TTApi.Models {
                         string value_order, 
                         string date_work, 
                         string date_start, 
-                        string date_end) {
+                        string date_end, 
+                        string tank_number, 
+                        string style_tank, 
+                        string weight_tank) {
                 sp_WorkSheetRow rowsp_WorkSheetRow = ((sp_WorkSheetRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         kind,
@@ -1170,9 +1170,6 @@ namespace TTApi.Models {
                         driver3_license_expire,
                         weight_head,
                         weight_tail,
-                        tank_number,
-                        style_tank,
-                        weight_tank,
                         weight_fuel_driver,
                         pic_drive1,
                         pic_drive2,
@@ -1191,7 +1188,10 @@ namespace TTApi.Models {
                         value_order,
                         date_work,
                         date_start,
-                        date_end};
+                        date_end,
+                        tank_number,
+                        style_tank,
+                        weight_tank};
                 rowsp_WorkSheetRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowsp_WorkSheetRow);
                 return rowsp_WorkSheetRow;
@@ -1262,9 +1262,6 @@ namespace TTApi.Models {
                 this.columndriver3_license_expire = base.Columns["driver3_license_expire"];
                 this.columnweight_head = base.Columns["weight_head"];
                 this.columnweight_tail = base.Columns["weight_tail"];
-                this.columntank_number = base.Columns["tank_number"];
-                this.columnstyle_tank = base.Columns["style_tank"];
-                this.columnweight_tank = base.Columns["weight_tank"];
                 this.columnweight_fuel_driver = base.Columns["weight_fuel_driver"];
                 this.columnpic_drive1 = base.Columns["pic_drive1"];
                 this.columnpic_drive2 = base.Columns["pic_drive2"];
@@ -1284,6 +1281,9 @@ namespace TTApi.Models {
                 this.columndate_work = base.Columns["date_work"];
                 this.columndate_start = base.Columns["date_start"];
                 this.columndate_end = base.Columns["date_end"];
+                this.columntank_number = base.Columns["tank_number"];
+                this.columnstyle_tank = base.Columns["style_tank"];
+                this.columnweight_tank = base.Columns["weight_tank"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1389,12 +1389,6 @@ namespace TTApi.Models {
                 base.Columns.Add(this.columnweight_head);
                 this.columnweight_tail = new global::System.Data.DataColumn("weight_tail", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnweight_tail);
-                this.columntank_number = new global::System.Data.DataColumn("tank_number", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columntank_number);
-                this.columnstyle_tank = new global::System.Data.DataColumn("style_tank", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnstyle_tank);
-                this.columnweight_tank = new global::System.Data.DataColumn("weight_tank", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnweight_tank);
                 this.columnweight_fuel_driver = new global::System.Data.DataColumn("weight_fuel_driver", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnweight_fuel_driver);
                 this.columnpic_drive1 = new global::System.Data.DataColumn("pic_drive1", typeof(string), null, global::System.Data.MappingType.Element);
@@ -1433,6 +1427,12 @@ namespace TTApi.Models {
                 base.Columns.Add(this.columndate_start);
                 this.columndate_end = new global::System.Data.DataColumn("date_end", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndate_end);
+                this.columntank_number = new global::System.Data.DataColumn("tank_number", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntank_number);
+                this.columnstyle_tank = new global::System.Data.DataColumn("style_tank", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnstyle_tank);
+                this.columnweight_tank = new global::System.Data.DataColumn("weight_tank", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnweight_tank);
                 this.columnkind.ReadOnly = true;
                 this.columnkind.MaxLength = 19;
                 this.columntran_code.ReadOnly = true;
@@ -1524,12 +1524,6 @@ namespace TTApi.Models {
                 this.columndriver3_license_expire.MaxLength = 30;
                 this.columnweight_head.ReadOnly = true;
                 this.columnweight_tail.ReadOnly = true;
-                this.columntank_number.ReadOnly = true;
-                this.columntank_number.MaxLength = 1;
-                this.columnstyle_tank.ReadOnly = true;
-                this.columnstyle_tank.MaxLength = 1;
-                this.columnweight_tank.ReadOnly = true;
-                this.columnweight_tank.MaxLength = 1;
                 this.columnweight_fuel_driver.ReadOnly = true;
                 this.columnpic_drive1.ReadOnly = true;
                 this.columnpic_drive1.MaxLength = 2147483647;
@@ -1564,6 +1558,12 @@ namespace TTApi.Models {
                 this.columndate_start.MaxLength = 30;
                 this.columndate_end.ReadOnly = true;
                 this.columndate_end.MaxLength = 30;
+                this.columntank_number.ReadOnly = true;
+                this.columntank_number.MaxLength = 150;
+                this.columnstyle_tank.ReadOnly = true;
+                this.columnstyle_tank.MaxLength = 150;
+                this.columnweight_tank.ReadOnly = true;
+                this.columnweight_tank.MaxLength = 150;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2474,54 +2474,6 @@ namespace TTApi.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string tank_number {
-                get {
-                    try {
-                        return ((string)(this[this.tablesp_WorkSheet.tank_numberColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'tank_number\' in table \'sp_WorkSheet\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_WorkSheet.tank_numberColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string style_tank {
-                get {
-                    try {
-                        return ((string)(this[this.tablesp_WorkSheet.style_tankColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'style_tank\' in table \'sp_WorkSheet\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_WorkSheet.style_tankColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string weight_tank {
-                get {
-                    try {
-                        return ((string)(this[this.tablesp_WorkSheet.weight_tankColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'weight_tank\' in table \'sp_WorkSheet\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_WorkSheet.weight_tankColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public int weight_fuel_driver {
                 get {
                     try {
@@ -2822,6 +2774,54 @@ namespace TTApi.Models {
                 }
                 set {
                     this[this.tablesp_WorkSheet.date_endColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string tank_number {
+                get {
+                    try {
+                        return ((string)(this[this.tablesp_WorkSheet.tank_numberColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'tank_number\' in table \'sp_WorkSheet\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_WorkSheet.tank_numberColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string style_tank {
+                get {
+                    try {
+                        return ((string)(this[this.tablesp_WorkSheet.style_tankColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'style_tank\' in table \'sp_WorkSheet\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_WorkSheet.style_tankColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string weight_tank {
+                get {
+                    try {
+                        return ((string)(this[this.tablesp_WorkSheet.weight_tankColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'weight_tank\' in table \'sp_WorkSheet\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_WorkSheet.weight_tankColumn] = value;
                 }
             }
             
@@ -3403,42 +3403,6 @@ namespace TTApi.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Istank_numberNull() {
-                return this.IsNull(this.tablesp_WorkSheet.tank_numberColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Settank_numberNull() {
-                this[this.tablesp_WorkSheet.tank_numberColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Isstyle_tankNull() {
-                return this.IsNull(this.tablesp_WorkSheet.style_tankColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setstyle_tankNull() {
-                this[this.tablesp_WorkSheet.style_tankColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Isweight_tankNull() {
-                return this.IsNull(this.tablesp_WorkSheet.weight_tankColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setweight_tankNull() {
-                this[this.tablesp_WorkSheet.weight_tankColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool Isweight_fuel_driverNull() {
                 return this.IsNull(this.tablesp_WorkSheet.weight_fuel_driverColumn);
             }
@@ -3664,6 +3628,42 @@ namespace TTApi.Models {
             public void Setdate_endNull() {
                 this[this.tablesp_WorkSheet.date_endColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Istank_numberNull() {
+                return this.IsNull(this.tablesp_WorkSheet.tank_numberColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Settank_numberNull() {
+                this[this.tablesp_WorkSheet.tank_numberColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isstyle_tankNull() {
+                return this.IsNull(this.tablesp_WorkSheet.style_tankColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setstyle_tankNull() {
+                this[this.tablesp_WorkSheet.style_tankColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isweight_tankNull() {
+                return this.IsNull(this.tablesp_WorkSheet.weight_tankColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setweight_tankNull() {
+                this[this.tablesp_WorkSheet.weight_tankColumn] = global::System.Convert.DBNull;
+            }
         }
         
         /// <summary>
@@ -3873,9 +3873,6 @@ namespace TTApi.Models.DataSetWorkSheetTableAdapters {
             tableMapping.ColumnMappings.Add("driver3_license_expire", "driver3_license_expire");
             tableMapping.ColumnMappings.Add("weight_head", "weight_head");
             tableMapping.ColumnMappings.Add("weight_tail", "weight_tail");
-            tableMapping.ColumnMappings.Add("tank_number", "tank_number");
-            tableMapping.ColumnMappings.Add("style_tank", "style_tank");
-            tableMapping.ColumnMappings.Add("weight_tank", "weight_tank");
             tableMapping.ColumnMappings.Add("weight_fuel_driver", "weight_fuel_driver");
             tableMapping.ColumnMappings.Add("pic_drive1", "pic_drive1");
             tableMapping.ColumnMappings.Add("pic_drive2", "pic_drive2");
@@ -3895,6 +3892,9 @@ namespace TTApi.Models.DataSetWorkSheetTableAdapters {
             tableMapping.ColumnMappings.Add("date_work", "date_work");
             tableMapping.ColumnMappings.Add("date_start", "date_start");
             tableMapping.ColumnMappings.Add("date_end", "date_end");
+            tableMapping.ColumnMappings.Add("tank_number", "tank_number");
+            tableMapping.ColumnMappings.Add("style_tank", "style_tank");
+            tableMapping.ColumnMappings.Add("weight_tank", "weight_tank");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

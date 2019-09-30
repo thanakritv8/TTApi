@@ -70,9 +70,6 @@
               <Mapping SourceColumn="driver3_license_expire" DataSetColumn="driver3_license_expire" />
               <Mapping SourceColumn="weight_head" DataSetColumn="weight_head" />
               <Mapping SourceColumn="weight_tail" DataSetColumn="weight_tail" />
-              <Mapping SourceColumn="tank_number" DataSetColumn="tank_number" />
-              <Mapping SourceColumn="style_tank" DataSetColumn="style_tank" />
-              <Mapping SourceColumn="weight_tank" DataSetColumn="weight_tank" />
               <Mapping SourceColumn="weight_fuel_driver" DataSetColumn="weight_fuel_driver" />
               <Mapping SourceColumn="pic_drive1" DataSetColumn="pic_drive1" />
               <Mapping SourceColumn="pic_drive2" DataSetColumn="pic_drive2" />
@@ -92,6 +89,9 @@
               <Mapping SourceColumn="date_work" DataSetColumn="date_work" />
               <Mapping SourceColumn="date_start" DataSetColumn="date_start" />
               <Mapping SourceColumn="date_end" DataSetColumn="date_end" />
+              <Mapping SourceColumn="tank_number" DataSetColumn="tank_number" />
+              <Mapping SourceColumn="style_tank" DataSetColumn="style_tank" />
+              <Mapping SourceColumn="weight_tank" DataSetColumn="weight_tank" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -103,7 +103,7 @@
   <xs:element name="DataSetWorkSheet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSetWorkSheet" msprop:Generator_UserDSName="DataSetWorkSheet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="sp_WorkSheet" msprop:Generator_TableClassName="sp_WorkSheetDataTable" msprop:Generator_TableVarName="tablesp_WorkSheet" msprop:Generator_TablePropName="sp_WorkSheet" msprop:Generator_RowDeletingName="sp_WorkSheetRowDeleting" msprop:Generator_RowChangingName="sp_WorkSheetRowChanging" msprop:Generator_RowEvHandlerName="sp_WorkSheetRowChangeEventHandler" msprop:Generator_RowDeletedName="sp_WorkSheetRowDeleted" msprop:Generator_UserTableName="sp_WorkSheet" msprop:Generator_RowChangedName="sp_WorkSheetRowChanged" msprop:Generator_RowEvArgName="sp_WorkSheetRowChangeEvent" msprop:Generator_RowClassName="sp_WorkSheetRow">
+        <xs:element name="sp_WorkSheet" msprop:Generator_TableClassName="sp_WorkSheetDataTable" msprop:Generator_TableVarName="tablesp_WorkSheet" msprop:Generator_RowChangedName="sp_WorkSheetRowChanged" msprop:Generator_TablePropName="sp_WorkSheet" msprop:Generator_RowDeletingName="sp_WorkSheetRowDeleting" msprop:Generator_RowChangingName="sp_WorkSheetRowChanging" msprop:Generator_RowEvHandlerName="sp_WorkSheetRowChangeEventHandler" msprop:Generator_RowDeletedName="sp_WorkSheetRowDeleted" msprop:Generator_RowClassName="sp_WorkSheetRow" msprop:Generator_UserTableName="sp_WorkSheet" msprop:Generator_RowEvArgName="sp_WorkSheetRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="kind" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnkind" msprop:Generator_ColumnPropNameInRow="kind" msprop:Generator_ColumnPropNameInTable="kindColumn" msprop:Generator_UserColumnName="kind" minOccurs="0">
@@ -412,27 +412,6 @@
               </xs:element>
               <xs:element name="weight_head" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnweight_head" msprop:Generator_ColumnPropNameInRow="weight_head" msprop:Generator_ColumnPropNameInTable="weight_headColumn" msprop:Generator_UserColumnName="weight_head" type="xs:int" minOccurs="0" />
               <xs:element name="weight_tail" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnweight_tail" msprop:Generator_ColumnPropNameInRow="weight_tail" msprop:Generator_ColumnPropNameInTable="weight_tailColumn" msprop:Generator_UserColumnName="weight_tail" type="xs:int" minOccurs="0" />
-              <xs:element name="tank_number" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columntank_number" msprop:Generator_ColumnPropNameInRow="tank_number" msprop:Generator_ColumnPropNameInTable="tank_numberColumn" msprop:Generator_UserColumnName="tank_number" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="1" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="style_tank" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnstyle_tank" msprop:Generator_ColumnPropNameInRow="style_tank" msprop:Generator_ColumnPropNameInTable="style_tankColumn" msprop:Generator_UserColumnName="style_tank" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="1" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="weight_tank" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnweight_tank" msprop:Generator_ColumnPropNameInRow="weight_tank" msprop:Generator_ColumnPropNameInTable="weight_tankColumn" msprop:Generator_UserColumnName="weight_tank" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="1" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
               <xs:element name="weight_fuel_driver" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnweight_fuel_driver" msprop:Generator_ColumnPropNameInRow="weight_fuel_driver" msprop:Generator_ColumnPropNameInTable="weight_fuel_driverColumn" msprop:Generator_UserColumnName="weight_fuel_driver" type="xs:int" minOccurs="0" />
               <xs:element name="pic_drive1" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnpic_drive1" msprop:Generator_ColumnPropNameInRow="pic_drive1" msprop:Generator_ColumnPropNameInTable="pic_drive1Column" msprop:Generator_UserColumnName="pic_drive1" minOccurs="0">
                 <xs:simpleType>
@@ -539,6 +518,27 @@
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="tank_number" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columntank_number" msprop:Generator_ColumnPropNameInRow="tank_number" msprop:Generator_ColumnPropNameInTable="tank_numberColumn" msprop:Generator_UserColumnName="tank_number" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="style_tank" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnstyle_tank" msprop:Generator_ColumnPropNameInRow="style_tank" msprop:Generator_ColumnPropNameInTable="style_tankColumn" msprop:Generator_UserColumnName="style_tank" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="weight_tank" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnweight_tank" msprop:Generator_ColumnPropNameInRow="weight_tank" msprop:Generator_ColumnPropNameInTable="weight_tankColumn" msprop:Generator_UserColumnName="weight_tank" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>

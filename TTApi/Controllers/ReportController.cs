@@ -114,6 +114,7 @@ namespace TTApi.Controllers
             ReportDataSource rds = new ReportDataSource(name_dataset, _Dt);
             LocalReport report = new LocalReport();
             report.ReportPath = Path.Combine(Server.MapPath("~/Reports"), name_report + ".rdlc");
+            report.EnableExternalImages = true;
             report.DataSources.Clear();
             report.DataSources.Add(rds);
             report.Refresh();
