@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Data;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Reflection;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Http;
 using System.Web.Http.Cors;
@@ -52,13 +54,28 @@ namespace TTApi.Controllers
                 }
                 _no = int.Parse(_no).ToString("000");
                 var tran_code = "CHECK" + DateTime.Now.ToString("yyMMdd") + _no;
+                //Date
+                String date1 = val.date_work;
+                date1 = Regex.Replace(date1, " \\(.*\\)$", "");
+                DateTime date_work = DateTime.ParseExact(date1, "ddd MMM dd yyyy HH:mm:ss 'GMT'zzz",
+                    System.Globalization.CultureInfo.InvariantCulture);
+
+                String date2 = val.date_start;
+                date2 = Regex.Replace(date2, " \\(.*\\)$", "");
+                DateTime date_start = DateTime.ParseExact(date2, "ddd MMM dd yyyy HH:mm:ss 'GMT'zzz",
+                    System.Globalization.CultureInfo.InvariantCulture);
+
+                String date3 = val.date_end;
+                date3 = Regex.Replace(date3, " \\(.*\\)$", "");
+                DateTime date_end = DateTime.ParseExact(date3, "ddd MMM dd yyyy HH:mm:ss 'GMT'zzz",
+                    System.Globalization.CultureInfo.InvariantCulture);
                 string _SQL = "INSERT INTO [dbo].[transport] (tran_code,number_po  ,cus_id  ,branch_id  ,contact_id ,product_id  ,trunk_id " +
                     ",driver_id_1  ,driver_id_2 ,driver_id_3  ,license_id_head  ,license_id_tail ,remark ,tran_status_id ,create_by_user_id ,sheet_name ,cont1,cont2 ,driver_id_4 " +
                     " , bugget_tran  , date_work , date_start , date_end , value_order , type_tran  , size_cont1  , size_cont2   , condition_tran , special_order , tank_number ,  style_tank ,  weight_tank) " +
      " output inserted.tran_id VALUES (N'" + tran_code + "', N'" + val.number_po + "', '" + val.cus_id + "', '" + val.branch_id + "', '" + val.contact_id + "', '" + val.product_id + "'" +
            ", '" + val.trunk_id + "' ,'" + val.driver_id_1 + "' , '" + val.driver_id_2 + "', '" + val.driver_id_3 + "', '" + val.license_id_head + "' , '" + val.license_id_tail + "'" +
            ", N'" + val.remark + "'  , 1  , " + val.create_by_user_id + "  , '" + val.sheet_name + "' , '" + val.cont1 + "', '" + val.cont2 + "', '" + val.driver_id_4 + "'" +
-           ",'" + val.bugget_tran + "',  '" + val.date_work + "',  '" + val.date_start + "',  '" + val.date_end + "',  '" + val.value_order + "',  '" + val.type_tran + "',  '" + val.size_cont1 + "',  '" + val.size_cont2 + "',  '" + val.condition_tran + "',  '" + val.special_order + "',  '" + val.tank_number + "',   '" + val.style_tank + "',   '" + val.weight_tank + "')";
+           ",'" + val.bugget_tran + "',  '" + date_work + "',  '" + date_start + "',  '" + date_end + "',  '" + val.value_order + "',  '" + val.type_tran + "',  '" + val.size_cont1 + "',  '" + val.size_cont2 + "',  '" + val.condition_tran + "',  '" + val.special_order + "',  '" + val.tank_number + "',   '" + val.style_tank + "',   '" + val.weight_tank + "')";
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     try
