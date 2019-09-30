@@ -80,9 +80,6 @@
               <Mapping SourceColumn="pic_drive4" DataSetColumn="pic_drive4" />
               <Mapping SourceColumn="weight_carry" DataSetColumn="weight_carry" />
               <Mapping SourceColumn="bugget_tran" DataSetColumn="bugget_tran" />
-              <Mapping SourceColumn="date_work" DataSetColumn="date_work" />
-              <Mapping SourceColumn="date_start" DataSetColumn="date_start" />
-              <Mapping SourceColumn="date_end" DataSetColumn="date_end" />
               <Mapping SourceColumn="type_tran" DataSetColumn="type_tran" />
               <Mapping SourceColumn="size_cont1" DataSetColumn="size_cont1" />
               <Mapping SourceColumn="size_cont2" DataSetColumn="size_cont2" />
@@ -92,6 +89,9 @@
               <Mapping SourceColumn="eq_weight" DataSetColumn="eq_weight" />
               <Mapping SourceColumn="method_condition" DataSetColumn="method_condition" />
               <Mapping SourceColumn="value_order" DataSetColumn="value_order" />
+              <Mapping SourceColumn="date_work" DataSetColumn="date_work" />
+              <Mapping SourceColumn="date_start" DataSetColumn="date_start" />
+              <Mapping SourceColumn="date_end" DataSetColumn="date_end" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -103,7 +103,7 @@
   <xs:element name="DataSetWorkSheet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSetWorkSheet" msprop:Generator_UserDSName="DataSetWorkSheet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="sp_WorkSheet" msprop:Generator_TableClassName="sp_WorkSheetDataTable" msprop:Generator_TableVarName="tablesp_WorkSheet" msprop:Generator_RowChangedName="sp_WorkSheetRowChanged" msprop:Generator_TablePropName="sp_WorkSheet" msprop:Generator_RowDeletingName="sp_WorkSheetRowDeleting" msprop:Generator_RowChangingName="sp_WorkSheetRowChanging" msprop:Generator_RowEvHandlerName="sp_WorkSheetRowChangeEventHandler" msprop:Generator_RowDeletedName="sp_WorkSheetRowDeleted" msprop:Generator_RowClassName="sp_WorkSheetRow" msprop:Generator_UserTableName="sp_WorkSheet" msprop:Generator_RowEvArgName="sp_WorkSheetRowChangeEvent">
+        <xs:element name="sp_WorkSheet" msprop:Generator_TableClassName="sp_WorkSheetDataTable" msprop:Generator_TableVarName="tablesp_WorkSheet" msprop:Generator_TablePropName="sp_WorkSheet" msprop:Generator_RowDeletingName="sp_WorkSheetRowDeleting" msprop:Generator_RowChangingName="sp_WorkSheetRowChanging" msprop:Generator_RowEvHandlerName="sp_WorkSheetRowChangeEventHandler" msprop:Generator_RowDeletedName="sp_WorkSheetRowDeleted" msprop:Generator_UserTableName="sp_WorkSheet" msprop:Generator_RowChangedName="sp_WorkSheetRowChanged" msprop:Generator_RowEvArgName="sp_WorkSheetRowChangeEvent" msprop:Generator_RowClassName="sp_WorkSheetRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="kind" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnkind" msprop:Generator_ColumnPropNameInRow="kind" msprop:Generator_ColumnPropNameInTable="kindColumn" msprop:Generator_UserColumnName="kind" minOccurs="0">
@@ -470,9 +470,6 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="date_work" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columndate_work" msprop:Generator_ColumnPropNameInRow="date_work" msprop:Generator_ColumnPropNameInTable="date_workColumn" msprop:Generator_UserColumnName="date_work" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="date_start" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columndate_start" msprop:Generator_ColumnPropNameInRow="date_start" msprop:Generator_ColumnPropNameInTable="date_startColumn" msprop:Generator_UserColumnName="date_start" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="date_end" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columndate_end" msprop:Generator_ColumnPropNameInRow="date_end" msprop:Generator_ColumnPropNameInTable="date_endColumn" msprop:Generator_UserColumnName="date_end" type="xs:dateTime" minOccurs="0" />
               <xs:element name="type_tran" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columntype_tran" msprop:Generator_ColumnPropNameInRow="type_tran" msprop:Generator_ColumnPropNameInTable="type_tranColumn" msprop:Generator_UserColumnName="type_tran" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -521,6 +518,27 @@
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="date_work" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columndate_work" msprop:Generator_ColumnPropNameInRow="date_work" msprop:Generator_ColumnPropNameInTable="date_workColumn" msprop:Generator_UserColumnName="date_work" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="date_start" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columndate_start" msprop:Generator_ColumnPropNameInRow="date_start" msprop:Generator_ColumnPropNameInTable="date_startColumn" msprop:Generator_UserColumnName="date_start" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="date_end" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columndate_end" msprop:Generator_ColumnPropNameInRow="date_end" msprop:Generator_ColumnPropNameInTable="date_endColumn" msprop:Generator_UserColumnName="date_end" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>

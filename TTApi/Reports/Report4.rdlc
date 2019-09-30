@@ -338,26 +338,6 @@
           <Border>
             <Style>Solid</Style>
           </Border>
-          <TopBorder>
-            <Color>Black</Color>
-            <Style>Solid</Style>
-            <Width>1pt</Width>
-          </TopBorder>
-          <BottomBorder>
-            <Color>Black</Color>
-            <Style>Solid</Style>
-            <Width>1pt</Width>
-          </BottomBorder>
-          <LeftBorder>
-            <Color>Black</Color>
-            <Style>Solid</Style>
-            <Width>1pt</Width>
-          </LeftBorder>
-          <RightBorder>
-            <Color>Black</Color>
-            <Style>Solid</Style>
-            <Width>1pt</Width>
-          </RightBorder>
           <PaddingLeft>2pt</PaddingLeft>
           <PaddingRight>2pt</PaddingRight>
           <PaddingTop>2pt</PaddingTop>
@@ -896,7 +876,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value />
+                <Value>=First(Fields!date_work.Value, "DataSetWorkSheet")</Value>
                 <Style>
                   <FontFamily>th Sarabun New</FontFamily>
                   <FontSize>14pt</FontSize>
@@ -1060,7 +1040,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value />
+                    <Value>=First(Fields!special_order.Value, "DataSetWorkSheet")</Value>
                     <Style>
                       <FontFamily>th Sarabun New</FontFamily>
                       <FontSize>16pt</FontSize>
@@ -1234,9 +1214,9 @@
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
             <Top>2.413cm</Top>
-            <Left>11.47789cm</Left>
+            <Left>10.25946cm</Left>
             <Height>0.762cm</Height>
-            <Width>1.29428cm</Width>
+            <Width>0.87095cm</Width>
             <ZIndex>4</ZIndex>
             <Style>
               <Border>
@@ -1288,9 +1268,9 @@
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
             <Top>3.175cm</Top>
-            <Left>11.47789cm</Left>
+            <Left>10.26781cm</Left>
             <Height>0.762cm</Height>
-            <Width>1.89328cm</Width>
+            <Width>1.91936cm</Width>
             <ZIndex>5</ZIndex>
             <Style>
               <Border>
@@ -1344,7 +1324,7 @@
             <Top>2.413cm</Top>
             <Left>0cm</Left>
             <Height>0.762cm</Height>
-            <Width>2.04485cm</Width>
+            <Width>1.90375cm</Width>
             <ZIndex>6</ZIndex>
             <Style>
               <Border>
@@ -1504,7 +1484,7 @@
             <Top>1.651cm</Top>
             <Left>2.22104cm</Left>
             <Height>0.762cm</Height>
-            <Width>4.65564cm</Width>
+            <Width>4.20294cm</Width>
             <ZIndex>9</ZIndex>
             <Style>
               <Border>
@@ -1555,9 +1535,9 @@
               </Paragraph>
             </Paragraphs>
             <Top>3.175cm</Top>
-            <Left>13.37117cm</Left>
+            <Left>12.18716cm</Left>
             <Height>0.762cm</Height>
-            <Width>5.08058cm</Width>
+            <Width>6.26459cm</Width>
             <ZIndex>10</ZIndex>
             <Style>
               <Border>
@@ -1608,9 +1588,9 @@
               </Paragraph>
             </Paragraphs>
             <Top>2.413cm</Top>
-            <Left>12.77217cm</Left>
+            <Left>11.13041cm</Left>
             <Height>0.762cm</Height>
-            <Width>5.67958cm</Width>
+            <Width>7.32134cm</Width>
             <ZIndex>11</ZIndex>
             <Style>
               <Border>
@@ -1661,9 +1641,9 @@
               </Paragraph>
             </Paragraphs>
             <Top>2.413cm</Top>
-            <Left>2.04485cm</Left>
+            <Left>1.86841cm</Left>
             <Height>0.762cm</Height>
-            <Width>4.21515cm</Width>
+            <Width>3.77776cm</Width>
             <ZIndex>12</ZIndex>
             <Style>
               <Border>
@@ -2204,7 +2184,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value />
+                            <Value>=First(Fields!date_start.Value, "DataSetWorkSheet")</Value>
                             <Style>
                               <FontFamily>th Sarabun New</FontFamily>
                               <FontSize>12pt</FontSize>
@@ -2387,7 +2367,7 @@
                             <Value>=First(Fields!station.Value, "DataSetWorkSheet")</Value>
                             <Style>
                               <FontFamily>th Sarabun New</FontFamily>
-                              <FontSize>13pt</FontSize>
+                              <FontSize>12pt</FontSize>
                             </Style>
                           </TextRun>
                         </TextRuns>
@@ -2493,7 +2473,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value />
+                            <Value>=First(Fields!bugget_tran.Value, "DataSetWorkSheet")</Value>
                             <Style>
                               <FontFamily>th Sarabun New</FontFamily>
                               <FontSize>12pt</FontSize>
@@ -2503,10 +2483,10 @@
                         <Style />
                       </Paragraph>
                     </Paragraphs>
-                    <Top>1.463cm</Top>
-                    <Left>16.36769cm</Left>
-                    <Height>0.83508cm</Height>
-                    <Width>2.06219cm</Width>
+                    <Top>1.47256cm</Top>
+                    <Left>15.53123cm</Left>
+                    <Height>0.82552cm</Height>
+                    <Width>2.89865cm</Width>
                     <ZIndex>12</ZIndex>
                     <Style>
                       <Border>
@@ -2559,10 +2539,10 @@
                       </Paragraph>
                     </Paragraphs>
                     <rd:DefaultName>Textbox2</rd:DefaultName>
-                    <Top>1.463cm</Top>
+                    <Top>1.47256cm</Top>
                     <Left>12.47224cm</Left>
-                    <Height>0.83508cm</Height>
-                    <Width>3.89545cm</Width>
+                    <Height>0.82552cm</Height>
+                    <Width>3.11915cm</Width>
                     <ZIndex>13</ZIndex>
                     <Style>
                       <Border>
@@ -2663,7 +2643,7 @@
             <Top>3.175cm</Top>
             <Left>0cm</Left>
             <Height>0.762cm</Height>
-            <Width>2.04486cm</Width>
+            <Width>1.90376cm</Width>
             <ZIndex>14</ZIndex>
             <Style>
               <Border>
@@ -2714,9 +2694,9 @@
               </Paragraph>
             </Paragraphs>
             <Top>3.175cm</Top>
-            <Left>2.04486cm</Left>
+            <Left>1.86842cm</Left>
             <Height>0.762cm</Height>
-            <Width>4.21515cm</Width>
+            <Width>3.77775cm</Width>
             <ZIndex>15</ZIndex>
             <Style>
               <Border>
@@ -2756,7 +2736,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value />
+                    <Value>=First(Fields!condition_tran.Value, "DataSetWorkSheet")</Value>
                     <Style>
                       <FontFamily>th Sarabun New</FontFamily>
                       <FontSize>12pt</FontSize>
@@ -2821,9 +2801,9 @@
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
             <Top>2.413cm</Top>
-            <Left>6.21927cm</Left>
+            <Left>5.64617cm</Left>
             <Height>0.762cm</Height>
-            <Width>1.14505cm</Width>
+            <Width>1.0894cm</Width>
             <ZIndex>17</ZIndex>
             <Style>
               <Border>
@@ -2875,9 +2855,9 @@
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
             <Top>3.175cm</Top>
-            <Left>6.21927cm</Left>
+            <Left>5.64617cm</Left>
             <Height>0.762cm</Height>
-            <Width>1.14505cm</Width>
+            <Width>1.0894cm</Width>
             <ZIndex>18</ZIndex>
             <Style>
               <Border>
@@ -2917,7 +2897,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>-</Value>
+                    <Value>=First(Fields!size_cont1.Value, "DataSetWorkSheet")</Value>
                     <Style>
                       <FontFamily>th Sarabun New</FontFamily>
                       <FontSize>12pt</FontSize>
@@ -2928,9 +2908,9 @@
               </Paragraph>
             </Paragraphs>
             <Top>2.413cm</Top>
-            <Left>7.36432cm</Left>
+            <Left>6.73556cm</Left>
             <Height>0.762cm</Height>
-            <Width>4.11357cm</Width>
+            <Width>3.53225cm</Width>
             <ZIndex>19</ZIndex>
             <Style>
               <Border>
@@ -2970,7 +2950,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>-</Value>
+                    <Value>=First(Fields!size_cont2.Value, "DataSetWorkSheet")</Value>
                     <Style>
                       <FontFamily>th Sarabun New</FontFamily>
                       <FontSize>12pt</FontSize>
@@ -2981,9 +2961,9 @@
               </Paragraph>
             </Paragraphs>
             <Top>3.175cm</Top>
-            <Left>7.36433cm</Left>
+            <Left>6.73557cm</Left>
             <Height>0.762cm</Height>
-            <Width>4.11356cm</Width>
+            <Width>3.53224cm</Width>
             <ZIndex>20</ZIndex>
             <Style>
               <Border>
@@ -3035,7 +3015,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
             <Top>1.651cm</Top>
-            <Left>6.83769cm</Left>
+            <Left>6.3641cm</Left>
             <Height>0.762cm</Height>
             <Width>1.14343cm</Width>
             <ZIndex>21</ZIndex>
@@ -3077,7 +3057,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value />
+                    <Value>=First(Fields!value_order.Value, "DataSetWorkSheet")</Value>
                     <Style>
                       <FontFamily>th Sarabun New</FontFamily>
                       <FontSize>12pt</FontSize>
@@ -3088,9 +3068,9 @@
               </Paragraph>
             </Paragraphs>
             <Top>1.651cm</Top>
-            <Left>7.96583cm</Left>
+            <Left>7.50753cm</Left>
             <Height>0.762cm</Height>
-            <Width>2.74265cm</Width>
+            <Width>2.57077cm</Width>
             <ZIndex>22</ZIndex>
             <Style>
               <Border>
@@ -3142,7 +3122,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
             <Top>1.651cm</Top>
-            <Left>10.71299cm</Left>
+            <Left>10.05359cm</Left>
             <Height>0.762cm</Height>
             <Width>2.57811cm</Width>
             <ZIndex>23</ZIndex>
@@ -3195,9 +3175,9 @@
               </Paragraph>
             </Paragraphs>
             <Top>1.651cm</Top>
-            <Left>13.28761cm</Left>
+            <Left>12.6317cm</Left>
             <Height>0.762cm</Height>
-            <Width>5.16414cm</Width>
+            <Width>5.82005cm</Width>
             <ZIndex>24</ZIndex>
             <Style>
               <Border>
@@ -5229,7 +5209,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value />
+                    <Value>=First(Fields!tank_number.Value, "DataSetWorkSheet")</Value>
                     <Style>
                       <FontFamily>th Sarabun New</FontFamily>
                       <FontSize>13pt</FontSize>
@@ -5239,9 +5219,9 @@
                 <Style />
               </Paragraph>
             </Paragraphs>
-            <Top>3.77754cm</Top>
+            <Top>3.77048cm</Top>
             <Left>0.97367cm</Left>
-            <Height>0.79728cm</Height>
+            <Height>0.80434cm</Height>
             <Width>4.36701cm</Width>
             <ZIndex>23</ZIndex>
             <Style>
@@ -5337,7 +5317,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value />
+                    <Value>=First(Fields!style_tank.Value, "DataSetWorkSheet")</Value>
                     <Style>
                       <FontFamily>th Sarabun New</FontFamily>
                       <FontSize>13pt</FontSize>
@@ -5347,9 +5327,9 @@
                 <Style />
               </Paragraph>
             </Paragraphs>
-            <Top>3.76342cm</Top>
+            <Top>3.7846cm</Top>
             <Left>7.22944cm</Left>
-            <Height>0.8114cm</Height>
+            <Height>0.79022cm</Height>
             <Width>3.28916cm</Width>
             <ZIndex>25</ZIndex>
             <Style>
@@ -5402,9 +5382,9 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
-            <Top>3.76342cm</Top>
+            <Top>3.77048cm</Top>
             <Left>5.34068cm</Left>
-            <Height>0.80434cm</Height>
+            <Height>0.79728cm</Height>
             <Width>1.88876cm</Width>
             <ZIndex>26</ZIndex>
             <Style>
@@ -5445,7 +5425,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value />
+                    <Value>=First(Fields!weight_tank.Value, "DataSetWorkSheet")</Value>
                     <Style>
                       <FontFamily>th Sarabun New</FontFamily>
                       <FontSize>13pt</FontSize>
@@ -8444,18 +8424,6 @@
           <DataField>bugget_tran</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="date_work">
-          <DataField>date_work</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="date_start">
-          <DataField>date_start</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="date_end">
-          <DataField>date_end</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
         <Field Name="type_tran">
           <DataField>type_tran</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -8492,10 +8460,22 @@
           <DataField>value_order</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="date_work">
+          <DataField>date_work</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="date_start">
+          <DataField>date_start</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="date_end">
+          <DataField>date_end</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>DataSetWorkSheet</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\poom_\Desktop\DBP\New Project 3Trans\TTApi\TTApi\Models\DataSetWorkSheet.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\PoomDev\TTApi\Models\DataSetWorkSheet.xsd</rd:SchemaPath>
         <rd:TableName>sp_WorkSheet</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
