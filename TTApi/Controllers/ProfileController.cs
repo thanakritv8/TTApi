@@ -2656,7 +2656,7 @@ namespace TTApi.Controllers
             {
                 string _SQL = "select rel.status_approve, d.driver_id, d.driver_name, rel.score, rel.rel_d_p_id as rel_id," +
                     "case when rel.product_id = " + val.id + " then 1 else 0 end as rel_status " +
-                    "from [TT1995].[dbo].[driver_profile] as d left join (select * from relation_driver_product where product_id = " + val.id + ") as rel on d.driver_id = rel.driver_id";
+                    "from [TT1995].[dbo].[driver_profile] as d left join (select * from relation_driver_product where product_id = " + val.id + ") as rel on d.driver_id = rel.driver_id order by rel_status desc, d.driver_name asc";
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     DataTable _Dt = new DataTable();
@@ -2839,7 +2839,7 @@ namespace TTApi.Controllers
             {
                 string _SQL = "select rel.status_approve, l.fleet, l.license_id, l.license_car, l.number_car, rel.rel_l_p_id as rel_id," +
                     "case when rel.product_id = " + val.id + " then 1 else 0 end as rel_status " +
-                    "from [TT1995].[dbo].[license] as l left join (select * from relation_license_product where product_id = " + val.id + ") as rel on l.license_id = rel.license_id";
+                    "from [TT1995].[dbo].[license] as l left join (select * from relation_license_product where product_id = " + val.id + ") as rel on l.license_id = rel.license_id order by rel_status desc, l.number_car asc";
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     DataTable _Dt = new DataTable();
